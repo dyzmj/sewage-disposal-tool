@@ -127,7 +127,7 @@ class OsController extends Controller {
     } else if (type == 'web') {
       contentUrl = content;
     } else if (type == 'vue') {
-      let addr = 'http://localhost:8080'
+      let addr = 'http://localhost:3247'
       if (Ps.isProd()) {
         const mainServer = Conf.getValue('mainServer');
         if (Conf.isFileProtocol(mainServer)) {

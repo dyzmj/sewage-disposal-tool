@@ -20,7 +20,7 @@
     </div>
     <!-- require cdn assets js -->
     <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
-      <script type="text/javascript" src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+      <script type="text/javascript" src="https:<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
     <% } %>
     <!-- built files will be auto injected -->
   </body>

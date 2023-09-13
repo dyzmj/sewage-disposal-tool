@@ -28,6 +28,10 @@ const progressStart = (to, from, next) => {
  */
 const loginGuard = (to, from, next, options) => {
   const {message} = options
+  // message.warning('登录守卫--->')
+  // message.warning(to+from+next+options+"AAAAA");
+  // message.warning(loginIgnore.includes(to))
+  // message.warning(checkAuthorization)
   if (!loginIgnore.includes(to) && !checkAuthorization()) {
     message.warning('登录已失效，请重新登录')
     next({path: '/login'})

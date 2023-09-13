@@ -17,7 +17,7 @@ module.exports = (appInfo) => {
     mode: {
       vue: {
         hostname: 'localhost',
-        port: 8080
+        port: 3247
       },
       react: {
         hostname: 'localhost',
@@ -44,13 +44,13 @@ module.exports = (appInfo) => {
    * 主窗口
    */
   config.windowsOption = {
-    title: '污水处理构筑物辅助设计工具',
+    title: 'Sewage Disposal Tool',
     width: 1400,
     height: 800,
     minWidth: 1400,
     minHeight: 800,
     webPreferences: {
-      //webSecurity: false, // 跨域问题 -> 打开注释
+      webSecurity: false, // 跨域问题 -> 打开注释
       contextIsolation: false, // false -> 可在渲染进程中使用electron的api，true->需要bridge.js(contextBridge)
       nodeIntegration: true,
       //preload: path.join(appInfo.baseDir, 'preload', 'bridge.js'),
@@ -58,7 +58,7 @@ module.exports = (appInfo) => {
     frame: true,
     show: false,
     // transparent: true,
-    resizable: false,
+    resizable: true,
     movable: true,
     icon: path.join(appInfo.home, 'public', 'images', 'logo-32.png'),
   };
@@ -190,7 +190,7 @@ module.exports = (appInfo) => {
     },
     javaServer: {
       enable: false,
-      port: 18080,
+      port: 32470,
       jreVersion: 'jre1.8.0_201',
       opt: '-server -Xms512M -Xmx512M -Xss512k -Dspring.profiles.active=prod -Dserver.port=${port} -Dlogging.file.path="${path}" ',
       name: 'java-app.jar'

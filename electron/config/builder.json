@@ -26,7 +26,7 @@
     "installerHeaderIcon": "build/icons/icon.ico",
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
-    "shortcutName": "污水处理构筑物辅助设计工具"
+    "shortcutName": "SDT处理程序"
   },
   "mac": {
     "icon": "build/icons/icon.icns",
