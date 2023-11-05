@@ -28,7 +28,7 @@
               <a-form-item :label="$t('param7')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
                 <a-input :placeholder="$t('titleInput')" />
               </a-form-item>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px" :wrapperCol="{ span: 18, offset: 6 }">
+              <a-form-item style="margin-top: 50px; margin-bottom: 99px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button type="primary">{{ $t('submit') }}</a-button>
                 <a-button style="margin-left: 8px">{{ $t('reset') }}</a-button>
               </a-form-item>
@@ -41,7 +41,7 @@
           <a-list :grid="{ gutter: 16, column: 4 }" style="margin: 0 -16px" :split="false">
             <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
               <a-card size='default' :title="item.title" :loading="loading" :hoverable="true">
-                <a slot="extra" @click="showModal">{{ $t('detail') }}</a>
+                <a slot="extra" style="font-size: 12px; font-style: italic;" @click="showModal">{{ $t('detail') }}</a>
                 <div class="content">
                   <a-list size="small" :split="false">
                     <a-list-item :key="j" v-for="(item, j) in item.children">
@@ -119,7 +119,6 @@ export default {
       }
     },
     showModal() {
-      this.$message.info('AAAAA')
       this.modelVisible = true
     },
     handleOk() {

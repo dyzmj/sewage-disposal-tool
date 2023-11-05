@@ -46,9 +46,9 @@ module.exports = (appInfo) => {
   config.windowsOption = {
     title: 'Sewage Disposal Tool',
     width: 1400,
-    height: 800,
+    height: 860,
     minWidth: 1400,
-    minHeight: 800,
+    minHeight: 860,
     webPreferences: {
       webSecurity: false, // 跨域问题 -> 打开注释
       contextIsolation: false, // false -> 可在渲染进程中使用electron的api，true->需要bridge.js(contextBridge)
@@ -58,7 +58,7 @@ module.exports = (appInfo) => {
     frame: true,
     show: false,
     // transparent: true,
-    resizable: true,
+    resizable: false,
     movable: true,
     icon: path.join(appInfo.home, 'public', 'images', 'logo-32.png'),
   };

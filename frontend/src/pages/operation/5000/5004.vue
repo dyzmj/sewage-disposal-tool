@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p> This is 3005 page </p>
+        <p> This is 机械搅拌澄清池 page </p>
         <a-button type="primary" @click="backHome">返回首页</a-button>
     </div>
 </template>

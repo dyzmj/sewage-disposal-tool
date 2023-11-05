@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p> This is 6001 page </p>
+        <p> This is 普通快滤池 page </p>
         <a-button type="primary" @click="backHome">返回首页</a-button>
     </div>
 </template>

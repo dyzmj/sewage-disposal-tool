@@ -85,7 +85,7 @@ const options = {
       },
       children: [
         {
-          name: '预沉池',
+          name: '生物接触氧化池',
           path: '1001',
           meta: {
             keepAlive: true,
@@ -93,7 +93,7 @@ const options = {
           component: () => import('@/pages/operation/1000/1001')
         },
         {
-          name: '生化预处理',
+          name: '重力浓缩池',
           path: '1002',
           meta: {
             keepAlive: true,
@@ -101,23 +101,7 @@ const options = {
           component: () => import('@/pages/operation/1000/1002')
         },
         {
-          name: '化学预处理',
-          path: '1003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/1000/1003')
-        },
-        {
-          name: '活性炭吸附预处理',
-          path: '1004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/1000/1004')
-        },
-        {
-          name: '机械絮凝池',
+          name: '接触消毒',
           path: '2001',
           meta: {
             keepAlive: true,
@@ -125,7 +109,7 @@ const options = {
           component: () => import('@/pages/operation/2000/2001')
         },
         {
-          name: '网格絮凝池',
+          name: '紫外线消毒',
           path: '2002',
           meta: {
             keepAlive: true,
@@ -133,7 +117,7 @@ const options = {
           component: () => import('@/pages/operation/2000/2002')
         },
         {
-          name: '网格絮凝池',
+          name: '臭氧消毒',
           path: '2003',
           meta: {
             keepAlive: true,
@@ -141,15 +125,7 @@ const options = {
           component: () => import('@/pages/operation/2000/2003')
         },
         {
-          name: '网格絮凝池',
-          path: '2004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/2000/2004')
-        },
-        {
-          name: '平流沉淀池',
+          name: '机械絮凝池',
           path: '3001',
           meta: {
             keepAlive: true,
@@ -157,7 +133,7 @@ const options = {
           component: () => import('@/pages/operation/3000/3001')
         },
         {
-          name: '斜管（板）沉淀池',
+          name: '网格絮凝池',
           path: '3002',
           meta: {
             keepAlive: true,
@@ -165,31 +141,7 @@ const options = {
           component: () => import('@/pages/operation/3000/3002')
         },
         {
-          name: '高效沉淀池',
-          path: '3003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3003')
-        },
-        {
-          name: '机械搅拌澄清池',
-          path: '3004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3004')
-        },
-        {
-          name: '水力循环澄清池',
-          path: '3005',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3005')
-        },
-        {
-          name: '普通快滤池',
+          name: 'PAC',
           path: '4001',
           meta: {
             keepAlive: true,
@@ -197,7 +149,7 @@ const options = {
           component: () => import('@/pages/operation/4000/4001')
         },
         {
-          name: 'V型滤池',
+          name: 'PAM',
           path: '4002',
           meta: {
             keepAlive: true,
@@ -205,7 +157,7 @@ const options = {
           component: () => import('@/pages/operation/4000/4002')
         },
         {
-          name: 'V型滤池',
+          name: 'NaClO',
           path: '4003',
           meta: {
             keepAlive: true,
@@ -213,7 +165,7 @@ const options = {
           component: () => import('@/pages/operation/4000/4003')
         },
         {
-          name: 'V型滤池',
+          name: 'ClO2',
           path: '4004',
           meta: {
             keepAlive: true,
@@ -221,15 +173,7 @@ const options = {
           component: () => import('@/pages/operation/4000/4004')
         },
         {
-          name: 'V型滤池',
-          path: '4005',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/4000/4005')
-        },
-        {
-          name: '接触消毒',
+          name: '平流沉淀池',
           path: '5001',
           meta: {
             keepAlive: true,
@@ -237,7 +181,7 @@ const options = {
           component: () => import('@/pages/operation/5000/5001')
         },
         {
-          name: '紫外线消毒',
+          name: '斜管沉淀池',
           path: '5002',
           meta: {
             keepAlive: true,
@@ -245,7 +189,7 @@ const options = {
           component: () => import('@/pages/operation/5000/5002')
         },
         {
-          name: '臭氧消毒',
+          name: '高密度沉淀池',
           path: '5003',
           meta: {
             keepAlive: true,
@@ -253,7 +197,31 @@ const options = {
           component: () => import('@/pages/operation/5000/5003')
         },
         {
-          name: 'PAC',
+          name: '机械搅拌澄清池',
+          path: '5004',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/5000/5004')
+        },
+        {
+          name: '水力循环澄清池',
+          path: '5005',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/5000/5005')
+        },
+        {
+          name: '平流式气浮池',
+          path: '5006',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/5000/5006')
+        },
+        {
+          name: '普通快滤池',
           path: '6001',
           meta: {
             keepAlive: true,
@@ -261,28 +229,12 @@ const options = {
           component: () => import('@/pages/operation/6000/6001')
         },
         {
-          name: 'PAM',
+          name: 'V型滤池',
           path: '6002',
           meta: {
             keepAlive: true,
           },
           component: () => import('@/pages/operation/6000/6002')
-        },
-        {
-          name: 'NaClO',
-          path: '6003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/6000/6003')
-        },
-        {
-          name: 'ClO2',
-          path: '6004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/6000/6004')
         },
         {
           name: '提升泵房',
@@ -301,7 +253,7 @@ const options = {
           component: () => import('@/pages/operation/7000/7002')
         },
         {
-          name: '排泥水处理',
+          name: '活性炭吸附塔',
           path: '7003',
           meta: {
             keepAlive: true,
