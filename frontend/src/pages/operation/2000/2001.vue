@@ -69,8 +69,13 @@
                                     :suffix="$t('singlecellWidthUnit')" value="1" />
                             </a-form-item>
                             <a-form-item class="calc" :label="$t('flowLength')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
-                                <a-input v-model="flowLength" rows="4" :placeholder="$t('flowLength')"
-                                    :suffix="$t('flowLengthUnit')" :disabled="true" />
+                                <a-input-group compact>
+                                    <a-input v-model="flowLength" style="width: 50%;" rows="4" :placeholder="$t('flowLength')"
+                                     :disabled="true" />
+                                    <a-input v-model="roundingFlowLength" style="width: 50%;" rows="4" :placeholder="$t('flowLength')"
+                                    :suffix="$t('flowLengthUnit')" :disabled="false" />
+                                </a-input-group>
+                                
                             </a-form-item>
                             <a-form-item class="calc" :label="$t('division')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
                                 <a-input v-model="division" rows="4" :placeholder="$t('division')" 
@@ -98,7 +103,7 @@
                     <div class="baseQueryParam">
                         <a-form>
                             <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                                <img width="400px" src="@/assets/img/Disinfection1.png" />
+                                <img width="400px" src="@/assets/img/2000/Disinfection_01.png" />
                             </a-form-item>
                         </a-form>
                     </div>
@@ -137,6 +142,7 @@ export default {
             contactPoolDepth: '2.00',
             singlecellWidth: '2.00',
             division: '4',
+            roundingFlowLength: '52.40',
             partitionWallThickness: '0.20'
         }
     },
@@ -169,10 +175,10 @@ export default {
             return (parseFloat(this.everyPoolCapacity).toFixed(1) / parseFloat(this.contactPoolDepth) / parseFloat(this.singlecellWidth)).toFixed(2)
         },
         poolLength() {
-            return ((parseFloat(this.flowLength) + 0.32) / parseFloat(this.division)).toFixed(2)
+            return ((parseFloat(this.roundingFlowLength)) / parseFloat(this.division)).toFixed(2)
         },
         poolWidth() {
-            return 8.60
+            return (((parseFloat(this.division) * parseFloat(this.singlecellWidth)) + ((parseFloat(this.division) - 1) * parseFloat(this.partitionWallThickness)))).toFixed(2)
         }
     },
 }

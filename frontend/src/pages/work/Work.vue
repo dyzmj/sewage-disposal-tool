@@ -41,7 +41,7 @@
           <a-list :grid="{ gutter: 16, column: 4 }" style="margin: 0 -16px" :split="false">
             <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
               <a-card size='default' :title="item.title" :loading="loading" :hoverable="true">
-                <a slot="extra" style="font-size: 12px; font-style: italic;" @click="showModal">{{ $t('detail') }}</a>
+                <a slot="extra" style="color: rgb(120, 120, 120); font-size: 12px; font-style: italic;" @click="showModal">{{ $t('detail') }}</a>
                 <div class="content">
                   <a-list size="small" :split="false">
                     <a-list-item :key="j" v-for="(item, j) in item.children">
