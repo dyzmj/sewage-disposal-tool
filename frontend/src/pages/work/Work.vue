@@ -49,7 +49,7 @@
                         <div class="list-content-item">
                           <a-checkbox-group v-model="processUnitData">
                             <a-checkbox :value="item.key" name="processUnit">
-                              <a-tag :color="item.color" style="font-size: 13px;">{{ item.title }}</a-tag>
+                              <a-tag :color="item.color" style="font-size: 13px;" @click="calc(item.key)">{{ item.title }}</a-tag>
                             </a-checkbox>
                           </a-checkbox-group>
                         </div>
@@ -117,6 +117,11 @@ export default {
       } else {
         this.$message.error(this.$t('pleaseSelectProcessUnit'))
       }
+    },
+    calc(calcUnit) {
+      const path = '/sub/' + calcUnit;
+      this.$router.push(path);
+      this.$message.info(this.$t('openOperatePage'))
     },
     showModal() {
       this.modelVisible = true
