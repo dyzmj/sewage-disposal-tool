@@ -17,6 +17,21 @@ const routerMap = {
     renderMenu: false,
     component: () => import('@/pages/work')
   },
+  1000: {
+    name: '预处理工艺',
+    icon: 'form',
+    component: view.page
+  },
+  1001: {
+    path: '1001',
+    name: '陶粒生物接触氧化池',
+    component: () => import('@/pages/operation/1000/1001')
+  },
+  1002: {
+    path: '1002',
+    name: '预沉池',
+    component: () => import('@/pages/operation/1000/1002')
+  },
   settings: {
     name: '设置',
     renderMenu: false,
