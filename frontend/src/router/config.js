@@ -184,7 +184,7 @@ const options = {
             },
             {
               name: 'V型滤池',
-              path: '/sub/6001',
+              path: '/sub/6002',
               meta: {
                 keepAlive: true,
               },
@@ -211,7 +211,7 @@ const options = {
             },
             {
               name: 'UF-GE',
-              path: '/sub/8001',
+              path: '/sub/8002',
               meta: {
                 keepAlive: true,
               },
@@ -246,11 +246,11 @@ const options = {
             },
             {
               name: '臭氧消毒',
-              path: '/sub/2002',
+              path: '/sub/2003',
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/2000/2002')
+              component: () => import('@/pages/operation/2000/2003')
             },
           ]
         },
