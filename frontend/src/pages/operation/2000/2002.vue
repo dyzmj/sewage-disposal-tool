@@ -33,13 +33,11 @@
                             </a-form-item>
                             <a-form-item :label="$t('agingCoefficient')" :labelCol="{ span: 10 }"
                                 :wrapperCol="{ span: 14 }">
-                                <a-input v-model="agingCoefficient" :placeholder="$t('agingCoefficient')"
-                                :suffix="$t('agingCoefficientUnit')" />
+                                <a-input v-model="agingCoefficient" :placeholder="$t('agingCoefficient')" />
                             </a-form-item>
                             <a-form-item :label="$t('scalingCoefficient')" :labelCol="{ span: 10 }"
                                 :wrapperCol="{ span: 14 }">
-                                <a-input v-model="scalingCoefficient" :placeholder="$t('scalingCoefficient')"
-                                :suffix="$t('scalingCoefficientUnit')" />
+                                <a-input v-model="scalingCoefficient" :placeholder="$t('scalingCoefficient')" />
                             </a-form-item>
                         </a-form>
                     </div>

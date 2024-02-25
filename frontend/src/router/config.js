@@ -1,5 +1,5 @@
 import TabsView from '@/layouts/tabs/TabsView'
-import BlankView from '@/layouts/BlankView'
+// import BlankView from '@/layouts/BlankView'
 // import PageView from '@/layouts/PageView'
 
 // 路由配置
@@ -45,6 +45,32 @@ const options = {
           component: () => import('@/pages/work')
         },
         {
+          path: 'pre1000',
+          name: '预处理工艺',
+          meta: {
+            icon: 'dashboard',
+            keepAlive: true,
+          },
+          children: [
+            {
+              name: '生物接触氧化池',
+              path: '1001',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/1000/1001')
+            },
+            {
+              name: '重力浓缩池',
+              path: '1002',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/1000/1002')
+            },
+          ],
+        },
+        {
           path: 'settings',
           name: '设置',
           meta: {
@@ -79,7 +105,7 @@ const options = {
     {
       path: '/sub',
       name: '子页',
-      component: BlankView,
+      component: TabsView,
       meta: {
         keepAlive: true,
       },
