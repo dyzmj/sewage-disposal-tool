@@ -20,7 +20,7 @@ export default {
     collapsible: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     },
     collapsed: {
       type: Boolean,

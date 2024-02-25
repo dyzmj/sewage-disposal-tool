@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p> This is 浓缩池 page </p>
+        <p> This is 臭氧活性炭 page </p>
         <a-button type="primary" @click="backHome">返回首页</a-button>
     </div>
 </template>

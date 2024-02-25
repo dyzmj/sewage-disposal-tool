@@ -31,58 +31,31 @@ const processUnit = [
     key: '1000',
     children: [
       {
-        title: '生物接触氧化池',
+        title: '陶粒填料生物接触氧化池',
         key: '1001',
         checked: false,
         color: '#87d068',
-        detail: '生物接触氧化池',
+        detail: '陶粒填料生物接触氧化池',
       },
       {
-        title: '重力浓缩池',
+        title: '预沉池',
         key: '1002',
         checked: false,
         color: '#2db7f5',
-        detail: '重力浓缩池',
+        detail: '预沉池',
       }
     ]
   },
   {
-    title: '消毒工艺',
-    key: '2000',
-    children: [
-      {
-        title: '接触消毒',
-        key: '2001',
-        checked: false,
-        color: '#2db7f5',
-        detail: '接触消毒',
-      },
-      {
-        title: '紫外线消毒',
-        key: '2002',
-        checked: true,
-        color: '#6C767D',
-        detail: '紫外线消毒',
-      },
-      {
-        title: '臭氧消毒',
-        key: '2003',
-        checked: false,
-        color: '#87d068',
-        detail: '臭氧消毒',
-      }
-    ]
-  },
-  {
-    title: '混凝土工艺',
+    title: '混凝工艺',
     key: '3000',
     children: [
       {
-        title: '机械絮凝池',
+        title: '机械搅拌絮凝池',
         key: '3001',
         checked: false,
         color: '#6C767D',
-        detail: '机械絮凝池',
+        detail: '机械搅拌絮凝池',
       },
       {
         title: '网格絮凝池',
@@ -91,39 +64,12 @@ const processUnit = [
         color: '#87d068',
         detail: '网格絮凝池',
       },
-    ]
-  },
-  {
-    title: '加药工艺',
-    key: '4000',
-    children: [
       {
-        title: 'PAC',
-        key: '4001',
-        checked: false,
-        color: '#6C767D',
-        detail: 'PAC',
-      },
-      {
-        title: 'PAM',
-        key: '4002',
-        checked: true,
-        color: '#2db7f5',
-        detail: 'PAM',
-      },
-      {
-        title: 'NaClO',
-        key: '4003',
-        checked: false,
-        color: '#6C767D',
-        detail: 'NaClO',
-      },
-      {
-        title: 'ClO2',
-        key: '4004',
+        title: '折板絮凝池',
+        key: '3003',
         checked: true,
         color: '#87d068',
-        detail: 'ClO2',
+        detail: '折板絮凝池',
       },
     ]
   },
@@ -179,7 +125,7 @@ const processUnit = [
   {
     title: '过滤工艺',
     key: '6000',
-    children: [
+    children: [   
       {
         title: '普通快滤池',
         key: '6001',
@@ -194,6 +140,73 @@ const processUnit = [
         color: '#6C767D',
         detail: 'V型滤池',
       }
+    ]
+  },
+  {
+    title: '深度处理工艺',
+    key: '8000',
+    children: [
+      {
+        title: '臭氧活性炭',
+        key: '8001',
+        checked: true,
+        color: '#2db7f5',
+        detail: '臭氧活性炭',
+      },
+      {
+        title: 'UF-GE',
+        key: '8002',
+        checked: false,
+        color: '#6C767D',
+        detail: 'UF-GE',
+      }
+    ]
+  },
+  {
+    title: '消毒工艺',
+    key: '2000',
+    children: [
+      {
+        title: '接触消毒池',
+        key: '2001',
+        checked: false,
+        color: '#2db7f5',
+        detail: '接触消毒池',
+      },
+      {
+        title: '浸水式紫外线消毒',
+        key: '2002',
+        checked: true,
+        color: '#6C767D',
+        detail: '浸水式紫外线消毒',
+      },
+      {
+        title: '臭氧消毒',
+        key: '2003',
+        checked: false,
+        color: '#87d068',
+        detail: '臭氧消毒',
+      }
+    ]
+  },
+  {
+    title: '加药工艺',
+    key: '4000',
+    children: [
+      {
+        title: '浓缩池',
+        key: '4001',
+        checked: false,
+        color: '#6C767D',
+        detail: '浓缩池',
+      },
+      {
+        title: '脱水加药',
+        key: '4002',
+        checked: true,
+        color: '#2db7f5',
+        detail: '脱水加药',
+      },
     ]
   },
   {
@@ -220,6 +233,20 @@ const processUnit = [
         checked: true,
         color: '#2db7f5',
         detail: '活性炭吸附塔',
+      },
+      {
+        title: '加药系统',
+        key: '7004',
+        checked: true,
+        color: '#2db7f5',
+        detail: '加药系统',
+      },
+      {
+        title: '折点加氯',
+        key: '7005',
+        checked: true,
+        color: '#2db7f5',
+        detail: '折点加氯',
       },
     ]
   },

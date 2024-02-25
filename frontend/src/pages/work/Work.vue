@@ -28,6 +28,21 @@
               <a-form-item :label="$t('param7')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
                 <a-input :placeholder="$t('titleInput')" />
               </a-form-item>
+              <a-form-item :label="$t('param8')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
+                <a-input :placeholder="$t('titleInput')" />
+              </a-form-item>
+              <a-form-item :label="$t('param9')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
+                <a-input :placeholder="$t('titleInput')" />
+              </a-form-item>
+              <a-form-item :label="$t('param10')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
+                <a-input :placeholder="$t('titleInput')" />
+              </a-form-item>
+              <a-form-item :label="$t('param11')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
+                <a-input :placeholder="$t('titleInput')" />
+              </a-form-item>
+              <a-form-item :label="$t('param12')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
+                <a-input :placeholder="$t('titleInput')" />
+              </a-form-item>
               <a-form-item style="margin-top: 50px; margin-bottom: 99px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button type="primary">{{ $t('submit') }}</a-button>
                 <a-button style="margin-left: 8px">{{ $t('reset') }}</a-button>
@@ -36,7 +51,7 @@
           </div>
         </a-card>
       </a-col>
-      <a-col style="padding: 0 6px; padding-bottom: 0px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
+      <a-col style="padding: 0 6px; padding-bottom: 10px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card :loading="loading" :title="$t('processUnit')" style="margin-bottom: 0px" :bordered="false">
           <a-list :grid="{ gutter: 16, column: 4 }" style="margin: 0 -16px" :split="false">
             <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
