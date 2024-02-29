@@ -45,8 +45,8 @@ module.exports = (appInfo) => {
    */
   config.windowsOption = {
     title: 'Sewage Disposal Tool',
-    width: 1800,
-    height: 1200,
+    width: 1700,
+    height: 950,
     // minWidth: 1400,
     // minHeight: 860,
     webPreferences: {

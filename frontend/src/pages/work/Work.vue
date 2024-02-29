@@ -6,44 +6,167 @@
           :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
             <a-form>
-              <a-form-item :label="$t('param1')" style="margin-top: 10px" :labelCol="{ span: 6 }"
-                :wrapperCol="{ span: 18 }">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param1')" :labelCol="{ span: 7 }"
+                :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                <a-select style="width: 70%" :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 80
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &gt; 80
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param1_u')" :disabled="true"/>
+              </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param2')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param2')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 0.3
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &gt; 0.3
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param2_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param3')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
-                <a-input rows="4" :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param3')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 0.1
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &gt; 0.1
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param3_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param4')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
-                <a-input rows="4" :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param4')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 15
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &gt; 15
+                  </a-select-option>
+                </a-select>
               </a-form-item>
-              <a-form-item :label="$t('param5')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param5')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    无
+                  </a-select-option>
+                  <a-select-option value="1">
+                    有
+                  </a-select-option>
+                </a-select>
               </a-form-item>
-              <a-form-item :label="$t('param6')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param6')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    无
+                  </a-select-option>
+                  <a-select-option value="1">
+                    有
+                  </a-select-option>
+                </a-select>
               </a-form-item>
-              <a-form-item :label="$t('param7')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param7')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 3 
+                  </a-select-option>
+                  <a-select-option value="1">
+                    常年 3~10 
+                  </a-select-option>
+                  <a-select-option value="2">
+                    常年 > 5 
+                  </a-select-option>
+                  <a-select-option value="3">
+                    水质突变或季节性变化
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param7_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param8')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param8')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="1">
+                    有
+                  </a-select-option>
+                </a-select>
               </a-form-item>
-              <a-form-item :label="$t('param9')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param9')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt;= 0.5
+                  </a-select-option>
+                  <a-select-option value="1">
+                    0.5~1
+                  </a-select-option>
+                  <a-select-option value="2">
+                    常年 > 1
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param9_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param10')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param10')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &gt; 2.5 万
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &gt;= 5 万
+                  </a-select-option>
+                  <a-select-option value="2">
+                    &lt; 5 万
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param10_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param11')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param11')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &lt; 10000
+                  </a-select-option>
+                  <a-select-option value="1">
+                    &lt; 5000
+                  </a-select-option>
+                  <a-select-option value="2">
+                    &lt; 3000
+                  </a-select-option>
+                  <a-select-option value="3">
+                    &lt; 500
+                  </a-select-option>
+                  <a-select-option value="4">
+                    &lt; 100
+                  </a-select-option>
+                  <a-select-option value="5">
+                    &lt; 50
+                  </a-select-option>
+                </a-select>
               </a-form-item>
-              <a-form-item :label="$t('param12')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }" :required="false">
-                <a-input :placeholder="$t('titleInput')" />
+              <a-form-item :label="$t('param12')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    &gt; 0.5
+                  </a-select-option>
+                </a-select>
+                <a-input :style="{width: '30%'}" :value="$t('param12_u')" :disabled="true"/>
+                </a-input-group>
               </a-form-item>
-              <a-form-item style="margin-top: 50px; margin-bottom: 99px" :wrapperCol="{ span: 18, offset: 6 }">
+              <a-form-item style="margin-top: 0px; margin-bottom: 7px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button type="primary">{{ $t('submit') }}</a-button>
                 <a-button style="margin-left: 8px">{{ $t('reset') }}</a-button>
               </a-form-item>
@@ -160,4 +283,7 @@ export default {
 
 <style lang="less">
 @import "index";
+.ant-form-item {
+  margin-bottom: 15px;
+}
 </style>
