@@ -5,11 +5,11 @@
         <a-card :loading="loading" :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
           :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
-            <a-form>
+            <a-form class="diy-advanced-search-form" :form="form" @submit="handleSearch">
               <a-form-item :label="$t('param1')" :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                <a-select style="width: 70%" :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param1`]" style="width: 70%" :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 80
                   </a-select-option>
@@ -22,7 +22,7 @@
               </a-form-item>
               <a-form-item :label="$t('param2')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param2`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 0.3
                   </a-select-option>
@@ -35,7 +35,7 @@
               </a-form-item>
               <a-form-item :label="$t('param3')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param3`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 0.1
                   </a-select-option>
@@ -47,7 +47,7 @@
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param4')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
-                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param4`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 15
                   </a-select-option>
@@ -57,7 +57,7 @@
                 </a-select>
               </a-form-item>
               <a-form-item :label="$t('param5')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param5`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -67,7 +67,7 @@
                 </a-select>
               </a-form-item>
               <a-form-item :label="$t('param6')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param6`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -78,7 +78,7 @@
               </a-form-item>
               <a-form-item :label="$t('param7')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param7`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 3 
                   </a-select-option>
@@ -96,7 +96,7 @@
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param8')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param8`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="1">
                     有
                   </a-select-option>
@@ -104,7 +104,7 @@
               </a-form-item>
               <a-form-item :label="$t('param9')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param9`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 0.5
                   </a-select-option>
@@ -120,7 +120,7 @@
               </a-form-item>
               <a-form-item :label="$t('param10')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param10`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &gt; 2.5 万
                   </a-select-option>
@@ -135,7 +135,7 @@
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param11')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param11`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt; 10000
                   </a-select-option>
@@ -158,7 +158,7 @@
               </a-form-item>
               <a-form-item :label="$t('param12')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param12`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &gt; 0.5
                   </a-select-option>
@@ -167,8 +167,8 @@
                 </a-input-group>
               </a-form-item>
               <a-form-item style="margin-top: 0px; margin-bottom: 7px" :wrapperCol="{ span: 18, offset: 6 }">
-                <a-button type="primary">{{ $t('submit') }}</a-button>
-                <a-button style="margin-left: 8px">{{ $t('reset') }}</a-button>
+                <a-button html-type="submit" type="primary">{{ $t('submit') }}</a-button>
+                <a-button @click="handleReset" style="margin-left: 8px">{{ $t('reset') }}</a-button>
               </a-form-item>
             </a-form>
           </div>
@@ -233,6 +233,7 @@ export default {
   i18n: require('./i18n'),
   data() {
     return {
+      form: this.$form.createForm(this, { name: 'advanced_search' }),
       loading: false,
       processUnit: [],
       processUnitData: [],
@@ -240,6 +241,20 @@ export default {
     }
   },
   methods: {
+    handleSearch(e) {
+      e.preventDefault();
+      this.form.validateFields((error, values) => {
+        console.log('error', error);
+        console.log('Received values of form: ', values);
+      });
+      
+      this.$message.info(this.$t('initSucc'))
+
+    },
+    handleReset() {
+      this.$message.info(this.$t('resetSucc'))
+      this.form.resetFields();
+    },
     comparison() {
       this.$message.warn(this.$t('comparisonNotOpen'))
     },
@@ -286,4 +301,5 @@ export default {
 .ant-form-item {
   margin-bottom: 15px;
 }
+
 </style>
