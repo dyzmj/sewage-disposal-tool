@@ -97,6 +97,9 @@
               </a-form-item>
               <a-form-item :label="$t('param8')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-select v-decorator="[`param8`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select-option value="0">
+                    无
+                  </a-select-option>
                   <a-select-option value="1">
                     有
                   </a-select-option>
@@ -166,6 +169,18 @@
                 <a-input :style="{width: '30%'}" :value="$t('param12_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
+              <a-form-item :label="$t('param13')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select v-decorator="[`param13`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                    <a-select-option value="0">
+                    否
+                    </a-select-option>
+                  <a-select-option value="1">
+                    是
+                  </a-select-option>
+                </a-select>
+                </a-input-group>
+              </a-form-item>
               <a-form-item style="margin-top: 0px; margin-bottom: 7px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button html-type="submit" type="primary">{{ $t('submit') }}</a-button>
                 <a-button @click="handleReset" style="margin-left: 8px">{{ $t('reset') }}</a-button>
@@ -185,11 +200,11 @@
                     <a-list-item :key="j" v-for="(item, j) in item.children">
                       <div class="list-content">
                         <div class="list-content-item">
-                          <a-checkbox-group v-model="processUnitData">
-                            <a-checkbox :value="item.key" name="processUnit">
+                          <!-- <a-checkbox-group v-model="processUnitData" > -->
+                            <a-checkbox :value="item.key" name="processUnit" :checked="item.checked">
                               <a-tag :color="item.color" style="font-size: 13px;" @click="calc(item.key)">{{ item.title }}</a-tag>
                             </a-checkbox>
-                          </a-checkbox-group>
+                          <!-- </a-checkbox-group> -->
                         </div>
                       </div>
                     </a-list-item>
@@ -202,7 +217,7 @@
                 <div class="content" style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
                   <a-button type="primary" style="margin-top: 19px;" block @click="comparison">{{ $t('comparison')
                   }}</a-button>
-                  <a-button type="danger" danger style="margin-top: 10px;" block @click="operation">{{ $t('operation')
+                  <a-button type="danger" disabled danger style="margin-top: 10px;" block @click="operation">{{ $t('operation')
                   }}</a-button>
                   <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('export')
                   }}</a-button>
@@ -241,19 +256,180 @@ export default {
     }
   },
   methods: {
+    getProcessUnit() {
+      request('/work/processUnit', METHOD.GET).then(res => {
+      this.processUnit = res.data
+      this.loading = false
+    })
+    },
     handleSearch(e) {
       e.preventDefault();
       this.form.validateFields((error, values) => {
         console.log('error', error);
         console.log('Received values of form: ', values);
+        console.log(values.param1)
+        console.log(this.processUnit)
+
+        // 含砂量
+        if(values.param1 === '1'){
+          this.processUnit[0].children[1].checked = true
+          this.processUnit[0].children[1].color = '#87d068' 
+          // 2db7f5
+        }else if(values.param1 === '0'){
+          this.processUnit[0].children[1].checked = false
+          this.processUnit[0].children[1].color = '#6C767D' 
+        }
+        // 铁
+        if(values.param2 === '1'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+        // 锰
+        if(values.param3 === '1'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+        // 色度
+        if(values.param4 === '1'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+
+        // 嗅味
+        if(values.param5 === '1'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+
+        // 藻类
+        if(values.param6 === '1'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+
+        // 高锰酸盐指数
+        if(values.param7 === '0'){
+          // 
+        } else if(values.param7 === '1'){
+          this.processUnit[0].children[0].checked = true
+          this.processUnit[0].children[0].color = '#2db7f5'
+        } else if(values.param7 === '2'){
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5'
+        } else if(values.param7 === '3'){
+          this.processUnit[7].children[4].checked = true
+          this.processUnit[7].children[4].color = '#2db7f5'
+          this.processUnit[7].children[5].checked = true
+          this.processUnit[7].children[5].color = '#2db7f5' 
+          this.processUnit[7].children[9].checked = true
+          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[4].children[0].checked = true
+          this.processUnit[4].children[0].color = '#2db7f5' 
+        }
+
+        // 溴化物
+        if(values.param8 === '1'){
+          this.processUnit[4].children[0].checked = false
+          this.processUnit[4].children[0].color = '#6C767D' 
+        }
+
+        // 氨氮
+        if(values.param9 === '1'){
+          this.processUnit[7].children[3].checked = true
+          this.processUnit[7].children[3].color = '#2db7f5'
+        } else if(values.param9 === '2'){
+          this.processUnit[0].children[0].checked = true
+          this.processUnit[0].children[0].color = '#2db7f5'
+        }
+
+        // 水量
+        if(values.param10 === '0'){
+          this.processUnit[1].children[1].checked = true
+          this.processUnit[1].children[1].color = '#2db7f5'
+        } else if(values.param10 === '1'){
+          this.processUnit[1].children[2].checked = true
+          this.processUnit[1].children[2].color = '#2db7f5'
+        }
+
+        // 浊度
+        if(values.param11 === '0'){
+          this.processUnit[2].children[0].checked = true
+          this.processUnit[2].children[0].color = '#2db7f5'
+        } else if(values.param11 === '1'){
+          this.processUnit[2].children[1].checked = true
+          this.processUnit[2].children[1].color = '#2db7f5'
+        } else if(values.param11 === '2'){
+          this.processUnit[2].children[3].checked = true
+          this.processUnit[2].children[3].color = '#2db7f5'
+        } else if(values.param11 === '3'){
+          this.processUnit[2].children[4].checked = true
+          this.processUnit[2].children[4].color = '#2db7f5'
+        } else if(values.param11 === '4'){
+          this.processUnit[2].children[2].checked = true
+          this.processUnit[2].children[2].color = '#2db7f5'
+        } else if(values.param11 === '5'){
+          this.processUnit[2].children[5].checked = true
+          this.processUnit[2].children[5].color = '#2db7f5'
+        } else if(values.param11 === '6'){
+          this.processUnit[3].children[0].checked = true
+          this.processUnit[3].children[0].color = '#2db7f5'
+        }
+
+        // 出水浊度
+        if(values.param12 === '1'){
+          this.processUnit[2].children[1].checked = true
+          this.processUnit[2].children[1].color = '#2db7f5'
+        } 
+
+        // 消毒
+        if(values.param13 === '0'){
+          this.processUnit[5].children[0].checked = false
+          this.processUnit[5].children[0].color = '#6C767D'
+        } else if(values.param13 === '1'){
+          this.processUnit[5].children[0].checked = true
+          this.processUnit[5].children[0].color = '#2db7f5'
+        } 
       });
       
       this.$message.info(this.$t('initSucc'))
+      // console.log('Received values of form: ', this.form);
+
 
     },
     handleReset() {
       this.$message.info(this.$t('resetSucc'))
       this.form.resetFields();
+      this.getProcessUnit();
     },
     comparison() {
       this.$message.warn(this.$t('comparisonNotOpen'))

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p> This is 加药系统 page </p>
+        <p> This is 折点加氯 page </p>
         <a-button type="primary" @click="backHome">返回首页</a-button>
     </div>
 </template>

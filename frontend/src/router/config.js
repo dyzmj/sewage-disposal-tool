@@ -315,7 +315,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7003')
             },
             {
-              name: '加药系统',
+              name: '折点加氯',
               path: '/sub/7004',
               meta: {
                 keepAlive: true,
@@ -323,7 +323,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7004')
             },
             {
-              name: '折点加氯',
+              name: '加药系统',
               path: '/sub/7005',
               meta: {
                 keepAlive: true,
