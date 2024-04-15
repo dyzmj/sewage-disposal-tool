@@ -323,12 +323,52 @@ const options = {
               component: () => import('@/pages/operation/7000/7004')
             },
             {
-              name: '加药系统',
+              name: '加药系统-NaClO',
               path: '/sub/7005',
               meta: {
                 keepAlive: true,
               },
               component: () => import('@/pages/operation/7000/7005')
+            },
+            {
+              name: '加药系统-ClO2',
+              path: '/sub/7006',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/7000/7006')
+            },
+            {
+              name: '加药系统-PAC',
+              path: '/sub/7007',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/7000/7007')
+            },
+            {
+              name: '加药系统-PAM',
+              path: '/sub/7008',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/7000/7008')
+            },
+            {
+              name: '加药系统-活性炭粉末',
+              path: '/sub/7009',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/7000/7009')
+            },
+            {
+              name: '加药系统-高锰酸钾',
+              path: '/sub/7010',
+              meta: {
+                keepAlive: true,
+              },
+              component: () => import('@/pages/operation/7000/7010')
             },
           ]
         },
@@ -541,7 +581,7 @@ const options = {
           component: () => import('@/pages/operation/7000/7003')
         },
         {
-          name: '活性炭吸附塔',
+          name: '折点加氯',
           path: '7004',
           meta: {
             keepAlive: true,
@@ -549,12 +589,52 @@ const options = {
           component: () => import('@/pages/operation/7000/7004')
         },
         {
-          name: '活性炭吸附塔',
+          name: '加药系统-NaClO',
           path: '7005',
           meta: {
             keepAlive: true,
           },
           component: () => import('@/pages/operation/7000/7005')
+        },
+        {
+          name: '加药系统-ClO2',
+          path: '7006',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/7000/7006')
+        },
+        {
+          name: '加药系统-PAC',
+          path: '7007',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/7000/7007')
+        },
+        {
+          name: '加药系统-PAM',
+          path: '7008',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/7000/7008')
+        },
+        {
+          name: '加药系统-活性炭粉末',
+          path: '7009',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/7000/7009')
+        },
+        {
+          name: '加药系统-高锰酸钾',
+          path: '7010',
+          meta: {
+            keepAlive: true,
+          },
+          component: () => import('@/pages/operation/7000/7010')
         },
         {
           name: '臭氧活性炭',
