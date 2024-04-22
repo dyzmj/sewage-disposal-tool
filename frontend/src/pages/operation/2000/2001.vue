@@ -1,5 +1,5 @@
 <template>
-    <div class="calc_page" style="background-color: #EDEFF2;" id="testApp">
+    <div class="calc_page" style="background-color: #EDEFF2;">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
@@ -10,12 +10,10 @@
                                 :wrapperCol="{ span: 18 }">
                                 <a-input v-model="designScale" :placeholder="$t('designScale')"
                                     :suffix="$t('designScaleUnit')" value='20000.00' :disabled="true" />
-                                <span hidden="true">20000.00 {{ $t('designScaleUnit') }}</span>
                             </a-form-item>
                             <a-form-item :label="$t('totalChangeFactor')" :labelCol="{ span: 6 }"
                                 :wrapperCol="{ span: 18 }">
                                 <a-input v-model="totalChangeFactor" :placeholder="$t('totalChangeFactor')" value="1" />
-                                <span hidden="true">{{ totalChangeFactor }} m/s</span>
                             </a-form-item>
                             <a-form-item :label="$t('singleTankVolume')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
                                 <a-input v-model="singleTankVolume1" rows="4" :placeholder="$t('singleTankVolume')"
@@ -95,6 +93,17 @@
                                 <a-input v-model="poolWidth" rows="4" :placeholder="$t('poolWidth')" 
                                 :suffix="$t('poolWidthUnit')" :disabled="true" />
                             </a-form-item>
+                            <br>
+                            <a-form-item class="calc" :label="$t('perCell')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
+                                <a-input-group compact>
+                                    <a-input v-model="poolLength" style="width: 33%;" rows="8" :placeholder="$t('poolLength')"
+                                    :suffix="$t('poolLengthUnit')" :disabled="true" />
+                                    <a-input v-model="roundingFlowLength" style="width: 33%;" rows="8" :placeholder="$t('poolWidth')"
+                                    :suffix="$t('poolWidthUnit')" :disabled="true" />
+                                    <a-input v-model="contactPoolDepth" style="width: 34%;" rows="8" :placeholder="$t('contactPoolDepth')"
+                                    :suffix="$t('contactPoolDepthUnit')" :disabled="true" />
+                                </a-input-group>
+                            </a-form-item>
                         </a-form>
                     </div>
                 </a-card>
@@ -125,6 +134,34 @@
                 </a-card>
             </a-col>
         </a-row>
+        <div id="testApp" hidden="true">
+            <h1><b>接触消毒池设计计算</b></h1>
+            <br>
+            <div>
+                <h4>设计输入条件：</h4>
+                <p><span>（1）{{ $t('designScale') }} = 20000.00 {{ $t('designScaleUnit') }}</span></p>
+                <p><span>（2）{{ $t('totalChangeFactor') }} k= {{ this.totalChangeFactor }} {{ $t('designScaleUnit') }}</span></p>
+                <p><span>（3）{{ $t('singleTankVolume') }} X1=Q/24*k， X1= {{ this.singleTankVolume1 }} {{ $t('singleUnit1') }}, 取 {{ this.singleTankVolume2 }} {{ $t('singleUnit2') }}</span></p>
+                <br>
+                <h4>工艺设计计算：</h4>
+                <p><span>（1）{{ $t('contactTime') }} A1= {{ this.contactTime }} {{ $t('contactTimeUnit') }}</span></p>
+                <p><span>（2）{{ $t('totalPoolCapacity') }} A2=X1*A1/60， A2= {{ this.totalPoolCapacity }} {{ $t('totalPoolCapacityUnit') }}</span></p>
+                <p><span>（3）{{ $t('disinfectiontank') }} A3= {{ this.disinfectiontank }} {{ $t('disinfectiontankUnit') }}</span></p>
+                <p><span>（4）{{ $t('everyPoolCapacity') }} A4=A2/A3， A4= {{ this.everyPoolCapacity }} {{ $t('everyPoolCapacityUnit') }}</span></p>
+                <p><span>（5）{{ $t('contactPoolDepth') }} A5= {{ this.contactPoolDepth }} {{ $t('contactPoolDepthUnit') }}</span></p>
+                <p><span>（6）{{ $t('singlecellWidth') }} A6= {{ this.singlecellWidth }} {{ $t('singlecellWidthUnit') }}</span></p>
+                <p><span>（7）{{ $t('flowLength') }} A7=A4/A5/A6， A7= {{ this.flowLength }} {{ $t('flowLengthUnit') }}, 取 {{ this.roundingFlowLength }} {{ $t('flowLengthUnit') }}</span></p>
+                <p><span>（8）{{ $t('division') }} A8= {{ this.division }}</span></p>
+                <p><span>（9）{{ $t('partitionWallThickness') }} A9= {{ this.partitionWallThickness }} {{ $t('partitionWallThicknessUnit') }}</span></p>
+                <p><span>（10）{{ $t('poolLength') }} A10=A7/A8， A10= {{ this.poolLength }} {{ $t('poolLengthUnit') }}</span></p>
+                <p><span>（11）{{ $t('poolWidth') }} A11=A8*A6+(A8-1)*A9， A11= {{ this.poolWidth }} {{ $t('poolWidthUnit') }}</span></p>
+                <br>
+                <p><span>（12）{{ $t('perCell') }} A12=A10*A11*A5，A12= {{ this.poolLength }} {{ $t('poolLengthUnit') }} * {{ this.poolWidth }} {{ $t('poolWidthUnit') }} * {{ this.contactPoolDepth }} {{ $t('contactPoolDepthUnit') }} </span></p>
+            </div>
+            
+
+
+        </div>
     </div>
 </template>
 

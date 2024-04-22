@@ -482,7 +482,7 @@ export default {
       var html1 = element.outerHTML;
       console.info(html1)
 
-       var res1 = htmlToRtf.convertHtmlToRtf(html1);
+       var res1 = htmlToRtf.convertHtmlToRtf(html);
        console.info("格式化的结果"+res1)
 
        //  htmlToRtf.saveRtfInFile('./test.rtf', res);

@@ -32,6 +32,8 @@ module.exports = {
         poolLengthUnit:'m',
         poolWidth:'池宽',
         poolWidthUnit:'m',
+        perCell: '每池功能尺寸',
+        perCellUnit: 'm',
         export:'导出',
         exportComputeBook:'导出计算书',
         exportQuantities:'导出工程量',
