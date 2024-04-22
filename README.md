@@ -14,3 +14,7 @@
 
 ## 📒 开始使用
 ![](https://img.dyzmj.top/img202309121656574.png)
+
+![](https://img.dyzmj.top/img202404222008773.png)
+
+![](https://img.dyzmj.top/img202404222009345.png)
