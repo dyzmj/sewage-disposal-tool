@@ -1,5 +1,5 @@
 <template>
-    <div class="calc_page" style="background-color: #EDEFF2;">
+    <div class="calc_page" style="background-color: #EDEFF2;" id="testApp">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
@@ -10,10 +10,12 @@
                                 :wrapperCol="{ span: 18 }">
                                 <a-input v-model="designScale" :placeholder="$t('designScale')"
                                     :suffix="$t('designScaleUnit')" value='20000.00' :disabled="true" />
+                                <span hidden="true">20000.00 {{ $t('designScaleUnit') }}</span>
                             </a-form-item>
                             <a-form-item :label="$t('totalChangeFactor')" :labelCol="{ span: 6 }"
                                 :wrapperCol="{ span: 18 }">
                                 <a-input v-model="totalChangeFactor" :placeholder="$t('totalChangeFactor')" value="1" />
+                                <span hidden="true">{{ totalChangeFactor }} m/s</span>
                             </a-form-item>
                             <a-form-item :label="$t('singleTankVolume')" :labelCol="{ span: 6 }" :wrapperCol="{ span: 18 }">
                                 <a-input v-model="singleTankVolume1" rows="4" :placeholder="$t('singleTankVolume')"
@@ -129,6 +131,9 @@
 <script>
 
 import { mapState } from 'vuex'
+// import { ipcApiRoute } from '@/api/main';
+// import { ipc } from '@/utils/ipcRenderer';
+import { exportRtf } from '@/utils/exportRtfUtil'; 
 
 export default {
     components: {},
@@ -154,7 +159,9 @@ export default {
             this.$message.warn(this.$t('exportQuantitiesNotOpen'))
         },
         exportComputeBook() {
-            this.$message.warn(this.$t('exportComputeBookNotOpen'))
+            var element  = document.querySelector("#testApp");
+            var html = element.outerHTML;
+            exportRtf('接触消毒池计算书', html, this);
         }
     },
     computed: {

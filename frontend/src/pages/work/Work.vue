@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div  id="testApp">
     <a-row style="margin: 0 -6px">
       <a-col style="padding: 0 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card :loading="loading" :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
@@ -241,6 +241,9 @@
 <script>
 import { mapState } from 'vuex'
 import { request, METHOD } from '@/utils/request'
+// import { saveAs } from 'file-saver'
+import { ipcApiRoute } from '@/api/main';
+import { ipc } from '@/utils/ipcRenderer';
 
 export default {
   name: 'WorkPlace',
@@ -435,7 +438,62 @@ export default {
       this.$message.warn(this.$t('comparisonNotOpen'))
     },
     export_case() {
-      this.$message.warn(this.$t('exportCaseNotOpen'))
+      this.$message.warn(this.$t('exportCaseNotOpen'));
+
+      const htmlToRtf = require('html-to-rtf-node');
+      const fs = window.require('fs');
+
+      ipc.invoke(ipcApiRoute.selectFolder, '').then(r => {
+        // this.dir_path = r;
+        this.$message.info(r);
+
+        var path  = r + '/test.rtf'
+
+        const html = `
+      <h1>Title <span style="color:rgb(255,0,0);">with</span> tag h1<h1>
+      <div>
+        <p style="color:#333; margin:5px;" class="test" align="center">
+            text of paragraph <b>text with bold <i>text with italic and bold</i></b><i>text with italic</i>
+        </p>
+        <p style="color:rgb(255,0,0);" align="right">red paragraph => right with tag</p>
+        <p style="color:rgb(0,0,255); text-align:center;">blue paragraph => center with style</p>
+        <table>
+          <tbody>
+            <tr>
+                      <td><mark>column 1</mark></td>
+                      <td>column 2</td>
+              <td><mark>column 3</mark></td>
+              <td>column 4</td>
+            </tr>
+            <tr>
+              <td>content 1</td>
+              <td>content 2<br></td>
+              <td>content 3<br></td>
+              <td>content 4<br></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      `
+
+      console.info(html)
+
+      var element  = document.querySelector("#testApp");
+      var html1 = element.outerHTML;
+      console.info(html1)
+
+       var res1 = htmlToRtf.convertHtmlToRtf(html1);
+       console.info("格式化的结果"+res1)
+
+       //  htmlToRtf.saveRtfInFile('./test.rtf', res);
+       
+      // 打开文件选择对话框
+        fs.writeFile(path, res1, 'utf8', (err) => {
+          if (err) throw err;
+          console.log('The file has been saved!');
+        });
+
+      }) 
     },
     operation() {
       if (this.processUnitData.length > 0) {
