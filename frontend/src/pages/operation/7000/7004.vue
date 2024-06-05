@@ -29,7 +29,29 @@
                                         <a-input v-model="b13" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b13')" :suffix="$t('b13_u')" />
                                     </a-input-group>
                             </a-form-item>
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b14" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b14')" :suffix="$t('b14_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b15" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b15')" :suffix="$t('b15_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b16')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b16" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b16')" :suffix="$t('b16_u')" />
+                                    </a-input-group>
+                            </a-form-item>
                         </a-form>
+                    </a-card>
+                    <a-card :title="$t('b17')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false" :body-style="{ padding: 4 }" size="small">
+                        <p>① {{$t('b18')}}</p>
+                        <p>② {{$t('b19')}}</p>
+                        <p>③ {{$t('b20')}}</p>
+                        <p>④ {{$t('b21')}}</p>
+                        <p>⑤ {{$t('b22')}}</p>
                     </a-card>
                 </a-card>
                 <a-card :title="$t('referenceImage')">
