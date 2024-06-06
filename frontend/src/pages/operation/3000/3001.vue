@@ -1,7 +1,11 @@
 <template>
     <div class="calc_page" style="background-color: #EDEFF2;">
         <a-tabs default-active-key="1" size="small">
-            <a-tab-pane key="1" :tab="$t('tab_1')">
+            <a-tab-pane key="1">
+                <span slot="tab">
+                    <a-icon type="smile" theme="outlined" />
+                    {{ $t('tab_1') }}
+                </span>
                 <a-row style="margin: 0 -6px">
                     <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                         <a-card :title="$t('b2')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
@@ -45,19 +49,46 @@
                                     <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
                                         <a-input v-model="b13" :placeholder="$t('b13')" :suffix="$t('b13_u')" :disabled="false" />
                                     </a-form-item>
+                                    <br>
+                                    <p style="font-weight: bolder; color: red"> {{ $t('b14') }}</p>
                                 </a-form>
                             </div>
                         </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                    
+                        <a-card :title="$t('b15')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            :body-style="{ padding: 4 }">
+                            <div class="baseQueryParam">
+                                <a-form>
+                                    <a-form-item :label="$t('b16')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
+                                        <a-input v-model="b16" :placeholder="$t('b16')" :suffix="$t('b16_u')" :disabled="false" />
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b17')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
+                                        <a-input-group compact>
+                                        <a-input v-model="b17" style="width: 50%;" :placeholder="$t('b17')" :suffix="$t('b17_u')" :disabled="false" />
+                                        <a-input v-model="b17_1" :prefix="$t('sel')" style="width: 50%;" :placeholder="$t('b17_1')" :suffix="$t('b17_1_u')" :disabled="true" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b18')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
+                                        <a-input-group compact>
+                                        <a-input v-model="b18" style="width: 50%;" :placeholder="$t('b18')" :suffix="$t('b18_u')" :disabled="false" />
+                                        <a-input v-model="b18_1" :prefix="$t('sel')" style="width: 50%;" :placeholder="$t('b18_1')" :suffix="$t('b18_1_u')" :disabled="true" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </div>
+                        </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                     
                     </a-col>
                 </a-row>
             </a-tab-pane>
-            <a-tab-pane key="2" :tab="$t('tab_2')" force-render>
+            <a-tab-pane key="2" force-render>
+                <span slot="tab">
+                    <a-icon type="smile" :rotate="180" />
+                    {{ $t('tab_2') }}
+                </span>
                 <a-row style="margin: 0 -6px">
                     <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                         <a-card :title="$t('c2')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
@@ -129,6 +160,8 @@ export default {
             b11: '1.5',
             b12: '0.2',
             b13: '0.3',
+            b17_1: '14',
+            b18_1: '9.5',
             c3_1: '20000',
             c7: '20',
             c8: '2',
@@ -156,6 +189,15 @@ export default {
         },
         b3_3() {
             return (parseFloat(this.b3_1) / (24 * 60 * 60) ).toFixed(2)
+        },
+        b16() {
+            return (parseFloat(this.b3_2) * parseFloat(this.b7) / 60 / parseFloat(this.b8)).toFixed(2)
+        },
+        b17() {
+            return (parseFloat(this.b11) * parseFloat(this.b10) * parseFloat(this.b9)).toFixed(1)
+        },
+        b18() {
+            return (parseFloat(this.b16) / parseFloat(this.b17) / parseFloat(this.b9)).toFixed(2)
         },
         c3_2() {
             return (parseFloat(this.c3_1) / 24).toFixed(0)
