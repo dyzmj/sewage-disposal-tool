@@ -404,256 +404,256 @@ const options = {
         }
       ]
     },
-    {
-      path: '/sub',
-      name: '子页',
-      component: TabsView,
-      meta: {
-        keepAlive: true,
-      },
-      children: [
-        {
-          name: '陶粒填料生物接触氧化池',
-          path: '1001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/1000/1001')
-        },
-        {
-          name: '预沉池',
-          path: '1002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/1000/1002')
-        },
-        {
-          name: '接触消毒池',
-          path: '2001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/2000/2001')
-        },
-        {
-          name: '浸水式紫外线消毒',
-          path: '2002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/2000/2002')
-        },
-        {
-          name: '臭氧消毒',
-          path: '2003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/2000/2003')
-        },
-        {
-          name: '机械搅拌絮凝池',
-          path: '3001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3001')
-        },
-        {
-          name: '网格絮凝池',
-          path: '3002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3002')
-        },
-        {
-          name: '折板絮凝池',
-          path: '3003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/3000/3003')
-        },
-        {
-          name: '浓缩池',
-          path: '4001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/4000/4001')
-        },
-        {
-          name: '脱水加药',
-          path: '4002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/4000/4002')
-        },
-        {
-          name: '平流沉淀池',
-          path: '5001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5001')
-        },
-        {
-          name: '斜管沉淀池',
-          path: '5002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5002')
-        },
-        {
-          name: '高密度沉淀池',
-          path: '5003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5003')
-        },
-        {
-          name: '机械搅拌澄清池',
-          path: '5004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5004')
-        },
-        {
-          name: '水力循环澄清池',
-          path: '5005',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5005')
-        },
-        {
-          name: '平流式气浮池',
-          path: '5006',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/5000/5006')
-        },
-        {
-          name: '普通快滤池',
-          path: '6001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/6000/6001')
-        },
-        {
-          name: 'V型滤池',
-          path: '6002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/6000/6002')
-        },
-        {
-          name: '提升泵房',
-          path: '7001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7001')
-        },
-        {
-          name: '清水池',
-          path: '7002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7002')
-        },
-        {
-          name: '活性炭吸附塔',
-          path: '7003',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7003')
-        },
-        {
-          name: '折点加氯',
-          path: '7004',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7004')
-        },
-        {
-          name: '加药系统-NaClO',
-          path: '7005',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7005')
-        },
-        {
-          name: '加药系统-ClO2',
-          path: '7006',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7006')
-        },
-        {
-          name: '加药系统-PAC',
-          path: '7007',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7007')
-        },
-        {
-          name: '加药系统-PAM',
-          path: '7008',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7008')
-        },
-        {
-          name: '加药系统-活性炭粉末',
-          path: '7009',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7009')
-        },
-        {
-          name: '加药系统-高锰酸钾',
-          path: '7010',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/7000/7010')
-        },
-        {
-          name: '臭氧活性炭',
-          path: '8001',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/8000/8001')
-        },
-        {
-          name: 'UF-GE',
-          path: '8002',
-          meta: {
-            keepAlive: true,
-          },
-          component: () => import('@/pages/operation/8000/8002')
-        },
-      ]
-    }
+    // {
+    //   path: '/sub2',
+    //   name: '子页',
+    //   component: TabsView,
+    //   meta: {
+    //     keepAlive: true,
+    //   },
+    //   children: [
+    //     {
+    //       name: '陶粒填料生物接触氧化池',
+    //       path: '1001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/1000/1001')
+    //     },
+    //     {
+    //       name: '预沉池',
+    //       path: '1002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/1000/1002')
+    //     },
+    //     {
+    //       name: '接触消毒池',
+    //       path: '2001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/2000/2001')
+    //     },
+    //     {
+    //       name: '浸水式紫外线消毒',
+    //       path: '2002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/2000/2002')
+    //     },
+    //     {
+    //       name: '臭氧消毒',
+    //       path: '2003',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/2000/2003')
+    //     },
+    //     {
+    //       name: '机械搅拌絮凝池',
+    //       path: '3001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/3000/3001')
+    //     },
+    //     {
+    //       name: '网格絮凝池',
+    //       path: '3002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/3000/3002')
+    //     },
+    //     {
+    //       name: '折板絮凝池',
+    //       path: '3003',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/3000/3003')
+    //     },
+    //     {
+    //       name: '浓缩池',
+    //       path: '4001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/4000/4001')
+    //     },
+    //     {
+    //       name: '脱水加药',
+    //       path: '4002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/4000/4002')
+    //     },
+    //     {
+    //       name: '平流沉淀池',
+    //       path: '5001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5001')
+    //     },
+    //     {
+    //       name: '斜管沉淀池',
+    //       path: '5002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5002')
+    //     },
+    //     {
+    //       name: '高密度沉淀池',
+    //       path: '5003',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5003')
+    //     },
+    //     {
+    //       name: '机械搅拌澄清池',
+    //       path: '5004',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5004')
+    //     },
+    //     {
+    //       name: '水力循环澄清池',
+    //       path: '5005',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5005')
+    //     },
+    //     {
+    //       name: '平流式气浮池',
+    //       path: '5006',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/5000/5006')
+    //     },
+    //     {
+    //       name: '普通快滤池',
+    //       path: '6001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/6000/6001')
+    //     },
+    //     {
+    //       name: 'V型滤池',
+    //       path: '6002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/6000/6002')
+    //     },
+    //     {
+    //       name: '提升泵房',
+    //       path: '7001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7001')
+    //     },
+    //     {
+    //       name: '清水池',
+    //       path: '7002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7002')
+    //     },
+    //     {
+    //       name: '活性炭吸附塔',
+    //       path: '7003',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7003')
+    //     },
+    //     {
+    //       name: '折点加氯',
+    //       path: '7004',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7004')
+    //     },
+    //     {
+    //       name: '加药系统-NaClO',
+    //       path: '7005',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7005')
+    //     },
+    //     {
+    //       name: '加药系统-ClO2',
+    //       path: '7006',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7006')
+    //     },
+    //     {
+    //       name: '加药系统-PAC',
+    //       path: '7007',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7007')
+    //     },
+    //     {
+    //       name: '加药系统-PAM',
+    //       path: '7008',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7008')
+    //     },
+    //     {
+    //       name: '加药系统-活性炭粉末',
+    //       path: '7009',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7009')
+    //     },
+    //     {
+    //       name: '加药系统-高锰酸钾',
+    //       path: '7010',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/7000/7010')
+    //     },
+    //     {
+    //       name: '臭氧活性炭',
+    //       path: '8001',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/8000/8001')
+    //     },
+    //     {
+    //       name: 'UF-GE',
+    //       path: '8002',
+    //       meta: {
+    //         keepAlive: true,
+    //       },
+    //       component: () => import('@/pages/operation/8000/8002')
+    //     },
+    //   ]
+    // }
   ]
 }
 

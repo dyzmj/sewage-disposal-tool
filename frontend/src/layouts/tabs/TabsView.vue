@@ -15,7 +15,10 @@
         <a-keep-alive :exclude-keys="excludeKeys" v-if="multiPage && cachePage" v-model="clearCaches">
           <router-view v-if="!refreshing" ref="tabContent" :key="$route.fullPath" />
         </a-keep-alive>
-        <router-view ref="tabContent" v-else-if="!refreshing" />
+        <a-keep-alive v-if="!refreshing">
+          <!-- <router-view ref="tabContent" v-else-if="!refreshing" /> -->
+          <router-view v-if="!refreshing" ref="tabContent" :key="$route.fullPath" />
+        </a-keep-alive>
       </page-toggle-transition>
     </div>
   </admin-layout>
