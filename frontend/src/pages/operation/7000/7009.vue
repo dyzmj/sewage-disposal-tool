@@ -18,7 +18,7 @@
                             <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
                                     <a-input v-model="b5" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b5')" :suffix="$t('b5_u')" />
-                                    <a-input v-model="b5_1" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b5_1')" :suffix="$t('b5_1_u')" />
+                                    <a-input v-model="b5_1" style="width: 50%;" :disabled="true" rows="12" :placeholder="$t('b5_1')" :suffix="$t('b5_1_u')" />
                                 </a-input-group>
                             </a-form-item>
                         </a-form>
@@ -34,7 +34,36 @@
                 </a-card>
             </a-col>
             <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-
+                <a-card :title="$t('b6')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                        <a-form>
+                            <a-form-item :label="$t('b7')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b7" style="width: 100%;" :disabled="false" :suffix="$t('b7_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b8" style="width: 100%;" :disabled="false" :suffix="$t('b8_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b9" style="width: 100%;" :disabled="false" :suffix="$t('b9_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b10" style="width: 100%;" :disabled="false" :suffix="$t('b10_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b11" style="width: 50%;" :disabled="false" :suffix="$t('b11_u')" />
+                                        <a-input v-model="b11_1" style="width: 50%;" :disabled="false" :suffix="$t('b11_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                        </a-form>
+                </a-card>
             </a-col>
             <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
             </a-col>
@@ -54,6 +83,12 @@ export default {
             b3: '20000.00',
             b4: '1',
             b4_1: '1',
+            b7:'35',
+            b8:'2',
+            b9:'0.5',
+            b10:'29.16666667',
+            b11:'2.8',
+            b11_1:'3',
         }
     },
     methods: {
@@ -84,4 +119,4 @@ export default {
 .calc{
     margin-bottom: 15px;
 }
-</style
+</style>
