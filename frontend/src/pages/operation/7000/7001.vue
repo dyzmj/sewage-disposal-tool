@@ -234,7 +234,7 @@ export default {
     computed: {
         ...mapState('setting', ['lang']),
         b9() {
-            return (( 1 + parseFloat(this.b8) + parseFloat(this.b7)) * parseFloat(this.b3) / 24).toFixed(2)
+            return (( 1 + parseFloat(this.b8)/100 + parseFloat(this.b7)/100) * parseFloat(this.b3) / 24).toFixed(2)
         },
         b12() {
             return (parseFloat(this.b9_1) / 2).toFixed(0)
