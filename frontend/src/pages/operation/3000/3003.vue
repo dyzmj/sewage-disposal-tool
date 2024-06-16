@@ -68,10 +68,264 @@
                 </a-card>
             </a-col>
             <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-            
+                <a-card :title="$t('b16')" style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form>
+                            <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b5" :placeholder="$t('b5')"
+                                    :suffix="$t('b5_u')" value='40000' :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b6')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b6" :placeholder="$t('b6')"
+                                    ::disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b7_1')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b7_1" :placeholder="$t('b7_1')"
+                                    :suffix="$t('b7_1_u')" :disabled="false" />
+                                    <a-input v-model="b7_2" :placeholder="$t('b7_2')"
+                                    :suffix="$t('b7_2_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b8" :placeholder="$t('b8')"
+                                    :suffix="$t('b8_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b9" :placeholder="$t('b9')"
+                                    :suffix="$t('b9_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b10" :placeholder="$t('b10')"
+                                    :suffix="$t('b10_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b11" :placeholder="$t('b11')"
+                                    :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b12')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b12" :placeholder="$t('b12')"
+                                    :suffix="$t('b12_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b13" :placeholder="$t('b13')"
+                                    :suffix="$t('b13_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b14" :placeholder="$t('b14')"
+                                    :suffix="$t('b14_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b15" :placeholder="$t('b15')"
+                                    :suffix="$t('b15_u')" :disabled="false" />
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
+                <a-card :title="$t('b62')" style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form>
+                            <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b5" :placeholder="$t('b5')"
+                                    :suffix="$t('b5_u')" value='40000' :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b6')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b6" :placeholder="$t('b6')"
+                                    ::disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b7_1')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b7_1" :placeholder="$t('b7_1')"
+                                    :suffix="$t('b7_1_u')" :disabled="false" />
+                                    <a-input v-model="b7_2" :placeholder="$t('b7_2')"
+                                    :suffix="$t('b7_2_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b8" :placeholder="$t('b8')"
+                                    :suffix="$t('b8_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b9" :placeholder="$t('b9')"
+                                    :suffix="$t('b9_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b10" :placeholder="$t('b10')"
+                                    :suffix="$t('b10_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b11" :placeholder="$t('b11')"
+                                    :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b12')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b12" :placeholder="$t('b12')"
+                                    :suffix="$t('b12_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b13" :placeholder="$t('b13')"
+                                    :suffix="$t('b13_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b14" :placeholder="$t('b14')"
+                                    :suffix="$t('b14_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b15" :placeholder="$t('b15')"
+                                    :suffix="$t('b15_u')" :disabled="false" />
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
             </a-col>
             <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-            
+                <a-card :title="$t('b97')" style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form>
+                            <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b5" :placeholder="$t('b5')"
+                                    :suffix="$t('b5_u')" value='40000' :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b6')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b6" :placeholder="$t('b6')"
+                                    ::disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b7_1')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b7_1" :placeholder="$t('b7_1')"
+                                    :suffix="$t('b7_1_u')" :disabled="false" />
+                                    <a-input v-model="b7_2" :placeholder="$t('b7_2')"
+                                    :suffix="$t('b7_2_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b8" :placeholder="$t('b8')"
+                                    :suffix="$t('b8_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b9" :placeholder="$t('b9')"
+                                    :suffix="$t('b9_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b10" :placeholder="$t('b10')"
+                                    :suffix="$t('b10_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b11" :placeholder="$t('b11')"
+                                    :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b12')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b12" :placeholder="$t('b12')"
+                                    :suffix="$t('b12_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b13" :placeholder="$t('b13')"
+                                    :suffix="$t('b13_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b14" :placeholder="$t('b14')"
+                                    :suffix="$t('b14_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b15" :placeholder="$t('b15')"
+                                    :suffix="$t('b15_u')" :disabled="false" />
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
+                <a-card :title="$t('b118')" style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form>
+                            <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b5" :placeholder="$t('b5')"
+                                    :suffix="$t('b5_u')" value='40000' :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b6')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b6" :placeholder="$t('b6')"
+                                    ::disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b7_1')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b7_1" :placeholder="$t('b7_1')"
+                                    :suffix="$t('b7_1_u')" :disabled="false" />
+                                    <a-input v-model="b7_2" :placeholder="$t('b7_2')"
+                                    :suffix="$t('b7_2_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b8" :placeholder="$t('b8')"
+                                    :suffix="$t('b8_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b9" :placeholder="$t('b9')"
+                                    :suffix="$t('b9_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b10" :placeholder="$t('b10')"
+                                    :suffix="$t('b10_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b11" :placeholder="$t('b11')"
+                                    :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b12')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b12" :placeholder="$t('b12')"
+                                    :suffix="$t('b12_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b13" :placeholder="$t('b13')"
+                                    :suffix="$t('b13_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b14" :placeholder="$t('b14')"
+                                    :suffix="$t('b14_u')" :disabled="false" />
+                            </a-form-item>
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 6 }"
+                                :wrapperCol="{ span: 18 }">
+                                <a-input v-model="b15" :placeholder="$t('b15')"
+                                    :suffix="$t('b15_u')" :disabled="false" />
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
             </a-col>
         </a-row>
     </div>
