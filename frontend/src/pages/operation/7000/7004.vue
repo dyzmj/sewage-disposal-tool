@@ -1,57 +1,74 @@
-、<template>
+<template>
     <div class="calc_page" style="background-color: #EDEFF2;">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('b5')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                    <a-card :title="$t('b6')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false" :body-style="{ padding: 4 }" size="small">
+                    <a-card :title="$t('b6')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                        :body-style="{ padding: 4 }" size="small">
                         <a-form>
-                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b8" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b8')" :suffix="$t('b8_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b8" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b8')" :suffix="$t('b8_u')" />
+                                </a-input-group>
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false" :body-style="{ padding: 4 }" size="small">
+                    <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                        :body-style="{ padding: 4 }" size="small">
                         <a-form>
-                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b11" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b11')" :suffix="$t('b11_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b11" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b11')" :suffix="$t('b11_u')" />
+                                </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b11_1')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b11_1')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b11_1" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b11_1')" />
-                                    </a-input-group>
+                                    <a-input v-model="b11_1" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b11_1')" />
+                                </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b13" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b13')" :suffix="$t('b13_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b13" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b13')" :suffix="$t('b13_u')" />
+                                </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b14" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b14')" :suffix="$t('b14_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b14" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b14')" :suffix="$t('b14_u')" />
+                                </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b15')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b15" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b15')" :suffix="$t('b15_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b15" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b15')" :suffix="$t('b15_u')" />
+                                </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b16')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b16')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b16" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b16')" :suffix="$t('b16_u')" />
-                                    </a-input-group>
+                                    <a-input v-model="b16" style="width: 100%;" :disabled="false" rows="12"
+                                        :placeholder="$t('b16')" :suffix="$t('b16_u')" />
+                                </a-input-group>
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b17')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false" :body-style="{ padding: 4 }" size="small">
-                        <p>① {{$t('b18')}}</p>
-                        <p>② {{$t('b19')}}</p>
-                        <p>③ {{$t('b20')}}</p>
-                        <p>④ {{$t('b21')}}</p>
-                        <p>⑤ {{$t('b22')}}</p>
+                    <a-card :title="$t('b17')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                        :body-style="{ padding: 4 }" size="small">
+                        <p>① {{ $t('b18') }}</p>
+                        <p>② {{ $t('b19') }}</p>
+                        <p>③ {{ $t('b20') }}</p>
+                        <p>④ {{ $t('b21') }}</p>
+                        <p>⑤ {{ $t('b22') }}</p>
                     </a-card>
                 </a-card>
                 <a-card :title="$t('referenceImage')">
@@ -65,9 +82,341 @@
                 </a-card>
             </a-col>
             <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+                <a-card :title="$t('b23')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <a-form>
+                        <a-form-item :label="$t('b25')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                            :wrapperCol="{ span: 16 }">
+                            <a-input-group compact>
+                                <a-input v-model="b25" style="width: 100%;" :disabled="false" :suffix="$t('b25_u')" />
+                            </a-input-group>
+                        </a-form-item>
+                        <a-form-item :label="$t('b26')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                            :wrapperCol="{ span: 16 }">
+                            <a-input-group compact>
+                                <a-input v-model="b26" style="width: 100%;" :disabled="false" :suffix="$t('b26_u')" />
+                            </a-input-group>
+                        </a-form-item>
+                        <a-form-item :label="$t('b27')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                            :wrapperCol="{ span: 16 }">
+                            <a-input-group compact>
+                                <a-input v-model="b27" style="width: 100%;" :disabled="false" :suffix="$t('b27_u')" />
+                            </a-input-group>
+                        </a-form-item>
+                    </a-form>
+                </a-card>
 
+                <a-card :title="$t('b28')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <a-card :title="$t('b29')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                        <a-card :title="$t('b30')" style="margin-bottom: 24px" :bordered="false"
+                            :body-style="{ padding: 4 }">
+                            <a-card :title="$t('b31')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b32')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b32" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b32_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b33')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b33" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b33_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b34')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b34" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b34_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                            <a-card :title="$t('b35')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b36')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b36" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b36_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b37')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b37" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b37_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b38')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b38" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b38_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b39')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b39" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b39_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b40')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b40" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b40_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b41')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b41" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b41_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                            <a-card :title="$t('b42')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b43')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b43" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b43_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b44')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b44" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b44_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b45')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b45" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b45_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b46')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b46" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b46_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b47')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b47" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b47_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                        </a-card>
+                    </a-card>
+                </a-card>
             </a-col>
             <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+                <a-card :title="$t('b28')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <a-card :title="$t('b29')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                        <a-card :title="$t('b48')" style="margin-bottom: 24px" :bordered="false"
+                            :body-style="{ padding: 4 }">
+                            <a-card :title="$t('b49')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b50')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b50" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b50_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b51')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b51" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b51_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b52')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b52" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b52_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b53')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b53" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b53_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b54')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b54" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b54_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b55')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b55" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b55_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                            <a-card :title="$t('b56')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b57')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b57" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b57_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b58')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b58" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b58_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                            <a-card :title="$t('b59')" style="margin-bottom: 24px" :bordered="false"
+                                :body-style="{ padding: 4 }">
+                                <a-form>
+                                    <a-form-item :label="$t('b60')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b60" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b60_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b61')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b61" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b61_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b62')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b62" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b62_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b63')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b63" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b63_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b64')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b64" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b64_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b65')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b65" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b65_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b66')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b66" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b66_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b67')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b67" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b67_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b68')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b68" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b68_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b69')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b69" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b69_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b70')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b70" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b70_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b71')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b71" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b71_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b72')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b72" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b72_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b73')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b73" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b73_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b74')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b74" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b74_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                    <a-form-item :label="$t('b75')" style="margin-top: 10px" :labelCol="{ span: 8 }"
+                                        :wrapperCol="{ span: 16 }">
+                                        <a-input-group compact>
+                                            <a-input v-model="b75" style="width: 100%;" :disabled="false"
+                                                :suffix="$t('b75_u')" />
+                                        </a-input-group>
+                                    </a-form-item>
+                                </a-form>
+                            </a-card>
+                        </a-card>
+                    </a-card>
+                </a-card>
             </a-col>
         </a-row>
     </div>
@@ -84,10 +433,51 @@ export default {
         return {
             b8: '130.00',
             b11: '34.00',
-            b11_1: '380.00', 
+            b11_1: '380.00',
             b14: '5',
             b15: '0.50',
-            b16: '330.00'
+            b16: '330.00',
+            b25: '0.5',
+            b26: '3.5',
+            b27: '1',
+            b32: '1.00',
+            b33: '1.50',
+            b34: '195.00',
+            b36: '172.43',
+            b37: '125.07',
+            b38: '124.57',
+            b39: '85.87',
+            b40: '258.80',
+            b41: '33643.77',
+            b43:'172.43',
+            b44:'86.21',
+            b45:'1.00',
+            b46:'260.14',
+            b47:'33818.57',
+            b50:'172.43',
+            b51:'86.21',
+            b52:'259.14',
+            b53:'7.61',
+            b54:'221.11',
+            b55:'28.74',
+            b57:'175.00',
+            b58:'22.75',
+            b60:'396.11',
+            b61:'51.49',
+            b62:'1.46',
+            b63:'19.69',
+            b64:'102.99',
+            b65:'100',
+            b66:'2.00',
+            b67:'7.5～8.5',
+            b68:'11.16',
+            b69:'193.40',
+            b70:'1.33',
+            b71:'145.42',
+            b72:'386.81',
+            b73:'290.83',
+            b74:'300',
+            b75:'260.00',
         }
     },
     methods: {
@@ -100,7 +490,7 @@ export default {
         exportComputeBook() {
             this.$message.warn(this.$t('exportComputeBookNotOpen'))
         }
-        
+
     },
     computed: {
         ...mapState('setting', ['lang']),
@@ -111,8 +501,6 @@ export default {
 }
 </script>
 
-<style lang="less">
-.calc{
+<style lang="less">.calc {
     margin-bottom: 15px;
-}
-</style
+}</style>
