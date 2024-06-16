@@ -126,7 +126,7 @@ import { mapState } from 'vuex'
 
 export default {
     components: {},
-    i18n: require('./i18n'),
+    i18n: require('./i18n_2002'),
     data() {
         return {
             averageFlow: '50000',

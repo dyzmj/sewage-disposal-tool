@@ -174,7 +174,7 @@ import { exportRtf } from '@/utils/exportRtfUtil';
 
 export default {
     components: {},
-    i18n: require('./i18n'),
+    i18n: require('./i18n_2001'),
     data() {
         return {
             designScale: '20000',
