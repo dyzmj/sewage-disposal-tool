@@ -1,6 +1,7 @@
 <template>
-    <div class="new-page" :style="`min-height: ${pageMinHeight}px`">
-      <h1>{{$t('content')}}</h1>
+    <div class="container" style="border: 1px solid #ccc; padding: 50px; width: 100%; height: 800px">
+      <!-- <h1>{{$t('content')}}</h1> -->
+      <img src="./wio.svg" />
     </div>
   </template>
   
@@ -22,6 +23,8 @@
     }
   </script>
   
-  <style scoped lang="less">
-  @import "index";
-  </style>
+  <style scoped>
+    .container {
+      background-color: gray;
+    }
+</style>

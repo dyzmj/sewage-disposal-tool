@@ -14,13 +14,13 @@
             <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
               style="margin-bottom: 24px;" />
             <a-form-item>
-              <a-input autocomplete="autocomplete" size="large" placeholder="admin"
+              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="admin"
                 v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
                 <a-icon slot="prefix" type="user" />
               </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input size="large" placeholder="888888" autocomplete="autocomplete" type="password"
+              <a-input v-model="password" size="large" placeholder="888888" autocomplete="autocomplete" type="password"
                 v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
                 <a-icon slot="prefix" type="lock" />
               </a-input>
@@ -73,7 +73,9 @@ export default {
     return {
       logging: false,
       error: '',
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      username: 'admin',
+      password: '888888',
     }
   },
   computed: {
