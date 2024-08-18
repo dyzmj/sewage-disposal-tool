@@ -422,6 +422,22 @@ export default {
           this.processUnit[5].children[0].checked = true
           this.processUnit[5].children[0].color = '#2db7f5'
         } 
+
+        // 初始化是常选中：混凝工艺全部、PAC、PAM
+        this.processUnit[7].children[6].checked = true
+        this.processUnit[7].children[6].color = '#2db7f5' 
+        this.processUnit[7].children[7].checked = true
+        this.processUnit[7].children[7].color = '#2db7f5' 
+
+        this.processUnit[1].children[0].checked = true
+        this.processUnit[1].children[0].color = '#2db7f5' 
+        this.processUnit[1].children[1].checked = true
+        this.processUnit[1].children[1].color = '#2db7f5' 
+        this.processUnit[1].children[2].checked = true
+        this.processUnit[1].children[2].color = '#2db7f5' 
+        
+
+
       });
       
       this.$message.info(this.$t('initSucc'))
