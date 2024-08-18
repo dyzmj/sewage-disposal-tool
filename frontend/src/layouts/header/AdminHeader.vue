@@ -11,12 +11,12 @@
         <i-menu class="head-menu" :theme="headerTheme" mode="horizontal" :options="menuData" @select="onSelect"/>
       </div>
       <div :class="['admin-header-right', headerTheme]">
-          <header-search class="header-item" @active="val => searchActive = val" />
-          <a-tooltip class="header-item" title="帮助文档" placement="bottom" >
+          <!-- <header-search class="header-item" @active="val => searchActive = val" /> -->
+          <!-- <a-tooltip class="header-item" title="帮助文档" placement="bottom" >
             <a href="https://www.baidu.com/" target="_blank">
               <a-icon type="question-circle-o" />
             </a>
-          </a-tooltip>
+          </a-tooltip> -->
           <!-- <header-notice class="header-item"/> -->
           <header-avatar class="header-item"/>
           <a-dropdown class="lang header-item">
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import HeaderSearch from './HeaderSearch'
+// import HeaderSearch from './HeaderSearch'
 // import HeaderNotice from './HeaderNotice'
 import HeaderAvatar from './HeaderAvatar'
 import IMenu from '@/components/menu/menu'
@@ -41,7 +41,7 @@ import {mapState, mapMutations} from 'vuex'
 
 export default {
   name: 'AdminHeader',
-  components: {IMenu, HeaderAvatar, HeaderSearch},
+  components: {IMenu, HeaderAvatar},
   props: ['collapsed', 'menuData'],
   data() {
     return {
