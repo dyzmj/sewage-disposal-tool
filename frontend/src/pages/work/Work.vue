@@ -9,27 +9,21 @@
               <a-form-item :label="$t('param1')" :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                <a-select v-decorator="[`param1`]" style="width: 70%" :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt;= 80
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &gt; 80
-                  </a-select-option>
-                </a-select>
+                <a-input :style="{width: '70%'}" v-decorator="[`param1`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param1_u')" :disabled="true"/>
               </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param2')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param2`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                  <!-- <a-select v-decorator="[`param2`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 0.3
                   </a-select-option>
                   <a-select-option value="1">
                     &gt; 0.3
                   </a-select-option>
-                </a-select>
+                </a-select> -->
+                <a-input :style="{width: '70%'}" v-decorator="[`param2`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param2_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
@@ -43,6 +37,7 @@
                     &gt; 0.1
                   </a-select-option>
                 </a-select>
+                <a-input :style="{width: '70%'}" v-decorator="[`param3`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param3_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
@@ -55,6 +50,7 @@
                     &gt; 15
                   </a-select-option>
                 </a-select>
+                <a-input :style="{width: '100%'}" v-decorator="[`param4`]" :placeholder="$t('inputOne')" :disabled="false"/>
               </a-form-item>
               <a-form-item :label="$t('param5')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-select v-decorator="[`param5`]" style="width: 70%"  :placeholder="$t('selectOne')">
@@ -65,6 +61,7 @@
                     有
                   </a-select-option>
                 </a-select>
+                <a-input :style="{width: '100%'}" v-decorator="[`param5`]" :placeholder="$t('inputOne')" :disabled="false"/>
               </a-form-item>
               <a-form-item :label="$t('param6')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-select v-decorator="[`param6`]" style="width: 70%"  :placeholder="$t('selectOne')">
@@ -78,7 +75,7 @@
               </a-form-item>
               <a-form-item :label="$t('param7')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param7`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param7`]" style="width: 75%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 3 
                   </a-select-option>
@@ -256,6 +253,7 @@ export default {
       processUnit: [],
       processUnitData: [],
       modelVisible: false,
+      param1: null
     }
   },
   methods: {
@@ -273,17 +271,19 @@ export default {
         console.log(values.param1)
         console.log(this.processUnit)
 
+        console.log('param1: ', values.param1)
+        console.info(values)
         // 含砂量
-        if(values.param1 === '1'){
+        if(values.param1 >= 80){
           this.processUnit[0].children[1].checked = true
           this.processUnit[0].children[1].color = '#2db7f5' 
           // 2db7f5
-        }else if(values.param1 === '0'){
+        }else if(values.param1 < 80){
           this.processUnit[0].children[1].checked = false
           this.processUnit[0].children[1].color = '#6C767D' 
         }
         // 铁
-        if(values.param2 === '1'){
+        if(values.param2 > 0.3){
           this.processUnit[7].children[4].checked = true
           this.processUnit[7].children[4].color = '#2db7f5'
           this.processUnit[7].children[5].checked = true

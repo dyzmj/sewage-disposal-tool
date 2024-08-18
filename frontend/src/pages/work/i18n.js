@@ -25,6 +25,7 @@ module.exports = {
       submit: '初始化',
       reset: '重置',
       selectOne: '请选择',
+      inputOne: '请输入',
       initSucc: '初始化成功',
       resetSucc: '重置成功',
       processUnit: '工艺单元',
