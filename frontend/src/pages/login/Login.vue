@@ -29,7 +29,7 @@
         </a-tabs>
         <div>
           <a-checkbox :checked="true">自动登录</a-checkbox>
-          <a style="float: right">忘记密码</a>
+          <!-- <a style="float: right">忘记密码</a> -->
         </div>
         <a-form-item>
           <a-button :loading="logging" style="width: 100%;margin-top: 24px" size="large" htmlType="submit"
