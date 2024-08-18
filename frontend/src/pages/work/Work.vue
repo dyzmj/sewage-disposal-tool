@@ -276,7 +276,7 @@ export default {
         // 含砂量
         if(values.param1 === '1'){
           this.processUnit[0].children[1].checked = true
-          this.processUnit[0].children[1].color = '#87d068' 
+          this.processUnit[0].children[1].color = '#2db7f5' 
           // 2db7f5
         }else if(values.param1 === '0'){
           this.processUnit[0].children[1].checked = false
@@ -289,7 +289,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
@@ -300,7 +300,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
@@ -311,7 +311,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
@@ -323,7 +323,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
@@ -335,7 +335,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
@@ -355,7 +355,7 @@ export default {
           this.processUnit[7].children[5].checked = true
           this.processUnit[7].children[5].color = '#2db7f5' 
           this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#87d068' 
+          this.processUnit[7].children[9].color = '#2db7f5' 
           this.processUnit[4].children[0].checked = true
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
