@@ -15,45 +15,21 @@
               </a-form-item>
               <a-form-item :label="$t('param2')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <!-- <a-select v-decorator="[`param2`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt;= 0.3
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &gt; 0.3
-                  </a-select-option>
-                </a-select> -->
                 <a-input :style="{width: '70%'}" v-decorator="[`param2`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param2_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param3')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param3`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt;= 0.1
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &gt; 0.1
-                  </a-select-option>
-                </a-select>
                 <a-input :style="{width: '70%'}" v-decorator="[`param3`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param3_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param4')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
-                <a-select v-decorator="[`param4`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt;= 15
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &gt; 15
-                  </a-select-option>
-                </a-select>
                 <a-input :style="{width: '100%'}" v-decorator="[`param4`]" :placeholder="$t('inputOne')" :disabled="false"/>
               </a-form-item>
               <a-form-item :label="$t('param5')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select v-decorator="[`param5`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param5`]" style="width: 100%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -61,10 +37,9 @@
                     有
                   </a-select-option>
                 </a-select>
-                <a-input :style="{width: '100%'}" v-decorator="[`param5`]" :placeholder="$t('inputOne')" :disabled="false"/>
               </a-form-item>
               <a-form-item :label="$t('param6')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select v-decorator="[`param6`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param6`]" style="width: 100%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -75,7 +50,7 @@
               </a-form-item>
               <a-form-item :label="$t('param7')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param7`]" style="width: 75%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param7`]" style="width: 70%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     &lt;= 3 
                   </a-select-option>
@@ -93,7 +68,7 @@
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param8')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select v-decorator="[`param8`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                <a-select v-decorator="[`param8`]" style="width: 100%"  :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -104,71 +79,22 @@
               </a-form-item>
               <a-form-item :label="$t('param9')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param9`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt;= 0.5
-                  </a-select-option>
-                  <a-select-option value="1">
-                    0.5~1
-                  </a-select-option>
-                  <a-select-option value="2">
-                    常年 > 1
-                  </a-select-option>
-                </a-select>
+                <a-input :style="{width: '70%'}" v-decorator="[`param9`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param9_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param10')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param10`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &gt; 2.5 万
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &gt;= 5 万
-                  </a-select-option>
-                  <a-select-option value="2">
-                    &lt; 5 万
-                  </a-select-option>
-                </a-select>
-                <a-input :style="{width: '30%'}" :value="$t('param10_u')" :disabled="true"/>
-                </a-input-group>
-              </a-form-item>
               <a-form-item :label="$t('param11')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
-                <a-select v-decorator="[`param11`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &lt; 10000
-                  </a-select-option>
-                  <a-select-option value="1">
-                    &lt; 5000
-                  </a-select-option>
-                  <a-select-option value="2">
-                    &lt; 3000
-                  </a-select-option>
-                  <a-select-option value="3">
-                    &lt; 500
-                  </a-select-option>
-                  <a-select-option value="4">
-                    &lt; 100
-                  </a-select-option>
-                  <a-select-option value="5">
-                    &lt; 50
-                  </a-select-option>
-                </a-select>
+                <a-input :style="{width: '100%'}" v-decorator="[`param11`]" :placeholder="$t('inputOne')" :disabled="false"/>
               </a-form-item>
               <a-form-item :label="$t('param12')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param12`]" style="width: 70%"  :placeholder="$t('selectOne')">
-                  <a-select-option value="0">
-                    &gt; 0.5
-                  </a-select-option>
-                </a-select>
+                <a-input :style="{width: '70%'}" v-decorator="[`param12`]" :placeholder="$t('inputOne')" :disabled="false"/>
                 <a-input :style="{width: '30%'}" :value="$t('param12_u')" :disabled="true"/>
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('param13')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param13`]" style="width: 70%"  :placeholder="$t('selectOne')">
+                  <a-select v-decorator="[`param13`]" style="width: 100%"  :placeholder="$t('selectOne')">
                     <a-select-option value="0">
                     否
                     </a-select-option>
@@ -294,7 +220,7 @@ export default {
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
         // 锰
-        if(values.param3 === '1'){
+        if(values.param3 > 0.1){
           this.processUnit[7].children[4].checked = true
           this.processUnit[7].children[4].color = '#2db7f5'
           this.processUnit[7].children[5].checked = true
@@ -305,7 +231,7 @@ export default {
           this.processUnit[4].children[0].color = '#2db7f5' 
         }
         // 色度
-        if(values.param4 === '1'){
+        if(values.param4 > 15){
           this.processUnit[7].children[4].checked = true
           this.processUnit[7].children[4].color = '#2db7f5'
           this.processUnit[7].children[5].checked = true
@@ -367,10 +293,10 @@ export default {
         }
 
         // 氨氮
-        if(values.param9 === '1'){
+        if(values.param9 > 0.5 && values.param9 <= 1){
           this.processUnit[7].children[3].checked = true
           this.processUnit[7].children[3].color = '#2db7f5'
-        } else if(values.param9 === '2'){
+        } else if(values.param9 > 1){
           this.processUnit[0].children[0].checked = true
           this.processUnit[0].children[0].color = '#2db7f5'
         }
@@ -385,31 +311,30 @@ export default {
         }
 
         // 浊度
-        if(values.param11 === '0'){
+        if(values.param11 < 10000){
           this.processUnit[2].children[0].checked = true
           this.processUnit[2].children[0].color = '#2db7f5'
-        } else if(values.param11 === '1'){
-          this.processUnit[2].children[1].checked = true
-          this.processUnit[2].children[1].color = '#2db7f5'
-        } else if(values.param11 === '2'){
-          this.processUnit[2].children[3].checked = true
-          this.processUnit[2].children[3].color = '#2db7f5'
-        } else if(values.param11 === '3'){
-          this.processUnit[2].children[4].checked = true
-          this.processUnit[2].children[4].color = '#2db7f5'
-        } else if(values.param11 === '4'){
-          this.processUnit[2].children[2].checked = true
-          this.processUnit[2].children[2].color = '#2db7f5'
-        } else if(values.param11 === '5'){
-          this.processUnit[2].children[5].checked = true
-          this.processUnit[2].children[5].color = '#2db7f5'
-        } else if(values.param11 === '6'){
           this.processUnit[3].children[0].checked = true
           this.processUnit[3].children[0].color = '#2db7f5'
+        } else if(values.param11 < 5000){
+          this.processUnit[2].children[1].checked = true
+          this.processUnit[2].children[1].color = '#2db7f5'
+        } else if(values.param11 < 3000){
+          this.processUnit[2].children[3].checked = true
+          this.processUnit[2].children[3].color = '#2db7f5'
+        } else if(values.param11 < 500){
+          this.processUnit[2].children[4].checked = true
+          this.processUnit[2].children[4].color = '#2db7f5'
+        } else if(values.param11 < 100){
+          this.processUnit[2].children[2].checked = true
+          this.processUnit[2].children[2].color = '#2db7f5'
+        } else if(values.param11 < 50){
+          this.processUnit[2].children[5].checked = true
+          this.processUnit[2].children[5].color = '#2db7f5'
         }
 
         // 出水浊度
-        if(values.param12 === '1'){
+        if(values.param12 > 0.5){
           this.processUnit[2].children[1].checked = true
           this.processUnit[2].children[1].color = '#2db7f5'
         } 

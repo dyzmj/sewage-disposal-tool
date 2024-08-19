@@ -31,12 +31,12 @@ const processUnit = [
     key: '1000',
     children: [
       {
-        title: '陶粒填料生物接触氧化池',
+        title: '生物接触氧化池',
         key: '1001',
         checked: false,
         state: '0',
         color: '#6C767D',
-        detail: '陶粒填料生物接触氧化池',
+        detail: '生物接触氧化池',
       },
       {
         title: '预沉池',

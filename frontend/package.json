@@ -4,7 +4,7 @@
   "homepage": "https://iczer.github.io/vue-antd-admin",
   "private": true,
   "scripts": {
-    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve --port 3247",
+    "dev": "vue-cli-service serve --port 3247",
     "serve": "vue-cli-service serve --port 3247",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
