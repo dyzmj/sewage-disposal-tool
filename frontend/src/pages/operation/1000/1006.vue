@@ -330,7 +330,7 @@ import { mapState } from 'vuex'
 
 export default {
     components: {},
-    i18n: require('./i18n_5001'),
+    i18n: require('./i18n_1006'),
     data() {
         return {
             b3: '20000',

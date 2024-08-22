@@ -2,7 +2,7 @@
   <div  id="testApp">
     <a-row style="margin: 0 -6px">
       <a-col style="padding: 0 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
+        <a-card :loading="loading" :title="$t('baseQueryParam')" headStyle="font-weight: bolder" style="margin-bottom: 24px" :bordered="false"
           :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
             <a-form class="diy-advanced-search-form" :form="form" @submit="handleSearch">
@@ -113,10 +113,10 @@
         </a-card>
       </a-col>
       <a-col style="padding: 0 6px; padding-bottom: 10px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :title="$t('processUnit')" style="margin-bottom: 0px" :bordered="false">
-          <a-list :grid="{ gutter: 16, column: 4 }" style="margin: 0 -16px" :split="false">
+        <a-card :loading="loading" :title="$t('processUnit')" headStyle="font-weight: bolder" style="margin-bottom: 0px" :bordered="false">
+          <a-list :grid="{ gutter: 4, column: 4 }"  style="margin: 0 -16px" :split="false" :xl="5" :lg="10" :md="24" :sm="24" :xs="24">
             <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
-              <a-card size='default' :title="item.title" :loading="loading" :hoverable="true">
+              <a-card size='default' :title="item.title" :loading="loading" :hoverable="true" bordered="true">
                 <a slot="extra" style="color: rgb(120, 120, 120); font-size: 12px; font-style: italic;" @click="showModal">{{ $t('detail') }}</a>
                 <div class="content">
                   <a-list size="small" :split="false">
@@ -135,8 +135,8 @@
                 </div>
               </a-card>
             </a-list-item>
-            <a-list-item>
-              <a-card size='default' :title="$t('function')" :loading="loading" :hoverable="true">
+            <a-list-item style="padding: 0 4px">
+              <a-card size='default' :title="$t('function')" :loading="loading" :hoverable="true" >
                 <div class="content" style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
                   <a-button type="primary" style="margin-top: 19px;" block @click="comparison">{{ $t('comparison')
                   }}</a-button>
@@ -147,9 +147,7 @@
                 </div>
               </a-card>
             </a-list-item>
-
           </a-list>
-
         </a-card>
       </a-col>
     </a-row>
@@ -299,15 +297,6 @@ export default {
         } else if(values.param9 > 1){
           this.processUnit[0].children[0].checked = true
           this.processUnit[0].children[0].color = '#2db7f5'
-        }
-
-        // 水量
-        if(values.param10 === '0'){
-          this.processUnit[1].children[1].checked = true
-          this.processUnit[1].children[1].color = '#2db7f5'
-        } else if(values.param10 === '1'){
-          this.processUnit[1].children[2].checked = true
-          this.processUnit[1].children[2].color = '#2db7f5'
         }
 
         // 浊度

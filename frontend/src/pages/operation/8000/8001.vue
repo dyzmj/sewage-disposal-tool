@@ -7,45 +7,7 @@
                         <a-form>
                             <a-form-item :label="$t('b3')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b3" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b3')" :suffix="$t('b3_u')" />
-                                        <a-input v-model="b3_1" style="width: 50%;" :disabled="true" rows="12" :placeholder="$t('b3_1')" :suffix="$t('b3_1_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b4')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b4" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b4')" :suffix="$t('b4_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b5" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b5')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b6')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b6" style="width: 100%;" :disabled="true" rows="12" :placeholder="$t('b6')" :suffix="$t('b6_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b7')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b7" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b7')" :suffix="$t('b7_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b8" style="width: 100%;" :disabled="true" rows="12" :placeholder="$t('b8')" :suffix="$t('b8_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b9" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b9')" :suffix="$t('b9_u')" />
-                                        <a-input v-model="b9_1" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b9_1')" :suffix="$t('b9_1_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b10" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b10')" :suffix="$t('b10_u')" />
-                                        <a-input v-model="b10_1" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b10_1')" :suffix="$t('b10_1_u')" />
+                                        <a-input v-model="b3" style="width: 100%;" :disabled="false" rows="12" :placeholder="$t('b3')" :suffix="$t('b3_u')" />
                                     </a-input-group>
                             </a-form-item>
                         </a-form>
@@ -62,10 +24,43 @@
                 </a-card>
             </a-col>
             <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :title="$t('b12')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                <a-card :title="$t('b5')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-card :title="$t('b6')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
                         <div class="baseQueryParam">
                         <a-form>
-                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 24 }" :wrapperCol="{ span: 0 }">
+                            <a-form-item :label="$t('b7')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b7" style="width: 100%;" :disabled="false" :suffix="$t('b7_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b8" style="width: 100%;" :disabled="false" :suffix="$t('b8_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b9')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b9" style="width: 50%;" :disabled="false" :suffix="$t('b9_u')" />
+                                        <a-input v-model="b9_1" style="width: 50%;" :disabled="false" />
+                                </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b10" style="width: 100%;" :disabled="false" :suffix="$t('b10_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b11" style="width: 100%;" :disabled="false" :suffix="$t('b11_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b12')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b12" style="width: 100%;" :disabled="false" :suffix="$t('b12_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b13')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
                             </a-form-item>
                             <a-form-item :label="$t('b14')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
@@ -79,244 +74,107 @@
                             </a-form-item>
                             <a-form-item :label="$t('b16')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b16" style="width: 100%;" :disabled="true" :suffix="$t('b16_u')" />
+                                        <a-input v-model="b16" style="width: 100%;" :disabled="false" :suffix="$t('b16_u')" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b17')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b17" style="width: 100%;" :disabled="false" :suffix="$t('b17_u')" />
+                                        <a-input v-model="b17" style="width: 100%;" :disabled="false" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b18')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b18" style="width: 100%;" :disabled="true" :suffix="$t('b18_u')" />
+                                        <a-input v-model="b18" style="width: 100%;" :disabled="false" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b19')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b19" style="width: 50%;" :disabled="false" :suffix="$t('b19_u')" />
+                                        <a-input v-model="b19" style="width: 100%;" :disabled="false" :suffix="$t('b19_u')" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b20')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b20" style="width: 50%;" :disabled="false" :suffix="$t('b20_u')" />
+                                        <a-input v-model="b20" style="width: 100%;" :disabled="false" :suffix="$t('b20_u')" />
                                     </a-input-group>
                             </a-form-item>
-                            <a-form-item :label="$t('b21')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b21" style="width: 50%;" :disabled="false" :suffix="$t('b21_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b22')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b22" style="width: 50%;" :disabled="false" :suffix="$t('b22_u')" />
-                                    </a-input-group>
-                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>    
+                    </div>
+                </a-card>
+            </a-col>
+            <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+                <a-card :title="$t('b5')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-card :title="$t('b22')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                        <div class="baseQueryParam">
+                        <a-form>
                             <a-form-item :label="$t('b23')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b23" style="width: 50%;" :disabled="false" :suffix="$t('b23_u')" />
+                                        <a-input v-model="b23" style="width: 100%;" :disabled="false" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b24')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
                                         <a-input v-model="b24" style="width: 50%;" :disabled="false" :suffix="$t('b24_u')" />
-                                    </a-input-group>
+                                        <a-input v-model="b24_1" style="width: 50%;" :disabled="false" />
+                                </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b25')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b25" style="width: 50%;" :disabled="false" :suffix="$t('b25_u')" />
+                                        <a-input v-model="b25" style="width: 100%;" :disabled="false" :suffix="$t('b25_u')" />
                                     </a-input-group>
                             </a-form-item>
-                        </a-form>
-                    </div>
-                </a-card>
-                <a-card :title="$t('b27')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                        <div class="baseQueryParam">
-                        <a-form>
-                            <a-form-item :label="$t('b28')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                            <a-form-item :label="$t('b26')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b28" style="width: 50%;" :disabled="false" :suffix="$t('b28_u')" />
+                                        <a-input v-model="b26" style="width: 100%;" :disabled="false" :suffix="$t('b26_u')" />
                                     </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b27')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b27" style="width: 100%;" :disabled="false" :suffix="$t('b27_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b28')" style="margin-top: 10px" :labelCol="{ span: 10 }" :wrapperCol="{ span: 14 }">
                             </a-form-item>
                             <a-form-item :label="$t('b29')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b29" style="width: 50%;" :disabled="false" :suffix="$t('b29_u')" />
+                                        <a-input v-model="b29" style="width: 100%;" :disabled="false" :suffix="$t('b29_u')" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b30')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b30" style="width: 50%;" :disabled="false" :suffix="$t('b30_u')" />
+                                        <a-input v-model="b30" style="width: 100%;" :disabled="false" :suffix="$t('b30_u')" />
                                     </a-input-group>
                             </a-form-item>
-                        </a-form>
-                    </div>
-                </a-card>
-            </a-col>
-            <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :title="$t('b32')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                        <div class="baseQueryParam">
-                        <a-form>
+                            <a-form-item :label="$t('b31')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b31" style="width: 100%;" :disabled="false" :suffix="$t('b31_u')" />
+                                    </a-input-group>
+                            </a-form-item>
+                            <a-form-item :label="$t('b32')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
+                                <a-input-group compact>
+                                        <a-input v-model="b32" style="width: 100%;" :disabled="false" />
+                                    </a-input-group>
+                            </a-form-item>
                             <a-form-item :label="$t('b33')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b33" style="width: 50%;" :disabled="false" :suffix="$t('b33_u')" />
+                                        <a-input v-model="b33" style="width: 100%;" :disabled="false" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b34')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b34" style="width: 50%;" :disabled="false" :suffix="$t('b34_u')" />
+                                        <a-input v-model="b34" style="width: 100%;" :disabled="false" :suffix="$t('b34_u')" />
                                     </a-input-group>
                             </a-form-item>
                             <a-form-item :label="$t('b35')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
                                 <a-input-group compact>
-                                        <a-input v-model="b35" style="width: 50%;" :disabled="false" :suffix="$t('b35_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b36')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b36" style="width: 50%;" :disabled="false" :suffix="$t('b36_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b37')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b37" style="width: 50%;" :disabled="false" :suffix="$t('b37_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b38')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b38" style="width: 50%;" :disabled="false" :suffix="$t('b38_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b39')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b39" style="width: 50%;" :disabled="false" :suffix="$t('b39_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b40')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b40" style="width: 50%;" :disabled="false" :suffix="$t('b40_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b41')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b41" style="width: 50%;" :disabled="false" :suffix="$t('b41_u')" />
+                                        <a-input v-model="b35" style="width: 100%;" :disabled="false" :suffix="$t('b35_u')" />
                                     </a-input-group>
                             </a-form-item>
                         </a-form>
                     </div>
-                </a-card>
-                <a-card :title="$t('b43')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                        <div class="baseQueryParam">
-                        <a-form>
-                            <a-form-item :label="$t('b44')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b44" style="width: 50%;" :disabled="false" :suffix="$t('b44_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b45')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b45" style="width: 50%;" :disabled="false" :suffix="$t('b45_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b46')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b46" style="width: 50%;" :disabled="false" :suffix="$t('b46_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b47')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b47" style="width: 50%;" :disabled="false" :suffix="$t('b47_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b48')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b48" style="width: 50%;" :disabled="false" :suffix="$t('b48_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b49')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b49" style="width: 50%;" :disabled="false" :suffix="$t('b49_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                        </a-form>
-                    </div>
-                </a-card>
-                <a-card :title="$t('b51')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                        <div class="baseQueryParam">
-                        <a-form>
-                            <a-form-item :label="$t('b52')" style="margin-top: 10px" :labelCol="{ span: 24 }" :wrapperCol="{ span: 0 }">
-                            </a-form-item>
-                        </a-form>
-                    </div>
-                </a-card>
-                <a-card :title="$t('b55')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                        <div class="baseQueryParam">
-                        <a-form>
-                            <a-form-item :label="$t('b56')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b56" style="width: 50%;" :disabled="false" :suffix="$t('b56_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b57')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b57" style="width: 50%;" :disabled="false" :suffix="$t('b57_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b58')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b58" style="width: 50%;" :disabled="false" :suffix="$t('b58_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b59')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b59" style="width: 50%;" :disabled="false" :suffix="$t('b59_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b60')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b60" style="width: 50%;" :disabled="false" :suffix="$t('b60_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b61')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b61" style="width: 50%;" :disabled="false" :suffix="$t('b61_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b62')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b62" style="width: 50%;" :disabled="false" :suffix="$t('b62_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b63')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b63" style="width: 50%;" :disabled="false" :suffix="$t('b63_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b64')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b64" style="width: 50%;" :disabled="false" :suffix="$t('b64_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b65')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b65" style="width: 50%;" :disabled="false" :suffix="$t('b65_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b66')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b66" style="width: 50%;" :disabled="false" :suffix="$t('b66_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b67')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b67" style="width: 50%;" :disabled="false" :suffix="$t('b67_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                            <a-form-item :label="$t('b68')" style="margin-top: 10px" :labelCol="{ span: 8 }" :wrapperCol="{ span: 16 }">
-                                <a-input-group compact>
-                                        <a-input v-model="b68" style="width: 50%;" :disabled="false" :suffix="$t('b68_u')" />
-                                    </a-input-group>
-                            </a-form-item>
-                        </a-form>
+                </a-card>    
                     </div>
                 </a-card>
             </a-col>
@@ -334,53 +192,23 @@ export default {
     data() {
         return {
             b3: '20000',
-            b4: '0.005',
-            b5: '1.06',
-            b7: '70',
-            b9: '1',
-            b9_1: '1',
-            b10: '6.31',
-            b14:10,
-            b15:138.8888889,
-            b18:4,
-            b19:0.5,
-            b20:34.72222222,
-            b21:3,
-            b22:11.57407407,
-            b23:7.2,
-            b24:4.8,
-            b25:144,
-            b28:20,
-            b29:315.4761905,
-            b30:193.702381,
-            b33:0.2,
-            b34:0.0314,
-            b35:40,
-            b36:0.19,
-            b37:0.066,
-            b38:2,
-            b39:20.46981287,
-            b40:302,
-            b41:0.64,
-            b44:0.2,
-            b45:0.0314,
-            b46:2.04267074,
-            b47:0.45,
-            b48:0.5,
-            b49:4.95,
-            b56:10,
-            b57:6,
-            b58:13.88888889,
-            b59:3.8,
-            b60:2.5,
-            b61:0.25,
-            b62:0,
-            b63:0.5,
-            b64:0,
-            b65:0.55,
-            b66:1.7,
-            b67:0.3,
-            b68:5.05,
+            b7:'10',
+            b8:'5',
+            b9_1:'1000',
+            b10:'2',
+            b11:'1',
+            b13:'',
+            b14:'1',
+            b17:'0.85',
+            b18:'1.5',
+            b23:'1.60',
+            b24_1:'1500',
+            b25:'3',
+            b26:'1',
+            b28:'',
+            b29:'1',
+            b32:'0.85',
+            b33:'1.5',
         }
     },
     methods: {
@@ -392,23 +220,56 @@ export default {
         },
         exportComputeBook() {
             this.$message.warn(this.$t('exportComputeBookNotOpen'))
-        }
+        },
+        ROUNDUP(number, num_digits) {
+            var multiplier = Math.pow(10, num_digits);
+            return Math.ceil(number * multiplier) / multiplier;
+        },
+        truncateDecimals(number, digits) {
+            let power = Math.pow(10, digits);
+            return (Math.floor(number * power) / power);
+        },
         
     },
     computed: {
         ...mapState('setting', ['lang']),
-        b3_1() {
-            return (parseFloat(this.b3) / 24).toFixed(2)
+        b9() {
+            return (( 1 + parseFloat(this.b8)/100 + parseFloat(this.b7)/100) * parseFloat(this.b3) / 24).toFixed(2)
         },
-        b6() {
-            return (1.06 * parseFloat(this.b4) * parseFloat(this.b3_1)).toFixed(2)
+        b12() {
+            return (parseFloat(this.b9_1) / 2).toFixed(0)
         },
-        b8() {
-            return (parseFloat(this.b6) / (parseFloat(this.b7)/ 100)).toFixed(2)
+        b15() {
+            return (parseFloat(this.b12) * 1000 / 3600).toFixed(2)
         },
-        b10_1() {
-            return 8
-        }
+        b16() {
+            return 50
+        },
+        b19() {
+            return this.truncateDecimals((parseFloat(this.b16) * parseFloat(this.b14) * parseFloat(this.b15) / 102 / parseFloat(this.b17)), 2)
+        },
+        b20() {
+            return (parseFloat(this.b18) * parseFloat(this.b14) * parseFloat(this.b15) * parseFloat(this.b16) / 102 / parseFloat(this.b17)).toFixed(2)
+        },
+        b24() {
+            return (parseFloat(this.b23) * parseFloat(this.b3) / 24).toFixed(2)
+        },
+        b27() { 
+            return (parseFloat(this.b24_1) / 2).toFixed(0)
+        },
+        b30() {
+            return (parseFloat(this.b27) * 1000 / 3600).toFixed(2)
+        },
+        b31() {
+            return 50
+        },
+        b34() {
+            return this.truncateDecimals((parseFloat(this.b31) * parseFloat(this.b29) * parseFloat(this.b30) / 102 / parseFloat(this.b32)), 2)
+        },
+        b35() {
+            return (parseFloat(this.b33) * parseFloat(this.b29) * parseFloat(this.b30) * parseFloat(this.b31) / 102 / parseFloat(this.b32)).toFixed(2)
+        },
+
     }
 }
 </script>

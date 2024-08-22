@@ -1,4 +1,4 @@
-、<template>
+<template>
     <div class="calc_page" style="background-color: #EDEFF2;">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
@@ -191,7 +191,7 @@ import { mapState } from 'vuex'
 
 export default {
     components: {},
-    i18n: require('./i18n_7008'),
+    i18n: require('./i18n_1005'),
     data() {
         return {
             b3: '20000.00',

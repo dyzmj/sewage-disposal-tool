@@ -1,4 +1,4 @@
-、<template>
+<template>
     <div class="calc_page" style="background-color: #EDEFF2;">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
@@ -197,14 +197,14 @@ export default {
             b3: '20000.00',
             b4: '1',
             b4_1: '1',
-            b9:'0.1',
-            b10:'0.5',
+            b9:'1',
+            b10:'4',
             b11:'100',
             b12:'1',
-            b13:'0.40',
-            b13_1:'0.50',
-            b14:'780',
-            b14_1:'1110',
+            b13:'0.50',
+            b13_1:'0.80',
+            b14:'970',
+            b14_1:'1230',
             b14_2:'1',
             b15:'',
             b16:'600',
@@ -230,8 +230,8 @@ export default {
             b32:'0.55',
             b33:'',
             b34:'',
-            b35:'0.08',
-            b36:'16.67',
+            b35:'0.83',
+            b36:'20.83',
         }
     },
     methods: {

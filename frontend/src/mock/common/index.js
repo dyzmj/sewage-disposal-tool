@@ -45,16 +45,48 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: '预沉池',
-      }
+      },
+      {
+        title: '加药系统-NaClO',
+        key: '1003',
+        checked: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '加药系统-NaClO',
+      },
+      {
+        title: '加药系统-ClO2',
+        key: '1004',
+        checked: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '加药系统-ClO2',
+      },
+      {
+        title: '加药系统-高锰酸钾',
+        key: '1005',
+        checked: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '加药系统-高锰酸钾',
+      },
+      {
+        title: '臭氧',
+        key: '1006',
+        checked: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '臭氧',
+      },
     ]
   },
   {
     title: '混凝工艺',
-    key: '3000',
+    key: '2000',
     children: [
       {
         title: '机械搅拌絮凝池',
-        key: '3001',
+        key: '2001',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -62,7 +94,7 @@ const processUnit = [
       },
       {
         title: '网格絮凝池',
-        key: '3002',
+        key: '2002',
         checked: false,
         state: '0',
         color: '#6C767D',
@@ -70,7 +102,7 @@ const processUnit = [
       },
       {
         title: '折板絮凝池',
-        key: '3003',
+        key: '2003',
         checked: false,
         state: '0',
         color: '#6C767D',
@@ -80,11 +112,11 @@ const processUnit = [
   },
   {
     title: '沉淀工艺',
-    key: '5000',
+    key: '3000',
     children: [
       {
         title: '平流沉淀池',
-        key: '5001',
+        key: '3001',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -92,7 +124,7 @@ const processUnit = [
       },
       {
         title: '斜管沉淀池',
-        key: '5002',
+        key: '3002',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -100,7 +132,7 @@ const processUnit = [
       },
       {
         title: '高密度沉淀池',
-        key: '5003',
+        key: '3003',
         checked: false,
         state: '0',
         color: '#6C767D',
@@ -108,7 +140,7 @@ const processUnit = [
       },
       {
         title: '机械搅拌澄清池',
-        key: '5004',
+        key: '3004',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -116,7 +148,7 @@ const processUnit = [
       },
       {
         title: '水力循环澄清池',
-        key: '5005',
+        key: '3005',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -124,7 +156,7 @@ const processUnit = [
       },
       {
         title: '平流式气浮池',
-        key: '5006',
+        key: '3006',
         checked: false,
         state: '0',
         color: '#6C767D',
@@ -135,11 +167,11 @@ const processUnit = [
   },
   {
     title: '过滤工艺',
-    key: '6000',
+    key: '4000',
     children: [   
       {
         title: '普通快滤池',
-        key: '6001',
+        key: '4001',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -147,7 +179,7 @@ const processUnit = [
       },
       {
         title: 'V型滤池',
-        key: '6002',
+        key: '4002',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -157,11 +189,11 @@ const processUnit = [
   },
   {
     title: '深度处理工艺',
-    key: '8000',
+    key: '5000',
     children: [
       {
         title: '臭氧活性炭',
-        key: '8001',
+        key: '5001',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -169,7 +201,7 @@ const processUnit = [
       },
       {
         title: 'UF-GE',
-        key: '8002',
+        key: '5002',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -179,11 +211,11 @@ const processUnit = [
   },
   {
     title: '消毒工艺',
-    key: '2000',
+    key: '6000',
     children: [
       {
         title: '接触消毒池',
-        key: '2001',
+        key: '6001',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -191,7 +223,7 @@ const processUnit = [
       },
       {
         title: '浸水式紫外线消毒',
-        key: '2002',
+        key: '6002',
         checked: false,
         state: '2',
         color: '#6C767D',
@@ -199,7 +231,7 @@ const processUnit = [
       },
       {
         title: '臭氧消毒',
-        key: '2003',
+        key: '6003',
         checked: false,
         state: '0',
         color: '#6C767D',
@@ -209,49 +241,11 @@ const processUnit = [
   },
   {
     title: '加药工艺',
-    key: '4000',
-    children: [
-      {
-        title: '浓缩池',
-        key: '4001',
-        checked: false,
-        state: '2',
-        color: '#6C767D',
-        detail: '浓缩池',
-      },
-      {
-        title: '脱水加药',
-        key: '4002',
-        checked: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '脱水加药',
-      },
-    ]
-  },
-  {
-    title: '其他工艺',
     key: '7000',
     children: [
       {
-        title: '提升泵房',
-        key: '7001',
-        checked: false,
-        state: '2',
-        color: '#6C767D',
-        detail: '提升泵房',
-      },
-      {
-        title: '清水池',
-        key: '7002',
-        checked: false,
-        state: '0',
-        color: '#6C767D',
-        detail: '清水池',
-      },
-      {
         title: '活性炭吸附塔',
-        key: '7003',
+        key: '7001',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -259,7 +253,7 @@ const processUnit = [
       },
       {
         title: '折点加氯',
-        key: '7004',
+        key: '7002',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -267,7 +261,7 @@ const processUnit = [
       },
       {
         title: '加药系统-NaClO',
-        key: '7005',
+        key: '7003',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -275,7 +269,7 @@ const processUnit = [
       },
       {
         title: '加药系统-ClO2',
-        key: '7006',
+        key: '7004',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -283,7 +277,7 @@ const processUnit = [
       },
       {
         title: '加药系统-PAC',
-        key: '7007',
+        key: '7005',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -291,7 +285,7 @@ const processUnit = [
       },
       {
         title: '加药系统-PAM',
-        key: '7008',
+        key: '7006',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -299,7 +293,7 @@ const processUnit = [
       },
       {
         title: '加药系统-活性炭粉末',
-        key: '7009',
+        key: '7007',
         checked: false,
         state: '1',
         color: '#6C767D',
@@ -307,11 +301,55 @@ const processUnit = [
       },
       {
         title: '加药系统-高锰酸钾',
-        key: '7010',
+        key: '7008',
         checked: false,
         state: '1',
         color: '#6C767D',
         detail: '加药系统-高锰酸钾',
+      },
+    ]
+  },
+  {
+    title: '其他工艺',
+    key: '8000',
+    children: [
+      {
+        title: '提升泵房',
+        key: '8001',
+        checked: false,
+        state: '2',
+        color: '#6C767D',
+        detail: '提升泵房',
+      },
+      {
+        title: '清水池',
+        key: '8002',
+        checked: false,
+        state: '0',
+        color: '#6C767D',
+        detail: '清水池',
+      }
+    ]
+  },
+  {
+    title: '污泥脱水工艺',
+    key: '9000',
+    children: [
+      {
+        title: '浓缩池',
+        key: '9001',
+        checked: false,
+        state: '2',
+        color: '#6C767D',
+        detail: '浓缩池',
+      },
+      {
+        title: '脱水加药',
+        key: '9002',
+        checked: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '脱水加药',
       },
     ]
   },
