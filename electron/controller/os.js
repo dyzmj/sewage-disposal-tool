@@ -11,6 +11,7 @@ const Conf = require('ee-core/config');
 const Ps = require('ee-core/ps');
 const Services = require('ee-core/services');
 const Addon = require('ee-core/addon');
+const winreg = require('winreg');
 
 /**
  * 操作系统 - 功能demo
@@ -344,6 +345,32 @@ class OsController extends Controller {
 
     return args;
   }  
+
+  // 获取注册表项
+  async getRegistration() {
+    const path = '\\AuthTool\\SDT';
+    const regKey  = new winreg({
+      hive: winreg.HKCU,
+      key: path
+    });
+    try {
+      const result = await new Promise((resolve, reject) => {
+          regKey.get('MachineCode', (err, result) => {
+              if (err) {
+                  // 记录错误信息
+                  console.error('Error fetching MachineCode:', err);
+                  reject(err);
+              } else {
+                  resolve(result.value);
+              }
+          });
+      });
+      return result;
+  } finally {
+      // 清理资源
+      // regKey.close();
+  }
+  };
 }
 
 OsController.toString = () => '[class OsController]';

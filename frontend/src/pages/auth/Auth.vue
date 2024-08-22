@@ -26,6 +26,16 @@
                                     <a-icon slot="prefix" type="safety-certificate"/>
                                 </a-input>
                             </a-form-item>
+                            <a-form-item :label="$t('certificate')">
+                                <a-input v-model="code" disabled="true" >
+                                    <a-icon slot="prefix" type="safety-certificate"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
+                                <a-button :style="{ marginLeft: '8px' }" @click="getMachineCode()">
+                                    获取本地证书
+                                </a-button>
+                            </a-form-item>
                         </a-form>
                     </div>
                 </a-card>
@@ -35,7 +45,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
+import { ipcApiRoute } from '@/api/main';
+import { ipc } from '@/utils/ipcRenderer';
+
 export default {
     name: 'Demo',
     i18n: require('./i18n'),
@@ -44,6 +57,7 @@ export default {
             formLayout: 'horizontal',
             form: this.$form.createForm(this, { name: 'coordinated' }),
             certificate: '',
+            code: '',
         }
     },
     computed: {
@@ -66,6 +80,17 @@ export default {
         handleReset() {
             this.form.resetFields();
             this.certificate = '';
+            this.code  = '';
+        },
+        async getMachineCode() {
+            console.log("开始获取证书");
+            try {
+                const result = await ipc.invoke(ipcApiRoute.getRegistration);
+                this.code = result;
+            }catch (error) {
+                console.log(error);
+            }
+            
         },
     },
 }
