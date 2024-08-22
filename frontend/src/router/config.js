@@ -201,7 +201,7 @@ const options = {
           path: '4000',
           name: '过滤工艺',
           meta: {
-            icon: 'file-excel',
+            icon: 'filter',
             keepAlive: true,
           },
           component: PageView,
@@ -255,7 +255,7 @@ const options = {
           path: '6000',
           name: '消毒工艺',
           meta: {
-            icon: 'warning',
+            icon: 'contacts',
             keepAlive: true,
           },
           component: PageView,
@@ -290,7 +290,7 @@ const options = {
           path: '7000',
           name: '加药工艺',
           meta: {
-            icon: 'info',
+            icon: 'block',
             keepAlive: true,
           },
           component: PageView,
@@ -365,7 +365,7 @@ const options = {
           path: '8000',
           name: '其他工艺',
           meta: {
-            icon: 'file',
+            icon: 'experiment',
             keepAlive: true,
           },
           component: PageView,
@@ -393,7 +393,7 @@ const options = {
           path: '9000',
           name: '污泥脱水工艺',
           meta: {
-            icon: 'info',
+            icon: 'build',
             keepAlive: true,
           },
           component: PageView,
@@ -435,10 +435,19 @@ const options = {
           component: () => import('@/pages/about')
         },
         {
+          path: 'auth',
+          name: '授权',
+          meta: {
+            icon: 'safety',
+            keepAlive: true,
+          },
+          component: () => import('@/pages/auth')
+        },
+        {
           name: '验权页面',
           path: 'auth/work',
           meta: {
-            icon: 'file-ppt',
+            icon: 'safety',
             authority: {
               permission: 'form',
               role: 'manager'

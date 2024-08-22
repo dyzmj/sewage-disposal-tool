@@ -1,0 +1,75 @@
+<template>
+    <div class="container">
+        <a-row style="margin: 0 -6px">
+            <a-col style="padding: 0 6px; height: 100%;" :xl="24" :lg="24" :md="24" :sm="24" :xs="24">
+                <a-card :loading="loading" :title="$t('authPage')" headStyle="font-weight: bolder"
+                    style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }"
+                            @submit="handleSubmit">
+                            <a-form-item :label="$t('machineCode')">
+                                <a-input 
+                                    v-decorator="['machineCode', { rules: [{ required: true, message: '请先输入机器码！', length: 40 }] }]" >
+                                    <a-icon slot="prefix" type="robot" />
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
+                                <a-button type="primary" html-type="submit">
+                                    {{$t('genCert')}}
+                                </a-button>
+                                <a-button :style="{ marginLeft: '8px' }" @click="handleReset">
+                                    {{$t('clear')}}
+                                </a-button>
+                            </a-form-item>
+                            <a-form-item :label="$t('certificate')">
+                                <a-input v-model="certificate" disabled="true" >
+                                    <a-icon slot="prefix" type="safety-certificate"/>
+                                </a-input>
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
+            </a-col>
+        </a-row>
+    </div>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+    name: 'Demo',
+    i18n: require('./i18n'),
+    data() {
+        return {
+            formLayout: 'horizontal',
+            form: this.$form.createForm(this, { name: 'coordinated' }),
+            certificate: '',
+        }
+    },
+    computed: {
+        ...mapState('setting', ['pageMinHeight']),
+        desc() {
+            return this.$t('description')
+        }
+    },
+    methods: {
+        handleSubmit(e) {
+            e.preventDefault();
+            this.form.validateFields((err, values) => {
+                if (!err) {
+                    console.log('Received values of form: ', values);
+                    this.certificate = values.machineCode
+                    // todo 加密机器码
+                }
+            });
+        },
+        handleReset() {
+            this.form.resetFields();
+            this.certificate = '';
+        },
+    },
+}
+</script>
+
+<style scoped>
+</style>
