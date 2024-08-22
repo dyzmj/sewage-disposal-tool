@@ -48,6 +48,7 @@
 import { mapState } from 'vuex';
 import { ipcApiRoute } from '@/api/main';
 import { ipc } from '@/utils/ipcRenderer';
+import CryptoJS from 'crypto-js';
 
 export default {
     name: 'Demo',
@@ -71,9 +72,15 @@ export default {
             e.preventDefault();
             this.form.validateFields((err, values) => {
                 if (!err) {
-                    console.log('Received values of form: ', values);
-                    this.certificate = values.machineCode
-                    // todo 加密机器码
+                    console.log('Received values of form: ', values)
+                    this.$message.info("正在生成授权证书")
+                    // 加密机器码
+                    // let key = "dyzmj1234567890123456dyzmj";
+                    let test = CryptoJS.SHA256(values.machineCode);
+                    // 使用16进制的方法加密，输出字符串
+                    let testStr= CryptoJS.enc.Hex.stringify(test);
+                    
+                    this.certificate = testStr
                 }
             });
         },
@@ -83,7 +90,7 @@ export default {
             this.code  = '';
         },
         async getMachineCode() {
-            console.log("开始获取证书");
+            this.$message.info("开始获取本地证书")
             try {
                 const result = await ipc.invoke(ipcApiRoute.getRegistration);
                 this.code = result;
