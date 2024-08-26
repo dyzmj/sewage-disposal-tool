@@ -45,6 +45,15 @@ const options = {
           component: () => import('@/pages/work')
         },
         {
+          path: 'flowchart',
+          name: '工艺流程图',
+          meta: {
+            icon: 'picture',
+            keepAlive: true,
+          },
+          component: () => import('@/pages/flowchart')
+        },
+        {
           path: '1000',
           name: '预处理工艺',
           meta: {
@@ -415,15 +424,6 @@ const options = {
               component: () => import('@/pages/operation/9000/9002')
             },
           ]
-        },
-        {
-          path: 'settings',
-          name: '设置',
-          meta: {
-            icon: 'form',
-            keepAlive: true,
-          },
-          component: () => import('@/pages/settings')
         },
         {
           path: 'about',

@@ -28,7 +28,7 @@
           </a-tab-pane>
         </a-tabs>
         <div>
-          <a-checkbox :checked="true">自动登录</a-checkbox>
+          <a-checkbox style="float: right" >记住密码</a-checkbox>
           <!-- <a style="float: right">忘记密码</a> -->
         </div>
         <a-form-item>

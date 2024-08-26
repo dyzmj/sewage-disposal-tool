@@ -3,7 +3,7 @@
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('b2')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                    <a-card :title="$t('b3')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b3')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b4')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -33,7 +33,7 @@
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b7')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b7')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -104,7 +104,7 @@
                             :wrapperCol="{ span: 0 }">
                         </a-form-item>
                     </a-form>
-                    <a-card :title="$t('b18')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b18')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b19')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -139,7 +139,7 @@
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b24')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b24')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b25')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -216,7 +216,7 @@
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b37')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b37')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b38')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -243,9 +243,9 @@
             </a-col>
             <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('b41')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                    <a-card :title="$t('b42')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b42')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
-                        <a-card :title="$t('b43')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b43')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b44')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -264,7 +264,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b46')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b46')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b47')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -297,7 +297,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b51')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b51')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b44')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -317,9 +317,9 @@
                             </a-form>
                         </a-card>
                     </a-card>
-                    <a-card :title="$t('b56')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b56')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
-                        <a-card :title="$t('b57')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b57')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b58')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -345,7 +345,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b61')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b61')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b62')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -364,7 +364,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b64')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b64')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b65')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -397,7 +397,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b69')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b69')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b70')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -416,7 +416,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b72')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b72')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b73')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -449,7 +449,7 @@
                                 </a-form-item>
                             </a-form>
                         </a-card>
-                        <a-card :title="$t('b77')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                        <a-card :title="$t('b77')" style="margin-bottom: 24px; "
                             :bordered="false" :body-style="{ padding: 4 }" size="small">
                             <a-form>
                                 <a-form-item :label="$t('b78')" style="margin-top: 10px" :labelCol="{ span: 8 }"

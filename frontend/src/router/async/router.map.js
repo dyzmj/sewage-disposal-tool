@@ -17,10 +17,10 @@ const routerMap = {
     renderMenu: false,
     component: () => import('@/pages/work')
   },
-  settings: {
-    name: '设置',
+  flowchart: {
+    name: '工艺流程图',
     renderMenu: false,
-    component: () => import('@/pages/settings')
+    component: () => import('@/pages/flowchart')
   },
   about: {
     name: '关于',

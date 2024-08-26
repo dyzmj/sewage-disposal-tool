@@ -19,14 +19,14 @@
           </a-tooltip> -->
           <!-- <header-notice class="header-item"/> -->
           <header-avatar class="header-item"/>
-          <a-dropdown class="lang header-item">
+          <!-- <a-dropdown class="lang header-item">
             <div>
               <a-icon type="global"/> {{langAlias}}
             </div>
             <a-menu @click="val => setLang(val.key)" :selected-keys="[lang]" slot="overlay">
               <a-menu-item v-for=" lang in langList" :key="lang.key">{{lang.key.toLowerCase() + ' ' + lang.name}}</a-menu-item>
             </a-menu>
-          </a-dropdown>
+          </a-dropdown> -->
       </div>
     </div>
   </a-layout-header>

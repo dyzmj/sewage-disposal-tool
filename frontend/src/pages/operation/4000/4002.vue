@@ -37,7 +37,7 @@
                                 </a-input-group>
                             </a-form-item>
 
-                            <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                            <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                 :bordered="false" :body-style="{ padding: 4 }" size="small">
                                 <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                     :wrapperCol="{ span: 16 }">
@@ -130,7 +130,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -211,7 +211,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -297,7 +297,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -378,7 +378,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -459,7 +459,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -540,7 +540,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -621,7 +621,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">
@@ -702,7 +702,7 @@
                                     </a-input-group>
                                 </a-form-item>
 
-                                <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder"
+                                <a-card :title="$t('b9')" style="margin-bottom: 24px; "
                                     :bordered="false" :body-style="{ padding: 4 }" size="small">
                                     <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                                         :wrapperCol="{ span: 16 }">

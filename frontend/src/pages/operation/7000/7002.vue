@@ -3,7 +3,7 @@
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
                 <a-card :title="$t('b5')" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
-                    <a-card :title="$t('b6')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b6')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b8')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -15,7 +15,7 @@
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b9')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b9')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <a-form>
                             <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }"
@@ -62,7 +62,7 @@
                             </a-form-item>
                         </a-form>
                     </a-card>
-                    <a-card :title="$t('b17')" style="margin-bottom: 24px" headStyle="font-weight: bolder" :bordered="false"
+                    <a-card :title="$t('b17')" style="margin-bottom: 24px; " :bordered="false"
                         :body-style="{ padding: 4 }" size="small">
                         <p>① {{ $t('b18') }}</p>
                         <p>② {{ $t('b19') }}</p>

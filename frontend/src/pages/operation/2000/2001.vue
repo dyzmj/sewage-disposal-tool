@@ -8,7 +8,7 @@
                 </span>
                 <a-row style="margin: 0 -6px">
                     <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('b2')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b2')" style="margin-bottom: 24px; " :='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -24,7 +24,7 @@
                                 </a-form>
                             </div>
                         </a-card>
-                        <a-card :title="$t('b6')" style="margin-bottom: 24px"  headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b6')" style="margin-bottom: 24px" :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -56,7 +56,7 @@
                         </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('b15')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b15')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -78,9 +78,9 @@
                                 </a-form>
                             </div>
                         </a-card>
-                        <a-card :title="$t('b20')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b20')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
-                            <a-card :title="$t('b21')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b21')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -125,7 +125,7 @@
                                 </a-form>
                             </div>
                             </a-card>
-                            <a-card :title="$t('b31')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b31')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -190,7 +190,7 @@
                                 </a-form>
                             </div>
                             </a-card>
-                            <a-card :title="$t('b44')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b44')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -218,7 +218,7 @@
                         </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('b50')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b50')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -258,7 +258,7 @@
                             </div>
                         </a-card>
 
-                        <a-card :title="$t('b58')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b58')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -299,7 +299,7 @@
                 </span>
                 <a-row style="margin: 0 -6px">
                     <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('c2')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('c2')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -315,7 +315,7 @@
                                 </a-form>
                             </div>
                         </a-card>
-                        <a-card :title="$t('c6')" style="margin-bottom: 24px"  headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('c6')" style="margin-bottom: 24px" :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -341,7 +341,7 @@
                         </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('b15')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b15')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -363,9 +363,9 @@
                                 </a-form>
                             </div>
                         </a-card>
-                        <a-card :title="$t('b20')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b20')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
-                            <a-card :title="$t('b21')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b21')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -410,7 +410,7 @@
                                 </a-form>
                             </div>
                             </a-card>
-                            <a-card :title="$t('b31')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b31')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -475,7 +475,7 @@
                                 </a-form>
                             </div>
                             </a-card>
-                            <a-card :title="$t('b44')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                            <a-card :title="$t('b44')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -503,7 +503,7 @@
                         </a-card>
                     </a-col>
                     <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                        <a-card :title="$t('b50')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b50')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
@@ -543,7 +543,7 @@
                             </div>
                         </a-card>
 
-                        <a-card :title="$t('b58')" style="margin-bottom: 24px" headStyle="font-weight: bolder"  :bordered="false" :hoverable="true" size="small"
+                        <a-card :title="$t('b58')" style="margin-bottom: 24px; " :headStyle='{"font-weight": "bolder"}'  :bordered="false" :hoverable="true" size="small"
                             :body-style="{ padding: 4 }">
                             <div class="baseQueryParam">
                                 <a-form>
