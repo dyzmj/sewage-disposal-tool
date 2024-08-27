@@ -11,3 +11,5 @@ public/dist/
 pnpm-lock.yaml
 .yalc/
 yalc.lock
+
+helper.json

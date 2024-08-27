@@ -13,6 +13,10 @@ const Services = require('ee-core/services');
 const Addon = require('ee-core/addon');
 const winreg = require('winreg');
 
+const getMac = require("getmac");
+const os = require('os');
+const CryptoJS = require('crypto-js')
+
 /**
  * 操作系统 - 功能demo
  * @class
@@ -344,7 +348,26 @@ class OsController extends Controller {
     nativeTheme.themeSource = args;
 
     return args;
-  }  
+  }
+
+  insertDashes(str) {
+    let result = '';
+    // 遍历字符串中的每个字符
+    for (let i = 0; i < str.length; i++) {
+      result += str[i];
+      // 每四个字符后插入“-”
+      if ((i + 1) % 4 === 0 && i < str.length - 1) {
+        result += '-';
+      }
+    }
+    return result;
+  }
+
+  async getMachineCode() {
+    let message = "Address >>"+(os.hostname() + os.hostname() + getMac.default()).toUpperCase();
+    let msg = CryptoJS.MD5(message).toString(CryptoJS.enc.Hex).toUpperCase();
+    return this.insertDashes(msg);
+  }
 
   // 获取注册表项
   async getRegistration() {

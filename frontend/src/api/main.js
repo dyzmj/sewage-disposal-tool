@@ -44,6 +44,7 @@ const ipcApiRoute = {
     setTheme: 'controller.os.setTheme',
     getTheme: 'controller.os.getTheme',
     getRegistration: 'controller.os.getRegistration',
+    getMachineCode: 'controller.os.getMachineCode',
   
     // hardware
     getPrinterList: 'controller.hardware.getPrinterList',

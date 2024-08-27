@@ -28,7 +28,7 @@
           </a-tab-pane>
         </a-tabs>
         <div>
-          <a-checkbox style="float: right" >记住密码</a-checkbox>
+          <a-checkbox style="float: right">记住密码</a-checkbox>
           <!-- <a style="float: right">忘记密码</a> -->
         </div>
         <a-form-item>
@@ -46,6 +46,9 @@ import { login, getRoutesConfig } from '@/services/user'
 import { setAuthorization } from '@/utils/request'
 import { loadRoutes } from '@/utils/routerUtil'
 import { mapMutations } from 'vuex'
+import { ipcApiRoute } from '@/api/main';
+import { ipc } from '@/utils/ipcRenderer';
+import CryptoJS from 'crypto-js';
 
 export default {
   name: 'Login',
@@ -66,8 +69,18 @@ export default {
   },
   methods: {
     ...mapMutations('account', ['setUser', 'setPermissions', 'setRoles']),
-    onSubmit(e) {
+    async onSubmit(e) {
       e.preventDefault()
+
+      // 校验证书
+      try {
+        await this.processCert();
+      } catch (error) {
+        console.log(error)
+        this.$message.error(error)
+        return;
+      }
+
       this.form.validateFields((err) => {
         if (!err) {
           this.logging = true
@@ -99,7 +112,57 @@ export default {
     },
     onClose() {
       this.error = false
+    },
+    async processCert() {
+      try {
+        // TODO: 校验是否进行过认证
+        const certificate = await this.getRegistration().then(res => {
+          // console.log("====");
+          // console.log(res);
+          return res;
+        })
+        if (certificate === null || certificate === undefined || certificate === "") {
+          throw "证书不存在，请重新认证！";
+        }
+        console.info("证书：" + certificate);
+
+        // 获取本地机器码
+        const machineCode = await this.getMachineCode().then(res => {
+          // console.log(res);
+          return res;
+        });
+        console.info("机器码：" + machineCode);
+
+        let crypt = CryptoJS.SHA256(machineCode);
+        let cryptCertificate = CryptoJS.enc.Hex.stringify(crypt);
+
+        console.info("机器码加密：" + cryptCertificate);
+
+        if (certificate !== cryptCertificate) {
+          throw "证书与机器码不匹配，请重新认证！";
+        }
+      } catch (error) {
+          console.error("Error process:", error);
+          throw error;
+      }
+    },
+    async getRegistration() {
+      try {
+        const result = await ipc.invoke(ipcApiRoute.getRegistration);
+        return result;
+      } catch (error) {
+        console.log("获取证书异常：" + error);
+      }
+    },
+    async getMachineCode() {
+      try {
+        const machineCode = await ipc.invoke(ipcApiRoute.getMachineCode);
+        return machineCode;
+      } catch (error) {
+        console.log("获取机器码异常：" + error);
+      }
     }
+
   }
 }
 </script>

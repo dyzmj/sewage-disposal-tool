@@ -116,7 +116,7 @@
         <a-card :loading="loading" :title="$t('processUnit')" :headStyle='{"font-weight": "bolder"}' style="margin-bottom: 0px" :bordered="false">
           <a-list :grid="{ gutter: 4, column: 4 }"  style="margin: 0 -16px" :split="false" :xl="5" :lg="10" :md="24" :sm="24" :xs="24">
             <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
-              <a-card size='default' :title="item.title" :loading="loading" :hoverable="true" bordered="true">
+              <a-card size='default' :title="item.title" :loading="loading" :hoverable="true" :bordered="true">
                 <a slot="extra" style="color: rgb(120, 120, 120); font-size: 12px; font-style: italic;" @click="showModal">{{ $t('detail') }}</a>
                 <div class="content">
                   <a-list size="small" :split="false">
