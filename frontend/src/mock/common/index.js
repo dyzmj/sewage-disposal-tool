@@ -4,21 +4,9 @@ const avatars = [
 
 const positions = [
   {
-    CN: 'Java工程师',
-    HK: 'Java工程師',
-    US: 'Java engineer'
-  },{
-    CN: '前端工程师',
-    HK: '前端工程師',
-    US: 'Front-end engineer'
-  },{
-    CN: '前端工程师',
-    HK: '前端工程師',
-    US: 'Front-end engineer'
-  },{
-    CN: '产品分析师',
-    HK: '產品分析師',
-    US: 'Product analyst'
+    CN: '全栈工程师',
+    HK: '全栈工程師',
+    US: 'Full Stack engineer'
   }
 ]
 
@@ -292,20 +280,20 @@ const processUnit = [
         detail: '加药系统-PAM',
       },
       {
-        title: '加药系统-活性炭粉末',
+        title: '活性炭粉末',
         key: '7007',
         checked: false,
         state: '1',
         color: '#6C767D',
-        detail: '加药系统-活性炭粉末',
+        detail: '活性炭粉末',
       },
       {
-        title: '加药系统-高锰酸钾',
+        title: '高锰酸钾',
         key: '7008',
         checked: false,
         state: '1',
         color: '#6C767D',
-        detail: '加药系统-高锰酸钾',
+        detail: '高锰酸钾',
       },
     ]
   },
