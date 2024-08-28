@@ -2,8 +2,8 @@
   <div id="container">
     <a-row style="margin: 0 -6px">
       <a-col style="padding: 0 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :title="$t('baseQueryParam')"
-          style="margin-bottom: 2  4px" :bordered="false" :body-style="{ padding: 4 }" :headStyle='{"font-weight": "bolder"}'>
+        <a-card :loading="loading" :title="$t('baseQueryParam')" style="margin-bottom: 2  4px" :bordered="false"
+          :body-style="{ padding: 4 }" :headStyle='{ "font-weight": "bolder" }'>
           <div class="baseQueryParam">
             <a-form class="diy-advanced-search-form" :form="form" @submit="handleSearch">
               <a-form-item :label="$t('param1')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
@@ -119,8 +119,8 @@
         </a-card>
       </a-col>
       <a-col style="padding: 0 6px; padding-bottom: 10px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :title="$t('processUnit')" style="margin-bottom: 0px" :headStyle='{"font-weight": "bolder"}'
-          :bordered="false">
+        <a-card :loading="loading" :title="$t('processUnit')" style="margin-bottom: 0px"
+          :headStyle='{ "font-weight": "bolder" }' :bordered="false">
           <!-- <img src="./wio.svg" style="background-color: gray; width: 100%; height: 700px;" /> -->
           <div id="svgTemplate" ref="svg"></div>
         </a-card>
@@ -167,194 +167,166 @@ export default {
       debugger;
       console.log('点击事件----->>>')
     },
-    //  svg 鼠标滚动事件
-    window['havcZooming'] = (e) => {
-      console.log(e, 'havcZooming----->>>')
-      // this.zoomimg();
-    }
+      //  svg 鼠标滚动事件
+      window['havcZooming'] = (e) => {
+        console.log(e, 'havcZooming----->>>')
+        // this.zoomimg();
+      }
   },
   methods: {
     handleSearch(e) {
       e.preventDefault();
       this.form.validateFields((error, values) => {
-        console.log('error', error);
-        console.log('Received values of form: ', values);
-        console.log(values.param1)
-        console.log(this.processUnit)
+        // 根据实际输入参数点亮对应的标签
 
-        console.log('param1: ', values.param1)
-        console.info(values)
-        // 含砂量
-        if(values.param1 >= 80){
-          this.processUnit[0].children[1].checked = true
-          this.processUnit[0].children[1].color = '#2db7f5' 
-          // 2db7f5
-        }else if(values.param1 < 80){
-          this.processUnit[0].children[1].checked = false
-          this.processUnit[0].children[1].color = '#6C767D' 
+        // 1、含砂量
+        if (values.param1 >= 80) {
+          // 预沉池
+          const dom1002 = document.getElementById("1002");
+          dom1002.style.fill = "#1ba1e2";
+        } else if (values.param1 < 80) {
+          const dom1002 = document.getElementById("1002");
+          dom1002.style.fill = "none";
         }
-        // 铁
-        if(values.param2 > 0.3){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 2、铁
+        if (values.param2 > 0.3) {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
         }
-        // 锰
-        if(values.param3 > 0.1){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 3、锰
+        if (values.param3 > 0.1) {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
         }
-        // 色度
-        if(values.param4 > 15){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 4、色度
+        if (values.param4 > 15) {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
+          // 活性炭粉末
+          // 无
         }
 
-        // 嗅味
-        if(values.param5 === '1'){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 5、嗅味
+        if (values.param5 === '1') {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
+          // 活性炭粉末
+          // 无
         }
 
-        // 藻类
-        if(values.param6 === '1'){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 6、藻类
+        if (values.param6 === '1') {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
+          // 活性炭粉末
+          // 无
         }
 
-        // 高锰酸盐指数
-        if(values.param7 === '0'){
-          // 
-        } else if(values.param7 === '1'){
-          this.processUnit[0].children[0].checked = true
-          this.processUnit[0].children[0].color = '#2db7f5'
-        } else if(values.param7 === '2'){
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
-        } else if(values.param7 === '3'){
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5' 
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5' 
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5' 
+        // 7、高锰酸盐指数
+        if (values.param7 === '0') {
+          // nothing to do
+        } else if (values.param7 === '1') {
+          // 生物接触氧化
+          const dom1003 = document.getElementById("1003");
+          dom1003.style.fill = "#1ba1e2";
+        } else if (values.param7 === '2') {
+          // 臭氧活性炭
+          const dom1010 = document.getElementById("1010");
+          dom1010.style.fill = "#1ba1e2";
+        } else if (values.param7 === '3') {
+          // 配水井
+          const dom1001 = document.getElementById("1001");
+          dom1001.style.fill = "#1ba1e2";
+          // 活性炭粉末
+          // 无
         }
 
-        // 溴化物
-        if(values.param8 === '1'){
-          this.processUnit[4].children[0].checked = false
-          this.processUnit[4].children[0].color = '#6C767D' 
+        // 8、溴化物
+        if (values.param8 === '1') {
+          // 不得选用臭氧
+          // this.processUnit[0].children[5].checked = false
+          // this.processUnit[0].children[5].disabled = 'true'
+          this.$message.error(this.$t('不得选用臭氧'))
         }
 
-        // 氨氮
-        if(values.param9 > 0.5 && values.param9 <= 1){
-          this.processUnit[7].children[3].checked = true
-          this.processUnit[7].children[3].color = '#2db7f5'
-        } else if(values.param9 > 1){
-          this.processUnit[0].children[0].checked = true
-          this.processUnit[0].children[0].color = '#2db7f5'
+        // 9、氨氮
+        if (values.param9 <= 0.5) {
+          // nothing to do
+        } else if (values.param9 > 0.5 && values.param9 <= 1) {
+          // 折点加氯
+
+        } else if (values.param9 > 1) {
+          // 生物接触氧化
+          const dom1003 = document.getElementById("1003");
+          dom1003.style.fill = "#1ba1e2";
         }
 
-        // 浊度
-        if(values.param11 < 10000){
-          this.processUnit[2].children[0].checked = true
-          this.processUnit[2].children[0].color = '#2db7f5'
-          this.processUnit[3].children[0].checked = true
-          this.processUnit[3].children[0].color = '#2db7f5'
-        } else if(values.param11 < 5000){
-          this.processUnit[2].children[1].checked = true
-          this.processUnit[2].children[1].color = '#2db7f5'
-        } else if(values.param11 < 3000){
-          this.processUnit[2].children[3].checked = true
-          this.processUnit[2].children[3].color = '#2db7f5'
-        } else if(values.param11 < 500){
-          this.processUnit[2].children[4].checked = true
-          this.processUnit[2].children[4].color = '#2db7f5'
-        } else if(values.param11 < 100){
-          this.processUnit[2].children[2].checked = true
-          this.processUnit[2].children[2].color = '#2db7f5'
-        } else if(values.param11 < 50){
-          this.processUnit[2].children[5].checked = true
-          this.processUnit[2].children[5].color = '#2db7f5'
+        // 11、浊度
+        if (values.param11 < 50) {
+          // nothing to do
+        } else if (values.param11 < 100) {
+          // 气浮池
+          const dom1020 = document.getElementById("1020");
+          dom1020.style.fill = "#1ba1e2";
+        } else if (values.param11 < 500) {
+          // 水力循环澄清池
+          const dom1019 = document.getElementById("1019");
+          dom1019.style.fill = "#1ba1e2";
+        } else if (values.param11 < 3000) {
+          // 机械搅拌澄清池
+          const dom1018 = document.getElementById("1018");
+          dom1018.style.fill = "#1ba1e2";
+        } else if (values.param11 < 5000) {
+          // 平流沉淀池
+          const dom1006 = document.getElementById("1006");
+          dom1006.style.fill = "#1ba1e2";
+        } else if (values.param11 < 10000) {
+          // 斜管沉淀池
+          const dom1007 = document.getElementById("1007");
+          dom1007.style.fill = "#1ba1e2";
+          // 高密度沉淀池
+          const dom1017 = document.getElementById("1017");
+          dom1017.style.fill = "#1ba1e2";
         }
 
-        // 出水浊度
-        if(values.param12 > 0.5){
-          this.processUnit[2].children[1].checked = true
-          this.processUnit[2].children[1].color = '#2db7f5'
-        } 
+        // 12、出水浊度
+        if (values.param12 < 0.5) {
+          // 超滤
+          const dom1012 = document.getElementById("1012");
+          dom1012.style.fill = "#1ba1e2";
+        }
 
-        // 消毒
-        if(values.param13 === '0'){
-          this.processUnit[5].children[0].checked = false
-          this.processUnit[5].children[0].color = '#6C767D'
-        } else if(values.param13 === '1'){
+        // 13、消毒
+        if (values.param13 === '0') {
+          // nothing to do
+        } else if (values.param13 === '1') {
+          // 接触消毒
           this.processUnit[5].children[0].checked = true
-          this.processUnit[5].children[0].color = '#2db7f5'
-        } 
+        }
 
-        // 初始化是常选中：混凝工艺全部、PAC、PAM
-        this.processUnit[7].children[6].checked = true
-        this.processUnit[7].children[6].color = '#2db7f5' 
-        this.processUnit[7].children[7].checked = true
-        this.processUnit[7].children[7].color = '#2db7f5' 
-
-        this.processUnit[1].children[0].checked = true
-        this.processUnit[1].children[0].color = '#2db7f5' 
-        this.processUnit[1].children[1].checked = true
-        this.processUnit[1].children[1].color = '#2db7f5' 
-        this.processUnit[1].children[2].checked = true
-        this.processUnit[1].children[2].color = '#2db7f5' 
-        
 
 
       });
-      this.$message.info(this.$t('initSucc'))
-      // console.log('Received values of form: ', this.form);
-      let svgcanvasDom = document.getElementById("svgcanvas");
-      // this.rectDom = svgcanvasDom.getElementsByTagName("rect");
-      this.rectDom = svgcanvasDom.getElementsByClassName("rect");
-        for(let i = 0; i < this.rectDom.length; i++) {
-            this.rectDom[i].style.fill = "#1ba1e2";
-        }
-        // TODO 根据实际输入参数点亮对应的标签
+      // this.$message.info(this.$t('initSucc'))
 
     },
     handleReset() {
       this.$message.info(this.$t('resetSucc'))
       this.form.resetFields();
-      this.getProcessUnit();
+
+      // console.log('Received values of form: ', this.form);
+      let svgcanvasDom = document.getElementById("svgcanvas");
+      // this.rectDom = svgcanvasDom.getElementsByTagName("rect");
+      this.rectDom = svgcanvasDom.getElementsByClassName("rect");
+      for (let i = 0; i < this.rectDom.length; i++) {
+        this.rectDom[i].style.fill = "none";
+      }
+
     },
     loadSvg() {
       const xhr = new XMLHttpRequest();
@@ -406,12 +378,12 @@ export default {
         // }
 
         this.rectDom = svgcanvasDom.getElementsByTagName("rect");
-        for(let i = 0; i < this.rectDom.length; i++) {
+        for (let i = 0; i < this.rectDom.length; i++) {
           // let currNodeId = this.rectDom[i].id 
           // this.rectDom[i].setAttribute("v-on:click", "this.handleClick()"); // 为每个节点绑定点击事件
           // console.log('当前 rect 标签下的节点id----->>>', currNodeId)
 
-          this.rectDom[i].addEventListener('click', function(event){
+          this.rectDom[i].addEventListener('click', function (event) {
             console.log('>>>>>>>>Rectangle clicked!', event);
             this.rectDom[i].style.fill = "green";
           })
@@ -462,7 +434,7 @@ export default {
         if (document.implementation.createDocument) {
           var parser = new DOMParser();
           xmlDoc = parser.parseFromString(xmlString, "text/xml");
-        } 
+        }
         // else if (window.ActiveXObject) {
         //   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
         //   xmlDoc.async = false;
