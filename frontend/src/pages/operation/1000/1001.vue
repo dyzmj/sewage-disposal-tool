@@ -9,7 +9,7 @@
                             <a-form-item :label="$t('b3_1')" style="margin-top: 10px" :labelCol="{ span: 10 }"
                                 :wrapperCol="{ span: 14 }">
                                 <a-input v-model="b3_1" :placeholder="$t('b3_1')"
-                                    :suffix="$t('b3_1_u')" value='120000' :disabled="false" />
+                                    :suffix="$t('b3_1_u')" :disabled="false" />
                                 <a-input v-model="b3_2" :placeholder="$t('b3_2')"
                                     :suffix="$t('b3_2_u')" :disabled="true" />
                                 <a-input v-model="b3_3" :placeholder="$t('b3_3')"
@@ -839,5 +839,8 @@ export default {
 <style lang="less">
 .calc{
     margin-bottom: 15px;
+}
+.ant-input-suffix {
+  z-index: auto !important;
 }
 </style>

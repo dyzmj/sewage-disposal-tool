@@ -232,4 +232,7 @@ export default {
 .calc{
     margin-bottom: 15px;
 }
+.ant-input-suffix {
+  z-index: auto !important;
+}
 </style>

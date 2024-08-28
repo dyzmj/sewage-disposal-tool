@@ -940,7 +940,10 @@ export default {
 </script>
 
 <style lang="less">
-.calc {
+.calc{
     margin-bottom: 15px;
+}
+.ant-input-suffix {
+  z-index: auto !important;
 }
 </style>
