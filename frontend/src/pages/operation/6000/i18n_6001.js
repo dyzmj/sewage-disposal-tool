@@ -5,6 +5,7 @@ module.exports = {
         processDesignCompute:'工艺设计计算',
         referenceInformation:'参考信息',
         referenceImage:'参考图片',
+        quantities: '工程量',
         designScale: '设计规模Q',
         designScaleUnit: 'm3/d',
         totalChangeFactor: '总变化系数',
