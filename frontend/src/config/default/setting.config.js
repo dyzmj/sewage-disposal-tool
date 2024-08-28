@@ -9,14 +9,14 @@ module.exports = {
     error: '#f5222f',                   //错误色
   },
   layout: 'side',                       //导航布局，可选 side 和 head，分别为侧边导航和顶部导航
-  fixedHeader: true,                   //固定头部状态栏，true:固定，false:不固定
-  fixedSideBar: true,                   //固定侧边栏，true:固定，false:不固定
+  fixedHeader: false,                   //固定头部状态栏，true:固定，false:不固定
+  fixedSideBar: false,                   //固定侧边栏，true:固定，false:不固定
   fixedTabs: true,                      //固定页签头，true:固定，false:不固定
   pageWidth: 'fluid',                   //内容区域宽度，fixed:固定宽度，fluid:流式宽度
   weekMode: false,                      //色弱模式，true:开启，false:不开启
   multiPage: true,                     //多页签模式，true:开启，false:不开启
   cachePage: false,                      //是否缓存页面数据，仅多页签模式下生效，true 缓存, false 不缓存
-  hideSetting: false,                   //隐藏设置抽屉，true:隐藏，false:不隐藏
+  hideSetting: true,                   //隐藏设置抽屉，true:隐藏，false:不隐藏
   systemName: 'S D T',                  //系统名称
   copyright: '2024',                    //copyright
   asyncRoutes: false,                   //异步加载路由，true:开启，false:不开启
@@ -28,8 +28,8 @@ module.exports = {
     direction: 'left'                   //动画方向，切换页面时动画的方向，参考 ./animate.config.js
   },
   footerLinks: [                        //页面底部链接，{link: '链接地址', name: '名称/显示文字', icon: '图标，支持 ant design vue 图标库'}
-    {link: 'https://pro.ant.design', name: 'Pro首页'},
-    {link: 'https://github.com/iczer/vue-antd-admin', icon: 'github'},
-    {link: 'https://ant.design', name: 'Ant Design'}
+    {link: 'https://www.dyzmj.top', name: 'Dyzmj'},
+    {link: 'https://github.com/dyzmj', icon: 'github'},
+    {link: 'https://www.dyzmj.top', name: 'Dyzmj'}
   ],
 }
