@@ -79,7 +79,7 @@ const options = {
               component: () => import('@/pages/operation/1000/1002')
             },
             {
-              name: '加药系统-NaClO',
+              name: 'NaClO',
               path: '/sub/1003',
               meta: {
                 keepAlive: true,
@@ -87,7 +87,7 @@ const options = {
               component: () => import('@/pages/operation/1000/1003')
             },
             {
-              name: '加药系统-ClO2',
+              name: 'ClO2',
               path: '/sub/1004',
               meta: {
                 keepAlive: true,
@@ -95,7 +95,7 @@ const options = {
               component: () => import('@/pages/operation/1000/1004')
             },
             {
-              name: '加药系统-高锰酸钾',
+              name: '高锰酸钾',
               path: '/sub/1005',
               meta: {
                 keepAlive: true,
@@ -321,7 +321,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7002')
             },
             {
-              name: '加药系统-NaClO',
+              name: 'NaClO',
               path: '/sub/7003',
               meta: {
                 keepAlive: true,
@@ -329,7 +329,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7003')
             },
             {
-              name: '加药系统-ClO2',
+              name: 'ClO2',
               path: '/sub/7004',
               meta: {
                 keepAlive: true,
@@ -337,7 +337,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7004')
             },
             {
-              name: '加药系统-PAC',
+              name: 'PAC',
               path: '/sub/7005',
               meta: {
                 keepAlive: true,
@@ -345,7 +345,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7005')
             },
             {
-              name: '加药系统-PAM',
+              name: 'PAM',
               path: '/sub/7006',
               meta: {
                 keepAlive: true,
@@ -353,7 +353,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7006')
             },
             {
-              name: '加药系统-活性炭粉末',
+              name: '活性炭粉末',
               path: '/sub/7007',
               meta: {
                 keepAlive: true,
@@ -361,7 +361,7 @@ const options = {
               component: () => import('@/pages/operation/7000/7007')
             },
             {
-              name: '加药系统-高锰酸钾',
+              name: '高锰酸钾',
               path: '/sub/7008',
               meta: {
                 keepAlive: true,

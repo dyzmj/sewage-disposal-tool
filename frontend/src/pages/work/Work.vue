@@ -119,14 +119,14 @@
         </a-card>
       </a-col>
       <a-col style="padding: 14px 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :title="$t('processUnit')" :headStyle='{ "font-weight": "bolder" }' :bodyStyle='{"padding-bottom": "12px"}'
-          style="margin-bottom: 0px" :bordered="false">
+        <a-card :loading="loading" :title="$t('processUnit')" :headStyle='{ "font-weight": "bolder" }'
+          :bodyStyle='{ "padding-bottom": "12px" }' style="margin-bottom: 0px" :bordered="false">
           <div class="baseQueryParam">
             <a-list :grid="{ gutter: 4, column: 6 }" :xl="20" :lg="24" :md="24" :sm="24" :xs="24"
               style="margin: 0 -16px" :loading="loading">
               <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
                 <a-card class="list-card" size='small' :headStyle='{ "font-weight": "bolder" }'
-                  :title="item.title + ': ' + (item.key / 1000 - 1)" :loading="loading" :hoverable="true"
+                  :title="item.title" :loading="loading" :hoverable="true"
                   :bordered="true">
                   <div class="content">
                     <a-list size="small">
@@ -134,7 +134,8 @@
                         <a-space direction="vertical" :size="large">
                           <div class="list-content">
                             <div class="list-content-item">
-                              <a-checkbox :value="item.key" name="processUnit" v-model="item.checked">
+                              <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
+                                :disabled="item.disabled"  @change="onChange(item.key)">
                                 <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
                                   @click="calc(item.key)">{{ item.title
                                   }}</a-tag>
@@ -155,7 +156,7 @@
                       }}</a-button>
                     <a-button type="danger" disabled danger style="margin-top: 10px;" block @click="operation">{{
                       $t('operation')
-                      }}</a-button>
+                    }}</a-button>
                     <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('export')
                       }}</a-button>
                   </div>
@@ -199,170 +200,138 @@ export default {
     },
     handleSearch(e) {
       e.preventDefault();
-      this.form.validateFields((error, values) => {
-        console.log('error', error);
-        console.log('Received values of form: ', values);
-        console.log(values.param1)
-        console.log('==================')
-        console.log(this.processUnit)
 
-        console.log('param1: ', values.param1)
-        console.info(values)
-        // 含砂量
+      this.form.validateFields((error, values) => {
+
+        // 1、含砂量
         if (values.param1 >= 80) {
+          // 沉淀池
           this.processUnit[0].children[1].checked = true
-          this.processUnit[0].children[1].color = '#2db7f5'
-          // 2db7f5
         } else if (values.param1 < 80) {
           this.processUnit[0].children[1].checked = false
-          this.processUnit[0].children[1].color = '#6C767D'
         }
-        // 铁
+        // 2、铁
         if (values.param2 > 0.3) {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
         }
-        // 锰
+        // 3、锰
         if (values.param3 > 0.1) {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
         }
-        // 色度
+        // 4、色度
         if (values.param4 > 15) {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
+          // 活性炭粉末
+          this.processUnit[6].children[6].checked = true
         }
 
-        // 嗅味
+        // 5、嗅味
         if (values.param5 === '1') {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
+          // 活性炭粉末
+          this.processUnit[6].children[6].checked = true
         }
 
-        // 藻类
+        // 6、藻类
         if (values.param6 === '1') {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
         }
 
-        // 高锰酸盐指数
+        // 7、高锰酸盐指数
         if (values.param7 === '0') {
-          // 
+          // nothing to do
         } else if (values.param7 === '1') {
+          // 生物接触氧化
           this.processUnit[0].children[0].checked = true
-          this.processUnit[0].children[0].color = '#2db7f5'
         } else if (values.param7 === '2') {
+          // 臭氧活性炭
           this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
         } else if (values.param7 === '3') {
-          this.processUnit[7].children[4].checked = true
-          this.processUnit[7].children[4].color = '#2db7f5'
-          this.processUnit[7].children[5].checked = true
-          this.processUnit[7].children[5].color = '#2db7f5'
-          this.processUnit[7].children[9].checked = true
-          this.processUnit[7].children[9].color = '#2db7f5'
-          this.processUnit[4].children[0].checked = true
-          this.processUnit[4].children[0].color = '#2db7f5'
+          // 高锰酸钾、ClO2、NaClO、O3
+          this.processUnit[0].children[2].checked = true
+          this.processUnit[0].children[3].checked = true
+          this.processUnit[0].children[4].checked = true
+          this.processUnit[0].children[5].checked = true
+          // 活性炭粉末
+          this.processUnit[6].children[6].checked = true
         }
 
-        // 溴化物
+        // 8、溴化物
         if (values.param8 === '1') {
-          this.processUnit[4].children[0].checked = false
-          this.processUnit[4].children[0].color = '#6C767D'
+          // 不得选用臭氧
+          this.processUnit[0].children[5].checked = false
+          this.processUnit[0].children[5].disabled = 'true'
+          this.$message.error(this.$t('不得选用臭氧'))
         }
 
-        // 氨氮
-        if (values.param9 > 0.5 && values.param9 <= 1) {
-          this.processUnit[7].children[3].checked = true
-          this.processUnit[7].children[3].color = '#2db7f5'
+        // 9、氨氮
+        if (values.param9 <= 0.5) {
+          // nothing to do
+        } else if (values.param9 > 0.5 && values.param9 <= 1) {
+          // 折点加氯
+          this.processUnit[6].children[1].checked = true
         } else if (values.param9 > 1) {
+          // 生物接触氧化
           this.processUnit[0].children[0].checked = true
-          this.processUnit[0].children[0].color = '#2db7f5'
         }
 
-        // 浊度
-        if (values.param11 < 10000) {
-          this.processUnit[2].children[0].checked = true
-          this.processUnit[2].children[0].color = '#2db7f5'
-          this.processUnit[3].children[0].checked = true
-          this.processUnit[3].children[0].color = '#2db7f5'
-        } else if (values.param11 < 5000) {
-          this.processUnit[2].children[1].checked = true
-          this.processUnit[2].children[1].color = '#2db7f5'
-        } else if (values.param11 < 3000) {
-          this.processUnit[2].children[3].checked = true
-          this.processUnit[2].children[3].color = '#2db7f5'
-        } else if (values.param11 < 500) {
-          this.processUnit[2].children[4].checked = true
-          this.processUnit[2].children[4].color = '#2db7f5'
+        // 11、浊度
+        if (values.param11 < 50) {
+          // nothing to do
         } else if (values.param11 < 100) {
-          this.processUnit[2].children[2].checked = true
-          this.processUnit[2].children[2].color = '#2db7f5'
-        } else if (values.param11 < 50) {
+          // 气浮池
           this.processUnit[2].children[5].checked = true
-          this.processUnit[2].children[5].color = '#2db7f5'
-        }
-
-        // 出水浊度
-        if (values.param12 > 0.5) {
+        } else if (values.param11 < 500) {
+          // 水力循环澄清池
+          this.processUnit[2].children[4].checked = true
+        } else if (values.param11 < 3000) {
+          // 机械搅拌澄清池
+          this.processUnit[2].children[3].checked = true
+        } else if (values.param11 < 5000) {
+          // 平流沉淀池
+          this.processUnit[2].children[0].checked = true
+        } else if (values.param11 < 10000) {
+          // 斜管沉淀池
           this.processUnit[2].children[1].checked = true
-          this.processUnit[2].children[1].color = '#2db7f5'
+          // 高密度沉淀池
+          this.processUnit[2].children[2].checked = true
         }
 
-        // 消毒
+        // 12、出水浊度
+        if (values.param12 < 0.5) {
+          // 超滤
+          this.processUnit[4].children[1].checked = true
+        }
+
+        // 13、消毒
         if (values.param13 === '0') {
-          this.processUnit[5].children[0].checked = false
-          this.processUnit[5].children[0].color = '#6C767D'
+          // nothing to do
         } else if (values.param13 === '1') {
+          // 接触消毒
           this.processUnit[5].children[0].checked = true
-          this.processUnit[5].children[0].color = '#2db7f5'
         }
 
-        // 初始化时常选中：混凝工艺全部、
-        this.processUnit[6].children[4].checked = true
-        this.processUnit[6].children[4].color = '#2db7f5'
-        this.processUnit[6].children[5].checked = true
-        this.processUnit[6].children[5].color = '#2db7f5'
-        // 初始化时常选中：PAC、PAM
-        this.processUnit[1].children[0].checked = true
-        this.processUnit[1].children[0].color = '#2db7f5'
-        this.processUnit[1].children[1].checked = true
-        this.processUnit[1].children[1].color = '#2db7f5'
-        this.processUnit[1].children[2].checked = true
-        this.processUnit[1].children[2].color = '#2db7f5'
-
-
-
+        // 初始化时常选中：混凝工艺全部、PAC、PAM (后端数据已处理)
       });
 
       this.$message.success(this.$t('initSucc'))
@@ -374,6 +343,62 @@ export default {
       this.form.resetFields();
       this.getProcessUnit();
       this.$message.success(this.$t('resetSucc'))
+    },
+    onChange(key) {
+        if(key === '1006'){
+          // O3
+          this.$message.success('厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用');
+        }
+        if(key === '1005'){
+          // 高锰酸钾
+          this.$message.success('Fe、Mn超标尤其适用，后端为生物处理慎用');
+        }
+        if(key === '1004'){
+          // ClO2
+          this.$message.success('厂区消毒剂为ClO2优选选用，后端为生物处理慎用');
+        }
+        if(key === '1003'){
+          // NaClO
+          this.$message.success('厂区消毒剂为NaClO优选选用，后端为生物处理慎用');
+        }
+
+        if(key === '2002'){
+          // 网格絮凝池
+          this.$message.success('单池 > 2.5万m3/d 不建议采用网格絮凝池');
+        }
+        if(key === '2003'){
+          // 折板絮凝池
+          this.$message.success('单池 >= 5万m3/d 不建议采用折板絮凝池');
+        }
+        if(key === '3001'){
+          // 平流沉淀池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '3002'){
+          // 斜管沉淀池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '3003'){
+          // 高密度沉淀池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '3004'){
+          // 机械搅拌澄清池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '3005'){
+          // 水力循环澄清池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '3006'){
+          // 气浮池
+          this.$message.success('设计规模 < 5万m3/d 不建议');
+        }
+        if(key === '4001' || key === '4002'){
+          // 普通快滤池、V 型滤池
+          this.$message.success('增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸');
+        }
+
     },
     comparison() {
       this.$message.warn(this.$t('comparisonNotOpen'))
