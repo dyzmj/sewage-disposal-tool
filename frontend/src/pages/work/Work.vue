@@ -152,12 +152,12 @@
                 <a-card class="list-card" size='small' :headStyle='{ "font-weight": "bolder" }' :title="$t('function')"
                   :loading="loading" :hoverable="true">
                   <div class="content" style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
-                    <a-button type="primary" style="margin-top: 19px;" block @click="comparison">{{ $t('comparison')
+                    <a-button type="primary" style="margin-top: 19px;" block @click="comparison">{{ $t('exportQuantities')
                       }}</a-button>
-                    <a-button type="danger" disabled danger style="margin-top: 10px;" block @click="operation">{{
-                      $t('operation')
+                    <a-button type="danger" danger style="margin-top: 10px;" block @click="operation">{{
+                      $t('exportCalculation')
                     }}</a-button>
-                    <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('export')
+                    <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('importModel')
                       }}</a-button>
                   </div>
                 </a-card>
@@ -174,8 +174,8 @@
 import { mapState } from 'vuex'
 import { request, METHOD } from '@/utils/request'
 // import { saveAs } from 'file-saver'
-import { ipcApiRoute } from '@/api/main';
-import { ipc } from '@/utils/ipcRenderer';
+// import { ipcApiRoute } from '@/api/main';
+// import { ipc } from '@/utils/ipcRenderer';
 
 export default {
   name: 'WorkPlace',
@@ -400,72 +400,66 @@ export default {
       this.$message.warn(this.$t('comparisonNotOpen'))
     },
     export_case() {
-      this.$message.warn(this.$t('exportCaseNotOpen'));
+      this.$message.warn(this.$t('importModelNotOpen'));
 
-      const htmlToRtf = require('html-to-rtf-node');
-      const fs = window.require('fs');
+      // const htmlToRtf = require('html-to-rtf-node');
+      // const fs = window.require('fs');
 
-      ipc.invoke(ipcApiRoute.selectFolder, '').then(r => {
-        // this.dir_path = r;
-        this.$message.info(r);
+      // ipc.invoke(ipcApiRoute.selectFolder, '').then(r => {
+      //   // this.dir_path = r;
+      //   this.$message.info(r);
 
-        var path = r + '/test.rtf'
+      //   var path = r + '/test.rtf'
 
-        const html = `
-      <h1>Title <span style="color:rgb(255,0,0);">with</span> tag h1<h1>
-      <div>
-        <p style="color:#333; margin:5px;" class="test" align="center">
-            text of paragraph <b>text with bold <i>text with italic and bold</i></b><i>text with italic</i>
-        </p>
-        <p style="color:rgb(255,0,0);" align="right">red paragraph => right with tag</p>
-        <p style="color:rgb(0,0,255); text-align:center;">blue paragraph => center with style</p>
-        <table>
-          <tbody>
-            <tr>
-                      <td><mark>column 1</mark></td>
-                      <td>column 2</td>
-              <td><mark>column 3</mark></td>
-              <td>column 4</td>
-            </tr>
-            <tr>
-              <td>content 1</td>
-              <td>content 2<br></td>
-              <td>content 3<br></td>
-              <td>content 4<br></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      `
+      //   const html = `
+      // <h1>Title <span style="color:rgb(255,0,0);">with</span> tag h1<h1>
+      // <div>
+      //   <p style="color:#333; margin:5px;" class="test" align="center">
+      //       text of paragraph <b>text with bold <i>text with italic and bold</i></b><i>text with italic</i>
+      //   </p>
+      //   <p style="color:rgb(255,0,0);" align="right">red paragraph => right with tag</p>
+      //   <p style="color:rgb(0,0,255); text-align:center;">blue paragraph => center with style</p>
+      //   <table>
+      //     <tbody>
+      //       <tr>
+      //                 <td><mark>column 1</mark></td>
+      //                 <td>column 2</td>
+      //         <td><mark>column 3</mark></td>
+      //         <td>column 4</td>
+      //       </tr>
+      //       <tr>
+      //         <td>content 1</td>
+      //         <td>content 2<br></td>
+      //         <td>content 3<br></td>
+      //         <td>content 4<br></td>
+      //       </tr>
+      //     </tbody>
+      //   </table>
+      // </div>
+      // `
 
-        console.info(html)
+      //   console.info(html)
 
-        var element = document.querySelector("#testApp");
-        var html1 = element.outerHTML;
-        console.info(html1)
+      //   var element = document.querySelector("#testApp");
+      //   var html1 = element.outerHTML;
+      //   console.info(html1)
 
-        var res1 = htmlToRtf.convertHtmlToRtf(html);
-        console.info("格式化的结果" + res1)
+      //   var res1 = htmlToRtf.convertHtmlToRtf(html);
+      //   console.info("格式化的结果" + res1)
 
-        //  htmlToRtf.saveRtfInFile('./test.rtf', res);
+      //   //  htmlToRtf.saveRtfInFile('./test.rtf', res);
 
-        // 打开文件选择对话框
-        fs.writeFile(path, res1, 'utf8', (err) => {
-          if (err) throw err;
-          console.log('The file has been saved!');
-        });
+      //   // 打开文件选择对话框
+      //   fs.writeFile(path, res1, 'utf8', (err) => {
+      //     if (err) throw err;
+      //     console.log('The file has been saved!');
+      //   });
 
-      })
+      // })
     },
     operation() {
-      if (this.processUnitData.length > 0) {
-        console.info(this.processUnitData)
-        const path = '/sub/' + this.processUnitData[0];
-        this.$router.push(path);
-        this.$message.info(this.$t('openOperatePage'))
-      } else {
-        this.$message.error(this.$t('pleaseSelectProcessUnit'))
-      }
+
+      this.$message.warn(this.$t('exportCaseNotOpen'))
     },
     calc(calcUnit) {
       const path = '/sub/' + calcUnit;
