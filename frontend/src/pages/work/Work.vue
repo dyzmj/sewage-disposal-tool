@@ -1,7 +1,7 @@
 <template>
-  <div id="testApp">
+  <div id="testApp" style="background-color: #EDEFF2;">
     <a-row style="margin: 0 -6px">
-      <a-col style="padding: 0 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
+      <a-col style="padding: 14px 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card :loading="loading" :title="$t('baseQueryParam')" :headStyle='{ "font-weight": "bolder" }'
           style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
@@ -118,7 +118,7 @@
           </div>
         </a-card>
       </a-col>
-      <a-col style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
+      <a-col style="padding: 14px 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card :loading="loading" :title="$t('processUnit')" :headStyle='{ "font-weight": "bolder" }' :bodyStyle='{"padding-bottom": "12px"}'
           style="margin-bottom: 0px" :bordered="false">
           <div class="baseQueryParam">
@@ -365,15 +365,15 @@ export default {
 
       });
 
-      this.$message.info(this.$t('initSucc'))
+      this.$message.success(this.$t('initSucc'))
       // console.log('Received values of form: ', this.form);
 
 
     },
     handleReset() {
-      this.$message.info(this.$t('resetSucc'))
       this.form.resetFields();
       this.getProcessUnit();
+      this.$message.success(this.$t('resetSucc'))
     },
     comparison() {
       this.$message.warn(this.$t('comparisonNotOpen'))

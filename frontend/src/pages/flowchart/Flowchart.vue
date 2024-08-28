@@ -368,7 +368,7 @@ export default {
         this.svgDom.style.height = '100%';
         this.svgDom.style.border = '1px solid yellow';
         // 为svg添加鼠标滚动缩放事件
-        this.svgDom.setAttribute("v-on:mousewheel", "this.havcZooming($event)");
+        // this.svgDom.setAttribute("v-on:mousewheel", "this.havcZooming($event)");
 
         // let btm = this.svgDom.getElementById("1");
         // // debugger;
