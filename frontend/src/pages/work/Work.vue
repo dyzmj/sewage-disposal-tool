@@ -297,7 +297,7 @@ export default {
 
         // 11、浊度
         if (values.param11 < 50) {
-          // nothing to do
+          this.$message.success('增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸');
         } else if (values.param11 < 100) {
           // 气浮池
           this.processUnit[2].children[5].checked = true
@@ -393,10 +393,6 @@ export default {
         if(key === '3006'){
           // 气浮池
           this.$message.success('设计规模 < 5万m3/d 不建议');
-        }
-        if(key === '4001' || key === '4002'){
-          // 普通快滤池、V 型滤池
-          this.$message.success('增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸');
         }
 
     },
