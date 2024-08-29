@@ -131,7 +131,7 @@
                   <div class="content">
                     <a-list size="small">
                       <a-list-item :key="j" v-for="(item, j) in item.children">
-                        <a-space direction="vertical" :size="large">
+                        <a-space direction="vertical" size="large">
                           <div class="list-content">
                             <div class="list-content-item">
                               <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"

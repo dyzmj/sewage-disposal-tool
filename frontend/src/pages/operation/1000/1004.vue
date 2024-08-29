@@ -126,7 +126,7 @@
             :hoverable="true"
             :body-style="{ padding: 4 }"
             :headStyle="{ 'font-weight': 'bolder' }"
-            :size="small"
+            size="small"
           >
             <a-form>
               <a-form-item

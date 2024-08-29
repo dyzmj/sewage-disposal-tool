@@ -78,7 +78,7 @@ export default {
       } catch (error) {
         console.log(error)
         this.$message.error(error)
-        return;
+        // return;
       }
 
       this.form.validateFields((err) => {
