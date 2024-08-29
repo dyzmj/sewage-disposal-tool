@@ -157,8 +157,8 @@
                     <a-button type="danger" danger style="margin-top: 10px;" block @click="operation">{{
                       $t('exportCalculation')
                     }}</a-button>
-                    <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('importModel')
-                      }}</a-button>
+                    <!-- <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('importModel')
+                      }}</a-button> -->
                   </div>
                 </a-card>
               </a-list-item>
