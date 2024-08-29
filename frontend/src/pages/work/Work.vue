@@ -698,7 +698,6 @@ export default {
     },
     calc(calcUnit) {
       const path = "/sub/" + calcUnit;
-      debugger;
       this.$router.push(path);
       this.$message.info(this.$t("openOperatePage"));
     },
