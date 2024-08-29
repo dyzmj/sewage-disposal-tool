@@ -85,8 +85,11 @@
             </a-form-item>
           </a-form>
         </a-card>
-        <a-card :title="$t('referenceImage')" :headStyle="{ 'font-weight': 'bolder' }">
-            <div>
+        <a-card
+          :title="$t('referenceImage')"
+          :headStyle="{ 'font-weight': 'bolder' }"
+        >
+          <div>
             <p>高锰酸钾</p>
             <p>
               《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
@@ -115,7 +118,6 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
-          
         >
           <a-card
             :title="$t('b8')"
