@@ -2,7 +2,9 @@
     <div class="calc_page" style="background-color: #EDEFF2;">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 14px 6px; margin-left: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :title="$t('baseQueryParam')" style="margin-bottom: 24px" :bordered="false"
+                <a-card :title="$t('baseQueryParam')" :headStyle='{ "font-weight": "bolder" }' style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <a-card :title="$t('baseQueryParam1')" :headStyle='{ "font-weight": "bolder" }' :hoverable="true" size="small" style="margin-bottom: 24px" :bordered="false"
                     :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form>
@@ -15,15 +17,13 @@
                         </a-form>
                     </div>
                 </a-card>
-                <a-card :title="$t('referenceInformation')">
+              
+                </a-card>
+                <a-card :title="$t('referenceInformation')" :headStyle='{ "font-weight": "bolder" }'>
                     <div>
                         <p>预沉池</p>
-                        <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p>
-                        <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p>
+                        <!-- <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p> -->
                     </div>
-                </a-card>
-                <a-card :title="$t('referenceImage')" style="margin-bottom: 24px" :bordered="false"
-                    :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form>
                             <a-form-item style="margin-top: 50px; margin-bottom: 60px">
@@ -34,8 +34,10 @@
                 </a-card>
             </a-col>
             <a-col style="padding: 14px 6px" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :title="$t('b6')" style="margin-bottom: 24px" :bordered="false"
-                    :body-style="{ padding: 4 }">
+                <a-card :title="$t('processDesignCompute')" style="margin-bottom: 0px; "
+                    :headStyle='{ "font-weight": "bolder" }' :bordered="false" :hoverable="true"
+                    :body-style="{ padding: 2, height: '800px', overflow: 'auto'}">
+                    <a-card :title="$t('b6')" :headStyle='{ "font-weight": "bolder" }' :hoverable="true" size="small" style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form>
                             <a-form-item :label="$t('b7')" style="margin-top: 10px" :labelCol="{ span: 10 }"
@@ -76,7 +78,7 @@
                         </a-form>
                     </div>
                 </a-card>
-                <a-card :title="$t('b15')" style="margin-bottom: 24px" :bordered="false"
+                <a-card :title="$t('b15')" :headStyle='{ "font-weight": "bolder" }' :hoverable="true" size="small" style="margin-bottom: 24px" :bordered="false"
                     :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form>
@@ -118,9 +120,7 @@
                         </a-form>
                     </div>
                 </a-card>
-            </a-col>
-            <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :title="$t('b23')" style="margin-bottom: 24px" :bordered="false"
+                <a-card :title="$t('b23')" :headStyle='{ "font-weight": "bolder" }' :hoverable="true" size="small" style="margin-bottom: 24px" :bordered="false"
                     :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form>
@@ -139,6 +139,50 @@
                             <a-form-item :label="$t('b27')" style="margin-top: 10px" :labelCol="{ span: 10 }"
                                 :wrapperCol="{ span: 14 }">
                                 <a-input v-model="b27" :placeholder="$t('b27')" :suffix="$t('b27_u')" :disabled="true" />
+                            </a-form-item>
+                        </a-form>
+                    </div>
+                </a-card>
+                </a-card>
+            </a-col>
+            <a-col style="padding: 14px 6px; margin-right: 0px;" :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+                <a-card :title="$t('quantities')" :headStyle='{ "font-weight": "bolder" }' style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-table :columns="columns1"
+                         :data-source="data" 
+                         bordered 
+                         size="small" 
+                         :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+                         :pagination="false"
+                         :row-style="{paddin: 16}">
+                            <a slot="序号" slot-scope="text">{{ text }}</a>
+                        </a-table>
+                    </div>
+                    <a-divider :dashed="true" />
+                    <div class="baseQueryParam">
+                        <a-table :columns="columns2"
+                         :data-source="data" 
+                         bordered 
+                         size="small" 
+                         :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+                         :pagination="false"
+                         :row-style="{paddin: 16}">
+                            <a slot="序号" slot-scope="text">{{ text }}</a>
+                        </a-table>
+                    </div>
+                </a-card>
+                <a-card :title="$t('export')" :headStyle='{ "font-weight": "bolder" }' style="margin-bottom: 24px" :bordered="false"
+                    :body-style="{ padding: 4 }">
+                    <div class="baseQueryParam">
+                        <a-form>
+                            <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
+                                <a-button style="margin-left: 30px;" type="primary" @click="exportComputeBook()">{{
+                                    $t('exportComputeBook') }}</a-button>
+                                <a-button style="margin-left: 10px" type="danger" @click="exportQuantities()">{{
+                                    $t('exportQuantities') }}</a-button>
+                                <a-button style="margin-left: 10px" type="dashed" @click="backHome()">{{ $t('backWork')
+                                    }}</a-button>
                             </a-form-item>
                         </a-form>
                     </div>
@@ -172,7 +216,166 @@ export default {
             b20: '0.8',
             b21: '0.3',
             b25: '1.1',
-            b27: '500'
+            b27: '500',
+            columns1: [
+                {
+                    title: "建构筑物尺寸(结果输出)",
+                    align: 'left',
+                    children: [
+                        {
+                            title: "序号",
+                            dataIndex: "序号",
+                            key: "1",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "单体位号",
+                            dataIndex: "单体位号",
+                            key: "2",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "名称",
+                            dataIndex: "名称",
+                            key: "3",
+                            width: '100px',
+                            align: 'center'
+                        },
+                        {
+                            title: "尺寸(m)",
+                            dataIndex: "Dimensions",
+                            key: "4",
+                            width: '150px',
+                            align: 'center'
+                        },
+                        {
+                            title: "标高(m)",
+                            dataIndex: "标高(m)",
+                            key: "5",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "单位",
+                            dataIndex: "单位",
+                            key: "6",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "数量",
+                            dataIndex: "disinfectiontank",
+                            key: "7",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "结构形式",
+                            dataIndex: "结构形式",
+                            key: "8",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "备注",
+                            dataIndex: "备注",
+                            key: "9",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "暖通要求",
+                            dataIndex: "暖通要求",
+                            key: "10",
+                            width: '80px',
+                            align: 'center'
+                        },
+                    ]
+                },
+
+            ],
+            columns2: [
+                {
+                    title: "设备选型(结果输出)",
+                    align: 'left',
+                    children: [
+                        {
+                            title: "序号",
+                            dataIndex: "序号",
+                            key: "1",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "设备位号",
+                            dataIndex: "设备位号",
+                            key: "2",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "设备工艺名称",
+                            dataIndex: "设备工艺名称",
+                            key: "3",
+                            width: '100px',
+                            align: 'center'
+                        },
+                        {
+                            title: "设备类型",
+                            dataIndex: "Dimensions",
+                            key: "4",
+                            width: '150px',
+                            align: 'center'
+                        },
+                        {
+                            title: "规格及型号",
+                            dataIndex: "规格及型号",
+                            key: "5",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "单位",
+                            dataIndex: "单位",
+                            key: "6",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "数量",
+                            dataIndex: "disinfectiontank",
+                            key: "7",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "运行时间",
+                            dataIndex: "运行时间",
+                            key: "8",
+                            width: '80px',
+                            align: 'center'
+                        },
+                        {
+                            title: "主要材质",
+                            dataIndex: "主要材质",
+                            key: "9",
+                            width: '50px',
+                            align: 'center'
+                        },
+                        {
+                            title: "备注",
+                            dataIndex: "备注",
+                            key: "10",
+                            width: '80px',
+                            align: 'center'
+                        },
+                    ]
+                },
+
+            ],
+            data: []
         }
     },
     methods: {
@@ -184,8 +387,13 @@ export default {
         },
         exportComputeBook() {
             this.$message.warn(this.$t('exportComputeBookNotOpen'))
-        }
-        
+        },
+        getDisinfectiontank() {
+            return 'to do';
+        },
+        getDimensions() {
+            return 'to do';
+        },
     },
     computed: {
         ...mapState('setting', ['lang']),
@@ -219,7 +427,24 @@ export default {
         b26() {
             return (Math.sqrt(4 * parseFloat(this.b4_2) / 3.14 / parseFloat(this.b25))).toFixed(9)
         }
-    }
+    },
+    created() {
+        this.data =  [
+                {
+                    key: '1',
+                    序号: '1',
+                    单体位号: '1',
+                    名称: '接触消毒池',
+                    Dimensions: this.getDimensions(),
+                    标高: '',
+                    单位: '座',
+                    disinfectiontank: this.getDisinfectiontank(),
+                    结构形式: '',
+                    备注: '',
+                    暖通要求: '',
+                }
+            ]
+    },
 }
 </script>
 
