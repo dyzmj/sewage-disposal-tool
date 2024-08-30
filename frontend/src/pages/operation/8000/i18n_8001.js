@@ -1,10 +1,18 @@
 module.exports = {
     messages: {
       CN: {
-        baseQueryParam: '1 设计参数计算',
-        processDesignCompute:'工艺设计计算',
-        referenceInformation:'参考信息',
-        referenceImage:'参考图片',
+        baseQueryParam: "设计参数计算",
+        processDesignCompute: "工艺设计计算",
+        referenceInformation: "参考信息",
+        referenceImage: "参考图片",
+        quantities: "工程量",
+        export: "导出",
+        exportComputeBook: "导出计算书",
+        exportQuantities: "导出工程量",
+        backWork: "返回工作台",
+        exportQuantitiesNotOpen: "工程量导出功能尚未开放！",
+        exportComputeBookNotOpen: "计算书导出功能尚未开放！",
+        exportSucc: "导出完成！",
         b2:'一、设计参数',
         b3:'设计水量Q',
         b3_u: 'm3/d',
