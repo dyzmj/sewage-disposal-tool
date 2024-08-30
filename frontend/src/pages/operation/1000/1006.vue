@@ -15,13 +15,15 @@
           style="margin-bottom: 24px"
           :bordered="false"
           :hoverable="true"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <a-card
             :title="$t('b2')"
             style="margin-bottom: 24px"
             :bordered="false"
             :body-style="{ padding: 4 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
           >
             <div class="baseQueryParam">
               <a-form>
@@ -187,25 +189,24 @@
               </a-form>
             </div>
           </a-card>
-        </a-card>
-
-        <a-card
-          :title="$t('referenceImage')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div>
-            <p>高锰酸钾</p>
-            <p>
-              《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-            </p>
-          </div>
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                <img width="400px" src="@/assets/img/1000/1002.png" />
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('referenceImage')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div>
+              <p>高锰酸钾</p>
+              <p>
+                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
+              </p>
+            </div>
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img width="400px" src="@/assets/img/1000/1002.png" />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
