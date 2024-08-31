@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -203,14 +203,14 @@
                 <a-input-group compact>
                   <a-input
                     v-model="flowLength"
-                    style="width: 50%;"
+                    style="width: 50%"
                     rows="4"
                     :placeholder="$t('flowLength')"
                     :disabled="true"
                   />
                   <a-input
                     v-model="roundingFlowLength"
-                    style="width: 50%;"
+                    style="width: 50%"
                     rows="4"
                     :placeholder="$t('flowLength')"
                     :suffix="$t('flowLengthUnit')"
@@ -281,7 +281,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="poolLength"
-                    style="width: 33%;"
+                    style="width: 33%"
                     rows="8"
                     :placeholder="$t('poolLength')"
                     :suffix="$t('poolLengthUnit')"
@@ -289,7 +289,7 @@
                   />
                   <a-input
                     v-model="roundingFlowLength"
-                    style="width: 33%;"
+                    style="width: 33%"
                     rows="8"
                     :placeholder="$t('poolWidth')"
                     :suffix="$t('poolWidthUnit')"
@@ -297,7 +297,7 @@
                   />
                   <a-input
                     v-model="contactPoolDepth"
-                    style="width: 34%;"
+                    style="width: 34%"
                     rows="8"
                     :placeholder="$t('contactPoolDepth')"
                     :suffix="$t('contactPoolDepthUnit')"
@@ -310,7 +310,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -347,9 +347,9 @@
         >
           <div class="baseQueryParam">
             <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
+              <a-form-item style="margin-top: 50px; margin-bottom: 120px">
                 <a-button
-                  style="margin-left: 30px;"
+                  style="margin-left: 30px"
                   type="primary"
                   @click="exportComputeBook()"
                   >{{ $t("exportComputeBook") }}</a-button
@@ -479,9 +479,9 @@
 
 <script>
 import { mapState } from "vuex";
-// import { ipcApiRoute } from '@/api/main';
-// import { ipc } from '@/utils/ipcRenderer';
-// import { exportRtf } from "@/utils/exportRtfUtil";
+// import { ipcApiRoute } from "@/api/main";
+// import { ipc } from "@/utils/ipcRenderer";
+import { exportRtf, exportExcel } from "@/utils/exportRtfUtil";
 
 export default {
   components: {},
@@ -583,13 +583,58 @@ export default {
       this.$router.push("/work");
     },
     exportQuantities() {
-      this.$message.warn(this.$t("exportQuantitiesNotOpen"));
+      try{
+        this.exportExcel();
+      }catch(error){
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+        this.$message.warn(this.$t("exportExcelError"));
+        return;
+      }
     },
     exportComputeBook() {
-    //   var element = document.querySelector("#testApp");
-    //   var html = element.outerHTML;
-    //   exportRtf("接触消毒池计算书", html, this);
-    this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      var element = document.querySelector("#testApp");
+      var html = element.outerHTML;
+      exportRtf("接触消毒池计算书", html, this);
+      // this.$message.warn(this.$t("exportComputeBookNotOpen"));
+    },
+    exportExcel() {
+      try {
+        // 处理表头信息
+        const firstRowHeader = this.flattenFirstRowColumns(this.columns);
+        const secondRowHeader = this.flattenSecondRowColumns(this.columns);
+        // 合并表头信息
+        const headerData = [firstRowHeader, secondRowHeader];
+        // 初始化 allData
+        const allData = [...headerData, ...this.data.map(item => Object.values(item))];
+        // 导出 Excel
+        exportExcel(allData, "接触消毒池计算书", this);
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+
+    // 展平第一行表头
+    flattenFirstRowColumns(columns) {
+      let firstRowHeader = [];
+      columns.forEach((column) => {
+        firstRowHeader.push(column.title);
+      });
+      return firstRowHeader;
+    },
+
+    // 展平第二行表头
+    flattenSecondRowColumns(columns) {
+      let secondRowHeader = [];
+      columns.forEach((column) => {
+        if (column.children && column.children.length > 0) {
+          column.children.forEach((childColumn) => {
+            secondRowHeader.push(childColumn.title);
+          });
+        }
+      });
+      return secondRowHeader;
     },
     getDisinfectiontank() {
       return this.disinfectiontank;

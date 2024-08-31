@@ -11,6 +11,7 @@ module.exports = {
         exportQuantities:'导出工程量',
         backWork:'返回工作台',
         exportQuantitiesNotOpen: '工程量导出功能尚未开放！',
+        exportExcelError: '导出失败, 请检查后重试',
         exportComputeBookNotOpen: '计算书导出功能尚未开放！',
         exportSucc: '导出完成！',
         designScale: '设计规模Q',
