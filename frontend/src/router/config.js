@@ -54,6 +54,15 @@ const options = {
           component: () => import('@/pages/flowchart')
         },
         {
+          path: 'costs',
+          name: '运行成本',
+          meta: {
+            icon: 'dollar',
+            keepAlive: true,
+          },
+          component: () => import('@/pages/costs')
+        },
+        {
           path: '1000',
           name: '预处理工艺',
           meta: {
