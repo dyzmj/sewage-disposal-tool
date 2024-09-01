@@ -5,7 +5,7 @@ module.exports = {
         processDesignCompute: "工艺设计计算",
         referenceInformation: "参考信息",
         referenceImage: "参考图片",
-        quantities: "工程量",
+        quantities: "工程量计算",
         export: "导出",
         exportComputeBook: "导出计算书",
         exportQuantities: "导出工程量",

@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -83,7 +83,7 @@
       >
         <a-card
           :title="$t('processDesignCompute')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -200,14 +200,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b14"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b14')"
                     />
                     <a-input
                       v-model="b14_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b14_1')"
@@ -264,7 +264,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b18"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b18')"
@@ -272,7 +272,7 @@
                     />
                     <a-input
                       v-model="b18_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b18_1')"
@@ -289,7 +289,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b19"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b19')"
@@ -297,14 +297,14 @@
                     />
                     <a-input
                       v-model="b19_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       rows="12"
                       :placeholder="$t('b19_1')"
                       :suffix="$t('b19_1_u')"
                     />
                     <a-input
                       v-model="b19_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b19_2')"
@@ -421,7 +421,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -438,7 +438,7 @@
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
-              :data-source="data"
+              :data-source="data1"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -452,7 +452,7 @@
           <div class="baseQueryParam">
             <a-table
               :columns="columns2"
-              :data-source="data"
+              :data-source="data2"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -472,9 +472,9 @@
         >
           <div class="baseQueryParam">
             <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
+              <a-form-item style="margin-top: 50px; margin-bottom: 120px">
                 <a-button
-                  style="margin-left: 30px;"
+                  style="margin-left: 30px"
                   type="primary"
                   @click="exportComputeBook()"
                   >{{ $t("exportComputeBook") }}</a-button
@@ -502,6 +502,7 @@
 
 <script>
 import { mapState } from "vuex";
+import { exportExcel2 } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -630,7 +631,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -651,7 +652,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -688,7 +689,70 @@ export default {
       this.$router.push("/work");
     },
     exportQuantities() {
-      this.$message.warn(this.$t("exportQuantitiesNotOpen"));
+      try {
+        this.exportExcel();
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+        this.$message.warn(this.$t("exportExcelError"));
+        return;
+      }
+    },
+    exportExcel() {
+      try {
+        // 处理表头信息
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
+
+        // 导出 Excel
+        exportExcel2(
+          allData1,
+          allData2,
+          "生物接触氧化池计算书",
+          this
+        );
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    // 展平第一行表头
+    flattenFirstRowColumns(columns) {
+      let firstRowHeader = [];
+      columns.forEach((column) => {
+        firstRowHeader.push(column.title);
+      });
+      return firstRowHeader;
+    },
+    // 展平第二行表头
+    flattenSecondRowColumns(columns) {
+      let secondRowHeader = [];
+      columns.forEach((column) => {
+        if (column.children && column.children.length > 0) {
+          column.children.forEach((childColumn) => {
+            secondRowHeader.push(childColumn.title);
+          });
+        }
+      });
+      return secondRowHeader;
     },
     exportComputeBook() {
       this.$message.warn(this.$t("exportComputeBookNotOpen"));
@@ -754,19 +818,34 @@ export default {
     },
   },
   created() {
-    this.data = [
+    this.data1 = [
       {
         key: "1",
         序号: "1",
         单体位号: "1",
-        名称: "接触消毒池",
-        Dimensions: this.getDimensions(),
+        名称: "斜管沉淀池",
+        Dimensions: "70.1m x 20.9m x 4.4m",
         标高: "",
         单位: "座",
-        disinfectiontank: this.getDisinfectiontank(),
-        结构形式: "",
+        disinfectiontank: "12",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    this.data2 = [
+      {
+        key: "1",
+        序号: "1",
+        设备位号: "1",
+        设备工艺名称: "桁车式吸泥机",
+        设备类型: "吸泥机",
+        规格及型号: "8",
+        单位: "台",
+        数量: "2",
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "",
-        暖通要求: "",
       },
     ];
   },

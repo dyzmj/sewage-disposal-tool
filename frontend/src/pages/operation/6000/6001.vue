@@ -479,9 +479,7 @@
 
 <script>
 import { mapState } from "vuex";
-// import { ipcApiRoute } from "@/api/main";
-// import { ipc } from "@/utils/ipcRenderer";
-import { exportRtf, exportExcel } from "@/utils/exportRtfUtil";
+import { exportRtf, exportExcel } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -596,7 +594,6 @@ export default {
       var element = document.querySelector("#testApp");
       var html = element.outerHTML;
       exportRtf("接触消毒池计算书", html, this);
-      // this.$message.warn(this.$t("exportComputeBookNotOpen"));
     },
     exportExcel() {
       try {
@@ -614,7 +611,6 @@ export default {
         // 可以在这里添加更多的错误处理逻辑
       }
     },
-
     // 展平第一行表头
     flattenFirstRowColumns(columns) {
       let firstRowHeader = [];
@@ -623,7 +619,6 @@ export default {
       });
       return firstRowHeader;
     },
-
     // 展平第二行表头
     flattenSecondRowColumns(columns) {
       let secondRowHeader = [];

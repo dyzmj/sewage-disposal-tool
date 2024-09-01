@@ -237,7 +237,7 @@
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
-              :data-source="data"
+              :data-source="data1"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -251,7 +251,7 @@
           <div class="baseQueryParam">
             <a-table
               :columns="columns2"
-              :data-source="data"
+              :data-source="data2"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -265,7 +265,7 @@
           <div class="baseQueryParam">
             <a-table
               :columns="columns3"
-              :data-source="data"
+              :data-source="data3"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -315,6 +315,7 @@
 
 <script>
 import { mapState } from "vuex";
+import { exportExcel3 } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -573,7 +574,56 @@ export default {
       this.$router.push("/work");
     },
     exportQuantities() {
-      this.$message.warn(this.$t("exportQuantitiesNotOpen"));
+      try{
+        this.exportExcel();
+      }catch(error){
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+        this.$message.warn(this.$t("exportExcelError"));
+        return;
+      }
+    },
+    exportExcel() {
+      try {
+        // 处理表头信息
+        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        // 初始化 allData
+        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+
+        // 处理表头信息
+        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        // 初始化 allData
+        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+
+        // 处理表头信息
+        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        // 初始化 allData
+        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+
+        // 导出 Excel
+        exportExcel3(allData1, allData2, allData3, "生物接触氧化池计算书", this);
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    flattenFirstRowColumns(columns) {
+      let firstRowHeader = [];
+      columns.forEach((column) => {
+        firstRowHeader.push(column.title);
+      });
+      return firstRowHeader;
+    },
+    flattenSecondRowColumns(columns) {
+      let secondRowHeader = [];
+      columns.forEach((column) => {
+        if (column.children && column.children.length > 0) {
+          column.children.forEach((childColumn) => {
+            secondRowHeader.push(childColumn.title);
+          });
+        }
+      });
+      return secondRowHeader;
     },
     exportComputeBook() {
       this.$message.warn(this.$t("exportComputeBookNotOpen"));
@@ -609,19 +659,60 @@ export default {
     },
   },
   created() {
-    this.data = [
+    this.data1 = [
       {
         key: "1",
         序号: "1",
         单体位号: "1",
-        名称: "臭氧",
-        Dimensions: this.getDimensions(),
+        名称: "普通快滤池",
+        Dimensions: "70.1m x 20.9m x 4.4m",
         标高: "",
         单位: "座",
-        disinfectiontank: this.getDisinfectiontank(),
+        disinfectiontank: "1",
         结构形式: "",
         备注: "",
         暖通要求: "",
+      },
+    ];
+    this.data2 = [
+      {
+        key: "1",
+        序号: "1",
+        设备位号: "1",
+        设备工艺名称: "反冲洗泵",
+        规格及型号: "8",
+        单位: "台",
+        数量: "Q=554.4m3/h,H=13.26m",
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "1",
+        设备位号: "1",
+        设备工艺名称: "反冲洗风机",
+        规格及型号: "3",
+        单位: "台",
+        数量: "Q=554.4m3/h,H=13.26m",
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+    ];
+    this.data3 = [
+      {
+        key: "1",
+        序号: "1",
+        仪表位号: "1",
+        仪表名称: "电动阀",
+        安装位置: "",
+        规格及型号: "",
+        单位: "台",
+        数量: "80",
+        a: "",
+        b: "",
+        备注: "",
       },
     ];
   },
