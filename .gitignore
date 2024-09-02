@@ -6,6 +6,7 @@ run/
 package-lock.json
 data/
 .vscode/launch.json
+.vscode/extensions.json
 public/electron/
 public/dist/
 pnpm-lock.yaml
