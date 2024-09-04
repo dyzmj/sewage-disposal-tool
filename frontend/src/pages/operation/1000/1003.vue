@@ -121,12 +121,12 @@
                 >
                   <a-input-group compact>
                     <a-input
-                      v-model="b11"
+                      v-model="b8"
                       style="width: 100%;"
                       :disabled="false"
                       rows="12"
-                      :placeholder="$t('b11')"
-                      :suffix="$t('b11_u')"
+                      :placeholder="$t('b8')"
+                      :suffix="$t('b8_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1256,7 +1256,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1624,7 +1624,11 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b4,
+        key2: this.b8,
+      };
+      exportWord("次氯酸钠计算书", "1003.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
