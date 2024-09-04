@@ -2115,7 +2115,7 @@ export default {
         key6: this.b9,
         key7: this.b10,
       };
-      exportWord("生物接触氧化计算书", "1001.docx", data, this);
+      exportWord("生物接触氧化池计算书", "1001.docx", data, this);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);

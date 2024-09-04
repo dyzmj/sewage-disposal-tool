@@ -502,7 +502,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel2 } from "@/utils/exportUtil";
+import { exportExcel2, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -755,7 +755,16 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b4,
+        key2: this.b4_1,
+        key3: this.b4_2,
+        key4: this.b7,
+        key5: this.b8,
+        key6: this.b13,
+        key7: this.b14,
+      };
+      exportWord("预沉池计算书", "1002.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
