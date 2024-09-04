@@ -373,113 +373,30 @@
       </a-col>
     </a-row>
     <div id="testApp" hidden="true">
-      <h1><b>接触消毒池设计计算</b></h1>
+      <h1><b>接触消毒池</b></h1>
       <br />
-      <div>
-        <h4>设计输入条件：</h4>
-        <p>
-          <span
-            >（1）{{ $t("designScale") }} = 20000.00
-            {{ $t("designScaleUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（2）{{ $t("totalChangeFactor") }} k= {{ this.totalChangeFactor }}
-            {{ $t("designScaleUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（3）{{ $t("singleTankVolume") }} X1=Q/24*k， X1=
-            {{ this.singleTankVolume1 }} {{ $t("singleUnit1") }}, 取
-            {{ this.singleTankVolume2 }} {{ $t("singleUnit2") }}</span
-          >
-        </p>
-        <br />
-        <h4>工艺设计计算：</h4>
-        <p>
-          <span
-            >（1）{{ $t("contactTime") }} A1= {{ this.contactTime }}
-            {{ $t("contactTimeUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（2）{{ $t("totalPoolCapacity") }} A2=X1*A1/60， A2=
-            {{ this.totalPoolCapacity }} {{ $t("totalPoolCapacityUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（3）{{ $t("disinfectiontank") }} A3= {{ this.disinfectiontank }}
-            {{ $t("disinfectiontankUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（4）{{ $t("everyPoolCapacity") }} A4=A2/A3， A4=
-            {{ this.everyPoolCapacity }} {{ $t("everyPoolCapacityUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（5）{{ $t("contactPoolDepth") }} A5= {{ this.contactPoolDepth }}
-            {{ $t("contactPoolDepthUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（6）{{ $t("singlecellWidth") }} A6= {{ this.singlecellWidth }}
-            {{ $t("singlecellWidthUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（7）{{ $t("flowLength") }} A7=A4/A5/A6， A7=
-            {{ this.flowLength }} {{ $t("flowLengthUnit") }}, 取
-            {{ this.roundingFlowLength }} {{ $t("flowLengthUnit") }}</span
-          >
-        </p>
-        <p>
-          <span>（8）{{ $t("division") }} A8= {{ this.division }}</span>
-        </p>
-        <p>
-          <span
-            >（9）{{ $t("partitionWallThickness") }} A9=
-            {{ this.partitionWallThickness }}
-            {{ $t("partitionWallThicknessUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（10）{{ $t("poolLength") }} A10=A7/A8， A10=
-            {{ this.poolLength }} {{ $t("poolLengthUnit") }}</span
-          >
-        </p>
-        <p>
-          <span
-            >（11）{{ $t("poolWidth") }} A11=A8*A6+(A8-1)*A9， A11=
-            {{ this.poolWidth }} {{ $t("poolWidthUnit") }}</span
-          >
-        </p>
-        <br />
-        <p>
-          <span
-            >（12）{{ $t("perCell") }} A12=A10*A11*A5，A12=
-            {{ this.poolLength }} {{ $t("poolLengthUnit") }} *
-            {{ this.poolWidth }} {{ $t("poolWidthUnit") }} *
-            {{ this.contactPoolDepth }} {{ $t("contactPoolDepthUnit") }}
-          </span>
-        </p>
-      </div>
+      <h2>单元功能</h2>
+      <p>
+        <span>
+          接触池的作用是保证消毒剂与水有充分的接触时间，使消毒剂发挥作用，达到预期的杀菌效果。设计合理的接触池应使污水的每个分子都有相同的停留时间，也就是说水流属于100%推流。采用的消毒方法不同，接触池的停留时间、形式也不同。
+        </span>
+      </p>
+      <h2>设计参数</h2>
+      <p>
+        <span
+          >净水厂的设计处理规模 2.0 万 {{ $t("designScaleUnit") }}，处理水量
+          {{ this.singleTankVolume1 }} {{ $t("singleUnit1") }}, 即
+          {{ this.singleTankVolume2 }} {{ $t("singleUnit2") }}</span
+        >
+      </p>
+      <br />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import { exportRtf, exportExcel } from "@/utils/exportUtil";
+import { exportExcel, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -581,9 +498,9 @@ export default {
       this.$router.push("/work");
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -591,9 +508,18 @@ export default {
       }
     },
     exportComputeBook() {
-      var element = document.querySelector("#testApp");
-      var html = element.outerHTML;
-      exportRtf("接触消毒池计算书", html, this);
+      // var element = document.querySelector("#testApp");
+      // var html = element.outerHTML;
+      // exportRtf("接触消毒池计算书", html, this);
+      const data = {
+        key1: this.designScale,
+        unit1: this.$t("designScaleUnit"),
+        key2: this.singleTankVolume1,
+        unit2: this.$t("singleUnit1"),
+        key3: this.singleTankVolume2,
+        unit3: this.$t("singleUnit2"),
+      };
+      exportWord("接触消毒池计算书", "6001.docx", data, this);
     },
     exportExcel() {
       try {
@@ -603,9 +529,12 @@ export default {
         // 合并表头信息
         const headerData = [firstRowHeader, secondRowHeader];
         // 初始化 allData
-        const allData = [...headerData, ...this.data.map(item => Object.values(item))];
+        const allData = [
+          ...headerData,
+          ...this.data.map((item) => Object.values(item)),
+        ];
         // 导出 Excel
-        exportExcel(allData, "接触消毒池计算书", this);
+        exportExcel(allData, "工程量计算书", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑

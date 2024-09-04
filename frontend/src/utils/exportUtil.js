@@ -1,6 +1,9 @@
 import { ipcApiRoute } from "@/api/main";
 import { ipc } from "@/utils/ipcRenderer";
 import * as XLSX from "xlsx";
+import Docxtemplater from "docxtemplater";
+import pizzip from "pizzip";
+// import FileSaver from 'file-saver';
 
 const htmlToRtf = require("html-to-rtf-node");
 const fs = window.require("fs");
@@ -95,6 +98,64 @@ export function exportExcel3(data1, data2, data3, name, self) {
       }
     });
   });
+}
+
+async function selectFolder() {
+  return await ipc.invoke(ipcApiRoute.selectFolder, "");
+}
+
+async function loadTemplateContent(templatePath) {
+  return await fetch(templatePath)
+    .then(res => res.arrayBuffer())
+    .catch(fetchErr => {
+      console.error("加载模板文件时发生错误:", fetchErr);
+      throw fetchErr;
+    });
+}
+
+async function renderAndSaveDocument(path, content, data) {
+  const zip = new pizzip(content);
+  const doc = new Docxtemplater(zip);
+
+  doc.setData(data);
+  doc.render();
+
+  const outputBuffer = doc.getZip().generate({ type: "nodebuffer" });
+
+  try {
+    await new Promise((resolve, reject) => {
+      fs.writeFile(path, outputBuffer, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    console.log("Word文档已成功导出");
+    return true;
+  } catch (writeErr) {
+    console.error("写入文件时发生错误:", writeErr);
+    return false;
+  }
+}
+
+export async function exportWord(name, templatePath, data, self) {
+  try {
+    const selectedFolder = await selectFolder();
+    const path = `${selectedFolder}/${name}${formatter(new Date(), " yyyy_MM_dd_hh_mm_ss")}.docx`;
+    const content = await loadTemplateContent(templatePath);
+
+    if (await renderAndSaveDocument(path, content, data)) {
+      self.$message.info(self.$t("exportSucc"));
+    } else {
+      self.$message.warn("保存文件失败！");
+    }
+  } catch (error) {
+    console.error("生成Word文档时发生错误:", error);
+    self.$message.warn("保存文件失败！");
+  }
 }
 
 /**
