@@ -1804,7 +1804,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2106,7 +2106,16 @@ export default {
       this.$router.push("/work");
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b3_1,
+        key2: this.b3_2,
+        key3: this.b4,
+        key4: this.b5,
+        key5: this.b6_1,
+        key6: this.b9,
+        key7: this.b10,
+      };
+      exportWord("生物接触氧化计算书", "1001.docx", data, this);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
