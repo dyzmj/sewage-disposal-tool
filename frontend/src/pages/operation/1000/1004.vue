@@ -68,7 +68,7 @@
                 <a-input
                   v-model="b5"
                   style="width: 50%;"
-                  :disabled="false"
+                  :disabled="true"
                   rows="12"
                   :placeholder="$t('b5')"
                   :suffix="$t('b5_u')"
@@ -76,7 +76,7 @@
                 <a-input
                   v-model="b5_1"
                   style="width: 50%;"
-                  :disabled="false"
+                  :disabled="true"
                   rows="12"
                   :placeholder="$t('b5_1')"
                   :suffix="$t('b5_1_u')"
@@ -391,7 +391,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -707,7 +707,13 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b3,
+        key2: this.b5,
+        key3: this.b5_1,
+        key4: this.b9,
+      };
+      exportWord("二氧化氯计算书", "1004.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
