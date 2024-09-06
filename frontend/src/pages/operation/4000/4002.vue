@@ -1919,7 +1919,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2432,7 +2432,21 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b3,
+        key2: this.b6,
+        key3: this.b10,
+        key4: this.b10_1,
+        key5: this.b11,
+        key6: '4',
+        key7: this.b11_1,
+        key8: this.b13,
+        key9: this.b13_1,
+        key10: '12',
+        key11: '48',
+        key12: this.b14,
+      };
+      exportWord("V型滤池计算书", "4002.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
