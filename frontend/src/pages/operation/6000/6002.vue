@@ -315,7 +315,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -626,7 +626,16 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.averageFlow,
+        key2: this.maxFlow,
+        key3: this.uvt,
+        key4: this.waterTurbidity,
+        key5: this.targetMeasurement,
+        key6: this.agingCoefficient,
+        key7: this.scalingCoefficient,
+      };
+      exportWord("沉浸式紫外线消毒计算书", "6002.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";

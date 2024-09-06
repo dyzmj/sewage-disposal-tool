@@ -794,7 +794,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1118,7 +1118,14 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b3,
+        key2: parseFloat(this.b4) * 1000,
+        key3: this.b4,
+        key4: this.b28,
+        key5: this.b14,
+      };
+      exportWord("臭氧消毒计算书", "6003.docx", data, this);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
