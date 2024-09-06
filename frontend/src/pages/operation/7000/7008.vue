@@ -657,7 +657,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -996,9 +996,13 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
-    },
-    getDisinfectiontank() {
+      const data = {
+        key1: this.b3,
+        key2: this.b9,
+        key3: this.b10,
+      };
+      exportWord("高锰酸钾计算书", "7008.docx", data, this);
+    },    getDisinfectiontank() {
       return "to do";
     },
     getDimensions() {
