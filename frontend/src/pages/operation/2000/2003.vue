@@ -938,7 +938,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1248,7 +1248,20 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b5,
+        key2: this.b7_1,
+        key3: this.b7_2,
+        key4: this.b8,
+        key5: this.b9,
+        key6: this.b10,
+        key7: this.b11,
+        key8: this.b12,
+        key9: this.b13,
+        key10: this.b14,
+        key11: this.b15,
+      };
+      exportWord("折板絮凝池计算书", "2003.docx", data, this);
     },
 
     getDisinfectiontank() {
