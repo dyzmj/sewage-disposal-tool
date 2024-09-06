@@ -1992,7 +1992,7 @@
                 <a-button
                   style="margin-left: 30px;"
                   type="primary"
-                  @click="exportComputeBook()"
+                  @click="exportComputeBook1()"
                   >{{ $t("exportComputeBook") }}</a-button
                 >
                 <a-button
@@ -2020,7 +2020,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel3, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2347,7 +2347,22 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b3_1,
+        key2: this.b3_2,
+        key3: this.b8,
+        key4: this.b7,
+      };
+      exportWord("机械絮凝池计算书", "2001.docx", data, this);
+    },
+    exportComputeBook1() {
+      const data = {
+        key1: this.c3_1,
+        key2: this.c3_2,
+        key3: this.c8,
+        key4: this.c7,
+      };
+      exportWord("机械絮凝池计算书", "2001.docx", data, this);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
