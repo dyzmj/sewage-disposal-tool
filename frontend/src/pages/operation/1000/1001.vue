@@ -1970,14 +1970,14 @@ export default {
               title: "设备类型",
               dataIndex: "Dimensions",
               key: "4",
-              width: "150px",
+              width: "100px",
               align: "center",
             },
             {
               title: "规格及型号",
               dataIndex: "规格及型号",
               key: "5",
-              width: "80px",
+              width: "180px",
               align: "center",
             },
             {
@@ -2128,8 +2128,29 @@ export default {
     getDisinfectiontank() {
       return "to do";
     },
-    getDimensions() {
-      return "70.1m x 20.9m x 4.4m";
+    getkey1() {
+      return this.b110 +"m x" + this.b110_1 + 'm x' + this.b110_2 + "m"
+    },
+    getKey2() {
+      return "Q=" + (parseFloat(this.b69_1) / parseFloat(this.b70_1)).toFixed(1) + "m3/h, H=" + this.b73 + "m";
+    },
+    getKey3() {
+      return (parseFloat(this.b70_1) + parseFloat(this.b71_1)).toFixed(0);
+    },
+    getKey4() {
+      return this.b100_1 + "m3/min, P=" + this.b98_1 + "KPa";
+    },
+    getKey5() {
+      return (parseFloat(this.b99) + parseFloat(this.b99_1)).toFixed(0);
+    },
+    getKey6() {
+      return this.b70_1 + "用" + this.b71_1 + "备";
+    },
+    getKey7() {
+      return this.b99 + "用" + this.b99_1 + "备";
+    },
+    getKey8() {
+      return (parseFloat(this.b15) * 5).toFixed(0)
     },
     exportQuantities() {
       try{
@@ -2159,7 +2180,7 @@ export default {
         const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "生物接触氧化池计算书", this);
+        exportExcel3(allData1, allData2, allData3, "生物接触氧化池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -2470,10 +2491,10 @@ export default {
     this.data1 = [
       {
         key: "1",
-        序号: "1",
-        单体位号: "1",
+        序号: "",
+        单体位号: "",
         名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
         disinfectiontank: "1",
@@ -2485,39 +2506,39 @@ export default {
     this.data2 = [
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
+        序号: "",
+        设备位号: "",
         设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        规格及型号: this.getKey2(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        disinfectiontank: this.getKey3(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: this.getKey6(),
       },
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
+        序号: "",
+        设备位号: "",
         设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        规格及型号: this.getKey4(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        disinfectiontank:  this.getKey5(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: this.getKey7(),
       },
     ];
     this.data3 = [
       {
         key: "1",
-        序号: "1",
-        仪表位号: "1",
+        序号: "",
+        仪表位号: "",
         仪表名称: "电动阀",
         安装位置: "",
         规格及型号: "",
         单位: "台",
-        数量: "80",
+        disinfectiontank: this.getKey8(),
         a: "",
         b: "",
         备注: "",
