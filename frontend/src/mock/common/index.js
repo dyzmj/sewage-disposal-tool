@@ -81,7 +81,7 @@ const processUnit = [
       {
         title: '机械搅拌絮凝池',
         key: '2001',
-        checked: true,
+        checked: false,
         state: '2',
         color: '#6C767D',
         detail: '机械搅拌絮凝池',
@@ -89,7 +89,7 @@ const processUnit = [
       {
         title: '网格絮凝池',
         key: '2002',
-        checked: true,
+        checked: false,
         state: '0',
         color: '#6C767D',
         detail: '网格絮凝池',
@@ -97,7 +97,7 @@ const processUnit = [
       {
         title: '折板絮凝池',
         key: '2003',
-        checked: true,
+        checked: false,
         state: '0',
         color: '#6C767D',
         detail: '折板絮凝池',
@@ -289,7 +289,7 @@ const processUnit = [
       {
         title: '加药系统-PAC',
         key: '7005',
-        checked: true,
+        checked: false,
         state: '1',
         color: '#6C767D',
         detail: '加药系统-PAC',
@@ -297,7 +297,7 @@ const processUnit = [
       {
         title: '加药系统-PAM',
         key: '7006',
-        checked: true,
+        checked: false,
         state: '1',
         color: '#6C767D',
         detail: '加药系统-PAM',

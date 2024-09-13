@@ -35,6 +35,7 @@ module.exports = {
       export: '导出',
       exportQuantities: '导出工程量',
       exportCalculation: '导出计算书',
+      exportSucc: '导出完成！',
       importModel: '导入模板',
       function: '系统功能',
       titleInput: '请输入相关参数',

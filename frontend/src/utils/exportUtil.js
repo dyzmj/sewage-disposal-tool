@@ -3,11 +3,7 @@ import { ipc } from "@/utils/ipcRenderer";
 import * as XLSX from "xlsx";
 import Docxtemplater from "docxtemplater";
 import pizzip from "pizzip";
-// import FileSaver from 'file-saver';
-
-const htmlToRtf = require("html-to-rtf-node");
 const fs = window.require("fs");
-const iconv = require("iconv-lite");
 
 /**
  * 导出 1 个 sheet的 Excel文件
@@ -106,14 +102,14 @@ async function selectFolder() {
 
 async function loadTemplateContent(templatePath) {
   return await fetch(templatePath)
-    .then(res => res.arrayBuffer())
-    .catch(fetchErr => {
+    .then((res) => res.arrayBuffer())
+    .catch((fetchErr) => {
       console.error("加载模板文件时发生错误:", fetchErr);
       throw fetchErr;
     });
 }
 
-async function renderAndSaveDocument(path, content, data) {
+async function renderAndSaveDocument(path, content, data, templatePath) {
   const zip = new pizzip(content);
   const doc = new Docxtemplater(zip);
 
@@ -121,6 +117,10 @@ async function renderAndSaveDocument(path, content, data) {
   doc.render();
 
   const outputBuffer = doc.getZip().generate({ type: "nodebuffer" });
+
+  storeBufferInLocalStorage(outputBuffer, templatePath);
+
+  getBufferFromLocalStorage(templatePath);
 
   try {
     await new Promise((resolve, reject) => {
@@ -144,10 +144,13 @@ async function renderAndSaveDocument(path, content, data) {
 export async function exportWord(name, templatePath, data, self) {
   try {
     const selectedFolder = await selectFolder();
-    const path = `${selectedFolder}/${name}${formatter(new Date(), " yyyy_MM_dd_hh_mm_ss")}.docx`;
+    const path = `${selectedFolder}/${name}${formatter(
+      new Date(),
+      " yyyy_MM_dd_hh_mm_ss"
+    )}.docx`;
     const content = await loadTemplateContent(templatePath);
 
-    if (await renderAndSaveDocument(path, content, data)) {
+    if (await renderAndSaveDocument(path, content, data, templatePath)) {
       self.$message.info(self.$t("exportSucc"));
     } else {
       self.$message.warn("保存文件失败！");
@@ -158,30 +161,90 @@ export async function exportWord(name, templatePath, data, self) {
   }
 }
 
-/**
- * 导出RTF文件
- * @param {文件名称} name
- * @param {文件内容} htmlStr
- * @param {self} self
- */
-export function exportRtf(name, htmlStr, self) {
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".rtf";
-    var res1 = htmlToRtf.convertHtmlToRtf(htmlStr);
-    console.info("格式化的结果" + res1);
-    let buffer = iconv.encode(res1, "Windows936");
-    // 打开文件选择对话框
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        throw err;
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
+async function parseDocumentXml(xmlString) {
+  var parseString = require("xml2js").parseString;
+  try {
+    const result = await new Promise((resolve, reject) => {
+      parseString(xmlString, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
     });
-  });
+    console.info(result);
+    return result;
+  } catch (error) {
+    console.error("Error parsing XML:", error);
+    throw error;
+  }
+}
+
+async function convertToXml(xmlString) {
+  const xml2js = require("xml2js");
+  // 创建 Builder 实例
+  try {
+    const builder = new xml2js.Builder();
+    const result = builder.buildObject(xmlString);
+    return result;
+  } catch (error) {
+    console.error("Error parsing XML:", error);
+    throw error;
+  }
+}
+
+export async function exportWord2(name, data, self) {
+  try {
+    const selectedFolder = await selectFolder();
+    const path = `${selectedFolder}/${name}${formatter(
+      new Date(),
+      " yyyy_MM_dd_hh_mm_ss"
+    )}.docx`;
+
+    // 提取 word 对应 XML(word/document.xml)中 ["w:document"]["w:body"] 的计算书内容信息
+    const doc = [];
+    for (const item of data) {
+      const zip = new pizzip(item);
+      const documentXml = zip.file("word/document.xml").asText();
+      const docxXml = await parseDocumentXml(documentXml);
+      const contentXml = docxXml["w:document"]["w:body"];
+      doc.push(contentXml);
+    }
+
+    // 移除数组中的第一条数据（为后续去重）
+    doc.shift();
+    // 使用第一个工艺单元作为基础模板
+    const zip1 = new pizzip(data[0]);
+    const documentXml1 = zip1.file("word/document.xml").asText();
+    const docx1 = await parseDocumentXml(documentXml1);
+    // 将其他工艺单元的计算书内容合并到第一个工艺单元的XML对象中
+    for (const item of doc) {
+      docx1["w:document"]["w:body"].push(item[0]);
+    }
+    // 将XML对象转换为XML字符串
+    const documentXmlStr = await convertToXml(docx1);
+    // 将计算书内容部分添加至基础模版中
+    zip1.file("word/document.xml", documentXmlStr);
+    // 将基础模版转为 buffer 对象
+    const outputBuffer = zip1.generate({ type: "nodebuffer" });
+    // 将 buffer 对象导出为 docx 文档
+    await new Promise((resolve, reject) => {
+      fs.writeFile(path, outputBuffer, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+    self.$message.info(self.$t("exportSucc"));
+    console.log("Word文档已成功导出");
+    return true;
+  } catch (error) {
+    console.error("生成Word文档时发生错误:", error);
+    self.$message.warn("保存文件失败！");
+  }
 }
 
 function formatter(thistime, fmt) {
@@ -210,4 +273,33 @@ function formatter(thistime, fmt) {
     }
   }
   return fmt;
+}
+
+// 定义一个函数将 Buffer 转换为 Base64 字符串
+function bufferToBase64(buffer) {
+  return buffer.toString("base64");
+}
+
+// 定义一个函数将 Base64 字符串转换回 Buffer
+function base64ToBuffer(base64) {
+  return Buffer.from(base64, "base64");
+}
+
+// 存储 Buffer 数据到 localStorage
+export function storeBufferInLocalStorage(buffer, key) {
+  const base64String = bufferToBase64(buffer);
+  localStorage.setItem(key, base64String);
+  console.log("Buffer stored successfully in localStorage");
+}
+
+// 从 localStorage 中读取 Buffer 数据
+export function getBufferFromLocalStorage(key) {
+  const base64String = localStorage.getItem(key);
+  if (base64String) {
+    const buffer = base64ToBuffer(base64String);
+    console.log("Buffer retrieved from localStorage:", buffer);
+    return buffer;
+  }
+  console.log("No buffer data found in localStorage");
+  return null;
 }

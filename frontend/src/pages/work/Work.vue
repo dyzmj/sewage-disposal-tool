@@ -1,117 +1,38 @@
 <template>
   <div id="testApp" style="background-color: #EDEFF2;">
     <a-row style="margin: 0 -6px">
-      <a-col
-        style="padding: 14px 6px"
-        :xl="6"
-        :lg="24"
-        :md="24"
-        :sm="24"
-        :xs="24"
-      >
-        <a-card
-          :loading="loading"
-          :title="$t('baseQueryParam')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
+      <a-col style="padding: 14px 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
+        <a-card :loading="loading" :title="$t('baseQueryParam')" :headStyle="{ 'font-weight': 'bolder' }"
+          style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
-            <a-form
-              class="diy-advanced-search-form"
-              :form="form"
-              @submit="handleSearch"
-            >
-              <a-form-item
-                :label="$t('param1')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param1`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param1_u')"
-                    :disabled="true"
-                  />
+            <a-form class="diy-advanced-search-form" :form="form" @submit="handleSearch">
+              <a-form-item :label="$t('param1')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param1`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param1_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param2')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param2`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param2_u')"
-                    :disabled="true"
-                  />
+              <a-form-item :label="$t('param2')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param2`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param2_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param3')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param3`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param3_u')"
-                    :disabled="true"
-                  />
+              <a-form-item :label="$t('param3')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param3`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param3_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param4')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input
-                  :style="{ width: '100%' }"
-                  v-decorator="[`param4`]"
-                  :placeholder="$t('inputOne')"
-                  :disabled="false"
-                />
+              <a-form-item :label="$t('param4')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
+                <a-input :style="{ width: '100%' }" v-decorator="[`param4`]" :placeholder="$t('inputOne')"
+                  :disabled="false" />
               </a-form-item>
-              <a-form-item
-                :label="$t('param5')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param5`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
+              <a-form-item :label="$t('param5')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select v-decorator="[`param5`]" style="width: 100%" :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -120,17 +41,8 @@
                   </a-select-option>
                 </a-select>
               </a-form-item>
-              <a-form-item
-                :label="$t('param6')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param6`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
+              <a-form-item :label="$t('param6')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select v-decorator="[`param6`]" style="width: 100%" :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -139,21 +51,9 @@
                   </a-select-option>
                 </a-select>
               </a-form-item>
-              <a-form-item
-                :label="$t('param7')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-select
-                    v-decorator="[`param7`]"
-                    style="width: 70%"
-                    :placeholder="$t('selectOne')"
-                  >
+              <a-form-item :label="$t('param7')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select v-decorator="[`param7`]" style="width: 70%" :placeholder="$t('selectOne')">
                     <a-select-option value="0">
                       &lt;= 3
                     </a-select-option>
@@ -167,24 +67,11 @@
                       水质突变或季节性变化
                     </a-select-option>
                   </a-select>
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param7_u')"
-                    :disabled="true"
-                  />
+                  <a-input :style="{ width: '30%' }" :value="$t('param7_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param8')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param8`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
+              <a-form-item :label="$t('param8')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-select v-decorator="[`param8`]" style="width: 100%" :placeholder="$t('selectOne')">
                   <a-select-option value="0">
                     无
                   </a-select-option>
@@ -193,80 +80,27 @@
                   </a-select-option>
                 </a-select>
               </a-form-item>
-              <a-form-item
-                :label="$t('param9')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param9`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param9_u')"
-                    :disabled="true"
-                  />
+              <a-form-item :label="$t('param9')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param9`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param9_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param11')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input
-                  :style="{ width: '100%' }"
-                  v-decorator="[`param11`]"
-                  :placeholder="$t('inputOne')"
-                  :disabled="false"
-                />
+              <a-form-item :label="$t('param11')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input :style="{ width: '100%' }" v-decorator="[`param11`]" :placeholder="$t('inputOne')"
+                  :disabled="false" />
               </a-form-item>
-              <a-form-item
-                :label="$t('param12')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param12`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param12_u')"
-                    :disabled="true"
-                  />
+              <a-form-item :label="$t('param12')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param12`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param12_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                :label="$t('param13')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-select
-                    v-decorator="[`param13`]"
-                    style="width: 100%"
-                    :placeholder="$t('selectOne')"
-                  >
+              <a-form-item :label="$t('param13')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+                <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
+                  <a-select v-decorator="[`param13`]" style="width: 100%" :placeholder="$t('selectOne')">
                     <a-select-option value="0">
                       否
                     </a-select-option>
@@ -276,81 +110,37 @@
                   </a-select>
                 </a-input-group>
               </a-form-item>
-              <a-form-item
-                style="margin-top: 0px; margin-bottom: 7px"
-                :wrapperCol="{ span: 18, offset: 6 }"
-              >
+              <a-form-item style="margin-top: 0px; margin-bottom: 7px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button html-type="submit" type="primary">{{
                   $t("submit")
-                }}</a-button>
+                  }}</a-button>
                 <a-button @click="handleReset" style="margin-left: 8px">{{
                   $t("reset")
-                }}</a-button>
+                  }}</a-button>
               </a-form-item>
             </a-form>
           </div>
         </a-card>
       </a-col>
-      <a-col
-        style="padding: 14px 6px"
-        :xl="18"
-        :lg="24"
-        :md="24"
-        :sm="24"
-        :xs="24"
-      >
-        <a-card
-          :loading="loading"
-          :title="$t('processUnit')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          :bodyStyle="{ 'padding-bottom': '12px' }"
-          style="margin-bottom: 0px"
-          :bordered="false"
-        >
+      <a-col style="padding: 14px 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
+        <a-card :loading="loading" :title="$t('processUnit')" :headStyle="{ 'font-weight': 'bolder' }"
+          :bodyStyle="{ 'padding-bottom': '12px' }" style="margin-bottom: 0px" :bordered="false">
           <div class="baseQueryParam">
-            <a-list
-              :grid="{ gutter: 4, column: 6 }"
-              :xl="20"
-              :lg="24"
-              :md="24"
-              :sm="24"
-              :xs="24"
-              style="margin: 0 -16px"
-              :loading="loading"
-            >
-              <a-list-item
-                :key="i"
-                v-for="(item, i) in processUnit"
-                style="padding: 0 4px"
-              >
-                <a-card
-                  class="list-card"
-                  size="small"
-                  :headStyle="{ 'font-weight': 'bolder' }"
-                  :title="item.title"
-                  :loading="loading"
-                  :hoverable="true"
-                  :bordered="true"
-                >
+            <a-list :grid="{ gutter: 4, column: 6 }" :xl="20" :lg="24" :md="24" :sm="24" :xs="24"
+              style="margin: 0 -16px" :loading="loading">
+              <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
+                <a-card class="list-card" size="small" :headStyle="{ 'font-weight': 'bolder' }" :title="item.title"
+                  :loading="loading" :hoverable="true" :bordered="true">
                   <div class="content">
                     <a-list size="small">
                       <a-list-item :key="j" v-for="(item, j) in item.children">
                         <a-space direction="vertical" size="large">
                           <div class="list-content">
                             <div class="list-content-item">
-                              <a-checkbox
-                                :value="item.key"
-                                name="processUnit"
-                                v-model="item.checked"
-                                :disabled="item.disabled"
-                                @change="onChange(item.key)"
-                              >
-                                <a-tag
-                                  :color="item.checked ? '#2DB7F5' : '#6C767D'"
-                                  style="font-size: 13px;"
-                                  @click="calc(item.key)"
-                                  >{{ item.title }}</a-tag
-                                >
+                              <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
+                                :disabled="item.disabled" @change="onChange(item.key)">
+                                <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
+                                  @click="calc(item.key)">{{ item.title }}</a-tag>
                               </a-checkbox>
                             </div>
                           </div>
@@ -361,38 +151,13 @@
                 </a-card>
               </a-list-item>
               <a-list-item style="padding: 0 4px">
-                <a-card
-                  class="list-card"
-                  size="small"
-                  :headStyle="{ 'font-weight': 'bolder' }"
-                  :title="$t('function')"
-                  :loading="loading"
-                  :hoverable="true"
-                >
-                  <div
-                    class="content"
-                    style="padding: 0 6px"
-                    :xl="18"
-                    :lg="24"
-                    :md="24"
-                    :sm="24"
-                    :xs="24"
-                  >
-                    <a-button
-                      type="primary"
-                      style="margin-top: 19px;"
-                      block
-                      @click="comparison"
-                      >{{ $t("exportQuantities") }}</a-button
-                    >
-                    <a-button
-                      type="danger"
-                      danger
-                      style="margin-top: 10px;"
-                      block
-                      @click="operation"
-                      >{{ $t("exportCalculation") }}</a-button
-                    >
+                <a-card class="list-card" size="small" :headStyle="{ 'font-weight': 'bolder' }" :title="$t('function')"
+                  :loading="loading" :hoverable="true">
+                  <div class="content" style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
+                    <a-button type="primary" style="margin-top: 19px;" block @click="comparison">{{
+                      $t("exportQuantities") }}</a-button>
+                    <a-button type="danger" danger style="margin-top: 10px;" block @click="operation">{{
+                      $t("exportCalculation") }}</a-button>
                     <!-- <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('importModel')
                       }}</a-button> -->
                   </div>
@@ -409,9 +174,7 @@
 <script>
 import { mapState } from "vuex";
 import { request, METHOD } from "@/utils/request";
-// import { saveAs } from 'file-saver'
-// import { ipcApiRoute } from '@/api/main';
-// import { ipc } from '@/utils/ipcRenderer';
+import { getBufferFromLocalStorage, exportWord2 } from "@/utils/exportUtil";
 
 export default {
   name: "WorkPlace",
@@ -568,7 +331,13 @@ export default {
           this.processUnit[5].children[0].checked = true;
         }
 
-        // 初始化时常选中：混凝工艺全部、PAC、PAM (后端数据已处理)
+        // 初始化时常选中：混凝工艺全部、PAC、PAM
+        this.processUnit[1].children[0].checked = true;
+        this.processUnit[1].children[1].checked = true;
+        this.processUnit[1].children[2].checked = true;
+        this.processUnit[6].children[4].checked = true;
+        this.processUnit[6].children[5].checked = true;
+
       });
 
       this.$message.success(this.$t("initSucc"));
@@ -637,64 +406,39 @@ export default {
     },
     export_case() {
       this.$message.warn(this.$t("importModelNotOpen"));
-
-      // const htmlToRtf = require('html-to-rtf-node');
-      // const fs = window.require('fs');
-
-      // ipc.invoke(ipcApiRoute.selectFolder, '').then(r => {
-      //   // this.dir_path = r;
-      //   this.$message.info(r);
-
-      //   var path = r + '/test.rtf'
-
-      //   const html = `
-      // <h1>Title <span style="color:rgb(255,0,0);">with</span> tag h1<h1>
-      // <div>
-      //   <p style="color:#333; margin:5px;" class="test" align="center">
-      //       text of paragraph <b>text with bold <i>text with italic and bold</i></b><i>text with italic</i>
-      //   </p>
-      //   <p style="color:rgb(255,0,0);" align="right">red paragraph => right with tag</p>
-      //   <p style="color:rgb(0,0,255); text-align:center;">blue paragraph => center with style</p>
-      //   <table>
-      //     <tbody>
-      //       <tr>
-      //                 <td><mark>column 1</mark></td>
-      //                 <td>column 2</td>
-      //         <td><mark>column 3</mark></td>
-      //         <td>column 4</td>
-      //       </tr>
-      //       <tr>
-      //         <td>content 1</td>
-      //         <td>content 2<br></td>
-      //         <td>content 3<br></td>
-      //         <td>content 4<br></td>
-      //       </tr>
-      //     </tbody>
-      //   </table>
-      // </div>
-      // `
-
-      //   console.info(html)
-
-      //   var element = document.querySelector("#testApp");
-      //   var html1 = element.outerHTML;
-      //   console.info(html1)
-
-      //   var res1 = htmlToRtf.convertHtmlToRtf(html);
-      //   console.info("格式化的结果" + res1)
-
-      //   //  htmlToRtf.saveRtfInFile('./test.rtf', res);
-
-      //   // 打开文件选择对话框
-      //   fs.writeFile(path, res1, 'utf8', (err) => {
-      //     if (err) throw err;
-      //     console.log('The file has been saved!');
-      //   });
-
-      // })
     },
     operation() {
-      this.$message.warn(this.$t("exportCaseNotOpen"));
+      console.log("获取选中的对象")
+      const buffers = []
+      this.processUnit.forEach((element) => {
+        element.children.forEach((child) => {
+          if (child.checked) {
+          try {
+            console.log(`正在获取 ${child.key}`);
+            const buffer = getBufferFromLocalStorage(child.key+".docx");
+            if (buffer instanceof Buffer) {
+              buffers.push(buffer);
+            } else {
+              console.error(`从 localStorage 获取的 ${child.key} 不是 Buffer 类型`);
+            }
+          } catch (error) {
+            console.error(`从 localStorage 获取 ${child.key} 时发生错误:`, error);
+          }
+          }
+        });
+      });
+      
+      // 检查 buffers 是否为空
+      if (buffers.length > 0) {
+        try {
+          exportWord2("总计算书", buffers, this);
+          console.log("合并后的 Word 文件已存储到本地存储");
+        } catch (error) {
+          console.error("合并文档时发生错误:", error);
+        }
+      } else {
+        console.log("没有选中的对象");
+      }
     },
     calc(calcUnit) {
       const path = "/sub/" + calcUnit;
@@ -735,7 +479,7 @@ export default {
 }
 
 /* 设置 label 的字体大小 */
-.ant-form-item-label > label {
+.ant-form-item-label>label {
   font-size: 12px;
   /* 调整为所需的字体大小 */
 }
