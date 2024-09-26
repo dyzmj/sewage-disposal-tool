@@ -125,8 +125,16 @@
       <a-col style="padding: 14px 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card :loading="loading" :title="$t('processUnit')" :headStyle="{ 'font-weight': 'bolder' }"
           :bodyStyle="{ 'padding-bottom': '12px' }" style="margin-bottom: 0px" :bordered="false">
+          <a slot="extra" href="#">
+            <div class="" style="">
+                    <a-button type="primary" style="margin-right: 20px;" @click="comparison" icon="file-done">
+                      {{ $t("exportQuantities") }}</a-button>
+                    <a-button type="danger" @click="operation" icon="file-search">
+                      {{ $t("exportCalculation") }}</a-button>
+                  </div>
+          </a>
           <div class="baseQueryParam">
-            <a-list :grid="{ gutter: 4, column: 6 }" :xl="20" :lg="24" :md="24" :sm="24" :xs="24"
+            <a-list :grid="{ gutter: 4, column: 4 }" :xl="20" :lg="24" :md="24" :sm="24" :xs="24"
               style="margin: 0 -16px" :loading="loading">
               <a-list-item :key="i" v-for="(item, i) in processUnit" style="padding: 0 4px">
                 <a-card class="list-card" size="small" :headStyle="{ 'font-weight': 'bolder' }" :title="item.title"
@@ -137,11 +145,13 @@
                         <a-space direction="vertical" size="large">
                           <div class="list-content">
                             <div class="list-content-item">
-                              <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
+                              <a-tooltip placement="top" :title="item.message" :get-popup-container="getPopupContainer">
+                                <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
                                 :disabled="item.disabled" @change="onChange(item.key)">
-                                <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
+                                  <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
                                   @click="calc(item.key)">{{ item.title }}</a-tag>
-                              </a-checkbox>
+                                </a-checkbox>
+                              </a-tooltip>
                             </div>
                           </div>
                         </a-space>
@@ -150,7 +160,7 @@
                   </div>
                 </a-card>
               </a-list-item>
-              <a-list-item style="padding: 0 4px">
+              <!-- <a-list-item style="padding: 0 4px">
                 <a-card class="list-card" size="small" :headStyle="{ 'font-weight': 'bolder' }" :title="$t('function')"
                   :loading="loading" :hoverable="true">
                   <div class="content" style="padding: 0 6px" :xl="18" :lg="24" :md="24" :sm="24" :xs="24">
@@ -158,11 +168,9 @@
                       $t("exportQuantities") }}</a-button>
                     <a-button type="danger" danger style="margin-top: 10px;" block @click="operation">{{
                       $t("exportCalculation") }}</a-button>
-                    <!-- <a-button type="dashed" style="margin-top: 10px;" block @click="export_case">{{ $t('importModel')
-                      }}</a-button> -->
                   </div>
                 </a-card>
-              </a-list-item>
+              </a-list-item> -->
             </a-list>
           </div>
         </a-card>
@@ -196,6 +204,9 @@ export default {
         this.processUnit = res.data;
         this.loading = false;
       });
+    },
+    getPopupContainer(trigger) {
+      return trigger.parentElement;
     },
     handleSearch(e) {
       e.preventDefault();
@@ -335,8 +346,8 @@ export default {
         this.processUnit[1].children[0].checked = true;
         this.processUnit[1].children[1].checked = true;
         this.processUnit[1].children[2].checked = true;
-        this.processUnit[6].children[4].checked = true;
-        this.processUnit[6].children[5].checked = true;
+        this.processUnit[1].children[3].checked = true;
+        this.processUnit[1].children[4].checked = true;
 
       });
 
@@ -351,54 +362,54 @@ export default {
     onChange(key) {
       if (key === "1006") {
         // O3
-        this.$message.success(
-          "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
-        );
+        // this.$message.success(
+        //   "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
+        // );
       }
       if (key === "1005") {
         // 高锰酸钾
-        this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
+        // this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
       }
       if (key === "1004") {
         // ClO2
-        this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
+        // this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
       }
       if (key === "1003") {
         // NaClO
-        this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
+        // this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
       }
 
       if (key === "2002") {
         // 网格絮凝池
-        this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
+        // this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
       }
       if (key === "2003") {
         // 折板絮凝池
-        this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
+        // this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
       }
       if (key === "3001") {
         // 平流沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3002") {
         // 斜管沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3003") {
         // 高密度沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3004") {
         // 机械搅拌澄清池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3005") {
         // 水力循环澄清池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3006") {
         // 气浮池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
       }
     },
     comparison() {

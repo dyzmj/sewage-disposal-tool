@@ -19,13 +19,13 @@ const processUnit = [
     key: '1000',
     children: [
       {
-        title: '生物接触氧化池',
+        title: '陶粒生物接触氧化池',
         key: '1001',
         checked: false,
         disabled: false,
         state: '0',
         color: '#6C767D',
-        detail: '生物接触氧化池',
+        detail: '陶粒生物接触氧化池',
       },
       {
         title: '预沉池',
@@ -37,31 +37,37 @@ const processUnit = [
         detail: '预沉池',
       },
       {
-        title: 'NaClO',
+        title: '加药系统-NaClO',
         key: '1003',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
-        detail: 'NaClO',
+        detail: '加药系统-NaClO',
+        tips: true,
+        message: '厂区消毒剂为NaClO优选选用，后端为生物处理慎用'
       },
       {
-        title: 'ClO2',
+        title: '加药系统-ClO2',
         key: '1004',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
-        detail: 'ClO2',
+        detail: '加药系统-ClO2',
+        tips: true,
+        message: '厂区消毒剂为ClO2优选选用，后端为生物处理慎用'
       },
       {
-        title: '高锰酸钾',
+        title: '加药系统-高锰酸钾',
         key: '1005',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
-        detail: '高锰酸钾',
+        detail: '加药系统-高锰酸钾',
+        tips: true,
+        message: 'Fe、Mn超标尤其适用, 后端为生物处理慎用'
       },
       {
         title: '臭氧',
@@ -71,6 +77,17 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: '臭氧',
+        tips: true,
+        message: '厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用'
+      },
+      {
+        title: '加药系统-活性炭粉末',
+        key: '1007',
+        checked: false,
+        disabled: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '加药系统-活性炭粉末',
       },
     ]
   },
@@ -93,6 +110,8 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '网格絮凝池',
+        tips: true,
+        message: '单池 > 2.5万m3/d 不建议采用网格絮凝池'
       },
       {
         title: '折板絮凝池',
@@ -101,7 +120,25 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '折板絮凝池',
+        tips: true,
+        message: '单池 >= 5万m3/d 不建议采用折板絮凝池'
       },
+      {
+        title: '加药系统-PAC',
+        key: '2004',
+        checked: false,
+        state: '0',
+        color: '#6C767D',
+        detail: '加药系统-PAC',
+      },
+      {
+        title: '加药系统-PAM',
+        key: '2005',
+        checked: false,
+        state: '0',
+        color: '#6C767D',
+        detail: '加药系统-PAM',
+      }
     ]
   },
   {
@@ -116,6 +153,8 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: '平流沉淀池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '斜管沉淀池',
@@ -125,6 +164,8 @@ const processUnit = [
         state: '2',
         color: '#6C767D',
         detail: '斜管沉淀池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '高密度沉淀池',
@@ -134,6 +175,8 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '高密度沉淀池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '机械搅拌澄清池',
@@ -143,6 +186,8 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: '机械搅拌澄清池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '水力循环澄清池',
@@ -151,7 +196,9 @@ const processUnit = [
         disabled: false,
         state: '2',
         color: '#6C767D',
-         detail: '水力循环澄清池',
+        detail: '水力循环澄清池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '平流式气浮池',
@@ -161,6 +208,8 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '平流式气浮池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       },
   
     ]
@@ -243,25 +292,10 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '臭氧消毒',
-      }
-    ]
-  },
-  {
-    title: '加药工艺',
-    key: '7000',
-    children: [
-      {
-        title: '活性炭吸附塔',
-        key: '7001',
-        checked: false,
-        disabled: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '活性炭吸附塔',
       },
       {
         title: '折点加氯',
-        key: '7002',
+        key: '6004',
         checked: false,
         disabled: false,
         state: '1',
@@ -270,7 +304,7 @@ const processUnit = [
       },
       {
         title: '加药系统-NaClO',
-        key: '7003',
+        key: '6005',
         checked: false,
         disabled: false,
         state: '1',
@@ -279,47 +313,13 @@ const processUnit = [
       },
       {
         title: '加药系统-ClO2',
-        key: '7004',
+        key: '6006',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
         detail: '加药系统-ClO2',
-      },
-      {
-        title: '加药系统-PAC',
-        key: '7005',
-        checked: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '加药系统-PAC',
-      },
-      {
-        title: '加药系统-PAM',
-        key: '7006',
-        checked: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '加药系统-PAM',
-      },
-      {
-        title: '活性炭粉末',
-        key: '7007',
-        checked: false,
-        disabled: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '活性炭粉末',
-      },
-      {
-        title: '高锰酸钾',
-        key: '7008',
-        checked: false,
-        disabled: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '高锰酸钾',
-      },
+      }
     ]
   },
   {
