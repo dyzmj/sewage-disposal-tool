@@ -362,54 +362,54 @@ export default {
     onChange(key) {
       if (key === "1006") {
         // O3
-        // this.$message.success(
-        //   "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
-        // );
+        this.$message.success(
+          "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
+        );
       }
       if (key === "1005") {
         // 高锰酸钾
-        // this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
+        this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
       }
       if (key === "1004") {
         // ClO2
-        // this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
+        this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
       }
       if (key === "1003") {
         // NaClO
-        // this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
+        this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
       }
 
       if (key === "2002") {
         // 网格絮凝池
-        // this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
+        this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
       }
       if (key === "2003") {
         // 折板絮凝池
-        // this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
+        this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
       }
       if (key === "3001") {
         // 平流沉淀池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3002") {
         // 斜管沉淀池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3003") {
         // 高密度沉淀池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3004") {
         // 机械搅拌澄清池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3005") {
         // 水力循环澄清池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
       if (key === "3006") {
         // 气浮池
-        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        this.$message.success("设计规模 < 5万m3/d 不建议");
       }
     },
     comparison() {
