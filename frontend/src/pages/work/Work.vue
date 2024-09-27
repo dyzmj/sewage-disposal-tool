@@ -491,7 +491,7 @@ export default {
 
 /* 设置 label 的字体大小 */
 .ant-form-item-label>label {
-  font-size: 12px;
+  font-size: 14px;
   /* 调整为所需的字体大小 */
 }
 
