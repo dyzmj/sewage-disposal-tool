@@ -355,6 +355,8 @@ export default {
     handleReset() {
       this.form.resetFields();
       this.getProcessUnit();
+      // 重置时将设计水量缓存也清空
+      storeValueInLocalStorage("waterData", '');
       this.$message.success(this.$t("resetSucc"));
     },
     onChange(key) {
