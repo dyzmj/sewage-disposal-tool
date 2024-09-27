@@ -303,3 +303,12 @@ export function getBufferFromLocalStorage(key) {
   console.log("No buffer data found in localStorage");
   return null;
 }
+
+export function storeValueInLocalStorage(key, value) {
+  localStorage.setItem(key, value);
+  console.log("value successfully in localStorage");
+}
+
+export function getValueFromLocalStorage(key) {
+  return localStorage.getItem(key);
+}

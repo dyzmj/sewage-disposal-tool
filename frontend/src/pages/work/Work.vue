@@ -98,25 +98,20 @@
                   <a-input :style="{ width: '30%' }" :value="$t('param12_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
-              <a-form-item :label="$t('param13')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }" :required="false">
+              <a-form-item :label="$t('param14')" :labelCol="{ span: 7 }" :wrapperCol="{ span: 17 }">
                 <a-input-group :compact="true" style="display: inline-block; vertical-align: middle">
-                  <a-select v-decorator="[`param13`]" style="width: 100%" :placeholder="$t('selectOne')">
-                    <a-select-option value="0">
-                      否
-                    </a-select-option>
-                    <a-select-option value="1">
-                      是
-                    </a-select-option>
-                  </a-select>
+                  <a-input :style="{ width: '70%' }" v-decorator="[`param14`]" :placeholder="$t('inputOne')"
+                    :disabled="false" />
+                  <a-input :style="{ width: '30%' }" :value="$t('param14_u')" :disabled="true" />
                 </a-input-group>
               </a-form-item>
               <a-form-item style="margin-top: 0px; margin-bottom: 7px" :wrapperCol="{ span: 18, offset: 6 }">
                 <a-button html-type="submit" type="primary">{{
                   $t("submit")
-                  }}</a-button>
+                }}</a-button>
                 <a-button @click="handleReset" style="margin-left: 8px">{{
                   $t("reset")
-                  }}</a-button>
+                }}</a-button>
               </a-form-item>
             </a-form>
           </div>
@@ -127,11 +122,11 @@
           :bodyStyle="{ 'padding-bottom': '12px' }" style="margin-bottom: 0px" :bordered="false">
           <a slot="extra" href="#">
             <div class="" style="">
-                    <a-button type="primary" style="margin-right: 20px;" @click="comparison" icon="file-done">
-                      {{ $t("exportQuantities") }}</a-button>
-                    <a-button type="danger" @click="operation" icon="file-search">
-                      {{ $t("exportCalculation") }}</a-button>
-                  </div>
+              <a-button type="primary" style="margin-right: 20px;" @click="comparison" icon="file-done">
+                {{ $t("exportQuantities") }}</a-button>
+              <a-button type="danger" @click="operation" icon="file-search">
+                {{ $t("exportCalculation") }}</a-button>
+            </div>
           </a>
           <div class="baseQueryParam">
             <a-list :grid="{ gutter: 4, column: 4 }" :xl="20" :lg="24" :md="24" :sm="24" :xs="24"
@@ -147,9 +142,9 @@
                             <div class="list-content-item">
                               <a-tooltip placement="top" :title="item.message" :get-popup-container="getPopupContainer">
                                 <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
-                                :disabled="item.disabled" @change="onChange(item.key)">
+                                  :disabled="item.disabled" @change="onChange(item.key)">
                                   <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
-                                  @click="calc(item.key)">{{ item.title }}</a-tag>
+                                    @click="calc(item.key)">{{ item.title }}</a-tag>
                                 </a-checkbox>
                               </a-tooltip>
                             </div>
@@ -182,7 +177,7 @@
 <script>
 import { mapState } from "vuex";
 import { request, METHOD } from "@/utils/request";
-import { getBufferFromLocalStorage, exportWord2 } from "@/utils/exportUtil";
+import { getBufferFromLocalStorage, exportWord2, storeValueInLocalStorage } from "@/utils/exportUtil";
 
 export default {
   name: "WorkPlace",
@@ -210,136 +205,135 @@ export default {
     },
     handleSearch(e) {
       e.preventDefault();
-
       this.form.validateFields((error, values) => {
-        // 1、含砂量
+        // 1、含砂量 2、铁 3、锰 4、色度 5、嗅味 6、藻类 7、高锰酸盐指数 8、溴化物 9、氨氮  11、浊度 12、出水浊度  13、消毒
+        // 含砂量 >= 80
         if (values.param1 >= 80) {
           // 沉淀池
           this.processUnit[0].children[1].checked = true;
-        } else if (values.param1 < 80) {
+        } else {
           this.processUnit[0].children[1].checked = false;
         }
-        // 2、铁
-        if (values.param2 > 0.3) {
+
+        // 铁 > 0.3 || 锰 > 0.1 || 色度 > 15 || 嗅味 == 1 || 藻类 == 1 || 高锰酸盐指数 == 3
+        if (values.param2 > 0.3 || values.param3 > 0.1 || values.param4 > 15 || values.param5 === "1" || values.param6 === "1" || values.param7 === "3") {
           // 高锰酸钾、ClO2、NaClO、O3
           this.processUnit[0].children[2].checked = true;
           this.processUnit[0].children[3].checked = true;
           this.processUnit[0].children[4].checked = true;
           this.processUnit[0].children[5].checked = true;
+          //   this.processUnit[0].children[5].color = '#00a24e'
+        } else {
+          this.processUnit[0].children[2].checked = false;
+          this.processUnit[0].children[3].checked = false;
+          this.processUnit[0].children[4].checked = false;
+          this.processUnit[0].children[5].checked = false;
         }
-        // 3、锰
-        if (values.param3 > 0.1) {
-          // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
-        }
-        // 4、色度
-        if (values.param4 > 15) {
-          // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
+
+        // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3
+        if (values.param4 > 15 || values.param5 === "1" || values.param7 === "3") {
           // 活性炭粉末
-          this.processUnit[6].children[6].checked = true;
+          this.processUnit[0].children[6].checked = true;
+        } else {
+          this.processUnit[0].children[6].checked = false;
         }
 
-        // 5、嗅味
-        if (values.param5 === "1") {
-          // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
-          // 活性炭粉末
-          this.processUnit[6].children[6].checked = true;
-        }
-
-        // 6、藻类
-        if (values.param6 === "1") {
-          // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
-        }
-
-        // 7、高锰酸盐指数
-        if (values.param7 === "0") {
-          // nothing to do
-        } else if (values.param7 === "1") {
+        // 高锰酸盐指数 == 1 || 氨氮 > 1
+        if (values.param7 === "1" || values.param9 > 1) {
           // 生物接触氧化
           this.processUnit[0].children[0].checked = true;
-        } else if (values.param7 === "2") {
-          // 臭氧活性炭
-          this.processUnit[4].children[0].checked = true;
-        } else if (values.param7 === "3") {
-          // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
-          // 活性炭粉末
-          this.processUnit[6].children[6].checked = true;
+        } else {
+          this.processUnit[0].children[0].checked = false;
         }
 
-        // 8、溴化物
+        // 高锰酸盐指数 == 2
+        if (values.param7 === "2") {
+          // 臭氧活性炭
+          this.processUnit[4].children[0].checked = true;
+        } else {
+          this.processUnit[4].children[0].checked = false;
+        }
+
+        // 溴化物 == 1
         if (values.param8 === "1") {
           // 不得选用臭氧
           this.processUnit[0].children[5].checked = false;
-          this.processUnit[0].children[5].disabled = "true";
+          this.processUnit[0].children[5].disabled = true;
           this.$message.error(this.$t("不得选用臭氧"));
+        } else {
+          this.processUnit[0].children[5].disabled = false;
         }
 
-        // 9、氨氮
-        if (values.param9 <= 0.5) {
-          // nothing to do
-        } else if (values.param9 > 0.5 && values.param9 <= 1) {
+        // 氨氮 <= 0.5
+        if (values.param9 > 0.5 && values.param9 <= 1) {
           // 折点加氯
           this.processUnit[6].children[1].checked = true;
-        } else if (values.param9 > 1) {
-          // 生物接触氧化
-          this.processUnit[0].children[0].checked = true;
+        } else {
+          this.processUnit[6].children[1].checked = false;
         }
 
-        // 11、浊度
+        // 浊度 < 50
         if (values.param11 < 50) {
-          this.$message.success(
-            "增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸"
-          );
-        } else if (values.param11 < 100) {
+          this.$message.success("增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸");
+        }
+
+        // 浊度 < 100
+        if (values.param11 < 100) {
           // 气浮池
           this.processUnit[2].children[5].checked = true;
-        } else if (values.param11 < 500) {
+        } else {
+          this.processUnit[2].children[5].checked = false;
+        }
+
+        // 浊度 < 500 
+        if (values.param11 < 500) {
           // 水力循环澄清池
           this.processUnit[2].children[4].checked = true;
-        } else if (values.param11 < 3000) {
+        } else {
+          this.processUnit[2].children[4].checked = false;
+        }
+
+        // 浊度 < 3000
+        if (values.param11 < 3000) {
           // 机械搅拌澄清池
           this.processUnit[2].children[3].checked = true;
-        } else if (values.param11 < 5000) {
+        } else {
+          this.processUnit[2].children[3].checked = false;
+        }
+
+        // 浊度 < 5000
+        if (values.param11 < 5000) {
           // 平流沉淀池
           this.processUnit[2].children[0].checked = true;
-        } else if (values.param11 < 10000) {
+        } else {
+          this.processUnit[2].children[0].checked = false;
+        }
+
+        // 浊度 < 10000
+        if (values.param11 < 10000) {
           // 斜管沉淀池
           this.processUnit[2].children[1].checked = true;
           // 高密度沉淀池
           this.processUnit[2].children[2].checked = true;
+        } else {
+          this.processUnit[2].children[1].checked = false;
+          this.processUnit[2].children[2].checked = false;
         }
 
-        // 12、出水浊度
+        // 出水浊度 < 0.5
         if (values.param12 < 0.5) {
           // 超滤
           this.processUnit[4].children[1].checked = true;
+        } else {
+          this.processUnit[4].children[1].checked = false;
         }
 
-        // 13、消毒
-        if (values.param13 === "0") {
-          // nothing to do
-        } else if (values.param13 === "1") {
+        // 13、消毒 == 1
+        if (values.param13 === "1") {
           // 接触消毒
           this.processUnit[5].children[0].checked = true;
+        } else {
+          this.processUnit[5].children[0].checked = false;
         }
 
         // 初始化时常选中：混凝工艺全部、PAC、PAM
@@ -349,10 +343,14 @@ export default {
         this.processUnit[1].children[3].checked = true;
         this.processUnit[1].children[4].checked = true;
 
+        // 将设计水量存入缓存
+        const waterData = values.param14
+        storeValueInLocalStorage("waterData", waterData)
       });
 
       this.$message.success(this.$t("initSucc"));
       // console.log('Received values of form: ', this.form);
+
     },
     handleReset() {
       this.form.resetFields();
@@ -424,21 +422,21 @@ export default {
       this.processUnit.forEach((element) => {
         element.children.forEach((child) => {
           if (child.checked) {
-          try {
-            console.log(`正在获取 ${child.key}`);
-            const buffer = getBufferFromLocalStorage(child.key+".docx");
-            if (buffer instanceof Buffer) {
-              buffers.push(buffer);
-            } else {
-              console.error(`从 localStorage 获取的 ${child.key} 不是 Buffer 类型`);
+            try {
+              console.log(`正在获取 ${child.key}`);
+              const buffer = getBufferFromLocalStorage(child.key + ".docx");
+              if (buffer instanceof Buffer) {
+                buffers.push(buffer);
+              } else {
+                console.error(`从 localStorage 获取的 ${child.key} 不是 Buffer 类型`);
+              }
+            } catch (error) {
+              console.error(`从 localStorage 获取 ${child.key} 时发生错误:`, error);
             }
-          } catch (error) {
-            console.error(`从 localStorage 获取 ${child.key} 时发生错误:`, error);
-          }
           }
         });
       });
-      
+
       // 检查 buffers 是否为空
       if (buffers.length > 0) {
         try {
@@ -448,7 +446,7 @@ export default {
           console.error("合并文档时发生错误:", error);
         }
       } else {
-        console.log("没有选中的对象");
+        this.$message.warn(this.$t("pleaseSelectProcessUnit"));
       }
     },
     calc(calcUnit) {
