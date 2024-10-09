@@ -232,6 +232,7 @@
                 >
                   <a-input
                     v-model="b14"
+                    :disabled="true"
                     :placeholder="$t('b14')"
                     :suffix="$t('b14_u')"
                   />
@@ -314,6 +315,19 @@
                     />
                   </a-input-group>
                 </a-form-item>
+                <a-form-item
+                  class="calc"
+                  :label="$t('b19')"
+                  style="margin-top: 5px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input
+                    v-model="b19"
+                    :disabled="true"
+                    :placeholder="$t('b19')"
+                  />
+                </a-form-item>
               </a-form>
             </div>
           </a-card>
@@ -371,6 +385,7 @@
                 >
                   <a-input
                     v-model="b22"
+                    :disabled="true"
                     :placeholder="$t('b22')"
                     :suffix="$t('b22_u')"
                   />
@@ -398,6 +413,7 @@
                 >
                   <a-input
                     v-model="b24"
+                    :disabled="true"
                     :placeholder="$t('b24')"
                     :suffix="$t('b24_u')"
                   />
@@ -708,7 +724,6 @@
                     v-model="b45"
                     :disabled="true"
                     :placeholder="$t('b45')"
-                    :suffix="$t('b45_u')"
                   />
                 </a-form-item>
                 <a-form-item
@@ -721,7 +736,6 @@
                   <a-input
                     v-model="b46"
                     :placeholder="$t('b46')"
-                    :suffix="$t('b46_u')"
                   />
                 </a-form-item>
                 <a-form-item
@@ -745,11 +759,23 @@
                   :labelCol="{ span: 10 }"
                   :wrapperCol="{ span: 14 }"
                 >
-                  <a-input
-                    v-model="b48"
-                    :placeholder="$t('b48')"
-                    :suffix="$t('b48_u')"
-                  />
+                  <a-input-group compact>
+                    <a-input
+                      v-model="b48"
+                      style="width: 50%;"
+                      rows="12"
+                      :placeholder="$t('b48')"
+                      :suffix="$t('b48_u')"
+                    />
+                    <a-input
+                      v-model="b48_1"
+                      :disabled="true"
+                      style="width: 50%;"
+                      rows="12"
+                      :placeholder="$t('b48_1')"
+                      :suffix="$t('b48_1_u')"
+                    />
+                  </a-input-group>
                 </a-form-item>
                 <a-form-item
                   class="calc"
@@ -844,6 +870,7 @@
                 >
                   <a-input
                     v-model="b55"
+                    :disabled="true"
                     :placeholder="$t('b55')"
                     :suffix="$t('b55_u')"
                   />
@@ -1674,6 +1701,19 @@
                 </a-form-item>
                 <a-form-item
                   class="calc"
+                  :label="$t('b107')"
+                  style="margin-top: 5px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input
+                    v-model="b107"
+                    :placeholder="$t('b107')"
+                    :suffix="$t('b107_u')"
+                  />
+                </a-form-item>
+                <a-form-item
+                  class="calc"
                   :label="$t('b110')"
                   style="margin-top: 5px"
                   :labelCol="{ span: 10 }"
@@ -1822,7 +1862,6 @@ export default {
       b17: "8",
       b18_1: "8.5",
       b22: "2",
-      b24: "8.5",
       b25: "0.6",
       b27: "2",
       b28: "0.05",
@@ -2239,6 +2278,9 @@ export default {
     b18() {
       return (parseFloat(this.b16_1) / this.b17).toFixed(2);
     },
+    b19() {
+      return (parseFloat(this.b17) / this.b18_1).toFixed(6);
+    },
     b21() {
       return (parseFloat(this.b9) * this.b16_1).toFixed(0);
     },
@@ -2250,6 +2292,9 @@ export default {
     },
     b23() {
       return this.ROUNDUP(this.b17 / this.b22, 0);
+    },
+    b24() {
+      return this.b18_1;
     },
     b26() {
       return parseFloat(0.45 * Math.pow(this.b21_1, 0.4)).toFixed(6);

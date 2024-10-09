@@ -187,7 +187,6 @@
                   <a-input
                     v-model="b13"
                     :placeholder="$t('b13')"
-                    :suffix="$t('b13_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -200,15 +199,24 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b14"
-                      style="width: 50%"
-                      :disabled="true"
+                      style="width: 100%"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b14')"
                     />
+                  </a-input-group>
+                </a-form-item>
+                <a-form-item
+                  :label="$t('b14_1')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input-group compact>
                     <a-input
                       v-model="b14_1"
-                      style="width: 50%"
-                      :disabled="true"
+                      style="width: 100%"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b14_1')"
                       :suffix="$t('b14_1_u')"
@@ -399,7 +407,7 @@
                     v-model="b26"
                     :placeholder="$t('b26')"
                     :suffix="$t('b26_u')"
-                    :disabled="false"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -872,7 +880,7 @@ export default {
         数量: "2",
         运行时间: "4h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "",
+        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
       },
     ];
   },

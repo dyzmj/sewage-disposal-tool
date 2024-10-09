@@ -25,7 +25,7 @@
               <a-form-item :label="$t('b5')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                 :wrapperCol="{ span: 16 }">
                 <a-input-group compact>
-                  <a-input v-model="b5" style="width: 50%;" :disabled="false" rows="12" :placeholder="$t('b5')"
+                  <a-input v-model="b5" style="width: 50%;" :disabled="true" rows="12" :placeholder="$t('b5')"
                     :suffix="$t('b5_u')" />
                   <a-input v-model="b5_1" style="width: 50%;" :disabled="true" rows="12" :placeholder="$t('b5_1')"
                     :suffix="$t('b5_1_u')" />
@@ -71,13 +71,13 @@
               <a-form-item :label="$t('b10')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                 :wrapperCol="{ span: 16 }">
                 <a-input-group compact>
-                  <a-input v-model="b10" style="width: 100%;" :disabled="false" :suffix="$t('b10_u')" />
+                  <a-input v-model="b10" style="width: 100%;" :disabled="true" :suffix="$t('b10_u')" />
                 </a-input-group>
               </a-form-item>
               <a-form-item :label="$t('b11')" style="margin-top: 10px" :labelCol="{ span: 8 }"
                 :wrapperCol="{ span: 16 }">
                 <a-input-group compact>
-                  <a-input v-model="b11" style="width: 50%;" :disabled="false" :suffix="$t('b11_u')" />
+                  <a-input v-model="b11" style="width: 50%;" :disabled="true" :suffix="$t('b11_u')" />
                   <a-input v-model="b11_1" style="width: 50%;" :disabled="false" :suffix="$t('b11_u')" />
                 </a-input-group>
               </a-form-item>
@@ -89,21 +89,7 @@
         <a-card :title="$t('quantities')" :headStyle="{ 'font-weight': 'bolder' }" style="margin-bottom: 24px"
           :bordered="false" :body-style="{ padding: 4 }">
           <div class="baseQueryParam">
-            <a-table :columns="columns1" :data-source="data1" bordered size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }" :pagination="false" :row-style="{ paddin: 16 }">
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
             <a-table :columns="columns2" :data-source="data2" bordered size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }" :pagination="false" :row-style="{ paddin: 16 }">
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table :columns="columns3" :data-source="data3" bordered size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }" :pagination="false" :row-style="{ paddin: 16 }">
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
@@ -143,87 +129,7 @@ export default {
       b7: "35",
       b8: "2",
       b9: "0.5",
-      b10: "29.16666667",
-      b11: "2.8",
       b11_1: "3",
-      columns1: [
-        {
-          title: "建构筑物尺寸(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "单体位号",
-              dataIndex: "单体位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "名称",
-              dataIndex: "名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "尺寸(m)",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "标高(m)",
-              dataIndex: "标高(m)",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "结构形式",
-              dataIndex: "结构形式",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "暖通要求",
-              dataIndex: "暖通要求",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
       columns2: [
         {
           title: "设备选型(结果输出)",
@@ -288,84 +194,6 @@ export default {
             {
               title: "主要材质",
               dataIndex: "主要材质",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
-      columns3: [
-        {
-          title: "仪表选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "仪表位号",
-              dataIndex: "仪表位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "安装位置",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
               key: "9",
               width: "50px",
               align: "center",
@@ -462,6 +290,9 @@ export default {
     getDimensions() {
       return "to do";
     },
+    getkey1() {
+      return '料仓容积=' + this.b11_1 + ' m3'
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -474,9 +305,35 @@ export default {
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
+    b10() {
+      return (
+        parseFloat(this.b7) * parseFloat(this.b3) / 1000 / 24
+      ).toFixed(8);
+    },
+    b11() {
+      return (
+        parseFloat(this.b7) * parseFloat(this.b3) / parseFloat(this.b9) / 1000 * 
+        parseFloat(this.b8) / 1000
+      ).toFixed(2);
+    }
   },
   watch() {
     this.initWaterData();
+    this.data2 = [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "投加系统",
+        Dimensions: "粉末活性炭干式投加系统",
+        规格及型号: this.getkey1(),
+        单位: "套",
+        disinfectiontank: "1",
+        运行时间: "",
+        主要材质: "",
+        备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+      }
+    ];
   },
   activated() {
     this.initWaterData();
@@ -486,61 +343,20 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
     this.data2 = [
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "投加系统",
+        Dimensions: "粉末活性炭干式投加系统",
+        规格及型号: this.getkey1(),
+        单位: "套",
+        disinfectiontank: "1",
         运行时间: "",
         主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
-      },
+        备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+      }
     ];
   },
 };

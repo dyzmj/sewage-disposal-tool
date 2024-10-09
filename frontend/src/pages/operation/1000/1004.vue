@@ -153,21 +153,15 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b10"
-                    style="width: 33%;"
-                    :disabled="false"
+                    style="width: 50%;"
+                    :disabled="true"
                     :suffix="$t('b10_u')"
                   />
                   <a-input
                     v-model="b10_1"
-                    style="width: 33%;"
+                    style="width: 50%;"
                     :disabled="true"
                     :suffix="$t('b10_1_u')"
-                  />
-                  <a-input
-                    v-model="b10_2"
-                    style="width: 34%;"
-                    :disabled="true"
-                    :suffix="$t('b10_2_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -180,7 +174,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b11"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b11_u')"
                   />
@@ -195,9 +189,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b12"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
-                    :suffix="$t('b12_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -210,8 +203,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b13"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b13_u')"
                   />
                 </a-input-group>
@@ -225,9 +218,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b14"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
-                    :suffix="$t('b14_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -240,8 +232,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b15"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b15_u')"
                   />
                 </a-input-group>
@@ -255,7 +247,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b16"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b16_u')"
                   />
@@ -270,9 +262,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b17"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
-                    :suffix="$t('b17_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -285,8 +276,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b18"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b18_u')"
                   />
                 </a-input-group>
@@ -310,21 +301,7 @@
           :bordered="false"
           :body-style="{ padding: 4 }"
         >
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
+        <div class="baseQueryParam">
             <a-table
               :columns="columns2"
               :data-source="data2"
@@ -336,21 +313,7 @@
             >
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+        </div>
         </a-card>
         <a-card
           :title="$t('export')"
@@ -401,96 +364,12 @@ export default {
       b3: "20000.00",
       b4: "1",
       b4_1: "1",
-      b9: "2.00 ",
-      b10: "1.67",
-      b10_1: "1666.67",
-      b10_2: "2000",
+      b9: "1.00 ",
       b11: "0.65",
       b12: "0.70",
-      b13: "1.55",
       b14: "0.30",
-      b15: "5.16",
       b16: "1.30",
       b17: "0.80",
-      b18: "8.74",
-      columns1: [
-        {
-          title: "建构筑物尺寸(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "单体位号",
-              dataIndex: "单体位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "名称",
-              dataIndex: "名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "尺寸(m)",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "标高(m)",
-              dataIndex: "标高(m)",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "结构形式",
-              dataIndex: "结构形式",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "暖通要求",
-              dataIndex: "暖通要求",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
       columns2: [
         {
           title: "设备选型(结果输出)",
@@ -555,84 +434,6 @@ export default {
             {
               title: "主要材质",
               dataIndex: "主要材质",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
-      columns3: [
-        {
-          title: "仪表选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "仪表位号",
-              dataIndex: "仪表位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "安装位置",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
               key: "9",
               width: "50px",
               align: "center",
@@ -741,6 +542,21 @@ export default {
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
+    b10() {
+      return (parseFloat(this.b5) * parseFloat(this.b9) / 1000).toFixed(2);
+    },
+    b10_1() {
+      return (parseFloat(this.b10) * 1000).toFixed(2)
+    },
+    b13() {
+      return (parseFloat(this.b11) * parseFloat(this.b10) / parseFloat(this.b12)).toFixed(2)
+    },
+    b15() {
+      return (parseFloat(this.b11) * parseFloat(this.b10) / parseFloat(this.b12) / parseFloat(this.b14)).toFixed(2)
+    },
+    b18() {
+      return (parseFloat(this.b16) * parseFloat(this.b10) / parseFloat(this.b17) / 0.31).toFixed(2)
+    }
   },
   watch() {
     this.initWaterData();
@@ -753,61 +569,19 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
     this.data2 = [
       {
         key: "1",
         序号: "1",
         设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备工艺名称: "二氧化氯发生器",
+        规格及型号: "WTL（Z）-1000",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
+        数量: "2",
+        运行时间: "24h",
         主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
-      },
+        备注: "一用一备",
+      }
     ];
   },
 };
