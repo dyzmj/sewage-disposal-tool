@@ -273,7 +273,7 @@
                     <a-input
                       v-model="b18_1"
                       style="width: 50%"
-                      :disabled="true"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b18_1')"
                       :suffix="$t('b18_1_u')"
@@ -412,7 +412,7 @@
                     v-model="b27"
                     :placeholder="$t('b27')"
                     :suffix="$t('b27_u')"
-                    :disabled="true"
+                    :disabled="false"
                   />
                 </a-form-item>
               </a-form>

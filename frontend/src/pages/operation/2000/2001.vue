@@ -681,7 +681,7 @@
                             v-model="b47"
                             style="width: 100%;"
                             :placeholder="$t('b47')"
-                            :disabled="true"
+                            :disabled="false"
                           />
                         </a-input-group>
                       </a-form-item>

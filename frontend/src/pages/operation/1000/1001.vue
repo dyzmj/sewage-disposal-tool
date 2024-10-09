@@ -1218,7 +1218,7 @@
                     <a-input
                       v-model="b79_1"
                       style="width: 33%;"
-                      :disabled="true"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b79_1')"
                     />
@@ -1303,7 +1303,7 @@
                     <a-input
                       v-model="b84_1"
                       style="width: 33%;"
-                      :disabled="true"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b84_1')"
                     />
@@ -1454,7 +1454,7 @@
                     <a-input
                       v-model="b94_1"
                       style="width: 33%;"
-                      :disabled="true"
+                      :disabled="false"
                       rows="12"
                       :placeholder="$t('b94_1')"
                     />

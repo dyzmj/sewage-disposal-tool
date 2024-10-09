@@ -176,7 +176,7 @@
                   <a-input
                     v-model="b14"
                     style="width: 100%;"
-                    :disabled="true"
+                    :disabled="false"
                   />
                 </a-input-group>
               </a-form-item>
