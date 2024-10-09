@@ -332,7 +332,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/6000/6003')
+              component: () => import('@/pages/operation/6000/6004')
             },
             {
               name: '加药系统-NaClO',
@@ -340,7 +340,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/6000/6003')
+              component: () => import('@/pages/operation/6000/6005')
             },
             {
               name: '加药系统-ClO2',
@@ -348,7 +348,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/6000/6003')
+              component: () => import('@/pages/operation/6000/6006')
             },
           ]
         },
