@@ -210,7 +210,7 @@
                         v-model="b16"
                         :placeholder="$t('b16')"
                         :suffix="$t('b16_u')"
-                        :disabled="false"
+                        :disabled="true"
                       />
                     </a-form-item>
                     <a-form-item
@@ -387,7 +387,6 @@
                             v-model="b28"
                             style="width: 100%;"
                             :placeholder="$t('b28')"
-                            :suffix="$t('b28_u')"
                             :disabled="true"
                           />
                         </a-input-group>
@@ -403,7 +402,6 @@
                             v-model="b29"
                             style="width: 100%;"
                             :placeholder="$t('b29')"
-                            :suffix="$t('b29_u')"
                             :disabled="true"
                           />
                         </a-input-group>
@@ -497,7 +495,7 @@
                         </a-input-group>
                       </a-form-item>
                       <a-form-item
-                        :label="$t('b39')"
+                        label="   "
                         style="margin-top: 10px"
                         :labelCol="{ span: 10 }"
                         :wrapperCol="{ span: 14 }"
@@ -629,6 +627,10 @@
                         </a-input-group>
                       </a-form-item>
                     </a-form>
+                    <br />
+                    <p style="font-weight: bolder; color: red">
+                      {{ $t("b44_1") }}
+                    </p>
                   </div>
                 </a-card>
                 <a-card
@@ -716,7 +718,7 @@
                   <div class="baseQueryParam">
                     <a-form>
                       <a-form-item
-                        :label="$t('b52')"
+                        label="       "
                         style="margin-top: 10px"
                         :labelCol="{ span: 10 }"
                         :wrapperCol="{ span: 14 }"
@@ -764,6 +766,17 @@
                             :placeholder="$t('b52_3')"
                             :disabled="true"
                           />
+                        </a-input-group>
+                      </a-form-item>
+                      <a-form-item
+                        label="                  "
+                        style="margin-top: 10px"
+                        :labelCol="{ span: 10 }"
+                        :wrapperCol="{ span: 14 }"
+                      >
+                        <a-input-group compact>
+                          <a-textarea style="width: 33%;" :placeholder="$t('b53')" auto-size :disabled="true" />
+                          <a-textarea style="width: 33%;" :placeholder="$t('b53_1')" auto-size :disabled="true" />
                         </a-input-group>
                       </a-form-item>
                       <a-form-item
@@ -842,10 +855,14 @@
                   size="small"
                   :body-style="{ padding: 4 }"
                 >
+                <br />
+                    <p style="font-weight: bolder; color: red">
+                      {{ $t("b58_1") }}
+                    </p>
                   <div class="baseQueryParam">
                     <a-form>
                       <a-form-item
-                        :label="$t('b60')"
+                        label=" "
                         style="margin-top: 10px"
                         :labelCol="{ span: 10 }"
                         :wrapperCol="{ span: 14 }"
@@ -908,6 +925,11 @@
                             :placeholder="$t('b61')"
                             :disabled="true"
                           />
+                          <a-input
+                            style="width: 33%;"
+                            :placeholder="$t('b61_u')"
+                            :disabled="true"
+                          />
                         </a-input-group>
                       </a-form-item>
                       <a-form-item
@@ -964,20 +986,6 @@
             <a-table
               :columns="columns2"
               :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
               bordered
               size="small"
               :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -2209,84 +2217,6 @@ export default {
           ],
         },
       ],
-      columns3: [
-        {
-          title: "仪表选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "仪表位号",
-              dataIndex: "仪表位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "安装位置",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
       data: [],
     };
   },
@@ -2618,54 +2548,28 @@ export default {
         key: "1",
         序号: "1",
         单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        名称: "机械搅拌絮凝池",
+        Dimensions: "14×9.5×3m",
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
+        disinfectiontank: "4",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
       },
     ];
     this.data2 = [
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "机械搅拌絮凝池搅拌机",
+        Dimensions: "水平轴搅拌器",
+        规格及型号: "池深3m，N=1.29kW，R1=3.82rpm，R2=2.68rpm，R3=1.53rpm，叶轮直径2700mm",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
+        数量: "4",
+        运行时间: "24h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "",
       },
     ];
