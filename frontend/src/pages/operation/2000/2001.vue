@@ -2020,7 +2020,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord } from "@/utils/exportUtil";
+import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2293,6 +2293,14 @@ export default {
   methods: {
     backHome() {
       this.$router.push("/work");
+    },
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData")
+      if (waterData == null || waterData == ''){
+        this.b3_1 = 105000
+      }else{
+        this.b3_1 = waterData
+      }
     },
     exportQuantities() {
       try{
@@ -2594,7 +2602,17 @@ export default {
       return (parseFloat(this.c3_1) / (24 * 60 * 60)).toFixed(2);
     },
   },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
+  },
   created() {
+    this.initWaterData();
     this.data1 = [
       {
         key: "1",

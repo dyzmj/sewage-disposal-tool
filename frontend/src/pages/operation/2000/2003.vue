@@ -938,7 +938,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord } from "@/utils/exportUtil";
+import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1195,6 +1195,14 @@ export default {
     backHome() {
       this.$router.push("/work");
     },
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData")
+      if (waterData == null || waterData == ''){
+        this.b5 = 40000
+      }else{
+        this.b5 = waterData
+      }
+    },
     exportQuantities() {
       try{
         this.exportExcel();
@@ -1283,7 +1291,17 @@ export default {
       return (parseFloat(this.b7_2) / parseFloat(this.b11)).toFixed(4);
     },
   },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
+  },
   created() {
+    this.initWaterData();
     this.data1 = [
       {
         key: "1",

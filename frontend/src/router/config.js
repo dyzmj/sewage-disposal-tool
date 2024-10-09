@@ -168,7 +168,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/2000/2003')
+              component: () => import('@/pages/operation/2000/2004')
             },
             {
               name: '加药系统-PAM',
@@ -176,7 +176,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/2000/2003')
+              component: () => import('@/pages/operation/2000/2005')
             },
           ]
         },
