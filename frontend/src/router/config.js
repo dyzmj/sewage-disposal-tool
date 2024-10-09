@@ -125,7 +125,7 @@ const options = {
               meta: {
                 keepAlive: true,
               },
-              component: () => import('@/pages/operation/1000/1006')
+              component: () => import('@/pages/operation/1000/1007')
             },
           ],
         },
