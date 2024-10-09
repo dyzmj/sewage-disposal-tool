@@ -2009,7 +2009,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord } from "@/utils/exportUtil";
+import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2363,6 +2363,14 @@ export default {
     backHome() {
       this.$router.push("/work");
     },
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData")
+      if (waterData == null || waterData == ''){
+        this.b3 = 40000
+      }else{
+        this.b3 = waterData
+      }
+    },
     exportQuantities() {
       try{
         this.exportExcel();
@@ -2453,7 +2461,17 @@ export default {
       return (0.9 * parseFloat(this.b6) * parseFloat(this.b5)).toFixed(3);
     },
   },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
+  },
   created() {
+    this.initWaterData();
     this.data1 = [
       {
         key: "1",
