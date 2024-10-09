@@ -2322,7 +2322,7 @@ export default {
         const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "生物接触氧化池计算书", this);
+        exportExcel3(allData1, allData2, allData3, "机械絮凝池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
