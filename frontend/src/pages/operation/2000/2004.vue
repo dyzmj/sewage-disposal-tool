@@ -1136,7 +1136,7 @@ export default {
     b28() {
       return (parseFloat(this.b24)*parseFloat(this.b25) * Math.pow(parseFloat(this.b22_1), 3)
       * parseFloat(this.b27) * parseFloat(this.b19_1) * Math.sin(parseFloat(this.b19_3)) * 
-      (Math.pow(parseFloat(this.b18)/2,4) - (Math.pow((parseFloat(this.b18_1)/2-parseFloat(this.b20_1)),4)/408/9.81))
+      (Math.pow(parseFloat(this.b18_1)/2,4) - (Math.pow((parseFloat(this.b18_1)/2-parseFloat(this.b20_1)),4)/408/9.81))
     ).toFixed(2)
     },
     b31() {
