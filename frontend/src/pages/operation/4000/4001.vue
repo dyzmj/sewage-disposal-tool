@@ -357,7 +357,7 @@
                   >
                     <a-input-group compact>
                       <a-input
-                        v-model="b3"
+                        v-model="b20"
                         style="width: 100%;"
                         :disabled="true"
                         rows="12"
@@ -595,7 +595,7 @@
                         v-model="b34"
                         rows="12"
                         style="width: 100%;"
-                        :disabled="true"
+                        :disabled="false"
                         :suffix="$t('b34_u')"
                       />
                     </a-input-group>
@@ -1748,7 +1748,7 @@
                 :headStyle="{ 'font-weight': 'bolder' }"
                 size="small"
               >
-              <div class="baseQueryParam">
+                <div class="baseQueryParam">
                   <a-form>
                     <a-form-item
                       :label="$t('b103')"
@@ -1877,8 +1877,8 @@
                       </a-input-group>
                     </a-form-item>
                   </a-form>
-              </div>
-            </a-card>
+                </div>
+              </a-card>
             </a-card>
           </a-card>
         </a-card>
@@ -2002,60 +2002,27 @@ export default {
       b11_1: "15",
       b13: "",
       b14: "",
-      b15: "11.50087224",
       b15_1: "12",
-      b16: "1.052172515",
       b17: "",
-      b18: "5480.065182",
-      b18_1: "1.52",
       b19: "",
-      b20: "913.344197",
       b21: "16",
-      b22: "57.08401231",
       b22_1: "60",
       b23: "9.5",
-      b24: "6.315789474",
       b24_1: "6.3",
-      b25: "1.507936508",
       b26: "",
-      b27: "720",
-      b27_1: "0.72",
-      b28: "2",
-      b29: "5",
-      b30: "6.3",
       b31: "0.6",
-      b32: "0.234823832",
-      b33: "1",
       b34: "0.05",
-      b35: "1.212059579",
-      b36: "0.246565023",
       b37: "",
       b38: "0.75",
-      b39: "0.788253379",
-      b40: "0.988253379",
       b40_1: "1",
       b41: "",
       b42: "1.5",
-      b43: "0.72",
-      b44: "0.48",
       b45: "0.1",
       b46: "0.25",
-      b47: "76",
-      b48: "0.009473684",
       b49: "75",
       b49_1: "0.075",
-      b50: "2.144403444",
-      b51: "2.7",
-      b52: "36",
       b53: "0.0024",
-      b54: "0.144",
       b55: "12",
-      b55_1: "0.012",
-      b56: "0.000113097",
-      b57: "1274",
-      b58: "17",
-      b59: "0.317647059",
-      b60: "4.927397619",
       b61: "",
       b62: "388.8",
       b63: "3.5",
@@ -2455,14 +2422,18 @@ export default {
     getDimensions() {
       return "to do";
     },
+    ROUNDUP(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.ceil(number * multiplier) / multiplier;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
     b3_1() {
-      return (parseFloat(this.b3) / 24).toFixed(6);
+      return (parseFloat(this.b3) / 24).toFixed(8);
     },
     b3_2() {
-      return (parseFloat(this.b3_1) / 3600).toFixed(6);
+      return (parseFloat(this.b3_1) / 3600).toFixed(8);
     },
     b8_1() {
       return (parseFloat(this.b8) / 60).toFixed(1);
@@ -2472,6 +2443,95 @@ export default {
     },
     b12() {
       return (0.9 * parseFloat(this.b6) * parseFloat(this.b5)).toFixed(3);
+    },
+    b15() {
+      return (
+        (43.2 *
+          Math.pow(parseFloat(this.b12), 1.45) *
+          Math.pow(parseFloat(this.b10) + 0.35, 1.632)) /
+        ((1 + parseFloat(this.b10)) * Math.pow(parseFloat(this.b11), 0.632))
+      ).toFixed(8);
+    },
+    b16() {
+      return (
+        parseFloat(this.b7) /
+        (parseFloat(this.b7) -
+          parseFloat(this.b8_1) -
+          (3.6 * parseFloat(this.b15) * parseFloat(this.b9_1)) /
+            parseFloat(this.b4))
+      ).toFixed(8);
+    },
+    b18() {
+      return (parseFloat(this.b16) * parseFloat(this.b3_1)).toFixed(8);
+    },
+    b18_1() {
+      return (parseFloat(this.b18) / 3600).toFixed(2);
+    },
+    b20() {
+      return (parseFloat(this.b18) / parseFloat(this.b4)).toFixed(8);
+    },
+    b22() {
+      return (parseFloat(this.b20) / parseFloat(this.b21)).toFixed(8);
+    },
+    b24() {
+      return (parseFloat(this.b22_1) / parseFloat(this.b23)).toFixed(8);
+    },
+    b25() {
+      return (parseFloat(this.b23) / parseFloat(this.b24_1)).toFixed(8);
+    },
+    b27() {
+      return (parseFloat(this.b15_1) * parseFloat(this.b22_1)).toFixed(0);
+    },
+    b27_1() {
+      return (parseFloat(this.b27) / 1000).toFixed(2);
+    },
+    b28() {
+      return 2;
+    },
+    b29() {
+      return this.ROUNDUP(parseFloat(this.b23) / parseFloat(this.b28), 0);
+    },
+    b30() {
+      return this.b24_1;
+    },
+    b32() {
+      return Math.pow(
+        (parseFloat(this.b15_1) *
+          parseFloat(this.b24_1) *
+          parseFloat(this.b28)) /
+          (4570 * parseFloat(this.b31)),
+        0.5
+      ).toFixed(8);
+    },
+    b33() {
+      return this.b105;
+    },
+    b35() {
+      return (
+        parseFloat(this.b10) * parseFloat(this.b33) +
+        2.5 * parseFloat(this.b32) +
+        parseFloat(this.b34) +
+        0.075
+      ).toFixed(3);
+    },
+    b36() {
+      return (
+        (5 * 2 * parseFloat(this.b32) * parseFloat(this.b30)) /
+        parseFloat(this.b22_1)
+      ).toFixed(8);
+    },
+    b39() {
+      return (
+        0.81 *
+        Math.pow(
+          (parseFloat(this.b22_1) * parseFloat(this.b15_1)) /
+            (1000 * parseFloat(this.b38)),
+          2 / 3
+        )
+      ).toFixed(9);
+    },
+    b40() {
+      return parseFloat(this.b39) + 0.2;
     },
   },
   watch() {
