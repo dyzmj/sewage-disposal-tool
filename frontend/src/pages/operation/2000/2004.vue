@@ -77,7 +77,7 @@
                   <a-input
                     v-model="b5"
                     style="width: 50%;"
-                    :disabled="false"
+                    :disabled="true"
                     rows="12"
                     :placeholder="$t('b5')"
                     :suffix="$t('b5_u')"
@@ -85,7 +85,7 @@
                   <a-input
                     v-model="b5_1"
                     style="width: 50%;"
-                    :disabled="false"
+                    :disabled="true"
                     rows="12"
                     :placeholder="$t('b5_1')"
                     :suffix="$t('b5_1_u')"
@@ -211,7 +211,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b13"
-                      style="width: 100%;"
+                      style="width: 50%;"
+                      :disabled="true"
+                      :suffix="$t('b13_u')"
+                    />
+                    <a-input
+                      v-model="b13_1"
+                      style="width: 50%;"
                       :disabled="false"
                       :suffix="$t('b13_u')"
                     />
@@ -233,13 +239,13 @@
                     <a-input
                       v-model="b14_1"
                       style="width: 33%;"
-                      :disabled="true"
+                      :disabled="false"
                       :suffix="$t('b14_u')"
                     />
                     <a-input
                       v-model="b14_2"
                       style="width: 34%;"
-                      :disabled="true"
+                      :disabled="false"
                       :suffix="$t('b14_2_u')"
                     />
                   </a-input-group>
@@ -265,7 +271,7 @@
                     <a-input
                       v-model="b15"
                       style="width: 50%;"
-                      :disabled="false"
+                      :disabled="true"
                       :suffix="$t('b15_u')"
                     />
                     <a-input
@@ -317,9 +323,15 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b18"
-                      style="width: 100%;"
+                      style="width: 50%;"
                       :disabled="false"
                       :suffix="$t('b18_u')"
+                    />
+                    <a-input
+                      v-model="b18_1"
+                      style="width: 50%;"
+                      :disabled="true"
+                      :suffix="$t('b18_1_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -332,9 +344,26 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b19"
-                      style="width: 100%;"
+                      style="width: 25%;"
                       :disabled="false"
                       :suffix="$t('b19_u')"
+                    />
+                    <a-input
+                      v-model="b19_1"
+                      style="width: 25%;"
+                      :disabled="true"
+                      :suffix="$t('b19_1_u')"
+                    />
+                    <a-input
+                      v-model="b19_2"
+                      style="width: 25%;"
+                      :disabled="false"
+                      :suffix="$t('b19_2_u')"
+                    />
+                    <a-input
+                      v-model="b19_3"
+                      style="width: 25%;"
+                      :disabled="true"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -347,9 +376,15 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b20"
-                      style="width: 100%;"
+                      style="width: 50%;"
                       :disabled="false"
                       :suffix="$t('b20_u')"
+                    />
+                    <a-input
+                      v-model="b20_1"
+                      style="width: 50%;"
+                      :disabled="false"
+                      :suffix="$t('b20_1_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -364,7 +399,6 @@
                       v-model="b21"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b21_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -377,9 +411,15 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b22"
-                      style="width: 100%;"
+                      style="width: 50%;"
                       :disabled="false"
                       :suffix="$t('b22_u')"
+                    />
+                    <a-input
+                      v-model="b22_1"
+                      style="width: 50%;"
+                      :disabled="true"
+                      :suffix="$t('b22_1_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -393,7 +433,7 @@
                     <a-input
                       v-model="b23"
                       style="width: 100%;"
-                      :disabled="false"
+                      :disabled="true"
                       :suffix="$t('b23_u')"
                     />
                   </a-input-group>
@@ -409,7 +449,6 @@
                       v-model="b24"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b24_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -439,7 +478,6 @@
                       v-model="b26"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b26_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -454,7 +492,6 @@
                       v-model="b27"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b27_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -468,7 +505,7 @@
                     <a-input
                       v-model="b28"
                       style="width: 100%;"
-                      :disabled="false"
+                      :disabled="true"
                       :suffix="$t('b28_u')"
                     />
                   </a-input-group>
@@ -484,7 +521,6 @@
                       v-model="b29"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b29_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -499,7 +535,6 @@
                       v-model="b30"
                       style="width: 100%;"
                       :disabled="false"
-                      :suffix="$t('b30_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -513,7 +548,7 @@
                     <a-input
                       v-model="b31"
                       style="width: 100%;"
-                      :disabled="false"
+                      :disabled="true"
                       :suffix="$t('b31_u')"
                     />
                   </a-input-group>
@@ -585,7 +620,7 @@
                     <a-input
                       v-model="b36"
                       style="width: 100%;"
-                      :disabled="false"
+                      :disabled="true"
                       :suffix="$t('b36_u')"
                     />
                   </a-input-group>
@@ -720,38 +755,28 @@ export default {
       b10: "15",
       b11: "100",
       b12: "2",
-      b13: "1.33",
+      b13_1: "1.50",
       b14: "970",
       b14_1: "1230",
       b14_2: "2",
-      b15: "0.45",
       b15_1: "0.50",
       b16: "780",
       b16_1: "1110",
       b18: "600",
-      b18_1: "0.60",
       b19: "200",
-      b19_1: "0.20",
+      b19_2: "90",
       b20: "300",
-      b20_1: "0.30",
       b21: "1",
       b22: "2",
-      b23: "63.66",
       b24: "0.5",
       b25: "1000",
       b26: "2",
-      b27: "2",
-      b28: "0.12",
       b29: "0.75",
       b30: "0.6",
-      b31: "0.27",
       b32: "",
       b33: "JBJ1-600",
       b33_1: "1",
       b34: "0.55",
-      b35: "",
-      b36: "16.67",
-      b37: "111.11",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -780,14 +805,14 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
             },
             {
               title: "标高(m)",
-              dataIndex: "标高(m)",
+              dataIndex: "标高",
               key: "5",
               width: "80px",
               align: "center",
@@ -801,7 +826,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -858,7 +883,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -879,7 +904,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -936,7 +961,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -957,7 +982,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1081,6 +1106,48 @@ export default {
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
+    b13() {
+      return (parseFloat(this.b9)*parseFloat(this.b5)/parseFloat(this.b10)/parseFloat(this.b12)/parseFloat(this.b11)/4.17).toFixed(2);
+    },
+    b15() {
+      return (parseFloat(this.b13_1)*0.3).toFixed(2)
+    },
+    b18_1() {
+      return (parseFloat(this.b18)/1000).toFixed(2)
+    },
+    b19_1() {
+      return (parseFloat(this.b19)/1000).toFixed(2)
+    },
+    b19_3(){
+      return (parseFloat(this.b19_2)/180*3.1415926).toFixed(2);
+    },
+    b20_1() {
+      return (parseFloat(this.b20)/1000).toFixed(2)
+    },
+    b22_1() {
+      return (parseFloat(this.b22)*2/parseFloat(this.b18_1)).toFixed(2)
+    },
+    b23() {
+      return (parseFloat(this.b22)/3.1415926/parseFloat(this.b18_1)*60).toFixed(2);
+    },
+    b27() {
+      return (parseFloat(this.b21)*parseFloat(this.b26)).toFixed(0)
+    },
+    b28() {
+      return (parseFloat(this.b24)*parseFloat(this.b25) * Math.pow(parseFloat(this.b22_1), 3)
+      * parseFloat(this.b27) * parseFloat(this.b19_1) * Math.sin(parseFloat(this.b19_3)) * 
+      (Math.pow(parseFloat(this.b18)/2,4) - (Math.pow((parseFloat(this.b18_1)/2-parseFloat(this.b20_1)),4)/408/9.81))
+    ).toFixed(2)
+    },
+    b31() {
+      return (parseFloat(this.b28)/parseFloat(this.b29)/parseFloat(this.b30)).toFixed(2);
+    },
+    b36() {
+      return (parseFloat(this.b5)*parseFloat(this.b9)/(parseFloat(this.b11)/100)/1000).toFixed(2);
+    },
+    b37() {
+      return (parseFloat(this.b5)*parseFloat(this.b9)/(parseFloat(this.b10)/100)/1000).toFixed(2);
+    },
   },
   watch() {
     this.initWaterData();
@@ -1096,13 +1163,26 @@ export default {
     this.data1 = [
       {
         key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        序号: "",
+        单体位号: "",
+        名称: "溶液池",
+        尺寸: "φ970mm×1230mm",
         标高: "",
-        单位: "座",
-        disinfectiontank: "1",
+        单位: "个",
+        数量: "2",
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+      {
+        key: "2",
+        序号: "",
+        单体位号: "",
+        名称: "溶液池",
+        尺寸: "",
+        标高: "",
+        单位: "个",
+        数量: "1",
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -1111,24 +1191,78 @@ export default {
     this.data2 = [
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "搅拌机",
+        设备类型: "折浆式搅拌机",
+        规格及型号: "JBJ1-600",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: "3",
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        key: "2",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: "MS1B108A",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: "3",
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "二用一备",
+      },
+      {
+        key: "3",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "3",
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "4",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "3",
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "5",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "3",
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "6",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "3",
         运行时间: "",
         主要材质: "",
         备注: "",
@@ -1137,13 +1271,26 @@ export default {
     this.data3 = [
       {
         key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
+        序号: "",
+        仪表位号: "",
+        仪表名称: "压力表",
         安装位置: "",
         规格及型号: "",
-        单位: "台",
-        数量: "80",
+        单位: "个",
+        数量: "3",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        key: "2",
+        序号: "",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "3",
         a: "",
         b: "",
         备注: "",
