@@ -1458,8 +1458,8 @@
                     <a-form-item
                       :label="$t('b86')"
                       style="margin-top: 10px"
-                      :labelCol="{ span: 10 }"
-                      :wrapperCol="{ span: 14 }"
+                      :labelCol="{ span: 6 }"
+                      :wrapperCol="{ span: 18 }"
                     >
                       <a-input-group compact>
                         <a-input
@@ -1547,8 +1547,8 @@
                     <a-form-item
                       :label="$t('b91')"
                       style="margin-top: 10px"
-                      :labelCol="{ span: 10 }"
-                      :wrapperCol="{ span: 14 }"
+                      :labelCol="{ span: 6 }"
+                      :wrapperCol="{ span: 18 }"
                     >
                       <a-input-group compact>
                         <a-input
@@ -1713,8 +1713,8 @@
                     <a-form-item
                       :label="$t('b101')"
                       style="margin-top: 10px"
-                      :labelCol="{ span: 10 }"
-                      :wrapperCol="{ span: 14 }"
+                      :labelCol="{ span: 6 }"
+                      :wrapperCol="{ span: 18 }"
                     >
                       <a-input-group compact>
                         <a-input
@@ -2020,70 +2020,40 @@ export default {
       b45: "0.1",
       b46: "0.25",
       b49: "75",
-      b49_1: "0.075",
       b53: "0.0024",
       b55: "12",
       b61: "",
-      b62: "388.8",
       b63: "3.5",
-      b64: "11.89280136",
       b65: "600",
-      b65_1: "0.6",
       b66: "70",
-      b67: "2.546479089",
       b68: "7.38",
       b69: "0.0135",
-      b70: "3.384144825",
-      b71: "3.261195785",
       b72: "0.45",
-      b73: "0.1188",
       b74: "2.65",
       b75: "1",
       b76: "0.41",
-      b76_1: "2592",
-      b77: "1",
       b77_1: "5",
-      b78: "0.9735",
       b78_1: "2",
       b79: "1.5",
-      b80: "9.24",
       b81: "",
       b82: "",
-      b83: "1.522240328",
       b84: "1",
-      b85: "1.522240328",
-      b86: "2×0.76",
       b86_1: "2",
-      b86_2: "0.76112",
       b87: "",
-      b88: "1.522240328",
       b89: "1.2",
-      b90: "1.268533607",
-      b91: "2×0.63",
       b91_1: "2",
-      b91_2: "0.634267",
       b92: "",
-      b93: "0.72",
       b94: "2.55",
-      b95: "0.282352941",
       b96: "0.6",
       b97: "",
-      b98: "0.72",
       b99: "1.2",
-      b100: "0.6",
-      b101: "1×0.6",
       b101_1: "1",
-      b101_2: "0.6",
       b102: "",
       b103: "0.3",
       b104: "0.3",
       b105: "1",
       b106: "0.6",
       b107: "1.5",
-      b108: "3.4",
-      b111_1: "52.5",
-      b111_2: "22.9",
-      b111_3: "3.4",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -2426,6 +2396,10 @@ export default {
       var multiplier = Math.pow(10, num_digits);
       return Math.ceil(number * multiplier) / multiplier;
     },
+    ROUND(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.round(number * multiplier) / multiplier;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -2532,6 +2506,160 @@ export default {
     },
     b40() {
       return parseFloat(this.b39) + 0.2;
+    },
+    b43() {
+      return this.b27_1;
+    },
+    b44() {
+      return (parseFloat(this.b43) / parseFloat(this.b42)).toFixed(2);
+    },
+    b47() {
+      return (2 * parseFloat(this.b23) / parseFloat(this.b46)).toFixed(0);
+    },
+    b48() {
+      return (parseFloat(this.b43) / parseFloat(this.b47)).toFixed(8);
+    },
+    b49_1() {
+      return (parseFloat(this.b49) / 1000).toFixed(3);
+    },
+    b50() {
+      return (4 * parseFloat(this.b48) / (3.1415926 * Math.pow(parseFloat(this.b49_1),2))).toFixed(9);
+    },
+    b51() {
+      return ((parseFloat(this.b24_1)-0.9)/2).toFixed(1);
+    },
+    b52() {
+      return (parseFloat(this.b51) / parseFloat(this.b49_1)).toFixed(0);
+    },
+    b54() {
+      return (parseFloat(this.b53) * parseFloat(this.b22_1)).toFixed(3);
+    },
+    b55_1() {
+      return (parseFloat(this.b55) / 1000 ).toFixed(3);
+    },
+    b56() {
+      return (3.1415926 * Math.pow(parseFloat(this.b55_1),2) / 4).toFixed(8);
+    },
+    b57() {
+      return this.ROUNDUP((parseFloat(this.b54)/parseFloat(this.b56)),0);
+    },
+    b58() {
+      return this.ROUNDUP((parseFloat(this.b57)/parseFloat(this.b47)),0);
+    },
+    b59() {
+      return (2 * parseFloat(this.b51) / parseFloat(this.b58)).toFixed(8);
+    },
+    b60() {
+      return (parseFloat(this.b15_1) * parseFloat(this.b22_1) / 
+      (1000 * parseFloat(this.b47) * parseFloat(this.b58) * parseFloat(this.b56))
+    ).toFixed(2);
+    },
+    b62() {
+      return (1.5 * parseFloat(this.b15_1) * parseFloat(this.b22_1)*60*parseFloat(this.b9)/1000).toFixed(1);
+    },
+    b64() {
+      return (
+        Math.pow(
+          (4*parseFloat(this.b62)/(3.1415926*parseFloat(this.b63))),
+          0.5)
+      ).toFixed(8);
+    },
+    b65_1() {
+      return (parseFloat(this.b65) / 1000 ).toFixed(3);
+    },
+    b67() {
+      return (
+        parseFloat(this.b27_1)*4/
+        (3.1415926 * Math.pow(parseFloat(this.b65_1),2))
+      ).toFixed(3);
+    },
+    b70() {
+      return (parseFloat(this.b69) * parseFloat(this.b66) + 
+      parseFloat(this.b68) * Math.pow(parseFloat(this.b67),2) / (2*9.81)
+    ).toFixed(8);
+    },
+    b71() {
+      return (
+        8 * Math.pow(parseFloat(this.b42),2) / (2*9.81) 
+        + 10 * Math.pow(parseFloat(this.b50),2) / (2*9.81)
+      ).toFixed(8);
+    },
+    b73() {
+      return (0.022 * parseFloat(this.b72) * parseFloat(this.b15_1)).toFixed(4);
+    },
+    b76_1() {
+      return (parseFloat(this.b62) / parseFloat(this.b9_1) / 1.5).toFixed(0);
+    },
+    b77() {
+      return this.b105;
+    },
+    b78() {
+      return (
+        (parseFloat(this.b74)/parseFloat(this.b75) - 1) * (1 - parseFloat(this.b76)) * parseFloat(this.b77)
+      ).toFixed(4);
+    },
+    b80() {
+      return this.ROUNDUP(
+        parseFloat(this.b70) + parseFloat(this.b71) + parseFloat(this.b73) + parseFloat(this.b78) + parseFloat(this.b79)  
+      ,2);
+    },
+    b83() {
+      return this.b18_1;
+    },
+    b85() {
+      return (parseFloat(this.b18) / 3600 / parseFloat(this.b84)).toFixed(8);
+    },
+    b86_2() {
+      return (parseFloat(this.b85) / parseFloat(this.b86_1)).toFixed(5);
+    },
+    b86() {
+      return parseFloat(this.b86_1).toString() + " × " + this.ROUND(parseFloat(this.b86_2),2).toString()
+    },
+    b88() {
+      return this.b18_1;
+    },
+    b90() {
+      return (parseFloat(this.b18) / 3600 / parseFloat(this.b89)).toFixed(8);
+    },
+    b91_2() {
+      return (parseFloat(this.b90) / parseFloat(this.b91_1)).toFixed(5);
+    },
+    b91() {
+      return parseFloat(this.b91_1).toString() + " × " + this.ROUND(parseFloat(this.b91_2),2).toString()
+    },
+    b93() {
+      return (parseFloat(this.b22_1) * parseFloat(this.b15_1) / 1000).toFixed(2);
+    },
+    b95() {
+      return (parseFloat(this.b93) / parseFloat(this.b94)).toFixed(8);
+    },
+    b98() {
+      return (parseFloat(this.b22_1) * parseFloat(this.b15_1) / 1000).toFixed(2);
+    },
+    b100() {
+      return (parseFloat(this.b98) / parseFloat(this.b99)).toFixed(1);
+    },
+    b101_2() {
+      return (parseFloat(this.b100) / parseFloat(this.b101_1)).toFixed(1);
+    },
+    b101() {
+      return parseFloat(this.b101_1).toString() + " × " + this.ROUND(parseFloat(this.b101_2),2).toString()
+    },
+    b108() {
+      return (parseFloat(this.b104) + parseFloat(this.b105) + parseFloat(this.b106) + parseFloat(this.b107)).toFixed(2);
+    },
+    b111_1() {
+      return (
+        parseFloat(this.b24_1) * parseFloat(this.b21)/2 + (parseFloat(this.b21)/2-1)*parseFloat(this.b103)
+      ).toFixed(1)
+    },
+    b111_2() {
+      return (
+        parseFloat(this.b23) * 2 + parseFloat(this.b86_1) + parseFloat(this.b101_1) + 3* parseFloat(this.b103)
+      ).toFixed(1);
+    },
+    b111_3() {
+      return this.b108;
     },
   },
   watch() {
