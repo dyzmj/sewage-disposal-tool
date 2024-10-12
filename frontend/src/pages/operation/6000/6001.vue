@@ -174,12 +174,15 @@
                 :labelCol="{ span: 6 }"
                 :wrapperCol="{ span: 18 }"
               >
+              <a-input-group compact>
                 <a-input
                   v-model="contactPoolDepth"
                   :placeholder="$t('contactPoolDepth')"
                   :suffix="$t('contactPoolDepthUnit')"
                   value="20000.00"
                 />
+              </a-input-group>
+                
               </a-form-item>
               <a-form-item
                 class="calc"
@@ -189,8 +192,17 @@
               >
                 <a-input
                   v-model="singlecellWidth"
+                  style="width: 50%"
                   :placeholder="$t('singlecellWidth')"
                   :suffix="$t('singlecellWidthUnit')"
+                  value="1"
+                />
+                <a-input
+                  v-model="b12_1"
+                  style="width: 50%"
+                  :placeholder="$t('b12_1')"
+                  :addon-after="$t('b12_1_u')"
+                  :addon-before="$t('b12_1')"
                   value="1"
                 />
               </a-form-item>
@@ -412,6 +424,7 @@ export default {
       division: "4",
       roundingFlowLength: "52.40",
       partitionWallThickness: "0.20",
+      b12_1: "0.3",
       columns: [
         {
           title: "建构筑物尺寸(结果输出)",

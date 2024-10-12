@@ -30,6 +30,8 @@ module.exports = {
         everyPoolCapacityUnit:'m3',
         contactPoolDepth:'接触池水深',
         contactPoolDepthUnit:'m',
+        b12_1: '超高',
+        b12_1_u: 'm',
         singlecellWidth:'单格宽度',
         singlecellWidthUnit:'m',
         flowLength:'水流长度',
