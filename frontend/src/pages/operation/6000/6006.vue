@@ -13,7 +13,7 @@
           :title="$t('b2')"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
           <a-form>
@@ -68,7 +68,7 @@
                 <a-input
                   v-model="b5"
                   style="width: 50%;"
-                  :disabled="false"
+                  :disabled="true"
                   rows="12"
                   :placeholder="$t('b5')"
                   :suffix="$t('b5_u')"
@@ -76,7 +76,7 @@
                 <a-input
                   v-model="b5_1"
                   style="width: 50%;"
-                  :disabled="false"
+                  :disabled="true"
                   rows="12"
                   :placeholder="$t('b5_1')"
                   :suffix="$t('b5_1_u')"
@@ -84,24 +84,25 @@
               </a-input-group>
             </a-form-item>
           </a-form>
-        </a-card>
-        <a-card
-          :title="$t('referenceImage')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div>
-            <p>ClO2</p>
-            <p>
-              《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-            </p>
-          </div>
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                <img width="400px" src="@/assets/img/5000/5001_1.png" />
-              </a-form-item>
-            </a-form>
-          </div>
+
+          <a-card
+            :title="$t('referenceImage')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div>
+              <p>ClO2</p>
+              <p>
+                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
+              </p>
+            </div>
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -116,7 +117,7 @@
           :title="$t('b7')"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
           <a-card
@@ -154,7 +155,7 @@
                   <a-input
                     v-model="b10"
                     style="width: 33%;"
-                    :disabled="false"
+                    :disabled="true"
                     :suffix="$t('b10_u')"
                   />
                   <a-input
@@ -180,7 +181,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b11"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b11_u')"
                   />
@@ -195,7 +196,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b12"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b12_u')"
                   />
@@ -210,8 +211,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b13"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b13_u')"
                   />
                 </a-input-group>
@@ -225,7 +226,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b14"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b14_u')"
                   />
@@ -240,8 +241,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b15"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b15_u')"
                   />
                 </a-input-group>
@@ -255,7 +256,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b16"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b16_u')"
                   />
@@ -270,7 +271,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b17"
-                    style="width: 50%;"
+                    style="width: 100%;"
                     :disabled="false"
                     :suffix="$t('b17_u')"
                   />
@@ -285,8 +286,8 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b18"
-                    style="width: 50%;"
-                    :disabled="false"
+                    style="width: 100%;"
+                    :disabled="true"
                     :suffix="$t('b18_u')"
                   />
                 </a-input-group>
@@ -308,7 +309,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -351,38 +352,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
+                  <a-button
+                    style="margin-left: 30px;"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -391,7 +392,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -655,17 +660,17 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b3 = 40000
-      }else{
-        this.b3 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b3 = 40000;
+      } else {
+        this.b3 = waterData;
       }
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -675,22 +680,46 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "生物接触氧化池计算书", this);
+        exportExcel3(
+          allData1,
+          allData2,
+          allData3,
+          "生物接触氧化池计算书",
+          this
+        );
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
