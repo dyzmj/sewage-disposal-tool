@@ -516,7 +516,7 @@
                     <a-input
                       v-model="b39"
                       :suffix="$t('b39_u')"
-                      :disabled="false"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -1147,7 +1147,6 @@ export default {
       b33: "2",
       b34: "0.8",
       b38: "0.75",
-      b39: "0.22",
       b40: "0.01",
       b45: "0.1",
       b47: "0.15",
@@ -1553,6 +1552,77 @@ export default {
     },
     b35() {
       return this.ROUND((parseFloat(this.b30)+parseFloat(this.b31)+parseFloat(this.b32)+parseFloat(this.b33)+parseFloat(this.b34)), 2)
+    },
+    b36() {
+      return (parseFloat(this.b10) / 4 / 10).toFixed(2);
+    },
+    b39() {
+      return (parseFloat(this.b24) / 10).toFixed(2);
+    },
+    b41() {
+      return (parseFloat(this.b38) * parseFloat(this.b39) / parseFloat(this.b40)).toFixed(2);
+    },
+    b43() {
+      return (parseFloat(this.b28) / parseFloat(this.b24) / 60).toFixed(2);
+    },
+    b46() {
+      return (parseFloat(this.b6_2) / parseFloat(this.b45)).toFixed(2);
+    },
+    b48() {
+      return (3.1415926 * (Math.pow(parseFloat(this.b47), 2)) / 4).toFixed(3);
+    },
+    b49() {
+      return this.ROUND((parseFloat(this.b46) / parseFloat(this.b48) / parseFloat(this.b15)), 0);
+    },
+    b51() {
+      return (parseFloat(this.b49) / parseFloat(this.b50)).toFixed(1);
+    },
+    b52() {
+      return this.ROUND((parseFloat(this.b21)/(parseFloat(this.b51)+1)), 2);
+    },
+    b53() {
+      return ((parseFloat(this.b21)-(parseFloat(this.b51)-1)*parseFloat(this.b52))/2).toFixed(3);
+    },
+    b58() {
+      return ((parseFloat(this.b6_2) / parseFloat(this.b15) / parseFloat(this.b56)) * parseFloat(this.b57)).toFixed(3);
+    },
+    b59() {
+      return 0.181;
+    },
+    b60() {
+      return (0.75 * parseFloat(this.b59_1)).toFixed(2);
+    },
+    b61() {
+      return (1.25 * parseFloat(this.b59)).toFixed(2);
+    },
+    b65() {
+      return this.ROUND((parseFloat(this.b61) + parseFloat(this.b62) + parseFloat(this.b63) + parseFloat(this.b64)),2)
+    },
+    b67() {
+      return (3.1415926 * Math.pow(parseFloat(this.b66),2) / 4).toFixed(9);
+    },
+    b68() {
+      return (parseFloat(this.b69) * parseFloat(this.b67) * Math.sqrt(2*parseFloat(this.b70)*parseFloat(this.b62))).toFixed(9);
+    },
+    b71() {
+      return (parseFloat(this.b58) / parseFloat(this.b68)).toFixed(2);
+    },
+    b72() {
+      return (parseFloat(this.b71_1) / 2).toFixed(0);
+    },
+    b73() {
+      return this.ROUND((parseFloat(this.b21)-0.6)/(parseFloat(this.b72)+1), 2);
+    },
+    b75() {
+      return (parseFloat(this.b6_2) * parseFloat(this.b57)).toFixed(2);
+    },
+    b77() {
+      return (1.73 * Math.pow((
+        parseFloat(this.b75) / parseFloat(this.b70) / (Math.pow(parseFloat(this.b76),2))
+      ),(1/3))).toFixed(2);
+    },
+    b79() {
+      return (parseFloat(this.b65) + parseFloat(this.b77) + parseFloat(this.b78)).toFixed(2);
     },
   },
   watch() {
