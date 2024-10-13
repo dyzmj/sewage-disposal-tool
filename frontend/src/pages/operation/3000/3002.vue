@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -36,7 +36,6 @@
                 >
                   <a-input
                     v-model="b4"
-                    :placeholder="$t('b4')"
                     :suffix="$t('b4_u')"
                     :disabled="false"
                   />
@@ -49,7 +48,6 @@
                 >
                   <a-input
                     v-model="b5"
-                    :placeholder="$t('b5')"
                     :suffix="$t('b5_u')"
                     :disabled="false"
                   />
@@ -63,26 +61,23 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b6"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6')"
                       :suffix="$t('b6_u')"
                     />
                     <a-input
                       v-model="b6_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6_1')"
                       :suffix="$t('b6_1_u')"
                     />
                     <a-input
                       v-model="b6_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6_2')"
                       :suffix="$t('b6_2_u')"
                     />
                   </a-input-group>
@@ -109,24 +104,15 @@
                 >
                   <a-input
                     v-model="b8"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b8_u')"
                     :disabled="false"
                   />
                 </a-form-item>
-                <a-form-item
-                  :label="$t('b9')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 10 }"
-                  :wrapperCol="{ span: 14 }"
-                >
-                  <a-input
-                    v-model="b9"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
+                <br />
+                <p style="font-weight: bolder; color: red">
+                  {{ $t("b9") }}
+                </p>
+                <br />
                 <a-form-item
                   :label="$t('b10')"
                   style="margin-top: 10px"
@@ -135,8 +121,7 @@
                 >
                   <a-input
                     v-model="b10"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
+                    :suffix="$t('b10_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -148,8 +133,7 @@
                 >
                   <a-input
                     v-model="b11"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
+                    :suffix="$t('b11_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -161,9 +145,8 @@
                 >
                   <a-input
                     v-model="b12"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
-                    :disabled="false"
+                    :suffix="$t('b12_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -174,8 +157,7 @@
                 >
                   <a-input
                     v-model="b13"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
+                    :suffix="$t('b13_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -187,9 +169,8 @@
                 >
                   <a-input
                     v-model="b14"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
-                    :disabled="false"
+                    :suffix="$t('b14_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -200,8 +181,7 @@
                 >
                   <a-input
                     v-model="b15"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
+                    :suffix="$t('b15_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -254,9 +234,8 @@
                 >
                   <a-input
                     v-model="b18"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b18_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -265,12 +244,7 @@
                   :labelCol="{ span: 8 }"
                   :wrapperCol="{ span: 16 }"
                 >
-                  <a-input
-                    v-model="b19"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
-                    :disabled="false"
-                  />
+                  <a-input v-model="b19" :disabled="false" />
                 </a-form-item>
                 <a-form-item
                   :label="$t('b20')"
@@ -281,11 +255,10 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b20"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :suffix="$t('b20_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -298,11 +271,17 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b21"
-                      style="width: 100%;"
+                      style="width: 50%"
+                      :disabled="false"
+                      rows="12"
+                      :addonAfter="$t('b21_u')"
+                    />
+                    <a-input
+                      v-model="b21_1"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :addonAfter="$t('b21_1_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -315,11 +294,10 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b22"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :suffix="$t('b22_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -345,9 +323,8 @@
                 >
                   <a-input
                     v-model="b24"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b24_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -358,9 +335,8 @@
                 >
                   <a-input
                     v-model="b25"
-                    :placeholder="$t('b5')"
-                    :suffix="$t('b5_u')"
-                    :disabled="false"
+                    :suffix="$t('b25_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -372,11 +348,10 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b26"
-                      style="width: 100%;"
-                      :disabled="true"
+                      style="width: 100%"
+                      :disabled="false"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :suffix="$t('b26_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -389,11 +364,10 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b27"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :suffix="$t('b27_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -406,11 +380,10 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b28"
-                      style="width: 100%;"
-                      :disabled="true"
+                      style="width: 100%"
+                      :disabled="false"
                       rows="12"
-                      :placeholder="$t('b6')"
-                      :suffix="$t('b6_u')"
+                      :suffix="$t('b28_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -436,8 +409,7 @@
                 >
                   <a-input
                     v-model="b30"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b30_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -449,8 +421,7 @@
                 >
                   <a-input
                     v-model="b31"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b31_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -462,9 +433,8 @@
                 >
                   <a-input
                     v-model="b32"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b32_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -475,8 +445,7 @@
                 >
                   <a-input
                     v-model="b33"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b33_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -488,8 +457,7 @@
                 >
                   <a-input
                     v-model="b34"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b34_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -501,9 +469,8 @@
                 >
                   <a-input
                     v-model="b35"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b35_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
               </a-form>
@@ -519,99 +486,88 @@
             :body-style="{ padding: 2 }"
           >
             <div class="baseQueryParam">
-              <a-form>
-                <a-form-item
-                  :label="$t('b37')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b37"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b38')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b38"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b39')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b39"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b40')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b40"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b41')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b41"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b42')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b42"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-                <a-form-item
-                  :label="$t('b43')"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input
-                    v-model="b43"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
-                  />
-                </a-form-item>
-              </a-form>
+              <a-card
+                :title="$t('b37')"
+                style="margin-bottom: 0px"
+                :headStyle="{ 'font-weight': 'bolder' }"
+                :bordered="false"
+                :hoverable="true"
+                size="small"
+                :body-style="{ padding: 2 }"
+                ><a-form>
+                  <a-form-item
+                    :label="$t('b38')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b38"
+                      :suffix="$t('b38_u')"
+                      :disabled="true"
+                    />
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b39')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b39"
+                      :suffix="$t('b39_u')"
+                      :disabled="false"
+                    />
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b40')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b40"
+                      :suffix="$t('b40_u')"
+                      :disabled="false"
+                    />
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b41')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b41"
+                      :disabled="true"
+                    />
+                  </a-form-item>
+                </a-form>
+              </a-card>
+              <a-card
+                :title="$t('b42')"
+                style="margin-bottom: 0px"
+                :headStyle="{ 'font-weight': 'bolder' }"
+                :bordered="false"
+                :hoverable="true"
+                size="small"
+                :body-style="{ padding: 2 }"
+              >
+                <a-form>
+                  <a-form-item
+                    :label="$t('b43')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b43"
+                      :suffix="$t('b43_u')"
+                      :disabled="true"
+                    />
+                  </a-form-item>
+                </a-form>
+              </a-card>
             </div>
           </a-card>
           <a-card
@@ -633,8 +589,7 @@
                 >
                   <a-input
                     v-model="b45"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b45_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -646,9 +601,8 @@
                 >
                   <a-input
                     v-model="b46"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b46_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -659,8 +613,7 @@
                 >
                   <a-input
                     v-model="b47"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b47_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -672,9 +625,8 @@
                 >
                   <a-input
                     v-model="b48"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b48_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -685,9 +637,8 @@
                 >
                   <a-input
                     v-model="b49"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b49_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -698,8 +649,7 @@
                 >
                   <a-input
                     v-model="b50"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b50_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -711,9 +661,8 @@
                 >
                   <a-input
                     v-model="b51"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b51_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -724,9 +673,8 @@
                 >
                   <a-input
                     v-model="b52"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b52_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -737,9 +685,8 @@
                 >
                   <a-input
                     v-model="b53"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b53_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
               </a-form>
@@ -773,8 +720,6 @@
                   >
                     <a-input
                       v-model="b56"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -786,8 +731,6 @@
                   >
                     <a-input
                       v-model="b57"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -799,9 +742,8 @@
                   >
                     <a-input
                       v-model="b58"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b58_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -810,12 +752,20 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b59"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
-                    />
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b59"
+                        style="width: 50%"
+                        :suffix="$t('b59_u')"
+                        :disabled="true"
+                      />
+                      <a-input
+                        v-model="b59_1"
+                        style="width: 50%"
+                        :suffix="$t('b59_1_u')"
+                        :disabled="false"
+                      />
+                    </a-input-group>
                   </a-form-item>
                   <a-form-item
                     :label="$t('b60')"
@@ -825,9 +775,8 @@
                   >
                     <a-input
                       v-model="b60"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b60_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -838,9 +787,8 @@
                   >
                     <a-input
                       v-model="b61"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b61_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -851,8 +799,7 @@
                   >
                     <a-input
                       v-model="b62"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
+                      :suffix="$t('b62_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -864,8 +811,7 @@
                   >
                     <a-input
                       v-model="b63"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
+                      :suffix="$t('b63_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -877,9 +823,20 @@
                   >
                     <a-input
                       v-model="b64"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
+                      :suffix="$t('b64_u')"
                       :disabled="false"
+                    />
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b65')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input
+                      v-model="b65"
+                      :suffix="$t('b65_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -890,8 +847,7 @@
                   >
                     <a-input
                       v-model="b66"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
+                      :suffix="$t('b66_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -903,9 +859,8 @@
                   >
                     <a-input
                       v-model="b67"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b67_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -916,9 +871,8 @@
                   >
                     <a-input
                       v-model="b68"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b68_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -929,8 +883,6 @@
                   >
                     <a-input
                       v-model="b69"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -942,8 +894,7 @@
                   >
                     <a-input
                       v-model="b70"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
+                      :suffix="$t('b70_u')"
                       :disabled="false"
                     />
                   </a-form-item>
@@ -953,12 +904,20 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b71"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
-                    />
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b71"
+                        style="width: 50%"
+                        :suffix="$t('b71_u')"
+                        :disabled="true"
+                      />
+                      <a-input
+                        v-model="b71_1"
+                        style="width: 50%"
+                        :suffix="$t('b71_1_u')"
+                        :disabled="false"
+                      />
+                    </a-input-group>
                   </a-form-item>
                   <a-form-item
                     :label="$t('b72')"
@@ -968,9 +927,8 @@
                   >
                     <a-input
                       v-model="b72"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b72_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -981,9 +939,8 @@
                   >
                     <a-input
                       v-model="b73"
-                      :placeholder="$t('b4')"
-                      :suffix="$t('b4_u')"
-                      :disabled="false"
+                      :suffix="$t('b73_u')"
+                      :disabled="true"
                     />
                   </a-form-item>
                 </a-form>
@@ -1009,9 +966,8 @@
                 >
                   <a-input
                     v-model="b75"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b75_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -1022,8 +978,7 @@
                 >
                   <a-input
                     v-model="b76"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b76_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -1035,9 +990,8 @@
                 >
                   <a-input
                     v-model="b77"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b77_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
                 <a-form-item
@@ -1048,8 +1002,7 @@
                 >
                   <a-input
                     v-model="b78"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
+                    :suffix="$t('b78_u')"
                     :disabled="false"
                   />
                 </a-form-item>
@@ -1061,9 +1014,8 @@
                 >
                   <a-input
                     v-model="b79"
-                    :placeholder="$t('b4')"
-                    :suffix="$t('b4_u')"
-                    :disabled="false"
+                    :suffix="$t('b79_u')"
+                    :disabled="true"
                   />
                 </a-form-item>
               </a-form>
@@ -1072,7 +1024,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -1084,7 +1036,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -1127,38 +1079,39 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -1167,7 +1120,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1176,79 +1133,37 @@ export default {
     return {
       b4: "20000",
       b5: "5",
-      b7: "",
       b8: "0.35",
-      b9: "",
       b10: "30",
       b11: "60",
-      b12: "1.047197551",
       b13: "7",
-      b14: "1.944444444",
       b15: "2",
-      b16: "",
-      b17: "",
-      b18: "125",
       b19: "0.95",
-      b20: "131.5789474",
       b21: "12",
-      b22: "6.628787879",
-      b23: "",
-      b24: "2.245251047",
-      b25: "459.9557145",
       b26: "250",
-      b27: "709.9557145",
       b28: "1000",
-      b29: "",
       b30: "0.5",
       b31: "1.2",
-      b32: "0.866025404",
       b33: "2",
       b34: "0.8",
-      b35: "5.37",
-      b36: "",
-      b37: "",
       b38: "0.75",
-      b39: "0.224525105",
+      b39: "0.22",
       b40: "0.01",
-      b41: "16.83938285",
-      b42: "",
-      b43: "7.42307489",
-      b44: "",
       b45: "0.1",
-      b46: "2.430555556",
       b47: "0.15",
-      b48: "0.017671459",
-      b49: "69",
       b50: "3",
-      b51: "23",
-      b52: "0.5",
-      b53: "0.5",
-      b54: "",
-      b55: "",
       b56: "8",
       b57: "1.2",
-      b58: "0.018229167",
-      b59: "0.181",
-      b60: "0.15",
-      b61: "0.22625",
+      b59_1: "0.20",
       b62: "0.12",
       b63: "0.05",
       b64: "0.15",
-      b65: "0.55",
       b66: "0.025",
-      b67: "0.000490874",
-      b68: "0.000466984",
       b69: "0.62",
       b70: "9.81",
-      b71: "39.03598144",
-      b72: "20",
-      b73: "0.54",
-      b74: "",
-      b75: "0.291666667",
+      b71_1: "40",
       b76: "1",
-      b77: "0.53594312",
       b78: "0.08",
-      b79: "1.16594312",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -1491,17 +1406,17 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b4 = 40000
-      }else{
-        this.b4 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b4 = 40000;
+      } else {
+        this.b4 = waterData;
       }
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -1511,19 +1426,37 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
         exportExcel3(allData1, allData2, allData3, "斜管沉淀池工程量", this);
@@ -1564,6 +1497,14 @@ export default {
     getDimensions() {
       return "to do";
     },
+    ROUNDUP(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.ceil(number * multiplier) / multiplier;
+    },
+    ROUND(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.round(number * multiplier) / multiplier;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -1575,6 +1516,43 @@ export default {
     },
     b6_2() {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
+    },
+    b12() {
+      return (parseFloat(this.b11) * 3.14159265354 / 180).toFixed(9);
+    },
+    b14() {
+      return (parseFloat(this.b13) / 3.6).toFixed(1);
+    },
+    b18() {
+      return (parseFloat(this.b6) / 24 / 3600 * 1000 / (parseFloat(this.b13) / 3.6)).toFixed(2);
+    },
+    b20() {
+      return (parseFloat(this.b18) / parseFloat(this.b19)).toFixed(2);
+    },
+    b21_1() {
+      return this.ROUND(parseFloat(this.b20)/2/parseFloat(this.b21), 1);
+    },
+    b22() {
+      return (parseFloat(this.b6_1) / parseFloat(this.b21) / parseFloat(this.b21_1) / parseFloat(this.b15)).toFixed(2);
+    },
+    b24() {
+      return ((parseFloat(this.b13) / 3.6) / Math.sin(parseFloat(this.b12))).toFixed(2);
+    },
+    b25() {
+      return ((
+        1.33 * parseFloat(this.b24) - parseFloat(this.b8)* Math.sin(parseFloat(this.b12))
+      ) * parseFloat(this.b10) / (
+        parseFloat(this.b8) * Math.cos(parseFloat(this.b12))
+      )).toFixed(2);
+    },
+    b27() {
+      return (parseFloat(this.b25) + parseFloat(this.b26)).toFixed(2);
+    },
+    b32() {
+      return (parseFloat(this.b28) * Math.sin(parseFloat(this.b12)) / 1000).toFixed(2);
+    },
+    b35() {
+      return this.ROUND((parseFloat(this.b30)+parseFloat(this.b31)+parseFloat(this.b32)+parseFloat(this.b33)+parseFloat(this.b34)), 2)
     },
   },
   watch() {
