@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -11,11 +11,11 @@
       >
         <a-card
           :title="$t('baseQueryParam')"
-          style="margin-bottom: 24px; "
+          style="margin-bottom: 24px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-form>
@@ -91,24 +91,24 @@
               </a-form-item>
             </a-form>
           </div>
-        </a-card>
-        <a-card :title="$t('referenceInformation')">
-          <div>
-            <p>陶粒生物</p>
-            <p>
-              《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-            </p>
-          </div>
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                <img
-                  width="400px"
-                  src="@/assets/img/2000/Disinfection_01.png"
-                />
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card :title="$t('referenceInformation')">
+            <div>
+              <p>陶粒生物</p>
+              <p>
+                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
+              </p>
+            </div>
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img
+                    width="400px"
+                    src="@/assets/img/2000/Disinfection_01.png"
+                  />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -121,7 +121,7 @@
       >
         <a-card
           :title="$t('processDesignCompute')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -129,7 +129,7 @@
         >
           <a-card
             :title="$t('b8')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -172,7 +172,7 @@
           </a-card>
           <a-card
             :title="$t('b11')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -191,7 +191,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b12"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b12')"
@@ -200,7 +200,7 @@
                     />
                     <a-input
                       v-model="b12_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b12_1')"
@@ -214,7 +214,7 @@
           </a-card>
           <a-card
             :title="$t('b13')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -260,7 +260,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b16"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b16')"
@@ -269,7 +269,7 @@
                     />
                     <a-input
                       v-model="b16_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b16_1')"
                       :suffix="$t('b16_1_u')"
@@ -300,7 +300,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b18"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b18')"
@@ -308,7 +308,7 @@
                     />
                     <a-input
                       v-model="b18_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b18_1')"
                       :suffix="$t('b18_1_u')"
@@ -333,7 +333,7 @@
           </a-card>
           <a-card
             :title="$t('b20')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -352,7 +352,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b21"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="8"
                       :placeholder="$t('b21')"
@@ -360,7 +360,7 @@
                     />
                     <a-input
                       v-model="b21_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="8"
                       :placeholder="$t('b21_1')"
@@ -368,7 +368,7 @@
                     />
                     <a-input
                       v-model="b21_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="8"
                       :placeholder="$t('b21_2')"
@@ -490,7 +490,7 @@
           </a-card>
           <a-card
             :title="$t('b30')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -536,7 +536,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b33"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b33')"
@@ -544,7 +544,7 @@
                     />
                     <a-input
                       v-model="b33_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b33_1')"
                       :suffix="$t('b33_1_u')"
@@ -556,7 +556,7 @@
           </a-card>
           <a-card
             :title="$t('b34')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -670,14 +670,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b42"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b42')"
                       :suffix="$t('b42_u')"
                     />
                     <a-input
                       v-model="b42_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b42_1')"
@@ -733,10 +733,7 @@
                   :labelCol="{ span: 10 }"
                   :wrapperCol="{ span: 14 }"
                 >
-                  <a-input
-                    v-model="b46"
-                    :placeholder="$t('b46')"
-                  />
+                  <a-input v-model="b46" :placeholder="$t('b46')" />
                 </a-form-item>
                 <a-form-item
                   class="calc"
@@ -762,7 +759,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b48"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b48')"
                       :suffix="$t('b48_u')"
@@ -770,7 +767,7 @@
                     <a-input
                       v-model="b48_1"
                       :disabled="true"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b48_1')"
                       :suffix="$t('b48_1_u')"
@@ -852,7 +849,7 @@
           </a-card>
           <a-card
             :title="$t('b54')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -912,14 +909,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b58"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b58')"
                       :suffix="$t('b58_u')"
                     />
                     <a-input
                       v-model="b58_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b58_1')"
@@ -1063,14 +1060,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b69"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b69')"
                       suffix=""
                     />
                     <a-input
                       v-model="b69_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b69_1')"
@@ -1168,7 +1165,7 @@
           </a-card>
           <a-card
             :title="$t('b74')"
-            style="margin-bottom: 0px; "
+            style="margin-bottom: 0px"
             :headStyle="{ 'font-weight': 'bolder' }"
             :bordered="false"
             :hoverable="true"
@@ -1177,7 +1174,7 @@
           >
             <a-card
               :title="$t('b75')"
-              style="margin-bottom: 0px; "
+              style="margin-bottom: 0px"
               :headStyle="{ 'font-weight': 'bolder' }"
               :bordered="false"
               :hoverable="true"
@@ -1236,7 +1233,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b79"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b79')"
@@ -1244,14 +1241,14 @@
                     />
                     <a-input
                       v-model="b79_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b79_1')"
                     />
                     <a-input
                       v-model="b79_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b79_2')"
@@ -1262,7 +1259,7 @@
             </a-card>
             <a-card
               :title="$t('b80')"
-              style="margin-bottom: 0px; "
+              style="margin-bottom: 0px"
               :headStyle="{ 'font-weight': 'bolder' }"
               :bordered="false"
               :hoverable="true"
@@ -1321,7 +1318,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b84"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b84')"
@@ -1329,14 +1326,14 @@
                     />
                     <a-input
                       v-model="b84_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b84_1')"
                     />
                     <a-input
                       v-model="b84_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b84_2')"
@@ -1347,7 +1344,7 @@
             </a-card>
             <a-card
               :title="$t('b85')"
-              style="margin-bottom: 0px; "
+              style="margin-bottom: 0px"
               :headStyle="{ 'font-weight': 'bolder' }"
               :bordered="false"
               :hoverable="true"
@@ -1413,7 +1410,7 @@
             </a-card>
             <a-card
               :title="$t('b90')"
-              style="margin-bottom: 0px; "
+              style="margin-bottom: 0px"
               :headStyle="{ 'font-weight': 'bolder' }"
               :bordered="false"
               :hoverable="true"
@@ -1472,7 +1469,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b94"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b94')"
@@ -1480,14 +1477,14 @@
                     />
                     <a-input
                       v-model="b94_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b94_1')"
                     />
                     <a-input
                       v-model="b94_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b94_2')"
@@ -1498,7 +1495,7 @@
             </a-card>
             <a-card
               :title="$t('b95')"
-              style="margin-bottom: 0px; "
+              style="margin-bottom: 0px"
               :headStyle="{ 'font-weight': 'bolder' }"
               :bordered="false"
               :hoverable="true"
@@ -1516,13 +1513,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b96"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b96')"
                     />
                     <a-input
                       v-model="b96_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b96_1')"
                     />
@@ -1538,14 +1535,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b97"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b97')"
                       :suffix="$t('b97_u')"
                     />
                     <a-input
                       v-model="b97_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b97_1')"
                       :suffix="$t('b97_1_u')"
@@ -1562,14 +1559,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b98"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b98')"
                       :suffix="$t('b98_u')"
                     />
                     <a-input
                       v-model="b98_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b98_1')"
                       :suffix="$t('b98_1_u')"
@@ -1586,7 +1583,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b99"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b99')"
                       :suffix="$t('b99_u')"
@@ -1603,7 +1600,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b99_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b99_1')"
                       :suffix="$t('b99_1_u')"
@@ -1620,14 +1617,14 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b100"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b100')"
                       :suffix="$t('b100_u')"
                     />
                     <a-input
                       v-model="b100_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :placeholder="$t('b100_1')"
                       :suffix="$t('b100_1_u')"
@@ -1722,21 +1719,21 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b110"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       :placeholder="$t('b110')"
                       :suffix="$t('b110_u')"
                     />
                     <a-input
                       v-model="b110_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="true"
                       :placeholder="$t('b110_1')"
                       :suffix="$t('b110_1_u')"
                     />
                     <a-input
                       v-model="b110_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="true"
                       :placeholder="$t('b110_2')"
                       :suffix="$t('b110_2_u')"
@@ -1749,7 +1746,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -1761,7 +1758,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -1804,38 +1801,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -1844,7 +1841,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -2145,11 +2146,11 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b3_1 = 120000
-      }else{
-        this.b3_1 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b3_1 = 120000;
+      } else {
+        this.b3_1 = waterData;
       }
     },
     exportComputeBook() {
@@ -2176,10 +2177,16 @@ export default {
       return "to do";
     },
     getkey1() {
-      return this.b110 +"m x" + this.b110_1 + 'm x' + this.b110_2 + "m"
+      return this.b110 + "m x" + this.b110_1 + "m x" + this.b110_2 + "m";
     },
     getKey2() {
-      return "Q=" + (parseFloat(this.b69_1) / parseFloat(this.b70_1)).toFixed(1) + "m3/h, H=" + this.b73 + "m";
+      return (
+        "Q=" +
+        (parseFloat(this.b69_1) / parseFloat(this.b70_1)).toFixed(1) +
+        "m3/h, H=" +
+        this.b73 +
+        "m"
+      );
     },
     getKey3() {
       return (parseFloat(this.b70_1) + parseFloat(this.b71_1)).toFixed(0);
@@ -2197,12 +2204,12 @@ export default {
       return this.b99 + "用" + this.b99_1 + "备";
     },
     getKey8() {
-      return (parseFloat(this.b15) * 5).toFixed(0)
+      return (parseFloat(this.b15) * 5).toFixed(0);
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -2212,22 +2219,46 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "生物接触氧化池工程量", this);
+        exportExcel3(
+          allData1,
+          allData2,
+          allData3,
+          "生物接触氧化池工程量",
+          this
+        );
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -2586,7 +2617,7 @@ export default {
         设备工艺名称: "反冲洗风机",
         规格及型号: this.getKey4(),
         单位: "台",
-        disinfectiontank:  this.getKey5(),
+        disinfectiontank: this.getKey5(),
         运行时间: "",
         主要材质: "",
         备注: this.getKey7(),

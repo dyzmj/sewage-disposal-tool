@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -35,7 +35,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b3"
-                    style="width: 100%;"
+                    style="width: 100%"
                     :disabled="false"
                     rows="12"
                     :placeholder="$t('b3')"
@@ -52,7 +52,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b4"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                     rows="12"
                     :placeholder="$t('b4')"
@@ -60,7 +60,7 @@
                   />
                   <a-input
                     v-model="b4_1"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                     rows="12"
                     :placeholder="$t('b4_1')"
@@ -76,7 +76,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b5"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="true"
                     rows="12"
                     :placeholder="$t('b5')"
@@ -84,7 +84,7 @@
                   />
                   <a-input
                     v-model="b5_1"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="true"
                     rows="12"
                     :placeholder="$t('b5_1')"
@@ -151,7 +151,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b9"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b9_u')"
                     />
@@ -166,7 +166,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b10"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b10_u')"
                     />
@@ -181,7 +181,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b11"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b11_u')"
                     />
@@ -196,7 +196,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b12"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b12_u')"
                     />
@@ -211,13 +211,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b13"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b13_u')"
                     />
                     <a-input
                       v-model="b13_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b13_u')"
                     />
@@ -232,19 +232,19 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b14"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="false"
                       :suffix="$t('b14_u')"
                     />
                     <a-input
                       v-model="b14_1"
-                      style="width: 33%;"
+                      style="width: 33%"
                       :disabled="false"
                       :suffix="$t('b14_u')"
                     />
                     <a-input
                       v-model="b14_2"
-                      style="width: 34%;"
+                      style="width: 34%"
                       :disabled="false"
                       :suffix="$t('b14_2_u')"
                     />
@@ -270,13 +270,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b15"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b15_u')"
                     />
                     <a-input
                       v-model="b15_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b15_u')"
                     />
@@ -291,13 +291,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b16"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b16_u')"
                     />
                     <a-input
                       v-model="b16_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b16_u')"
                     />
@@ -323,13 +323,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b18"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b18_u')"
                     />
                     <a-input
                       v-model="b18_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b18_1_u')"
                     />
@@ -344,25 +344,25 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b19"
-                      style="width: 25%;"
+                      style="width: 25%"
                       :disabled="false"
                       :suffix="$t('b19_u')"
                     />
                     <a-input
                       v-model="b19_1"
-                      style="width: 25%;"
+                      style="width: 25%"
                       :disabled="true"
                       :suffix="$t('b19_1_u')"
                     />
                     <a-input
                       v-model="b19_2"
-                      style="width: 25%;"
+                      style="width: 25%"
                       :disabled="false"
                       :suffix="$t('b19_2_u')"
                     />
                     <a-input
                       v-model="b19_3"
-                      style="width: 25%;"
+                      style="width: 25%"
                       :disabled="true"
                     />
                   </a-input-group>
@@ -376,13 +376,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b20"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b20_u')"
                     />
                     <a-input
                       v-model="b20_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b20_1_u')"
                     />
@@ -397,7 +397,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b21"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -411,13 +411,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b22"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b22_u')"
                     />
                     <a-input
                       v-model="b22_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b22_1_u')"
                     />
@@ -432,7 +432,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b23"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b23_u')"
                     />
@@ -447,7 +447,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b24"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -461,7 +461,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b25"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b25_u')"
                     />
@@ -476,7 +476,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b26"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -490,7 +490,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b27"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -504,7 +504,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b28"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b28_u')"
                     />
@@ -519,7 +519,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b29"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -533,7 +533,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b30"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -547,7 +547,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b31"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b31_u')"
                     />
@@ -573,12 +573,12 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b33"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                     />
                     <a-input
                       v-model="b33_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="false"
                       :suffix="$t('b33_u')"
                     />
@@ -593,7 +593,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b34"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b34_u')"
                     />
@@ -619,7 +619,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b36"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b36_u')"
                     />
@@ -634,7 +634,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b37"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b37_u')"
                     />
@@ -646,7 +646,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -658,7 +658,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -701,38 +701,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -741,7 +741,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1019,17 +1023,17 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b3 = 40000
-      }else{
-        this.b3 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b3 = 40000;
+      } else {
+        this.b3 = waterData;
       }
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -1039,22 +1043,46 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "生物接触氧化池计算书", this);
+        exportExcel3(
+          allData1,
+          allData2,
+          allData3,
+          "生物接触氧化池计算书",
+          this
+        );
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1107,46 +1135,75 @@ export default {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
     b13() {
-      return (parseFloat(this.b9)*parseFloat(this.b5)/parseFloat(this.b10)/parseFloat(this.b12)/parseFloat(this.b11)/4.17).toFixed(2);
+      return (
+        (parseFloat(this.b9) * parseFloat(this.b5)) /
+        parseFloat(this.b10) /
+        parseFloat(this.b12) /
+        parseFloat(this.b11) /
+        4.17
+      ).toFixed(2);
     },
     b15() {
-      return (parseFloat(this.b13_1)*0.3).toFixed(2)
+      return (parseFloat(this.b13_1) * 0.3).toFixed(2);
     },
     b18_1() {
-      return (parseFloat(this.b18)/1000).toFixed(2)
+      return (parseFloat(this.b18) / 1000).toFixed(2);
     },
     b19_1() {
-      return (parseFloat(this.b19)/1000).toFixed(2)
+      return (parseFloat(this.b19) / 1000).toFixed(2);
     },
-    b19_3(){
-      return (parseFloat(this.b19_2)/180*3.1415926).toFixed(2);
+    b19_3() {
+      return ((parseFloat(this.b19_2) / 180) * 3.1415926).toFixed(2);
     },
     b20_1() {
-      return (parseFloat(this.b20)/1000).toFixed(2)
+      return (parseFloat(this.b20) / 1000).toFixed(2);
     },
     b22_1() {
-      return (parseFloat(this.b22)*2/parseFloat(this.b18_1)).toFixed(2)
+      return ((parseFloat(this.b22) * 2) / parseFloat(this.b18_1)).toFixed(2);
     },
     b23() {
-      return (parseFloat(this.b22)/3.1415926/parseFloat(this.b18_1)*60).toFixed(2);
+      return (
+        (parseFloat(this.b22) / 3.1415926 / parseFloat(this.b18_1)) *
+        60
+      ).toFixed(2);
     },
     b27() {
-      return (parseFloat(this.b21)*parseFloat(this.b26)).toFixed(0)
+      return (parseFloat(this.b21) * parseFloat(this.b26)).toFixed(0);
     },
     b28() {
-      return (parseFloat(this.b24)*parseFloat(this.b25) * Math.pow(parseFloat(this.b22_1), 3)
-      * parseFloat(this.b27) * parseFloat(this.b19_1) * Math.sin(parseFloat(this.b19_3)) * 
-      (Math.pow(parseFloat(this.b18_1)/2,4) - (Math.pow((parseFloat(this.b18_1)/2-parseFloat(this.b20_1)),4)/408/9.81))
-    ).toFixed(2)
+      return (
+        parseFloat(this.b24) *
+        parseFloat(this.b25) *
+        Math.pow(parseFloat(this.b22_1), 3) *
+        parseFloat(this.b27) *
+        parseFloat(this.b19_1) *
+        Math.sin(parseFloat(this.b19_3)) *
+        (Math.pow(parseFloat(this.b18_1) / 2, 4) -
+          Math.pow(parseFloat(this.b18_1) / 2 - parseFloat(this.b20_1), 4) /
+            408 /
+            9.81)
+      ).toFixed(2);
     },
     b31() {
-      return (parseFloat(this.b28)/parseFloat(this.b29)/parseFloat(this.b30)).toFixed(2);
+      return (
+        parseFloat(this.b28) /
+        parseFloat(this.b29) /
+        parseFloat(this.b30)
+      ).toFixed(2);
     },
     b36() {
-      return (parseFloat(this.b5)*parseFloat(this.b9)/(parseFloat(this.b11)/100)/1000).toFixed(2);
+      return (
+        (parseFloat(this.b5) * parseFloat(this.b9)) /
+        (parseFloat(this.b11) / 100) /
+        1000
+      ).toFixed(2);
     },
     b37() {
-      return (parseFloat(this.b5)*parseFloat(this.b9)/(parseFloat(this.b10)/100)/1000).toFixed(2);
+      return (
+        (parseFloat(this.b5) * parseFloat(this.b9)) /
+        (parseFloat(this.b10) / 100) /
+        1000
+      ).toFixed(2);
     },
   },
   watch() {

@@ -14,7 +14,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '800px', overflow: 'auto' }"
         >
           <a-card
             :title="$t('baseQueryParam1')"
@@ -55,22 +55,22 @@
               </a-form>
             </div>
           </a-card>
-        </a-card>
-        <a-card
-          :title="$t('referenceInformation')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div>
-            <p>预沉池</p>
-            <!-- <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p> -->
-          </div>
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                <img width="400px" src="@/assets/img/1000/1002.png" />
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('referenceInformation')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div>
+              <p>预沉池</p>
+              <!-- <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p> -->
+            </div>
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img width="400px" src="@/assets/img/1000/1002.png" />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -441,7 +441,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '800px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -470,38 +470,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px">
-                <a-button
-                  style="margin-left: 30px"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -510,7 +510,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel2, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel2,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -697,11 +701,11 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b4 = 20000
-      }else{
-        this.b4 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b4 = 20000;
+      } else {
+        this.b4 = waterData;
       }
     },
     exportQuantities() {
@@ -739,12 +743,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel2(
-          allData1,
-          allData2,
-          "预沉池工程量",
-          this
-        );
+        exportExcel2(allData1, allData2, "预沉池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑

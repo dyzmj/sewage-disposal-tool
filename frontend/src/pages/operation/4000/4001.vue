@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -11,7 +11,7 @@
       >
         <a-card
           :title="$t('baseQueryParam')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -36,7 +36,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b3"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b3')"
@@ -44,7 +44,7 @@
                     />
                     <a-input
                       v-model="b3_1"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b3_1')"
@@ -52,7 +52,7 @@
                     />
                     <a-input
                       v-model="b3_2"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b3_2')"
@@ -119,7 +119,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b8"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
@@ -127,7 +127,7 @@
                     <a-input
                       v-model="b8_1"
                       :disabled="true"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b8_1')"
                       :suffix="$t('b8_1_u')"
@@ -143,7 +143,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b9"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b9')"
                       :suffix="$t('b9_u')"
@@ -151,7 +151,7 @@
                     <a-input
                       v-model="b9_1"
                       :disabled="true"
-                      style="width: 50%;"
+                      style="width: 50%"
                       rows="12"
                       :placeholder="$t('b9_1')"
                       :suffix="$t('b9_1_u')"
@@ -185,7 +185,7 @@
                 </a-form-item>
                 <a-form-item
                   :label="$t('b11_1')"
-                  style="margin-top: 1e0px"
+                  style="margin-top: 1px"
                   :labelCol="{ span: 10 }"
                   :wrapperCol="{ span: 14 }"
                 >
@@ -243,7 +243,7 @@
       >
         <a-card
           :title="$t('设计参数计算')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -276,14 +276,14 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b15"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b15_u')"
                       />
                       <a-input
                         v-model="b15_1"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b15_1_u')"
@@ -322,14 +322,14 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b18"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b18_u')"
                       />
                       <a-input
                         v-model="b18_1"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b18_1_u')"
@@ -358,7 +358,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b20"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b20_u')"
@@ -385,14 +385,14 @@
                       <a-input
                         v-model="b22"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b22_u')"
                       />
                       <a-input
                         v-model="b22_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b22_1_u')"
                         :disabled="false"
                       />
@@ -408,7 +408,7 @@
                       <a-input
                         v-model="b23"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b23_u')"
                       />
@@ -424,14 +424,14 @@
                       <a-input
                         v-model="b24"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b24_u')"
                       />
                       <a-input
                         v-model="b24_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b24_1_u')"
                         :disabled="false"
                       />
@@ -447,7 +447,7 @@
                       <a-input
                         v-model="b25"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                       />
                     </a-input-group>
@@ -475,14 +475,14 @@
                       <a-input
                         v-model="b27"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b27_u')"
                       />
                       <a-input
                         v-model="b27_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b27_1_u')"
                         :disabled="true"
                       />
@@ -498,7 +498,7 @@
                       <a-input
                         v-model="b28"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b28_u')"
                       />
@@ -514,7 +514,7 @@
                       <a-input
                         v-model="b29"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b29_u')"
                       />
@@ -530,7 +530,7 @@
                       <a-input
                         v-model="b30"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b30_u')"
                       />
@@ -546,7 +546,7 @@
                       <a-input
                         v-model="b31"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b31_u')"
                       />
@@ -562,7 +562,7 @@
                       <a-input
                         v-model="b32"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b32_u')"
                       />
@@ -578,7 +578,7 @@
                       <a-input
                         v-model="b33"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b33_u')"
                       />
@@ -594,7 +594,7 @@
                       <a-input
                         v-model="b34"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b34_u')"
                       />
@@ -610,7 +610,7 @@
                       <a-input
                         v-model="b35"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b35_u')"
                       />
@@ -626,7 +626,7 @@
                       <a-input
                         v-model="b36"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                       />
                     </a-input-group>
@@ -654,7 +654,7 @@
                       <a-input
                         v-model="b38"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b38_u')"
                       />
@@ -670,7 +670,7 @@
                       <a-input
                         v-model="b39"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b39_u')"
                       />
@@ -686,14 +686,14 @@
                       <a-input
                         v-model="b40"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b40_u')"
                       />
                       <a-input
                         v-model="b40_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b40_1_u')"
                       />
@@ -722,7 +722,7 @@
                       <a-input
                         v-model="b42"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b42_u')"
                       />
@@ -738,7 +738,7 @@
                       <a-input
                         v-model="b43"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b43_u')"
                       />
@@ -754,7 +754,7 @@
                       <a-input
                         v-model="b44"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b44_u')"
                       />
@@ -770,7 +770,7 @@
                       <a-input
                         v-model="b45"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b45_u')"
                       />
@@ -786,7 +786,7 @@
                       <a-input
                         v-model="b46"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b46_u')"
                       />
@@ -802,7 +802,7 @@
                       <a-input
                         v-model="b47"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b47_u')"
                       />
@@ -818,7 +818,7 @@
                       <a-input
                         v-model="b48"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b48_u')"
                       />
@@ -834,14 +834,14 @@
                       <a-input
                         v-model="b49"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b49_u')"
                       />
                       <a-input
                         v-model="b49_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b49_1_u')"
                       />
@@ -857,7 +857,7 @@
                       <a-input
                         v-model="b50"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b50_u')"
                       />
@@ -873,7 +873,7 @@
                       <a-input
                         v-model="b51"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b51_u')"
                       />
@@ -889,7 +889,7 @@
                       <a-input
                         v-model="b52"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                       />
                     </a-input-group>
@@ -904,7 +904,7 @@
                       <a-input
                         v-model="b53"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                       />
                     </a-input-group>
@@ -919,7 +919,7 @@
                       <a-input
                         v-model="b54"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b54_u')"
                       />
@@ -935,14 +935,14 @@
                       <a-input
                         v-model="b55"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b55_u')"
                       />
                       <a-input
                         v-model="b55_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="true"
                         :suffix="$t('b55_1_u')"
                       />
@@ -958,7 +958,7 @@
                       <a-input
                         v-model="b56"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b56_u')"
                       />
@@ -974,7 +974,7 @@
                       <a-input
                         v-model="b57"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b57_u')"
                       />
@@ -990,7 +990,7 @@
                       <a-input
                         v-model="b58"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b58_u')"
                       />
@@ -1006,7 +1006,7 @@
                       <a-input
                         v-model="b59"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b59_u')"
                       />
@@ -1022,7 +1022,7 @@
                       <a-input
                         v-model="b60"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b60_u')"
                       />
@@ -1051,7 +1051,7 @@
                       <a-input
                         v-model="b62"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b62_u')"
                       />
@@ -1067,7 +1067,7 @@
                       <a-input
                         v-model="b63"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b63_u')"
                       />
@@ -1083,7 +1083,7 @@
                       <a-input
                         v-model="b64"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b64_u')"
                       />
@@ -1099,14 +1099,14 @@
                       <a-input
                         v-model="b65"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b65_u')"
                       />
                       <a-input
                         v-model="b65_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b65_1_u')"
                       />
@@ -1122,7 +1122,7 @@
                       <a-input
                         v-model="b66"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b66_u')"
                       />
@@ -1138,7 +1138,7 @@
                       <a-input
                         v-model="b67"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b67_u')"
                       />
@@ -1154,7 +1154,7 @@
                       <a-input
                         v-model="b68"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                       />
                     </a-input-group>
@@ -1169,7 +1169,7 @@
                       <a-input
                         v-model="b69"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                       />
                     </a-input-group>
@@ -1184,7 +1184,7 @@
                       <a-input
                         v-model="b70"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b70_u')"
                       />
@@ -1200,7 +1200,7 @@
                       <a-input
                         v-model="b71"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b71_u')"
                       />
@@ -1216,7 +1216,7 @@
                       <a-input
                         v-model="b72"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b72_u')"
                       />
@@ -1232,7 +1232,7 @@
                       <a-input
                         v-model="b73"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b73_u')"
                       />
@@ -1248,7 +1248,7 @@
                       <a-input
                         v-model="b74"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b74_u')"
                       />
@@ -1264,7 +1264,7 @@
                       <a-input
                         v-model="b75"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b75_u')"
                       />
@@ -1280,13 +1280,13 @@
                       <a-input
                         v-model="b76"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                       />
                       <a-input
                         v-model="b76_1"
                         rows="12"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :disabled="false"
                         :suffix="$t('b76_1_u')"
                       />
@@ -1302,7 +1302,7 @@
                       <a-input
                         v-model="b77"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b77_u')"
                       />
@@ -1318,7 +1318,7 @@
                       <a-input
                         v-model="b77_1"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                       />
                     </a-input-group>
@@ -1333,7 +1333,7 @@
                       <a-input
                         v-model="b78"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b78_u')"
                       />
@@ -1349,7 +1349,7 @@
                       <a-input
                         v-model="b78_1"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                       />
                     </a-input-group>
@@ -1364,7 +1364,7 @@
                       <a-input
                         v-model="b79"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b79_u')"
                       />
@@ -1380,7 +1380,7 @@
                       <a-input
                         v-model="b80"
                         rows="12"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b80_u')"
                       />
@@ -1417,7 +1417,7 @@
                         <a-input
                           v-model="b83"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b83_u')"
                         />
@@ -1433,7 +1433,7 @@
                         <a-input
                           v-model="b84"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b84_u')"
                         />
@@ -1449,7 +1449,7 @@
                         <a-input
                           v-model="b85"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b85_u')"
                         />
@@ -1465,20 +1465,20 @@
                         <a-input
                           v-model="b86"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="true"
                           :suffix="$t('b86_u')"
                         />
                         <a-input
                           v-model="b86_1"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="false"
                         />
                         <a-input
                           v-model="b86_2"
                           rows="12"
-                          style="width: 34%;"
+                          style="width: 34%"
                           :disabled="true"
                         />
                       </a-input-group>
@@ -1506,7 +1506,7 @@
                         <a-input
                           v-model="b88"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b88_u')"
                         />
@@ -1522,7 +1522,7 @@
                         <a-input
                           v-model="b89"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b89_u')"
                         />
@@ -1538,7 +1538,7 @@
                         <a-input
                           v-model="b90"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b90_u')"
                         />
@@ -1554,20 +1554,20 @@
                         <a-input
                           v-model="b91"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="true"
                           :suffix="$t('b91_u')"
                         />
                         <a-input
                           v-model="b91_1"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="false"
                         />
                         <a-input
                           v-model="b91_2"
                           rows="12"
-                          style="width: 34%;"
+                          style="width: 34%"
                           :disabled="true"
                         />
                       </a-input-group>
@@ -1595,7 +1595,7 @@
                         <a-input
                           v-model="b93"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b93_u')"
                         />
@@ -1611,7 +1611,7 @@
                         <a-input
                           v-model="b94"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b94_u')"
                         />
@@ -1627,7 +1627,7 @@
                         <a-input
                           v-model="b95"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b95_u')"
                         />
@@ -1643,7 +1643,7 @@
                         <a-input
                           v-model="b96"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b96_u')"
                         />
@@ -1672,7 +1672,7 @@
                         <a-input
                           v-model="b98"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b98_u')"
                         />
@@ -1688,7 +1688,7 @@
                         <a-input
                           v-model="b99"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b99_u')"
                         />
@@ -1704,7 +1704,7 @@
                         <a-input
                           v-model="b100"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b100_u')"
                         />
@@ -1720,20 +1720,20 @@
                         <a-input
                           v-model="b101"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="true"
                           :suffix="$t('b101_u')"
                         />
                         <a-input
                           v-model="b101_1"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="false"
                         />
                         <a-input
                           v-model="b101_2"
                           rows="12"
-                          style="width: 34%;"
+                          style="width: 34%"
                           :disabled="true"
                         />
                       </a-input-group>
@@ -1760,7 +1760,7 @@
                         <a-input
                           v-model="b103"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b103_u')"
                         />
@@ -1776,7 +1776,7 @@
                         <a-input
                           v-model="b104"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b104_u')"
                         />
@@ -1792,7 +1792,7 @@
                         <a-input
                           v-model="b105"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b105_u')"
                         />
@@ -1808,7 +1808,7 @@
                         <a-input
                           v-model="b106"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b106_u')"
                         />
@@ -1824,7 +1824,7 @@
                         <a-input
                           v-model="b107"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="false"
                           :suffix="$t('b107_u')"
                         />
@@ -1840,7 +1840,7 @@
                         <a-input
                           v-model="b108"
                           rows="12"
-                          style="width: 100%;"
+                          style="width: 100%"
                           :disabled="true"
                           :suffix="$t('b108_u')"
                         />
@@ -1856,21 +1856,21 @@
                         <a-input
                           v-model="b111_1"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="true"
                           :suffix="$t('b111_1_u')"
                         />
                         <a-input
                           v-model="b111_2"
                           rows="12"
-                          style="width: 33%;"
+                          style="width: 33%"
                           :disabled="true"
                           :suffix="$t('b111_2_u')"
                         />
                         <a-input
                           v-model="b111_3"
                           rows="12"
-                          style="width: 34%;"
+                          style="width: 34%"
                           :disabled="true"
                           :suffix="$t('b111_3_u')"
                         />
@@ -1884,7 +1884,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -1896,7 +1896,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -1939,38 +1939,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -2514,7 +2514,7 @@ export default {
       return (parseFloat(this.b43) / parseFloat(this.b42)).toFixed(2);
     },
     b47() {
-      return (2 * parseFloat(this.b23) / parseFloat(this.b46)).toFixed(0);
+      return ((2 * parseFloat(this.b23)) / parseFloat(this.b46)).toFixed(0);
     },
     b48() {
       return (parseFloat(this.b43) / parseFloat(this.b47)).toFixed(8);
@@ -2523,10 +2523,13 @@ export default {
       return (parseFloat(this.b49) / 1000).toFixed(3);
     },
     b50() {
-      return (4 * parseFloat(this.b48) / (3.1415926 * Math.pow(parseFloat(this.b49_1),2))).toFixed(9);
+      return (
+        (4 * parseFloat(this.b48)) /
+        (3.1415926 * Math.pow(parseFloat(this.b49_1), 2))
+      ).toFixed(9);
     },
     b51() {
-      return ((parseFloat(this.b24_1)-0.9)/2).toFixed(1);
+      return ((parseFloat(this.b24_1) - 0.9) / 2).toFixed(1);
     },
     b52() {
       return (parseFloat(this.b51) / parseFloat(this.b49_1)).toFixed(0);
@@ -2535,53 +2538,64 @@ export default {
       return (parseFloat(this.b53) * parseFloat(this.b22_1)).toFixed(3);
     },
     b55_1() {
-      return (parseFloat(this.b55) / 1000 ).toFixed(3);
+      return (parseFloat(this.b55) / 1000).toFixed(3);
     },
     b56() {
-      return (3.1415926 * Math.pow(parseFloat(this.b55_1),2) / 4).toFixed(8);
+      return ((3.1415926 * Math.pow(parseFloat(this.b55_1), 2)) / 4).toFixed(8);
     },
     b57() {
-      return this.ROUNDUP((parseFloat(this.b54)/parseFloat(this.b56)),0);
+      return this.ROUNDUP(parseFloat(this.b54) / parseFloat(this.b56), 0);
     },
     b58() {
-      return this.ROUNDUP((parseFloat(this.b57)/parseFloat(this.b47)),0);
+      return this.ROUNDUP(parseFloat(this.b57) / parseFloat(this.b47), 0);
     },
     b59() {
-      return (2 * parseFloat(this.b51) / parseFloat(this.b58)).toFixed(8);
+      return ((2 * parseFloat(this.b51)) / parseFloat(this.b58)).toFixed(8);
     },
     b60() {
-      return (parseFloat(this.b15_1) * parseFloat(this.b22_1) / 
-      (1000 * parseFloat(this.b47) * parseFloat(this.b58) * parseFloat(this.b56))
-    ).toFixed(2);
+      return (
+        (parseFloat(this.b15_1) * parseFloat(this.b22_1)) /
+        (1000 *
+          parseFloat(this.b47) *
+          parseFloat(this.b58) *
+          parseFloat(this.b56))
+      ).toFixed(2);
     },
     b62() {
-      return (1.5 * parseFloat(this.b15_1) * parseFloat(this.b22_1)*60*parseFloat(this.b9)/1000).toFixed(1);
+      return (
+        (1.5 *
+          parseFloat(this.b15_1) *
+          parseFloat(this.b22_1) *
+          60 *
+          parseFloat(this.b9)) /
+        1000
+      ).toFixed(1);
     },
     b64() {
-      return (
-        Math.pow(
-          (4*parseFloat(this.b62)/(3.1415926*parseFloat(this.b63))),
-          0.5)
+      return Math.pow(
+        (4 * parseFloat(this.b62)) / (3.1415926 * parseFloat(this.b63)),
+        0.5
       ).toFixed(8);
     },
     b65_1() {
-      return (parseFloat(this.b65) / 1000 ).toFixed(3);
+      return (parseFloat(this.b65) / 1000).toFixed(3);
     },
     b67() {
       return (
-        parseFloat(this.b27_1)*4/
-        (3.1415926 * Math.pow(parseFloat(this.b65_1),2))
+        (parseFloat(this.b27_1) * 4) /
+        (3.1415926 * Math.pow(parseFloat(this.b65_1), 2))
       ).toFixed(3);
     },
     b70() {
-      return (parseFloat(this.b69) * parseFloat(this.b66) + 
-      parseFloat(this.b68) * Math.pow(parseFloat(this.b67),2) / (2*9.81)
-    ).toFixed(8);
+      return (
+        parseFloat(this.b69) * parseFloat(this.b66) +
+        (parseFloat(this.b68) * Math.pow(parseFloat(this.b67), 2)) / (2 * 9.81)
+      ).toFixed(8);
     },
     b71() {
       return (
-        8 * Math.pow(parseFloat(this.b42),2) / (2*9.81) 
-        + 10 * Math.pow(parseFloat(this.b50),2) / (2*9.81)
+        (8 * Math.pow(parseFloat(this.b42), 2)) / (2 * 9.81) +
+        (10 * Math.pow(parseFloat(this.b50), 2)) / (2 * 9.81)
       ).toFixed(8);
     },
     b73() {
@@ -2595,13 +2609,20 @@ export default {
     },
     b78() {
       return (
-        (parseFloat(this.b74)/parseFloat(this.b75) - 1) * (1 - parseFloat(this.b76)) * parseFloat(this.b77)
+        (parseFloat(this.b74) / parseFloat(this.b75) - 1) *
+        (1 - parseFloat(this.b76)) *
+        parseFloat(this.b77)
       ).toFixed(4);
     },
     b80() {
       return this.ROUNDUP(
-        parseFloat(this.b70) + parseFloat(this.b71) + parseFloat(this.b73) + parseFloat(this.b78) + parseFloat(this.b79)  
-      ,2);
+        parseFloat(this.b70) +
+          parseFloat(this.b71) +
+          parseFloat(this.b73) +
+          parseFloat(this.b78) +
+          parseFloat(this.b79),
+        2
+      );
     },
     b83() {
       return this.b18_1;
@@ -2613,7 +2634,11 @@ export default {
       return (parseFloat(this.b85) / parseFloat(this.b86_1)).toFixed(5);
     },
     b86() {
-      return parseFloat(this.b86_1).toString() + " × " + this.ROUND(parseFloat(this.b86_2),2).toString()
+      return (
+        parseFloat(this.b86_1).toString() +
+        " × " +
+        this.ROUND(parseFloat(this.b86_2), 2).toString()
+      );
     },
     b88() {
       return this.b18_1;
@@ -2625,16 +2650,24 @@ export default {
       return (parseFloat(this.b90) / parseFloat(this.b91_1)).toFixed(5);
     },
     b91() {
-      return parseFloat(this.b91_1).toString() + " × " + this.ROUND(parseFloat(this.b91_2),2).toString()
+      return (
+        parseFloat(this.b91_1).toString() +
+        " × " +
+        this.ROUND(parseFloat(this.b91_2), 2).toString()
+      );
     },
     b93() {
-      return (parseFloat(this.b22_1) * parseFloat(this.b15_1) / 1000).toFixed(2);
+      return ((parseFloat(this.b22_1) * parseFloat(this.b15_1)) / 1000).toFixed(
+        2
+      );
     },
     b95() {
       return (parseFloat(this.b93) / parseFloat(this.b94)).toFixed(8);
     },
     b98() {
-      return (parseFloat(this.b22_1) * parseFloat(this.b15_1) / 1000).toFixed(2);
+      return ((parseFloat(this.b22_1) * parseFloat(this.b15_1)) / 1000).toFixed(
+        2
+      );
     },
     b100() {
       return (parseFloat(this.b98) / parseFloat(this.b99)).toFixed(1);
@@ -2643,19 +2676,32 @@ export default {
       return (parseFloat(this.b100) / parseFloat(this.b101_1)).toFixed(1);
     },
     b101() {
-      return parseFloat(this.b101_1).toString() + " × " + this.ROUND(parseFloat(this.b101_2),2).toString()
+      return (
+        parseFloat(this.b101_1).toString() +
+        " × " +
+        this.ROUND(parseFloat(this.b101_2), 2).toString()
+      );
     },
     b108() {
-      return (parseFloat(this.b104) + parseFloat(this.b105) + parseFloat(this.b106) + parseFloat(this.b107)).toFixed(2);
+      return (
+        parseFloat(this.b104) +
+        parseFloat(this.b105) +
+        parseFloat(this.b106) +
+        parseFloat(this.b107)
+      ).toFixed(2);
     },
     b111_1() {
       return (
-        parseFloat(this.b24_1) * parseFloat(this.b21)/2 + (parseFloat(this.b21)/2-1)*parseFloat(this.b103)
-      ).toFixed(1)
+        (parseFloat(this.b24_1) * parseFloat(this.b21)) / 2 +
+        (parseFloat(this.b21) / 2 - 1) * parseFloat(this.b103)
+      ).toFixed(1);
     },
     b111_2() {
       return (
-        parseFloat(this.b23) * 2 + parseFloat(this.b86_1) + parseFloat(this.b101_1) + 3* parseFloat(this.b103)
+        parseFloat(this.b23) * 2 +
+        parseFloat(this.b86_1) +
+        parseFloat(this.b101_1) +
+        3 * parseFloat(this.b103)
       ).toFixed(1);
     },
     b111_3() {

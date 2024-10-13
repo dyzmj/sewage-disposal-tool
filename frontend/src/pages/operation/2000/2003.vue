@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -13,7 +13,7 @@
           :title="$t('baseQueryParam')"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
           <a-card
@@ -61,13 +61,13 @@
                     <a-input
                       v-model="b7_1"
                       :placeholder="$t('b7_1')"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                     />
                     <a-input
                       v-model="b7_2"
                       :placeholder="$t('b7_2')"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                     />
                   </a-input-group>
@@ -183,7 +183,7 @@
       >
         <a-card
           :title="$t('processDesignCompute')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -875,12 +875,12 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b103"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                     />
                     <a-input
                       v-model="b103"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                     />
                   </a-input-group>
@@ -1028,7 +1028,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -1040,7 +1040,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -1069,38 +1069,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -1473,52 +1473,52 @@ export default {
       var multiplier = Math.pow(10, num_digits);
       return Math.ceil(number * multiplier) / multiplier;
     },
-    getKey120_1(){
+    getKey120_1() {
       return this.b120_1;
     },
-    getKey120_2(){
+    getKey120_2() {
       return this.b120_2;
     },
-    getKey120_3(){
+    getKey120_3() {
       return this.b120_3;
     },
-    getKey120_4(){
+    getKey120_4() {
       return this.b120_4;
     },
-    getKey121_1(){
+    getKey121_1() {
       return this.b121_1;
     },
-    getKey121_2(){
+    getKey121_2() {
       return this.b121_2;
     },
-    getKey121_3(){
+    getKey121_3() {
       return this.b121_3;
     },
-    getKey121_4(){
+    getKey121_4() {
       return this.b121_4;
     },
-    getKey122_1(){
+    getKey122_1() {
       return this.b122_1;
     },
-    getKey122_2(){
+    getKey122_2() {
       return this.b122_2;
     },
-    getKey122_3(){
+    getKey122_3() {
       return this.b122_3;
     },
-    getKey122_4(){
+    getKey122_4() {
       return this.b122_4;
     },
-    getKey123_1(){
+    getKey123_1() {
       return this.b123_1;
     },
-    getKey123_2(){
+    getKey123_2() {
       return this.b123_2;
     },
-    getKey123_3(){
+    getKey123_3() {
       return this.b123_3;
     },
-    getKey123_4(){
+    getKey123_4() {
       return this.b123_4;
     },
   },
@@ -1939,7 +1939,8 @@ export default {
         设备位号: "",
         设备工艺名称: "异波折板",
         设备类型: "单通道折板",
-        规格及型号: "折板长度=1.5m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，缩放数=5",
+        规格及型号:
+          "折板长度=1.5m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，缩放数=5",
         单位: "组",
         数量: "9",
         运行时间: "",
@@ -1952,7 +1953,8 @@ export default {
         设备位号: "",
         设备工艺名称: "同波折板",
         设备类型: "单通道折板",
-        规格及型号: "折板长度=2.4m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，转弯数=9",
+        规格及型号:
+          "折板长度=2.4m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，转弯数=9",
         单位: "组",
         数量: "6",
         运行时间: "",

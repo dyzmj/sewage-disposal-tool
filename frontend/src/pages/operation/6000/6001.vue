@@ -14,7 +14,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-form>
@@ -71,28 +71,27 @@
               </a-form-item>
             </a-form>
           </div>
-        </a-card>
-
-        <a-card
-          :title="$t('referenceInformation')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div>
-            <p>接触消毒池</p>
-            <p>
-              《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-            </p>
-          </div>
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                <img
-                  width="400px"
-                  src="@/assets/img/2000/Disinfection_01.png"
-                />
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('referenceInformation')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div>
+              <p>接触消毒池</p>
+              <p>
+                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
+              </p>
+            </div>
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img
+                    width="400px"
+                    src="@/assets/img/2000/Disinfection_01.png"
+                  />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -108,7 +107,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 0px"
           :bordered="false"
-          :body-style="{ padding: 2 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-form style="margin-bottom: 24px">
@@ -174,15 +173,14 @@
                 :labelCol="{ span: 6 }"
                 :wrapperCol="{ span: 18 }"
               >
-              <a-input-group compact>
-                <a-input
-                  v-model="contactPoolDepth"
-                  :placeholder="$t('contactPoolDepth')"
-                  :suffix="$t('contactPoolDepthUnit')"
-                  value="20000.00"
-                />
-              </a-input-group>
-                
+                <a-input-group compact>
+                  <a-input
+                    v-model="contactPoolDepth"
+                    :placeholder="$t('contactPoolDepth')"
+                    :suffix="$t('contactPoolDepthUnit')"
+                    value="20000.00"
+                  />
+                </a-input-group>
               </a-form-item>
               <a-form-item
                 class="calc"
@@ -334,7 +332,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -349,38 +347,39 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px">
-                <a-button
-                  style="margin-left: 30px"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -408,7 +407,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -511,11 +514,11 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.designScale = 40000
-      }else{
-        this.designScale = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.designScale = 40000;
+      } else {
+        this.designScale = waterData;
       }
     },
     exportQuantities() {

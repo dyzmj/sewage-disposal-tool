@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -61,10 +61,7 @@
                 :labelCol="{ span: 10 }"
                 :wrapperCol="{ span: 14 }"
               >
-                <a-input
-                  v-model="b6"
-                  :disabled="false"
-                />
+                <a-input v-model="b6" :disabled="false" />
               </a-form-item>
               <a-form-item
                 :label="$t('b7')"
@@ -133,11 +130,11 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input v-model="b12" style="width: 50%;" :disabled="true" />
+                  <a-input v-model="b12" style="width: 50%" :disabled="true" />
                   <a-input
                     v-model="b12_1"
                     :prefix="$t('sel')"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -149,11 +146,11 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input v-model="b13" style="width: 50%;" :disabled="true" />
+                  <a-input v-model="b13" style="width: 50%" :disabled="true" />
                   <a-input
                     v-model="b13_1"
                     :prefix="$t('sel')"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -165,11 +162,7 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input
-                    v-model="b14"
-                    style="width: 100%;"
-                    :disabled="true"
-                  />
+                  <a-input v-model="b14" style="width: 100%" :disabled="true" />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -179,11 +172,11 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input v-model="b15" style="width: 50%;" :disabled="true" />
+                  <a-input v-model="b15" style="width: 50%" :disabled="true" />
                   <a-input
                     v-model="b15_1"
                     :prefix="$t('sel')"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -197,7 +190,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b16"
-                    style="width: 100%;"
+                    style="width: 100%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -209,11 +202,11 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input v-model="b17" style="width: 50%;" :disabled="true" />
+                  <a-input v-model="b17" style="width: 50%" :disabled="true" />
                   <a-input
                     v-model="b17_1"
                     :prefix="$t('sel')"
-                    style="width: 50%;"
+                    style="width: 50%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -227,7 +220,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b18"
-                    style="width: 100%;"
+                    style="width: 100%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -239,11 +232,7 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input
-                    v-model="b19"
-                    style="width: 100%;"
-                    :disabled="true"
-                  />
+                  <a-input v-model="b19" style="width: 100%" :disabled="true" />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -253,11 +242,7 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input
-                    v-model="b20"
-                    style="width: 100%;"
-                    :disabled="true"
-                  />
+                  <a-input v-model="b20" style="width: 100%" :disabled="true" />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -267,11 +252,7 @@
                 :wrapperCol="{ span: 14 }"
               >
                 <a-input-group compact>
-                  <a-input
-                    v-model="b21"
-                    style="width: 100%;"
-                    :disabled="true"
-                  />
+                  <a-input v-model="b21" style="width: 100%" :disabled="true" />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -283,7 +264,7 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b22"
-                    style="width: 100%;"
+                    style="width: 100%"
                     :disabled="false"
                   />
                 </a-input-group>
@@ -302,7 +283,7 @@
       >
         <a-card
           :title="$t('processDesignCompute')"
-          style="margin-bottom: 0px; "
+          style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
           :hoverable="true"
@@ -773,7 +754,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -785,7 +766,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -814,38 +795,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -854,7 +835,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1044,17 +1029,17 @@ export default {
       this.$router.push("/work");
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b3 = 40000
-      }else{
-        this.b3 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b3 = 40000;
+      } else {
+        this.b3 = waterData;
       }
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -1064,19 +1049,37 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
         exportExcel3(allData1, allData2, allData3, "网格絮凝池工程量", this);
@@ -1162,7 +1165,8 @@ export default {
     },
     b15() {
       return (
-        parseFloat(this.b8) / parseFloat(this.b9) /
+        parseFloat(this.b8) /
+        parseFloat(this.b9) /
         parseFloat(this.b12_1) /
         parseFloat(this.b13_1)
       ).toFixed(4);
@@ -1177,20 +1181,25 @@ export default {
       return parseFloat(this.b17).toFixed(2);
     },
     b19() {
-      return (parseFloat(this.b12_1) * parseFloat(this.b17_1) + (parseFloat(this.b17_1) - 1) * parseFloat(this.b18)).toFixed(0);
+      return (
+        parseFloat(this.b12_1) * parseFloat(this.b17_1) +
+        (parseFloat(this.b17_1) - 1) * parseFloat(this.b18)
+      ).toFixed(0);
     },
     b20() {
-      return (parseFloat(this.b13_1) * parseFloat(this.b16) + (parseFloat(this.b16) - 1) * parseFloat(this.b18)).toFixed(1);
+      return (
+        parseFloat(this.b13_1) * parseFloat(this.b16) +
+        (parseFloat(this.b16) - 1) * parseFloat(this.b18)
+      ).toFixed(1);
     },
     b21() {
       return (
-        (
-          parseFloat(this.b15_1) *
+        (parseFloat(this.b15_1) *
           parseFloat(this.b12) *
           parseFloat(this.b13_1) *
           parseFloat(this.b9)) /
-          parseFloat(this.b7) /
-          60
+        parseFloat(this.b7) /
+        60
       ).toFixed(4);
     },
     b20_1() {
@@ -1200,12 +1209,14 @@ export default {
       return parseFloat(parseFloat(this.b13).toFixed(1)).toFixed(1);
     },
     b23() {
-      return (Math.pow(parseFloat((
-        (parseFloat(this.b3) * (1 + parseFloat(this.b6))) /
-        2 /
-        86400 /
-        0.12
-      )), 0.5) * parseFloat(this.b13_1)).toFixed(4);
+      return (
+        Math.pow(
+          parseFloat(
+            (parseFloat(this.b3) * (1 + parseFloat(this.b6))) / 2 / 86400 / 0.12
+          ),
+          0.5
+        ) * parseFloat(this.b13_1)
+      ).toFixed(4);
     },
     b24() {
       return this.b13_1;

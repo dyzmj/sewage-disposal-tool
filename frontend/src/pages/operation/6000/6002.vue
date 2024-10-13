@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -13,7 +13,7 @@
           :title="$t('baseQueryParam')"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 2 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
           <div class="baseQueryParam">
@@ -103,16 +103,17 @@
               </a-form-item>
             </a-form>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('referenceInformation')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div>
-            <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
-            <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
-            <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
-          </div>
+
+          <a-card
+            :title="$t('referenceInformation')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div>
+              <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
+              <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
+              <p>缺“紫外线有效剂量曲线图”，选型需要联系厂家</p>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -127,7 +128,7 @@
           :title="$t('processDesignCompute')"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 2 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
           <div class="baseQueryParam">
@@ -197,30 +198,30 @@
               />
             </a-form-item>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('waterHeadLossCheck')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div class="baseQueryParam">
-            <a-form-item
-              class="calc"
-              :label="$t('waterHeadLoss')"
-              :labelCol="{ span: 12 }"
-              :wrapperCol="{ span: 12 }"
-            >
-              <a-input
-                v-model="waterHeadLoss"
-                :placeholder="$t('waterHeadLoss')"
-                :suffix="$t('waterHeadLossUnit')"
-                :disabled="false"
-              />
-            </a-form-item>
-          </div>
+          <a-card
+            :title="$t('waterHeadLossCheck')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div class="baseQueryParam">
+              <a-form-item
+                class="calc"
+                :label="$t('waterHeadLoss')"
+                :labelCol="{ span: 12 }"
+                :wrapperCol="{ span: 12 }"
+              >
+                <a-input
+                  v-model="waterHeadLoss"
+                  :placeholder="$t('waterHeadLoss')"
+                  :suffix="$t('waterHeadLossUnit')"
+                  :disabled="false"
+                />
+              </a-form-item>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -232,7 +233,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -275,38 +276,39 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -574,9 +576,9 @@ export default {
       this.$router.push("/work");
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -586,22 +588,46 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "沉浸式紫外线消毒工程量", this);
+        exportExcel3(
+          allData1,
+          allData2,
+          allData3,
+          "沉浸式紫外线消毒工程量",
+          this
+        );
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -668,12 +694,9 @@ export default {
     },
   },
   created() {
-    this.data1 = [
-    ];
-    this.data2 = [
-    ];
-    this.data3 = [
-    ];
+    this.data1 = [];
+    this.data2 = [];
+    this.data3 = [];
   },
 };
 </script>

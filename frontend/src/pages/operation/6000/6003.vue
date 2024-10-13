@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -36,13 +36,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b3"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b3_u')"
                       :disabled="true"
                     />
                     <a-input
                       v-model="b3_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b3_1_u')"
                       :disabled="true"
                     />
@@ -116,13 +116,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b9"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b9_u')"
                       :disabled="false"
                     />
                     <a-input
                       v-model="b9_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b9_1_u')"
                       :disabled="false"
                     />
@@ -137,13 +137,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b10"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b10_u')"
                       :disabled="true"
                     />
                     <a-input
                       v-model="b10_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b10_1_u')"
                       :disabled="false"
                     />
@@ -213,7 +213,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b14"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b14_u')"
                         :disabled="false"
                       />
@@ -228,7 +228,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b15"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b15_u')"
                         :disabled="true"
                       />
@@ -254,7 +254,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b18"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b18_u')"
                         :disabled="false"
                       />
@@ -269,7 +269,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b19"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b19_u')"
                         :disabled="false"
                       />
@@ -284,7 +284,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b20"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b20_u')"
                         :disabled="true"
                       />
@@ -299,7 +299,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b21"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b21_u')"
                         :disabled="false"
                       />
@@ -314,13 +314,13 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b22"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b22_u')"
                         :disabled="true"
                       />
                       <a-input
                         v-model="b22_1"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b22_u')"
                         :disabled="false"
                       />
@@ -335,7 +335,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b23"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b23_u')"
                         :disabled="true"
                       />
@@ -350,7 +350,7 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b24"
-                        style="width: 100%;"
+                        style="width: 100%"
                         :suffix="$t('b24_u')"
                         :disabled="true"
                       />
@@ -365,13 +365,13 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b25"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b25_u')"
                         :disabled="true"
                       />
                       <a-input
                         v-model="b25_1"
-                        style="width: 50%;"
+                        style="width: 50%"
                         :suffix="$t('b25_u')"
                         :disabled="true"
                       />
@@ -400,7 +400,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b28"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b28_u')"
                       :disabled="false"
                     />
@@ -415,7 +415,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b29"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b29_u')"
                       :disabled="true"
                     />
@@ -430,7 +430,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b30"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b30_u')"
                       :disabled="true"
                     />
@@ -458,7 +458,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b33"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b33_u')"
                       :disabled="false"
                     />
@@ -473,7 +473,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b34"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b34_u')"
                       :disabled="true"
                     />
@@ -488,7 +488,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b35"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b35_u')"
                       :disabled="false"
                     />
@@ -503,7 +503,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b36"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -517,7 +517,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b37"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -531,7 +531,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b38"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b38_u')"
                       :disabled="false"
                     />
@@ -546,7 +546,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b39"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b39_u')"
                       :disabled="true"
                     />
@@ -561,7 +561,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b40"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b40_u')"
                       :disabled="true"
                     />
@@ -576,7 +576,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b41"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b41_u')"
                       :disabled="true"
                     />
@@ -604,7 +604,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b44"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :suffix="$t('b44_u')"
                       :disabled="false"
                     />
@@ -619,7 +619,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b45"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b45_u')"
                       :disabled="true"
                     />
@@ -634,7 +634,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b46"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b46_u')"
                       :disabled="true"
                     />
@@ -649,7 +649,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b47"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b47_u')"
                       :disabled="false"
                     />
@@ -664,7 +664,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b48"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b48_u')"
                       :disabled="false"
                     />
@@ -679,7 +679,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b49"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :suffix="$t('b49_u')"
                       :disabled="true"
                     />
@@ -691,7 +691,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -703,7 +703,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -746,38 +746,39 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>

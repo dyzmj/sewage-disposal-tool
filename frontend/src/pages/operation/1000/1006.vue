@@ -1,8 +1,8 @@
 <template>
-  <div class="calc_page" style="background-color: #EDEFF2;">
+  <div class="calc_page" style="background-color: #edeff2">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px; margin-left: 0px;"
+        style="padding: 14px 6px; margin-left: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -36,7 +36,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b3"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b3')"
@@ -53,7 +53,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b4"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b4')"
@@ -69,7 +69,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b4_1"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b4_1')"
@@ -85,7 +85,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b5"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b5')"
@@ -93,7 +93,7 @@
                     />
                     <a-input
                       v-model="b5_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b5')"
@@ -159,13 +159,13 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b10"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b10_u')"
                     />
                     <a-input
                       v-model="b10_1"
-                      style="width: 50%;"
+                      style="width: 50%"
                       :disabled="true"
                       :suffix="$t('b10_1_u')"
                     />
@@ -180,7 +180,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b11"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b11_u')"
                     />
@@ -195,7 +195,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b12"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="false"
                     />
                   </a-input-group>
@@ -209,7 +209,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b13"
-                      style="width: 100%;"
+                      style="width: 100%"
                       :disabled="true"
                       :suffix="$t('b13_u')"
                     />
@@ -221,7 +221,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px; margin-right: 0px;"
+        style="padding: 14px 6px; margin-right: 0px"
         :xl="8"
         :lg="24"
         :md="24"
@@ -233,7 +233,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -276,38 +276,38 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px">
+                  <a-button
+                    style="margin-left: 30px"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -673,7 +673,11 @@ export default {
   computed: {
     ...mapState("setting", ["lang"]),
     b5() {
-      return (parseFloat(this.b3) / 24 * parseFloat(this.b4) * parseFloat(this.b4_1)).toFixed(2);
+      return (
+        (parseFloat(this.b3) / 24) *
+        parseFloat(this.b4) *
+        parseFloat(this.b4_1)
+      ).toFixed(2);
     },
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
@@ -686,7 +690,7 @@ export default {
     },
     b13() {
       return (1.06 * parseFloat(this.b11) * parseFloat(this.b10_1)).toFixed(2);
-    }
+    },
   },
   watch() {
     this.initWaterData();
