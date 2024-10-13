@@ -734,7 +734,7 @@
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <div class="baseQueryParam">
             <a-table
@@ -777,7 +777,7 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        </a-card>
+
         <a-card
           :title="$t('export')"
           :headStyle="{ 'font-weight': 'bolder' }"
@@ -810,6 +810,7 @@
             </a-form>
           </div>
         </a-card>
+      </a-card>
       </a-col>
     </a-row>
   </div>
