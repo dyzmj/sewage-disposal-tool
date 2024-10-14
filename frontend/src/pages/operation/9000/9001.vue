@@ -55,7 +55,7 @@
                       v-model="b2"
                       rows="12"
                       :suffix="$t('b2_u')"
-                      disabled="false"
+                      :disabled="false"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -130,7 +130,7 @@
                     <a-input
                       v-model="b5"
                       rows="12"
-                      disabled="false"
+                      :disabled="false"
                       :placeholder="$t('b5')"
                       :suffix="$t('b5_u')"
                     />
@@ -152,6 +152,21 @@
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
+                  :label="$t('b5_2')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="b5_2"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('b5_2_u')"
+                    />
+                  </a-input-group>
+                </a-form-item>
+                <a-form-item
                   :label="$t('b6')"
                   style="margin-top: 10px"
                   :labelCol="{ span: 8 }"
@@ -161,7 +176,7 @@
                     <a-input
                       v-model="b6"
                       rows="12"
-                      disabled="false"
+                      :disabled="false"
                       :suffix="$t('b6_u')"
                     />
                   </a-input-group>
@@ -182,6 +197,31 @@
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
+                  :label="$t('b6_2')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="b6_2"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('b6_2_u')"
+                    />
+                  </a-input-group>
+                </a-form-item>
+                <a-form-item
+                  :label="$t('b6_3')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input v-model="b6_3" :disabled="true" rows="12" />
+                  </a-input-group>
+                </a-form-item>
+                <a-form-item
                   :label="$t('b7')"
                   style="margin-top: 10px"
                   :labelCol="{ span: 8 }"
@@ -191,7 +231,7 @@
                     <a-input
                       v-model="b7"
                       rows="12"
-                      disabled="false"
+                      :disabled="false"
                       :suffix="$t('b7_u')"
                     />
                   </a-input-group>
@@ -221,7 +261,7 @@
                     <a-input
                       v-model="b8"
                       rows="12"
-                      disabled="false"
+                      :disabled="false"
                       :suffix="$t('b8_u')"
                     />
                   </a-input-group>
@@ -268,6 +308,21 @@
                       :disabled="true"
                       rows="12"
                       :suffix="$t('b9_1_u')"
+                    />
+                  </a-input-group>
+                </a-form-item>
+                <a-form-item
+                  :label="$t('b9_2')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="b9_2"
+                      :disabled="false"
+                      rows="12"
+                      :suffix="$t('b9_2_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -323,7 +378,7 @@
                 >
                   <a-input-group compact>
                     <a-input
-                      v-model="b1"
+                      v-model="b10"
                       style="width: 100%;"
                       :disabled="false"
                       rows="12"
@@ -352,6 +407,14 @@
                       :addon-before="$t('b11_1')"
                       rows="12"
                       :suffix="$t('b11_1_u')"
+                    />
+                    <a-input
+                      v-model="b11_2"
+                      style="width: 100%;"
+                      :disabled="false"
+                      :addon-before="$t('b11_2')"
+                      rows="12"
+                      :suffix="$t('b11_2_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -641,7 +704,7 @@
                     <a-input
                       v-model="b25_1"
                       style="width: 50%;"
-                      :disabled="false"
+                      :disabled="true"
                       :addon-before="$t('b25_1')"
                       rows="12"
                       :suffix="$t('b25_1_u')"
@@ -1697,7 +1760,11 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1706,81 +1773,51 @@ export default {
     return {
       b1: "100000",
       b2: "5",
-      b4: "30",
-      b5: "25",
+      b4: "20",
+      b5: "20",
       b6: "0",
-      b7: "20",
+      b7: "2",
       b8: "0",
       b9: "1.5",
+      b9_2: "99.20",
       b10: "500",
       b11: "4",
+      b11_1: "0.40",
+      b11_2: "4.00",
       b12: "10",
-      b13: "12.5",
-      b14: "5",
-      b15: "2",
-      b16: "1",
-      b17: "10.42",
+      b14_1: "10",
       b18: "250",
       b19: "4",
-      b20: "7.9",
-      b21: "7.91",
-      b22: "2.5",
-      b23: "2",
-      b24: "1",
-      b25: "5.21",
-      b26: "0.992",
-      b27: "0.97",
-      b28: "8",
-      b29: "24",
-      b30: "297.9375",
-      b31: "14",
+      b19_1: "0.40",
+      b20: "7.90",
+      b22_1: "10",
+      b27: "97",
+      b29: "24.00",
       b32: "2",
-      b33: "149",
-      b34: "4.89",
-      b35: "0.3",
-      b36: "3",
-      b37: "24",
-      b38: "0.3",
+      b35: "0.30",
+      b37: "24.00",
+      b38: "0.30",
       b39: "0.05",
-      b40: "1",
-      b41: "2.4",
-      b42: "0.29",
-      b43: "0.999703605",
+      b40: "1.00",
+      b41: "2.40",
       b44: "55",
-      b45: "238.35",
-      b46: "",
-      b47: "50",
-      b48: "2.5",
-      b49: "5",
-      b50: "4",
-      b51: "2.5",
-      b52: "",
-      b53: "7150.5",
-      b54: "0.97",
-      b55: "238.35",
-      b56: "0.8",
-      b57: "35.7525",
-      b58: "0.6",
+      b47: "50.00",
+      b48: "2.50",
+      b48_1: "0.40",
+      b49: "5.00",
+      b51_1: "50",
+      b56: "80",
       b59: "8",
-      b60: "4.4690625",
       b61: "2",
-      b62: "1",
-      b63: "2.23453125",
-      b64: "2",
-      b65: "1",
-      b66: "3.125",
-      b67: "0.6",
-      b68: "17.87625",
-      b69: "1.6",
+      b63_1: "0.2",
+      b63_2: "LW250×1100",
+      b67: "60",
       b70: "2",
-      b71: "1",
       b72: "3",
+      b72_1: "0.5",
       b73: "30",
       b74: "1.1",
-      b75: "218",
       b76: "2",
-      b77: "1",
-      b78: "50",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -2022,6 +2059,14 @@ export default {
     backHome() {
       this.$router.push("/work");
     },
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b1 = 120000;
+      } else {
+        this.b1 = waterData;
+      }
+    },
     exportQuantities() {
       try {
         this.exportExcel();
@@ -2128,8 +2173,250 @@ export default {
     b3() {
       return parseFloat(this.b1) * (parseFloat(this.b2) / 100 + 1);
     },
+    b3_1() {
+      return (
+        parseFloat(this.b4) +
+        0.2 * parseFloat(this.b6) +
+        1.53 * parseFloat(this.b7) +
+        1.9 * parseFloat(this.b8)
+      ).toFixed(2);
+    },
+    b4_1() {
+      return (
+        parseFloat(this.b9) * parseFloat(this.b5) +
+        0.2 * parseFloat(this.b6) +
+        1.53 * parseFloat(this.b7) +
+        1.9 * parseFloat(this.b8)
+      ).toFixed(2);
+    },
+    b5_1() {
+      return ((parseFloat(this.b3) * parseFloat(this.b3_1)) / 1000000).toFixed(
+        5
+      );
+    },
+    b5_2() {
+      return (parseFloat(this.b5_1) * 1000).toFixed(2);
+    },
+    b6_1() {
+      return ((parseFloat(this.b3) * parseFloat(this.b4_1)) / 1000000).toFixed(
+        5
+      );
+    },
+    b6_2() {
+      return (parseFloat(this.b6_1) * 1000).toFixed(2);
+    },
+    b6_3() {
+      if (parseFloat(this.b5_2) > parseFloat(this.b6_2)) {
+        return parseFloat(this.b5_2);
+      } else {
+        return parseFloat(this.b6_2);
+      }
+    },
+    b7_1() {
+      return (parseFloat(this.b5_1) / (1 - 0.6)).toFixed(6);
+    },
+    b8_1() {
+      return (parseFloat(this.b6_1) / (1 - 0.6)).toFixed(6);
+    },
+    b9_1() {
+      return (
+        parseFloat(this.b6_3) /
+        (1 - parseFloat(this.b9_2) / 100) /
+        1000
+      ).toFixed(2);
+    },
+    b13() {
+      return this.ROUND(parseFloat(this.b10)/parseFloat(this.b11)/parseFloat(this.b12),2)
+    },
+    b14() {
+      return (parseFloat(this.b10)*parseFloat(this.b14_1)/1000).toFixed(2);
+    },
+    b15() {
+      return this.b23;
+    },
+    b16() {
+      if(this.ROUND(parseFloat(this.b15)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b15)/3, 0);
+      }
+    },
+    b17() {
+      return this.ROUND(parseFloat(this.b10)/parseFloat(this.b15)/24, 2);
+    },
+    b17_1() {
+      return this.ROUND((
+        parseFloat(this.b11_1) + parseFloat(this.b11_2) + parseFloat(this.b11) + 2
+      ),0);
+    },
+    b21() {
+      return this.ROUND((
+        parseFloat(this.b18)/parseFloat(this.b19)/parseFloat(this.b20)
+      ),2);
+    },
+    b22() {
+      return (parseFloat(this.b18)*parseFloat(this.b22_1)/1000).toFixed(2);
+    },
+    b23() {
+      return this.b32;
+    },
+    b24() {
+      if(this.ROUND(parseFloat(this.b23)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b23)/3, 0);
+      }
+    },
+    b25() {
+      return this.ROUND((
+        parseFloat(this.b18)/parseFloat(this.b23)/24
+      ),2);
+    },
+    b25_1() {
+      return this.ROUND((
+        parseFloat(this.b34) + parseFloat(this.b19_1) + parseFloat(this.b19) + 2
+      ),0);
+    },
+    b26() {
+      return this.b9_2;
+    },
+    b28() {
+      return (
+        (1 - parseFloat(this.b9_2) / 100) *
+        1000
+      ).toFixed(2);
+    },
+    b30() {
+      return (parseFloat(this.b9_1)*parseFloat(this.b28)/parseFloat(this.b29)).toFixed(2);
+    },
+    b31() {
+      return Math.ceil((
+        Math.pow((4*parseFloat(this.b33)/3.14),0.5)
+      ),1);
+    },
+    b33() {
+      return this.ROUND(parseFloat(this.b30)/parseFloat(this.b32), 0);
+    },
+    b34() {
+      return this.ROUND(parseFloat(this.b35) + parseFloat(this.b36)+parseFloat(this.b38)+parseFloat(this.b42)+parseFloat(this.b43),2);
+    },
+    b36() {
+      return (parseFloat(this.b9_1) * parseFloat(this.b37)/24/parseFloat(this.b30)).toFixed(2);
+    },
+    b42() {
+      return (parseFloat(this.b39) * (parseFloat(this.b31)-parseFloat(this.b41))/2).toFixed(2);
+    },
+    b43() {
+      return (
+        Math.tan(
+          parseFloat(this.b44)*(Math.PI/180)
+        ) * (parseFloat(this.b41) - parseFloat(this.b40)) / 2
+      ).toFixed(2);
+    },
+    b45() {
+      return (
+        parseFloat(this.b9_1) * (1 - (parseFloat(this.b9_2)/100)) / (1 - parseFloat(this.b27)/100)
+      ).toFixed(2);
+    },
+    b50() {
+      return (parseFloat(this.b47)/parseFloat(this.b48)/parseFloat(this.b49)).toFixed(2);
+    },
+    b51() {
+      return (parseFloat(this.b47) * parseFloat(this.b51_1)/1000).toFixed(2);
+    },
+    b53() {
+      return (
+        parseFloat(this.b9_1) * 1000 * (1 - (parseFloat(this.b9_2)/100))
+      ).toFixed(2);
+    },
+    b54() {
+      return this.b27;
+    },
+    b55() {
+      return (parseFloat(this.b53)/(1-parseFloat(this.b54)/100) / 1000).toFixed(3);
+    },
+    b57() {
+      return (parseFloat(this.b53)/(1-parseFloat(this.b56)/100) / 1000).toFixed(2);
+    },
+    b58() {
+      return 0.6;
+    },
+    b60() {
+      return (parseFloat(this.b57)/parseFloat(this.b59)).toFixed(2);
+    },
+    b62() {
+      if(this.ROUND(parseFloat(this.b61)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b61)/3, 0);
+      }
+    },
+    b63() {
+      return (parseFloat(this.b60)/parseFloat(this.b61)).toFixed(2);
+    },
+    b64() {
+      return this.b61;
+    },
+    b65() {
+      if(this.ROUND(parseFloat(this.b64)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b64)/3, 0);
+      }
+    },
+    b66() {
+      return (parseFloat(this.b47)/parseFloat(this.b61)/parseFloat(this.b59)).toFixed(2);
+    },
+    b66_1() {
+      return this.ROUND((
+        parseFloat(this.b58) * 100 + parseFloat(this.b48_1) + parseFloat(this.b48) + 2
+      ), 0);
+    },
+    b68() {
+      return (parseFloat(this.b53)/(1-parseFloat(this.b67)/100) / 1000).toFixed(2);
+    },
+    b69() {
+      return 1.6;
+    },
+    b71() {
+      if(this.ROUND(parseFloat(this.b70)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b70)/3, 0);
+      }
+    },
+    b75() {
+      return this.ROUND((
+        parseFloat(this.b68) / parseFloat(this.b70) / parseFloat(this.b72) / parseFloat(this.b73) * 1000 * parseFloat(this.b74) * 2
+      ), 0);
+    },
+    b77() {
+      if(this.ROUND(parseFloat(this.b76)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b76)/3, 0);
+      }
+    },
+    b78() {
+      return (parseFloat(this.b47)/parseFloat(this.b76)/parseFloat(this.b72_1)).toFixed(2);
+    },
+    b78_1() {
+      return this.ROUND((
+        parseFloat(this.b69) * 100 + parseFloat(this.b48_1) + parseFloat(this.b48) + 2
+      ),0);
+    },
+  },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
   },
   created() {
+    this.initWaterData();
     this.data1 = [
       {
         key: "1",
