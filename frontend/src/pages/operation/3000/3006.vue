@@ -946,53 +946,23 @@ export default {
       b7: "2",
       b8: "",
       b9: "2",
-      b10: "13750",
-      b11: "572.9166667",
-      b12: "0.159143519",
-      b13: "",
-      b14: "106.095679",
       b15: "8",
-      b16: "14",
-      b17: "22.22222222",
-      b18: "9.946469907",
-      b19: "",
-      b20: "10.6095679",
       b21: "8",
-      b22: "1.4",
-      b23: "2.222222222",
-      b24: "",
-      b25: "",
       b26: "0.25",
       b27: "8",
-      b28: "0.079571759",
       b29: "",
       b30: "12",
       b31: "200",
-      b32: "0.42235541",
       b33: "600",
-      b34: "0.563140547",
-      b35: "",
-      b36: "2500",
-      b37: "104.17",
       b38: "2",
       b39: "120",
-      b40: "0.8",
       b41: "3",
-      b42: "",
       b43: "5.6",
-      b44: "10",
-      b45: "20",
-      b46: "",
-      b47: "104.17",
       b48: "0.25",
       b49: "2",
-      b50: "52.09",
-      b51: "",
       b52: "40",
       b53: "1.2",
-      b54: "5000.16",
       b55: "1.4",
-      b56: "0.12",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -1327,11 +1297,92 @@ export default {
     getDimensions() {
       return "to do";
     },
+    ROUNDUP(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.ceil(number * multiplier) / multiplier;
+    },
+    ROUND(number, num_digits) {
+      var multiplier = Math.pow(10, num_digits);
+      return Math.round(number * multiplier) / multiplier;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
-    b3_1() {
-      return (parseFloat(this.b3) / 3600).toFixed(4);
+    b10() {
+      return (parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)).toFixed(0);
+    },
+    b11() {
+      return (parseFloat(this.b10) / 24).toFixed(2);
+    },
+    b12() {
+      return (parseFloat(this.b11) / 3600).toFixed(2);
+    },
+    b14() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24/3600 / parseFloat(this.b5) * 1000).toFixed(2);
+    },
+    b16() {
+      return (this.ROUNDUP(parseFloat(this.b14)/parseFloat(this.b15), 0)).toFixed(2);
+    },
+    b17() {
+      return (parseFloat(this.b14) * parseFloat(this.b7) / parseFloat(this.b11) * 60).toFixed(2);
+    },
+    b18() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24 / 3600 / parseFloat(this.b15) / parseFloat(this.b7) * 1000).toFixed(2);
+    },
+    b20() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24 / 3600 / parseFloat(this.b4) * 1000).toFixed(2);
+    },
+    b22() {
+      return this.ROUNDUP(parseFloat(this.b20)/parseFloat(this.b21), 1);
+    },
+    b23() {
+      return (parseFloat(this.b20) * parseFloat(this.b7) / parseFloat(this.b11) * 60).toFixed(2);
+    },
+    b28() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24 / 3600 /  parseFloat(this.b27) /  parseFloat(this.b26)).toFixed(3);
+    },
+    b32() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24 / 3600 /  parseFloat(this.b30) / 3.14 * 4 /(
+        Math.pow(parseFloat(this.b31)/1000, 2)
+      )).toFixed(2);
+    },
+    b34() {
+      return ((parseFloat(this.b3) * (1+parseFloat(this.b6)) / parseFloat(this.b9)) / 24 / 3600 / 3.14 * 4 /(
+        Math.pow(parseFloat(this.b33)/1000, 2)
+      )).toFixed(2);
+    },
+    b36() {
+      return (parseFloat(this.b3) * parseFloat(this.b6)).toFixed(0);
+    },
+    b37() {
+      return this.ROUND(parseFloat(this.b36)/24, 2);
+    },
+    b40() {
+      return (this.ROUNDUP((
+        Math.sqrt(4*parseFloat(this.b37)/parseFloat(this.b38)/3.14/parseFloat(this.b39))
+      ),1)).toFixed(2);
+    },
+    b44() {
+      return (this.ROUNDUP((
+        parseFloat(this.b37) / parseFloat(this.b43)/ parseFloat(this.b9)
+      ),0)).toFixed(2);
+    },
+    b45() {
+      return (parseFloat(this.b44) * parseFloat(this.b9)).toFixed(2);
+    },
+    b47() {
+      return this.b37;
+    },
+    b50() {
+      return (this.ROUND(parseFloat(this.b47)/parseFloat(this.b49), 2)).toFixed(2);
+    },
+    b54() {
+      return (parseFloat(this.b37) * parseFloat(this.b53) * parseFloat(this.b52)).toFixed(2);
+    },
+    b56() {
+      return (this.ROUND((
+        parseFloat(this.b54) * parseFloat(this.b55) / 60 / 1000
+      ),2)).toFixed(2);
     },
   },
   watch() {
