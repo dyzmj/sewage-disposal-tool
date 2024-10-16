@@ -918,14 +918,14 @@
                       <a-input
                         v-model="b43_2"
                         style="width: 33%;"
-                        :disabled="false"
+                        :disabled="true"
                         rows="12"
                         :suffix="$t('b43_2_u')"
                       />
                       <a-input
                         v-model="b43_3"
                         style="width: 34%;"
-                        :disabled="false"
+                        :disabled="true"
                         rows="12"
                         :suffix="$t('b43_3_u')"
                       />
@@ -995,7 +995,7 @@
                       <a-input
                         v-model="b47_1"
                         style="width: 50%;"
-                        :disabled="true"
+                        :disabled="false"
                         rows="12"
                         :suffix="$t('b47_1_u')"
                       />
@@ -1574,17 +1574,17 @@ export default {
       b34_1: "0.5",
       b36: "2",
       b36_1: "1",
-      b38: "0.1",
-      b38_1: "0.07",
-      b38_2: "0.14",
+      b38_1: "0.1",
+      b38_2: "0.07",
+      b38_3: "0.14",
       b39: "2",
       b40: "0.8",
       b42_1: "7",
-      b43: "0.1",
+      b43_1: "0.1",
       b44: "40",
       b45: "100",
       b46: "1",
-      b4_1: "0.80",
+      b47_1: "0.80",
       b48: "970",
       b48_1: "1230",
       b48_2: "1",
@@ -1600,6 +1600,7 @@ export default {
       b61: "0.6",
       b63: "JBJ1-600",
       b63_1: "1",
+      b64: "0.55",
       b67: "2",
       b67_1: "1",
       columns1: [
@@ -1954,6 +1955,105 @@ export default {
     },
     b15() {
       return (parseFloat(this.b13)/2).toFixed(2);
+    },
+    b15_1() {
+      return (parseFloat(this.b15)/1000).toFixed(2);
+    },
+    b17_1() {
+      return (parseFloat(this.b17)*2/parseFloat(this.b13_1)).toFixed(2);
+    },
+    b18() {
+      return (parseFloat(this.b17)/Math.PI/parseFloat(this.b13_1)*60).toFixed(2);
+    },
+    b22() {
+      return (parseFloat(this.b16)*parseFloat(this.b21)).toFixed(0);
+    },
+    b23() {
+      return (
+        parseFloat(this.b19) * parseFloat(this.b20) *
+        Math.pow((parseFloat(this.b17)*2/parseFloat(this.b13_1)), 3) * parseFloat(this.b22) *
+        parseFloat(this.b14_1) * Math.sin(parseFloat(this.b14_2)) * 
+        (
+          Math.pow(parseFloat(this.b13_1)/2, 4) - 
+          Math.pow(parseFloat(this.b13_1)/2 - parseFloat(this.b15_1), 4)
+        ) / 
+        408 / 9.81
+      ).toFixed(2);
+    },
+    b26() {
+      return (parseFloat(this.b23)/parseFloat(this.b23)/parseFloat(this.b25)).toFixed(2);
+    },
+    b32() {
+      return (parseFloat(this.b7)*1000/parseFloat(this.b30)/parseFloat(this.b8)/parseFloat(this.b9)*10000/parseFloat(this.b31)).toFixed(2);
+    },
+    b33() {
+      return (parseFloat(this.b3)*parseFloat(this.b7)/(parseFloat(this.b9/100))/1000).toFixed(8);
+    },
+    b35() {
+      return (parseFloat(this.b34)*parseFloat(this.b34_1)).toFixed(2);
+    },
+    b37() {
+      return (parseFloat(this.b3)*parseFloat(this.b7)/(parseFloat(this.b8)/100)/1000/parseFloat(this.b35)/parseFloat(this.b36)).toFixed(8);
+    },
+    b41() {
+      return (parseFloat(this.b38_1)*1000/parseFloat(this.b35)).toFixed(8);
+    },
+    b42() {
+      return (parseFloat(this.b38_1)*parseFloat(this.b39)/parseFloat(this.b40)).toFixed(2);
+    },
+    b43_2() {
+      return (parseFloat(this.b1)*0.1/1000).toFixed(2);
+    },
+    b43_3() {
+      return (parseFloat(this.b1)*0.3/1000).toFixed(2);
+    },
+    b47() {
+      return (parseFloat(this.b43_1)*1000/parseFloat(this.b44)/parseFloat(this.b45)/parseFloat(this.b46)).toFixed(2);
+    },
+    b49_1() {
+      return (parseFloat(this.b49)/1000).toFixed(2);
+    },
+    b50_1() {
+      return (parseFloat(this.b50)/1000).toFixed(2);
+    },
+    b51() {
+      return (parseFloat(this.b49)/2).toFixed(2);
+    },
+    b51_1() {
+      return (parseFloat(this.b51)/1000).toFixed(2);
+    },
+    b53_1() {
+      return (parseFloat(this.b53)*2/parseFloat(this.b49_1)).toFixed(2);
+    },
+    b54() {
+      return (parseFloat(this.b53)/Math.PI/parseFloat(this.b49_1)*60).toFixed(2);
+    },
+    b58() {
+      return (parseFloat(this.b52) * parseFloat(this.b57)).toFixed(0);
+    },
+    b59() {
+      return (
+        parseFloat(this.b55) * parseFloat(this.b56) *
+        Math.pow(parseFloat(this.b53_1), 3) * parseFloat(this.b58) *
+        parseFloat(this.b50_1) * Math.sin(parseFloat(this.b50_2)) * 
+        (
+          Math.pow(parseFloat(this.b49_1)/2, 4) - 
+          Math.pow(parseFloat(this.b49_1)/2 - parseFloat(this.b51_1), 4)
+        ) / 
+        408 / 9.81
+      ).toFixed(2);
+    },
+    b62() {
+      return (parseFloat(this.b59)/parseFloat(this.b60)/parseFloat(this.b61)).toFixed(2);
+    },
+    b65() {
+      return (parseFloat(this.b43_1)*1000).toFixed(2);
+    },
+    b66() {
+      return this.b35;
+    },
+    b68() {
+      return (parseFloat(this.b43_1)*1000/parseFloat(this.b66)/parseFloat(this.b44)/parseFloat(this.b45)*10000/parseFloat(this.b67)).toFixed(2);
     },
   },
   created() {
