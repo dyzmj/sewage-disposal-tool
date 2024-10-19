@@ -2108,7 +2108,7 @@
               <div class="baseQueryParam">
                 <a-table
                   :columns="columns1"
-                  :data-source="data1"
+                  :data-source="data3"
                   bordered
                   size="small"
                   :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -2122,21 +2122,7 @@
               <div class="baseQueryParam">
                 <a-table
                   :columns="columns2"
-                  :data-source="data2"
-                  bordered
-                  size="small"
-                  :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-                  :pagination="false"
-                  :row-style="{ paddin: 16 }"
-                >
-                  <a slot="序号" slot-scope="text">{{ text }}</a>
-                </a-table>
-              </div>
-              <a-divider :dashed="true" />
-              <div class="baseQueryParam">
-                <a-table
-                  :columns="columns3"
-                  :data-source="data3"
+                  :data-source="data4"
                   bordered
                   size="small"
                   :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
@@ -2165,7 +2151,7 @@
                       <a-button
                         style="margin-left: 10px"
                         type="danger"
-                        @click="exportQuantities()"
+                        @click="exportQuantities2()"
                         >{{ $t("exportQuantities") }}</a-button
                       >
                       <a-button
@@ -2189,7 +2175,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -2350,7 +2336,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -2371,7 +2357,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2450,20 +2436,48 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-
+        // 导出 Excel
+        exportExcel2(allData1, allData2, "机械絮凝池_水平轴式工程量", this);
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    exportQuantities2() {
+      try {
+        this.exportExcel2();
+      } catch (error) {
+        console.error("Error exporting Excel:", error);
+        // 可以在这里添加更多的错误处理逻辑
+        this.$message.warn(this.$t("exportExcelError"));
+        return;
+      }
+    },
+    exportExcel2() {
+      try {
         // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
         ];
         // 初始化 allData
-        const allData3 = [
-          ...headerData3,
+        const allData1 = [
+          ...headerData1,
           ...this.data3.map((item) => Object.values(item)),
         ];
 
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data4.map((item) => Object.values(item)),
+        ];
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "机械絮凝池工程量", this);
+        exportExcel2(allData1, allData2, "机械絮凝池_垂直轴式工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -2522,6 +2536,30 @@ export default {
     },
     getDimensions() {
       return "to do";
+    },
+    getkey1() {
+      return this.b17_1 +"×"+this.b18_1+"×"+this.b9+"m";
+    },
+    getkey2() {
+      return this.b8;
+    },
+    getkey3() {
+      return "池深"+this.b9+"m，N="+this.b48+"kW，R1="+this.b40_1+"rpm，R2="+this.b40_2+"rpm，R3="+this.b40_3+"rpm，叶轮直径"+(parseFloat(this.b22)*1000)+"mm";
+    },
+    getkey4() {
+      return this.b8;
+    },
+    getkey1c() {
+      return this.c15 +"×"+this.c16+"×"+this.c19+"m";
+    },
+    getkey2c() {
+      return this.c8;
+    },
+    getkey3c() {
+      return "池深m，N="+this.c57+"kW，R1="+this.c57_1+"rpm，R2="+this.c57+"rpm，N3="+this.c57_1+"R3="+this.c57_2+"rpm，叶轮直径"+(parseFloat(this.c25)*1000)+"mm";
+    },
+    getkey4c() {
+      return this.c8;
     },
   },
   computed: {
@@ -2939,6 +2977,74 @@ export default {
     c70() {
       return (parseFloat(this.c69) * parseFloat(this.c7) * 60).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "机械搅拌絮凝池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getkey2(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "机械搅拌絮凝池搅拌机",
+        设备类型: "水平轴搅拌器",
+        规格及型号: this.getkey3(),
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "24h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "机械搅拌絮凝池",
+        Dimensions: this.getkey1c(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getkey2c(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data4() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "机械搅拌絮凝池搅拌机",
+        设备类型: "水平轴搅拌器",
+        规格及型号: this.getkey3c(),
+        单位: "台",
+        数量: this.getkey4c(),
+        运行时间: "24h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -2957,10 +3063,10 @@ export default {
         序号: "1",
         单体位号: "1",
         名称: "机械搅拌絮凝池",
-        Dimensions: "14×9.5×3m",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "4",
+        disinfectiontank: this.getkey2(),
         结构形式: "钢砼",
         备注: "半地下式",
         暖通要求: "无",
@@ -2972,11 +3078,40 @@ export default {
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",
-        Dimensions: "水平轴搅拌器",
-        规格及型号:
-          "池深3m，N=1.29kW，R1=3.82rpm，R2=2.68rpm，R3=1.53rpm，叶轮直径2700mm",
+        设备类型: "水平轴搅拌器",
+        规格及型号: this.getkey3(),
         单位: "台",
-        数量: "4",
+        数量: this.getkey4(),
+        运行时间: "24h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "",
+      },
+    ];
+    this.data3 = [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "机械搅拌絮凝池",
+        Dimensions: this.getkey1c(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getkey2c(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    this.data4 = [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "机械搅拌絮凝池搅拌机",
+        设备类型: "水平轴搅拌器",
+        规格及型号: this.getkey3c(),
+        单位: "台",
+        数量: this.getkey4c(),
         运行时间: "24h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "",
