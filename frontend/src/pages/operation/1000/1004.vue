@@ -164,6 +164,11 @@
                     :disabled="true"
                     :suffix="$t('b10_1_u')"
                   />
+                  <a-input
+                    v-model="b10_2"
+                    style="width: 100%"
+                    :disabled="true"
+                  />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -356,7 +361,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -453,7 +458,6 @@ export default {
           ],
         },
       ],
-      data: [],
     };
   },
   methods: {
@@ -481,17 +485,6 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [
-          this.flattenFirstRowColumns(this.columns1),
-          this.flattenSecondRowColumns(this.columns1),
-        ];
-        // 初始化 allData
-        const allData1 = [
-          ...headerData1,
-          ...this.data1.map((item) => Object.values(item)),
-        ];
-
-        // 处理表头信息
         const headerData2 = [
           this.flattenFirstRowColumns(this.columns2),
           this.flattenSecondRowColumns(this.columns2),
@@ -501,20 +494,8 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-
-        // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
-        ];
-        // 初始化 allData
-        const allData3 = [
-          ...headerData3,
-          ...this.data3.map((item) => Object.values(item)),
-        ];
-
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "二氧化氯工程量", this);
+        exportExcel(allData2, "二氧化氯工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -553,6 +534,27 @@ export default {
     getDimensions() {
       return "to do";
     },
+    getkey1() {
+      if (parseFloat(this.b10_2) == 50) {
+        return "WTL（Z）-50";
+      } else if (parseFloat(this.b10_2) == 100) {
+        return "WTL（Z）-100";
+      }else if (parseFloat(this.b10_2) == 200) {
+        return "WTL（Z）-200";
+      }else if (parseFloat(this.b10_2) == 300) {
+        return "WTL（Z）-300";
+      }else if (parseFloat(this.b10_2) == 500) {
+        return "WTL（Z）-500";
+      }else if (parseFloat(this.b10_2) == 1000) {
+        return "WTL（Z）-1000";
+      }else if (parseFloat(this.b10_2) == 2000) {
+        return "WTL（Z）-2000";
+      }else if (parseFloat(this.b10_2) == 3000) {
+        return "WTL（Z）-3000";
+      }else {
+        return "WTL（Z）-5000";
+      }
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -570,6 +572,27 @@ export default {
     },
     b10_1() {
       return (parseFloat(this.b10) * 1000).toFixed(2);
+    },
+    b10_2() {
+      if (parseFloat(this.b10_1) <= 50) {
+        return 50;
+      }else if (parseFloat(this.b10_1) <= 100) {
+        return 100;
+      }else if (parseFloat(this.b10_1) <= 200) {
+        return 200;
+      }else if (parseFloat(this.b10_1) <= 300) {
+        return 300;
+      }else if (parseFloat(this.b10_1) <= 500) {
+        return 500;
+      }else if (parseFloat(this.b10_1) <= 1000) {
+        return 1000;
+      }else if (parseFloat(this.b10_1) <= 2000) {
+        return 2000;
+      }else if (parseFloat(this.b10_1) <= 3000) {
+        return 3000;
+      }else {
+        return 5000;
+      }
     },
     b13() {
       return (
@@ -591,6 +614,22 @@ export default {
         0.31
       ).toFixed(2);
     },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "1",
+        设备位号: "1",
+        设备工艺名称: "二氧化氯发生器",
+        规格及型号: this.getkey1(),
+        单位: "台",
+        数量: "2",
+        运行时间: "24h",
+        主要材质: "",
+        备注: "一用一备",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -609,7 +648,7 @@ export default {
         序号: "1",
         设备位号: "1",
         设备工艺名称: "二氧化氯发生器",
-        规格及型号: "WTL（Z）-1000",
+        规格及型号: this.getkey1(),
         单位: "台",
         数量: "2",
         运行时间: "24h",
