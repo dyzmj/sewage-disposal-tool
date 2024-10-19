@@ -836,7 +836,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -1069,20 +1069,8 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-
-        // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
-        ];
-        // 初始化 allData
-        const allData3 = [
-          ...headerData3,
-          ...this.data3.map((item) => Object.values(item)),
-        ];
-
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "网格絮凝池工程量", this);
+        exportExcel2(allData1, allData2, "网格絮凝池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1119,6 +1107,27 @@ export default {
     },
     getDimensions() {
       return "to do";
+    },
+    getkey1() {
+      return this.b20 + "×"+this.b19+"×"+this.b9+"m"
+    },
+    getkey2() {
+      return this.b4;
+    },
+    getkey3() {
+      return "池L*B="+this.b12_1+"*"+this.b13_1+"m，网格孔尺寸80×80mm，厚度10mm"
+    },
+    getkey4() {
+      return (parseFloat(this.b17_1) * parseFloat(this.b45));
+    },
+    getkey5() {
+      return "池L*B="+this.b12_1+"*"+this.b13_1+"m，网格孔尺寸100×100mm，厚度10mm";
+    },
+    getkey6() {
+      return (parseFloat(this.b17_1) * parseFloat(this.b46) + parseFloat(this.b17_1))
+    },
+    getkey7() {
+      return (parseFloat(this.b15_1)).toFixed(0);
     },
   },
   computed: {
@@ -1450,6 +1459,66 @@ export default {
         60
       ).toFixed(1);
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "1",
+        单体位号: "1",
+        名称: "网格絮凝池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getkey2(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "小孔眼网格板",
+        设备类型: "网格板",
+        规格及型号: this.getkey3(),
+        单位: "层",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "SS304边框，PE网格",
+        备注: "",
+      },
+      {
+        key: "2",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "小孔眼网格板",
+        设备类型: "网格板",
+        规格及型号: this.getkey5(),
+        单位: "层",
+        数量: this.getkey6(),
+        运行时间: "",
+        主要材质: "SS304边框，PE网格",
+        备注: "",
+      },
+      {
+        key: "3",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "絮凝池排泥阀",
+        设备类型: "电动闸阀",
+        规格及型号: "DN150，PN10，开关型",
+        单位: "个",
+        数量: this.getkey7(),
+        运行时间: "",
+        主要材质: "阀体：球墨铸铁，阀板：球墨铸铁衬尼龙覆层，密封：EPDM",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1468,10 +1537,10 @@ export default {
         序号: "1",
         单体位号: "1",
         名称: "网格絮凝池",
-        Dimensions: "6.2×11×4m",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "2",
+        disinfectiontank: this.getkey2(),
         结构形式: "钢砼",
         备注: "半地下式",
         暖通要求: "无",
@@ -1484,9 +1553,9 @@ export default {
         设备位号: "",
         设备工艺名称: "小孔眼网格板",
         设备类型: "网格板",
-        规格及型号: "池L*B=1.4*1.4m，网格孔尺寸80×80mm，厚度10mm",
+        规格及型号: this.getkey3(),
         单位: "层",
-        数量: "21",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "SS304边框，PE网格",
         备注: "",
@@ -1497,9 +1566,9 @@ export default {
         设备位号: "",
         设备工艺名称: "小孔眼网格板",
         设备类型: "网格板",
-        规格及型号: "池L*B=1.4*1.4m，网格孔尺寸100×100mm，厚度10mm",
+        规格及型号: this.getkey5(),
         单位: "层",
-        数量: "21",
+        数量: this.getkey6(),
         运行时间: "",
         主要材质: "SS304边框，PE网格",
         备注: "",
@@ -1512,7 +1581,7 @@ export default {
         设备类型: "电动闸阀",
         规格及型号: "DN150，PN10，开关型",
         单位: "个",
-        数量: "28",
+        数量: this.getkey7(),
         运行时间: "",
         主要材质: "阀体：球墨铸铁，阀板：球墨铸铁衬尼龙覆层，密封：EPDM",
         备注: "",
