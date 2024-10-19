@@ -1122,6 +1122,12 @@ export default {
     getDimensions() {
       return "to do";
     },
+    getkey1() {
+      return "φ"+this.b14+"mm×"+this.b14_1+"mm";
+    },
+    getkey2() {
+      return this.b14_2;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
