@@ -2136,9 +2136,6 @@ export default {
           ],
         },
       ],
-      data1: [],
-      data2: [],
-      data3: [],
     };
   },
   methods: {
@@ -2570,6 +2567,68 @@ export default {
     b110_2() {
       return this.b107;
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "普通快滤池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: "1",
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "反冲洗泵",
+        规格及型号: this.getKey2(),
+        单位: "台",
+        disinfectiontank: this.getKey3(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.getKey6(),
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "反冲洗风机",
+        规格及型号: this.getKey4(),
+        单位: "台",
+        disinfectiontank: this.getKey5(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.getKey7(),
+      },
+    ];
+    }, 
+    data3() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        仪表位号: "",
+        仪表名称: "电动阀",
+        安装位置: "",
+        规格及型号: "",
+        单位: "台",
+        disinfectiontank: this.getKey8(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    }, 
   },
   watch() {
     this.initWaterData();
