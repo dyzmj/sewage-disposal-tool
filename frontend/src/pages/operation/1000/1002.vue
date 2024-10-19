@@ -693,7 +693,6 @@ export default {
           ],
         },
       ],
-      data: [],
     };
   },
   methods: {
@@ -787,6 +786,18 @@ export default {
     getDimensions() {
       return "to do";
     },
+    getkey1() {
+      return this.b16 + "m x" + this.b19_1 + "m x" + this.b22 + "m";
+    },
+    getkey2() {
+      return this.b13;
+    },
+    getkey3() {
+      return "池深"+this.b22+"m，N=2*0.55kW，池宽"+this.b19_2+"m，轨距"+(parseFloat(this.b19_2) + 0.3)+"m"
+    },
+    getkey4() {
+      return this.b13;
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -840,6 +851,40 @@ export default {
         (4 * parseFloat(this.b4_2)) / 3.14 / parseFloat(this.b25)
       ).toFixed(9);
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "1",
+        单体位号: "1",
+        名称: "斜管沉淀池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getkey2(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    }, 
+    data2 () {
+      return [
+      {
+        key: "1",
+        序号: "1",
+        设备位号: "1",
+        设备工艺名称: "桁车式吸泥机",
+        设备类型: "吸泥机",
+        规格及型号: this.getkey3(),
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -858,10 +903,10 @@ export default {
         序号: "1",
         单体位号: "1",
         名称: "斜管沉淀池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "12",
+        disinfectiontank: this.getkey2(),
         结构形式: "钢砼",
         备注: "半地下式",
         暖通要求: "无",
@@ -874,9 +919,9 @@ export default {
         设备位号: "1",
         设备工艺名称: "桁车式吸泥机",
         设备类型: "吸泥机",
-        规格及型号: "8",
+        规格及型号: this.getkey3(),
         单位: "台",
-        数量: "2",
+        数量: this.getkey4(),
         运行时间: "4h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
