@@ -381,7 +381,6 @@
                       v-model="b18_0"
                       :disabled="false" style="width: 16%" />
                     <a-input
-                      v-model="b18"
                       :disabled="false"
                       style="width: 16%"
                     />
@@ -1563,8 +1562,7 @@
                       />
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b52"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -1770,8 +1768,7 @@
                       />
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b58"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5159,6 +5156,39 @@
                       />
                     </a-form-item>
                     <a-form-item
+                      :label="$t('b156')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 5 }"
+                      :wrapperCol="{ span: 19 }"
+                    >
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b156_s')"
+                        style="width: 20%"
+                      />
+                      <a-input v-model="b156_0" :disabled="true" style="width: 16%" />
+                      <a-input
+                        v-model="b156"
+                        :disabled="true"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b156_u')"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b156_c')"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :placeholder="$t('b156_e')"
+                        :disabled="true"
+                        style="width: 16%"
+                      />
+                    </a-form-item>
+                    <a-form-item
                       :label="$t('b157')"
                       style="margin-top: 10px"
                       :labelCol="{ span: 5 }"
@@ -5172,7 +5202,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b157"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5205,7 +5235,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b158"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5238,7 +5268,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b159"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5403,7 +5433,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b164"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5436,7 +5466,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b165"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5469,7 +5499,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b166"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5502,7 +5532,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b167"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5650,10 +5680,10 @@
                         :placeholder="$t('b171_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b171_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b171"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5683,10 +5713,10 @@
                         :placeholder="$t('b172_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b172_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b172"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5716,10 +5746,10 @@
                         :placeholder="$t('b173_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b173_0" :disabled="false" style="width: 16%" />
                       <a-input
                         v-model="b173"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5782,10 +5812,10 @@
                         :placeholder="$t('b175_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b175_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b175"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5815,10 +5845,10 @@
                         :placeholder="$t('b176_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b176_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b176"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5943,10 +5973,10 @@
                         :placeholder="$t('b180_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b180_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b180"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -5976,10 +6006,10 @@
                         :placeholder="$t('b181_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b181_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b181"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6075,10 +6105,10 @@
                         :placeholder="$t('b184_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b184_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b184"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6108,10 +6138,10 @@
                         :placeholder="$t('b185_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b185_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b185"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6141,10 +6171,10 @@
                         :placeholder="$t('b186_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b186_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b186"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6174,10 +6204,10 @@
                         :placeholder="$t('b187_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b187_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b187"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6207,7 +6237,7 @@
                         :placeholder="$t('b188_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b188_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b188"
                         :disabled="false"
@@ -6325,10 +6355,10 @@
                         :placeholder="$t('b191_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b191_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b191"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6358,10 +6388,10 @@
                         :placeholder="$t('b192_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b192_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b192"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6490,10 +6520,10 @@
                         :placeholder="$t('b196_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b196_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b196"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6523,10 +6553,10 @@
                         :placeholder="$t('b197_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b197_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b197"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6556,10 +6586,10 @@
                         :placeholder="$t('b198_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b198_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b198"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6589,10 +6619,10 @@
                         :placeholder="$t('b199_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b199_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b199"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6622,10 +6652,10 @@
                         :placeholder="$t('b200_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b200_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b200"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6655,10 +6685,10 @@
                         :placeholder="$t('b201_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b201_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b201"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -6913,18 +6943,7 @@
                       <a-input
                         :disabled="true"
                         :placeholder="$t('b209_s')"
-                        style="width: 20%"
-                      />
-                      <a-input :disabled="true" style="width: 16%" />
-                      <a-input
-                        v-model="b209"
-                        :disabled="false"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :disabled="true"
-                        :placeholder="$t('b209_u')"
-                        style="width: 16%"
+                        style="width: 68%"
                       />
                       <a-input
                         :disabled="true"
@@ -6938,7 +6957,8 @@
                       />
                     </a-form-item>
                     <a-form-item
-                      :label="$t('b210')"
+                      label=" "
+                      :colon="false"
                       style="margin-top: 10px"
                       :labelCol="{ span: 5 }"
                       :wrapperCol="{ span: 19 }"
@@ -6946,18 +6966,7 @@
                       <a-input
                         :disabled="true"
                         :placeholder="$t('b210_s')"
-                        style="width: 20%"
-                      />
-                      <a-input :disabled="true" style="width: 16%" />
-                      <a-input
-                        v-model="b210"
-                        :disabled="false"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :disabled="true"
-                        :placeholder="$t('b210_u')"
-                        style="width: 16%"
+                        style="width: 68%"
                       />
                       <a-input
                         :disabled="true"
@@ -6971,7 +6980,8 @@
                       />
                     </a-form-item>
                     <a-form-item
-                      :label="$t('b211')"
+                      label=" "
+                      :colon="false"
                       style="margin-top: 10px"
                       :labelCol="{ span: 5 }"
                       :wrapperCol="{ span: 19 }"
@@ -6979,18 +6989,7 @@
                       <a-input
                         :disabled="true"
                         :placeholder="$t('b211_s')"
-                        style="width: 20%"
-                      />
-                      <a-input :disabled="true" style="width: 16%" />
-                      <a-input
-                        v-model="b211"
-                        :disabled="false"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :disabled="true"
-                        :placeholder="$t('b211_u')"
-                        style="width: 16%"
+                        style="width: 68%"
                       />
                       <a-input
                         :disabled="true"
@@ -7012,18 +7011,7 @@
                       <a-input
                         :disabled="true"
                         :placeholder="$t('b212_s')"
-                        style="width: 20%"
-                      />
-                      <a-input :disabled="true" style="width: 16%" />
-                      <a-input
-                        v-model="b212"
-                        :disabled="false"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :disabled="true"
-                        :placeholder="$t('b212_u')"
-                        style="width: 16%"
+                        style="width: 68%"
                       />
                       <a-input
                         :disabled="true"
@@ -7231,10 +7219,10 @@
                         :placeholder="$t('b218_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b218_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b218"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7330,10 +7318,10 @@
                         :placeholder="$t('b221_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b221_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b221"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7363,10 +7351,10 @@
                         :placeholder="$t('b222_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b222_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b222"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7396,10 +7384,10 @@
                         :placeholder="$t('b223_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b223_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b223"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7495,10 +7483,10 @@
                         :placeholder="$t('b226_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b226_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b226"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7528,10 +7516,10 @@
                         :placeholder="$t('b227_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b227_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b227"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7561,10 +7549,10 @@
                         :placeholder="$t('b228_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b228_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b228"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7594,7 +7582,7 @@
                         :placeholder="$t('b229_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b229_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b229"
                         :disabled="false"
@@ -7627,10 +7615,10 @@
                         :placeholder="$t('b230_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b230_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b230"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7778,10 +7766,10 @@
                         :placeholder="$t('b234_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b234_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b234"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7811,10 +7799,10 @@
                         :placeholder="$t('b235_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b235_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b235"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7844,10 +7832,10 @@
                         :placeholder="$t('b236_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b236_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b236"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7943,10 +7931,10 @@
                         :placeholder="$t('b239_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b239_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b239"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -7976,10 +7964,10 @@
                         :placeholder="$t('b240_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b240_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b240"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8009,10 +7997,10 @@
                         :placeholder="$t('b241_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b241_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b241"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8042,10 +8030,10 @@
                         :placeholder="$t('b242_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b242_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b242"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8160,10 +8148,10 @@
                         :placeholder="$t('b246_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b246_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b246"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8226,10 +8214,10 @@
                         :placeholder="$t('b248_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b248_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b248"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8259,10 +8247,10 @@
                         :placeholder="$t('b249_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b249_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b249"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8325,10 +8313,10 @@
                         :placeholder="$t('b251_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b251_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b251"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8358,10 +8346,10 @@
                         :placeholder="$t('b252_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b252_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b252"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8391,10 +8379,10 @@
                         :placeholder="$t('b253_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b253_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b253"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8519,7 +8507,7 @@
                         :placeholder="$t('b257_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b257_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b257"
                         :disabled="false"
@@ -8614,10 +8602,10 @@
                         :placeholder="$t('b260_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b260_0" :disabled="false" style="width: 16%" />
                       <a-input
-                        v-model="b260"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8647,10 +8635,10 @@
                         :placeholder="$t('b261_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b261_0" :disabled="false" style="width: 16%" />
                       <a-input
-                        v-model="b261"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8713,10 +8701,10 @@
                         :placeholder="$t('b263_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b263_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b263"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8788,6 +8776,39 @@
                       />
                     </a-form-item>
                     <a-form-item
+                      :label="$t('b264')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 5 }"
+                      :wrapperCol="{ span: 19 }"
+                    >
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b264_s')"
+                        style="width: 20%"
+                      />
+                      <a-input v-model="b264_0" :disabled="true" style="width: 16%" />
+                      <a-input
+                        
+                        :disabled="true"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b264_u')"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :disabled="true"
+                        :placeholder="$t('b264_c')"
+                        style="width: 16%"
+                      />
+                      <a-input
+                        :placeholder="$t('b264_e')"
+                        :disabled="true"
+                        style="width: 16%"
+                      />
+                    </a-form-item>
+                    <a-form-item
                       :label="$t('b265')"
                       style="margin-top: 10px"
                       :labelCol="{ span: 5 }"
@@ -8831,10 +8852,10 @@
                         :placeholder="$t('b266_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b266_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b266"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8916,10 +8937,10 @@
                         :placeholder="$t('b267_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b267_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b267"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -8949,10 +8970,10 @@
                         :placeholder="$t('b268_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b268_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b268"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9034,10 +9055,10 @@
                         :placeholder="$t('b269_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b269_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b269"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9067,10 +9088,10 @@
                         :placeholder="$t('b270_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b270_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b270"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9100,10 +9121,10 @@
                         :placeholder="$t('b271_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b271_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b271"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9133,10 +9154,10 @@
                         :placeholder="$t('b272_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b272_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b272"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9218,10 +9239,10 @@
                         :placeholder="$t('b273_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b273_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b273"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9251,10 +9272,10 @@
                         :placeholder="$t('b274_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b274_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b274"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9336,10 +9357,10 @@
                         :placeholder="$t('b276_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b276_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b276"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9369,10 +9390,10 @@
                         :placeholder="$t('b277_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b277_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b277"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9435,10 +9456,10 @@
                         :placeholder="$t('b279_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b279_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b279"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9468,10 +9489,10 @@
                         :placeholder="$t('b280_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b280_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b280"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9501,10 +9522,10 @@
                         :placeholder="$t('b281_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b281_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b281"
-                        :disabled="false"
+                      v-model="b281"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9534,10 +9555,10 @@
                         :placeholder="$t('b282_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b282_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b282"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9567,10 +9588,10 @@
                         :placeholder="$t('b283_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b283_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b283"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9742,7 +9763,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b289"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9772,10 +9793,10 @@
                         :placeholder="$t('b290_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b290_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b290"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9871,7 +9892,7 @@
                         :placeholder="$t('b293_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b293_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b293"
                         :disabled="false"
@@ -9904,10 +9925,10 @@
                         :placeholder="$t('b294_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b294_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b294"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -9937,10 +9958,10 @@
                         :placeholder="$t('b295_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b295_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b295"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10003,10 +10024,10 @@
                         :placeholder="$t('b297_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b297_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b297"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10069,10 +10090,10 @@
                         :placeholder="$t('b299_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b299_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b299"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10102,10 +10123,10 @@
                         :placeholder="$t('b300_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b300_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b300"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10230,10 +10251,10 @@
                         :placeholder="$t('b304_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b304" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b304"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10329,10 +10350,10 @@
                         :placeholder="$t('b307_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b307_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b307"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10362,7 +10383,7 @@
                         :placeholder="$t('b308_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b308_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b308"
                         :disabled="false"
@@ -10395,7 +10416,7 @@
                         :placeholder="$t('b309_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b309_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b309"
                         :disabled="false"
@@ -10428,10 +10449,10 @@
                         :placeholder="$t('b310_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b310_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b310"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10461,10 +10482,10 @@
                         :placeholder="$t('b311_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b311_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b311"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10556,10 +10577,9 @@
                         :placeholder="$t('b314_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b314_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b314"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10589,10 +10609,10 @@
                         :placeholder="$t('b315_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b315_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b315"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10622,10 +10642,9 @@
                         :placeholder="$t('b316_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b316_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b316"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10691,7 +10710,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b318"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10724,7 +10743,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b319"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10757,7 +10776,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b320"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10790,7 +10809,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b321"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10823,7 +10842,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b322"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -10948,7 +10967,7 @@
                         :placeholder="$t('b326_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b326_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b326"
                         :disabled="false"
@@ -10981,10 +11000,10 @@
                         :placeholder="$t('b327_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b327_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b327"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -11080,7 +11099,7 @@
                         :placeholder="$t('b330_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b330_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b330"
                         :disabled="false"
@@ -11113,10 +11132,10 @@
                         :placeholder="$t('b331_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b331_0" :disabled="true" style="width: 16%" />
                       <a-input
-                        v-model="b331"
-                        :disabled="false"
+                        
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -11146,7 +11165,7 @@
                         :placeholder="$t('b332_s')"
                         style="width: 20%"
                       />
-                      <a-input :disabled="true" style="width: 16%" />
+                      <a-input v-model="b332_0" :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b332"
                         :disabled="false"
@@ -11310,7 +11329,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b337"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -11343,7 +11362,7 @@
                       <a-input :disabled="true" style="width: 16%" />
                       <a-input
                         v-model="b338"
-                        :disabled="false"
+                        :disabled="true"
                         style="width: 16%"
                       />
                       <a-input
@@ -11433,18 +11452,7 @@
                     <a-input
                       :disabled="true"
                       :placeholder="$t('b340_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b340"
-                      :disabled="false"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b340_u')"
-                      style="width: 16%"
+                      style="width: 68%"
                     />
                     <a-input
                       :disabled="true"
@@ -11503,27 +11511,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b342_s')"
+                      v-model="b342_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b342_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b342"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b342_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b342_u')"
+                      v-model="b342_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b342_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b342_e')"
+                      v-model="b342_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11536,27 +11547,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b343_s')"
+                      v-model="b343_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b343_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b343"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b343_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b343_u')"
+                      v-model="b343_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b343_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b343_e')"
+                      v-model="b343_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11569,27 +11583,26 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b344_s')"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
-                      v-model="b344"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b344_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
+                      :disabled="false"
                       :placeholder="$t('b344_c')"
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b344_e')"
+                      v-model="b344_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11647,39 +11660,6 @@
                       />
                   </a-form-item>
                   <a-form-item
-                    :label="$t('b347')"
-                    style="margin-top: 10px"
-                    :labelCol="{ span: 5 }"
-                    :wrapperCol="{ span: 19 }"
-                  >
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b347_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b347"
-                      :disabled="false"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b347_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b347_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b347_e')"
-                      :disabled="true"
-                      style="width: 16%"
-                    />
-                  </a-form-item>
-                  <a-form-item
                     :label="$t('b348')"
                     style="margin-top: 10px"
                     :labelCol="{ span: 5 }"
@@ -11687,27 +11667,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b348_s')"
+                      v-model="b348_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b348_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b348"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b348_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b348_u')"
+                      v-model="b348_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b348_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b348_e')"
+                      v-model="b348_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11720,27 +11703,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b349_s')"
+                      v-model="b349_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b349_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b349"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b349_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b349_u')"
+                      v-model="b349_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b349_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b349_e')"
+                      v-model="b349_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11753,27 +11739,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b350_s')"
+                      v-model="b350_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b350_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b350"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b350_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b350_u')"
+                      v-model="b350_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b350_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b350_e')"
+                      v-model="b350_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11786,27 +11775,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b351_s')"
+                      v-model="b351_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b351_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b351"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b351_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b351_u')"
+                      v-model="b351_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b351_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b351_e')"
+                      v-model="b351_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11819,27 +11811,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b352_s')"
+                      v-model="b352_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b352_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b352"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b352_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b352_u')"
+                      v-model="b352_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b352_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b352_e')"
+                      v-model="b352_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11852,27 +11847,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b353_s')"
+                      v-model="b353_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b353_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b353"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b353_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b353_u')"
+                      v-model="b353_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b353_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b353_e')"
+                      v-model="b353_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11885,27 +11883,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b354_s')"
+                      v-model="b354_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b354_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b354"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b354_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b354_u')"
+                      v-model="b354_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b354_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b354_e')"
+                      v-model="b354_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11918,27 +11919,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b355_s')"
+                      v-model="b355_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b355_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b355"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b355_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b355_u')"
+                      v-model="b355_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b355_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b355_e')"
+                      v-model="b355_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -11951,60 +11955,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b356_s')"
+                      v-model="b356_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b356_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b356"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b356_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b356_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b356_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b356_e')"
-                      :disabled="true"
-                      style="width: 16%"
-                    />
-                  </a-form-item>
-                  <a-form-item
-                    :label="$t('b357')"
-                    style="margin-top: 10px"
-                    :labelCol="{ span: 5 }"
-                    :wrapperCol="{ span: 19 }"
-                  >
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b357_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b357"
+                      v-model="b356_2"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b357_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b357_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b357_e')"
+                      v-model="b356_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12017,27 +11991,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b358_s')"
+                      v-model="b358_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b358_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b358"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b358_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b358_u')"
+                      v-model="b358_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b358_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b358_e')"
+                      v-model="b358_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12050,27 +12027,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b359_s')"
+                      v-model="b359_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b359_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b359"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b359_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b359_u')"
+                      v-model="b359_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b359_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b359_e')"
+                      v-model="b359_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12083,27 +12063,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b360_s')"
+                      v-model="b360_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b360_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b360"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b360_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b360_u')"
+                      v-model="b360_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b360_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b360_e')"
+                      v-model="b360_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12116,27 +12099,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b361_s')"
+                      v-model="b361_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b361_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b361"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b361_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b361_u')"
+                      v-model="b361_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b361_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b361_e')"
+                      v-model="b361_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12149,60 +12135,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b362_s')"
+                      v-model="b362_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b362_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b362"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b362_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b362_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b362_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b362_e')"
-                      :disabled="true"
-                      style="width: 16%"
-                    />
-                  </a-form-item>
-                  <a-form-item
-                    :label="$t('b363')"
-                    style="margin-top: 10px"
-                    :labelCol="{ span: 5 }"
-                    :wrapperCol="{ span: 19 }"
-                  >
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b363_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b363"
+                      v-model="b362_2"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b363_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b363_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b363_e')"
+                      v-model="b362_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12215,27 +12171,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b364_s')"
+                      v-model="b364_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b364_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b364"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b364_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b364_u')"
+                      v-model="b364_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b364_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b364_e')"
+                      v-model="b364_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12248,27 +12207,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b365_s')"
+                      v-model="b365_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b365_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b365"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b365_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b365_u')"
+                      v-model="b365_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b365_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b365_e')"
+                      v-model="b365_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12281,27 +12243,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b366_s')"
+                      v-model="b366_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b366_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b366"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b366_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b366_u')"
+                      v-model="b366_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b366_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b366_e')"
+                      v-model="b366_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12314,27 +12279,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b367_s')"
+                      v-model="b367_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b367_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b367"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b367_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b367_u')"
+                      v-model="b367_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b367_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b367_e')"
+                      v-model="b367_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -12404,8 +12372,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b368"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12419,6 +12387,7 @@
                       style="width: 16%"
                     />
                     <a-input
+                      v-model="b368_3"
                       :placeholder="$t('b368_e')"
                       :disabled="true"
                       style="width: 16%"
@@ -12494,7 +12463,8 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
+                      v-model="b370_1"
+                      :disabled="false"
                       :placeholder="$t('b370_u')"
                       style="width: 16%"
                     />
@@ -12504,6 +12474,7 @@
                       style="width: 16%"
                     />
                     <a-input
+                      v-model="b370_3"
                       :placeholder="$t('b370_e')"
                       :disabled="true"
                       style="width: 16%"
@@ -12536,8 +12507,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b371"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12551,6 +12522,7 @@
                       style="width: 16%"
                     />
                     <a-input
+                      v-model="b371_3"
                       :placeholder="$t('b371_e')"
                       :disabled="true"
                       style="width: 16%"
@@ -12583,8 +12555,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b372"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12598,13 +12570,15 @@
                       style="width: 16%"
                     />
                     <a-input
+                    v-model="b372_3"
                       :placeholder="$t('b372_e')"
                       :disabled="true"
                       style="width: 16%"
                     />
                   </a-form-item>
                   <a-form-item
-                    :label="$t('b373')"
+                    label=" "
+                    :colon="false"
                     style="margin-top: 10px"
                     :labelCol="{ span: 5 }"
                     :wrapperCol="{ span: 19 }"
@@ -12616,8 +12590,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b373"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12626,13 +12600,15 @@
                       style="width: 16%"
                     />
                     <a-input
+                      
                       :disabled="true"
                       :placeholder="$t('b373_c')"
                       style="width: 16%"
                     />
                     <a-input
+                    v-model="b373_3"
                       :placeholder="$t('b373_e')"
-                      :disabled="true"
+                      :disabled="false"
                       style="width: 16%"
                     />
                   </a-form-item>
@@ -12663,8 +12639,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b374"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12678,8 +12654,9 @@
                       style="width: 16%"
                     />
                     <a-input
+                    v-model="b374_3"
                       :placeholder="$t('b374_e')"
-                      :disabled="true"
+                      :disabled="false"
                       style="width: 16%"
                     />
                   </a-form-item>
@@ -12825,7 +12802,7 @@
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
                       v-model="b379"
-                      :disabled="false"
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -12869,45 +12846,7 @@
               <div class="baseQueryParam">
                 <a-form>
                   <a-form-item
-                      :label="$t('b6')"
-                      :colon="false"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 5 }"
-                      :wrapperCol="{ span: 19 }"
-                    >
-                      <a-input
-                        :placeholder="$t('b6_s')"
-                        :disabled="true"
-                        style="width: 20%"
-                      />
-                      <a-input
-                        :placeholder="$t('b6_1')"
-                        :disabled="true"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :placeholder="$t('b6_2')"
-                        :disabled="true"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :placeholder="$t('b6_3')"
-                        :disabled="true"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :placeholder="$t('b6_4')"
-                        :disabled="true"
-                        style="width: 16%"
-                      />
-                      <a-input
-                        :placeholder="$t('b6_e')"
-                        :disabled="true"
-                        style="width: 16%"
-                      />
-                  </a-form-item>
-                  <a-form-item
-                    :label="$t('b381')"
+                    :label="$t('b381_0')"
                     style="margin-top: 10px"
                     :labelCol="{ span: 5 }"
                     :wrapperCol="{ span: 19 }"
@@ -12915,18 +12854,7 @@
                     <a-input
                       :disabled="true"
                       :placeholder="$t('b381_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b381"
-                      :disabled="false"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b381_u')"
-                      style="width: 16%"
+                      style="width: 68%"
                     />
                     <a-input
                       :disabled="true"
@@ -12985,27 +12913,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b383_s')"
+                      v-model="b383_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b383_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b383"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b383_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b383_u')"
+                      v-model="b383_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b383_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b383_e')"
+                      v-model="b383_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13018,27 +12949,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b384_s')"
+                      v-model="b384_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b384_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b384"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b384_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b384_u')"
+                      v-model="b384_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b384_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b384_e')"
+                      v-model="b384_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13129,39 +13063,6 @@
                       />
                   </a-form-item>
                   <a-form-item
-                    :label="$t('b388')"
-                    style="margin-top: 10px"
-                    :labelCol="{ span: 5 }"
-                    :wrapperCol="{ span: 19 }"
-                  >
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b388_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b388"
-                      :disabled="false"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b388_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b388_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b388_e')"
-                      :disabled="true"
-                      style="width: 16%"
-                    />
-                  </a-form-item>
-                  <a-form-item
                     :label="$t('b389')"
                     style="margin-top: 10px"
                     :labelCol="{ span: 5 }"
@@ -13169,27 +13070,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b389_s')"
+                      v-model="b389_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b389_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b389"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b389_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b389_u')"
+                      v-model="b389_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b389_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b389_e')"
+                      v-model="b389_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13202,27 +13106,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b390_s')"
+                      v-model="b390_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b390_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b390"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b390_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b390_u')"
+                      v-model="b390_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b390_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b390_e')"
+                      v-model="b390_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13235,27 +13142,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b391_s')"
+                      v-model="b391_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b391_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b391"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b391_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b391_u')"
+                      v-model="b391_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b391_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b391_e')"
+                      v-model="b391_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13268,27 +13178,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b392_s')"
+                      v-model="b392_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b392_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b392"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b392_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b392_u')"
+                      v-model="b392_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b392_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b392_e')"
+                      v-model="b392_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13301,27 +13214,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b393_s')"
+                      v-model="b393_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b393_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b393"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b393_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b393_u')"
+                      v-model="b393_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b393_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b393_e')"
+                      v-model="b393_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13334,27 +13250,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b394_s')"
+                      v-model="b394_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b394_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b394"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b394_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b394_u')"
+                      v-model="b394_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b394_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b394_e')"
+                      v-model="b394_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13367,27 +13286,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b395_s')"
+                      v-model="b395_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b395_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b395"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b395_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b395_u')"
+                      v-model="b395_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b395_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b395_e')"
+                      v-model="b395_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13400,64 +13322,35 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b396_s')"
+                      v-model="b396_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b396_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b396"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b396_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b396_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b396_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b396_e')"
-                      :disabled="true"
-                      style="width: 16%"
-                    />
-                  </a-form-item>
-                  <a-form-item
-                    :label="$t('b397')"
-                    style="margin-top: 10px"
-                    :labelCol="{ span: 5 }"
-                    :wrapperCol="{ span: 19 }"
-                  >
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b397_s')"
-                      style="width: 20%"
-                    />
-                    <a-input :disabled="true" style="width: 16%" />
-                    <a-input
-                      v-model="b397"
+                      v-model="b396_2"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b397_u')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :disabled="true"
-                      :placeholder="$t('b397_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b397_e')"
+                      v-model="b396_3"
                       :disabled="true"
                       style="width: 16%"
                     />
                   </a-form-item>
+
                   <a-form-item
                     :label="$t('b398')"
                     style="margin-top: 10px"
@@ -13466,27 +13359,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b398_s')"
+                      v-model="b398_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b398_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b398"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b398_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b398_u')"
+                      v-model="b398_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b398_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b398_e')"
+                      v-model="b398_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13499,27 +13395,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b399_s')"
+                      v-model="b399_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b399_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b399"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b399_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b399_u')"
+                      v-model="b399_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b399_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b399_e')"
+                      v-model="b399_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13532,27 +13431,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b400_s')"
+                      v-model="b400_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b400_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b400"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b400_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b400_u')"
+                      v-model="b400_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b400_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b400_e')"
+                      v-model="b400_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13565,27 +13467,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b401_s')"
+                      v-model="b401_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b401_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b401"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b401_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b401_u')"
+                      v-model="b401_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b401_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b401_e')"
+                      v-model="b401_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13598,27 +13503,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b402_s')"
+                      v-model="b402_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b402_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b402"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b402_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b402_u')"
+                      v-model="b402_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b402_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b402_e')"
+                      v-model="b402_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13631,27 +13539,30 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b403_s')"
+                      v-model="b403_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b403_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b403"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b403_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b403_u')"
+                      v-model="b403_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b403_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b403_e')"
+                      v-model="b403_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13664,31 +13575,35 @@
                   >
                     <a-input
                       :disabled="true"
-                      :placeholder="$t('b404_s')"
+                      v-model="b404_s"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input 
+                      v-model="b404_0"
+                     :disabled="false" 
+                     style="width: 16%" />
                     <a-input
                       v-model="b404"
+                      :disabled="true"
+                      style="width: 16%"
+                    />
+                    <a-input
+                      v-model="b404_1"
                       :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b404_u')"
+                      v-model="b404_2"
+                      :disabled="false"
                       style="width: 16%"
                     />
                     <a-input
-                      :disabled="true"
-                      :placeholder="$t('b404_c')"
-                      style="width: 16%"
-                    />
-                    <a-input
-                      :placeholder="$t('b404_e')"
+                      v-model="b404_3"
                       :disabled="true"
                       style="width: 16%"
                     />
                   </a-form-item>
+
                   <a-form-item
                     :label="$t('b405')"
                     style="margin-top: 10px"
@@ -13702,8 +13617,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b405"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -13717,7 +13632,7 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b405_e')"
+                      v-model="b405_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13749,8 +13664,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b406"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -13764,7 +13679,7 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b406_e')"
+                      v-model="b406_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13832,7 +13747,7 @@
                       :placeholder="$t('b408_s')"
                       style="width: 20%"
                     />
-                    <a-input :disabled="true" style="width: 16%" />
+                    <a-input v-model="b408_0" :disabled="false" style="width: 16%" />
                     <a-input
                       v-model="b408"
                       :disabled="false"
@@ -13849,7 +13764,7 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b408_e')"
+                      v-model="b408_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13881,8 +13796,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b409"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -13896,8 +13811,8 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b409_e')"
-                      :disabled="true"
+                      v-model="b409_3"
+                      :disabled="false"
                       style="width: 16%"
                     />
                   </a-form-item>
@@ -13928,8 +13843,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b410"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -13943,7 +13858,7 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b410_e')"
+                      v-model="b410_3"
                       :disabled="true"
                       style="width: 16%"
                     />
@@ -13961,8 +13876,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b411"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -13976,8 +13891,8 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b411_e')"
-                      :disabled="true"
+                    v-model="b411_3"
+                      :disabled="false"
                       style="width: 16%"
                     />
                   </a-form-item>
@@ -14008,8 +13923,8 @@
                     />
                     <a-input :disabled="true" style="width: 16%" />
                     <a-input
-                      v-model="b412"
-                      :disabled="false"
+                      
+                      :disabled="true"
                       style="width: 16%"
                     />
                     <a-input
@@ -14023,8 +13938,8 @@
                       style="width: 16%"
                     />
                     <a-input
-                      :placeholder="$t('b412_e')"
-                      :disabled="true"
+                    v-model="b412_3"
+                      :disabled="false"
                       style="width: 16%"
                     />
                   </a-form-item>
@@ -14219,7 +14134,161 @@ export default {
       b150: "1.25",
       b152: "0.07",
       b153: "0.39",
+      b160: "0.50",
+      b161: "1.50",
+      b162: "0.50",
+      b163: "1.45",
       b168: "0.40",
+      b169: "0.37",
+      b171_0: "50",
+      b172_0: "1",
+      b173_0: "1.5",
+      b174: "0.40",
+      b179: "30.00",
+      b182: "10",
+      b183: "1210.00",
+      b188: "500.00",
+      b190: "1.00",
+      b193: "0.20",
+      b194: "0.02",
+      b195: "1000.00",
+      b204: "1.20",
+      b205: "2.91",
+      b206: "1.60",
+      b207: "2.51",
+      b208: "1.60",
+      b214: "0",
+      b215: "0",
+      b216: "0",
+      b217: "0.2",
+      b219: "90",
+      b220: "80",
+      b224: "5.0",
+      b225: "1033.00",
+      b229: "16.00",
+      b232: "1.0",
+      b233: "99",
+      b237: "5.0",
+      b238: "1033.00",
+      b245: "50.00",
+      b247: "98",
+      b250: "1800.00",
+      b256: "3",
+      b257: "50.00",
+      b260_0: "25.00",
+      b261_0: "10.00",
+      b262: "2.00",
+      b265: "1.53",
+      b278: "30.00",
+      b287: "500.00",
+      b288: "15.00",
+      b291: "0.75",
+      b292: "0.60",
+      b293: "37.50",
+      b296: "1.00",
+      b298: "5.00",
+      b303: "5",
+      b305: "1",
+      b306: "3",
+      b308: "6.00",
+      b309: "19.00",
+      b317: "60",
+      b325: "1.5",
+      b326: "50.00",
+      b328: "1",
+      b329: "8",
+      b330: "42.00",
+      b332: "2.10",
+      b335: "1",
+      b336: "1",
+      b342_0: "150",
+      b342_1: "15",
+      b342_2: "81",
+      b343_0: "100",
+      b343_1: "20",
+      b343_2: "81",
+      b348_1: "1",
+      b348_2: "1",
+      b349_1: "5",
+      b349_2: "0.8",
+      b350_1: "1",
+      b350_2: "1.27",
+      b351_1: "1",
+      b351_2: "0.1",
+      b352_1: "1",
+      b352_2: "0.1",
+      b353_1: "2",
+      b353_2: "0.2",
+      b354_1: "1",
+      b354_2: "0.21",
+      b355_1: "1",
+      b355_2: "0.08",
+      b356_1: "1",
+      b356_2: "1",
+      b358_1: "1",
+      b358_2: "1",
+      b359_1: "1",
+      b359_2: "0.17",
+      b360_1: "1",
+      b360_2: "0.21",
+      b361_1: "1",
+      b361_2: "6.5",
+      b362_1: "1",
+      b362_2: "0.2",
+      b364_1: "1",
+      b364_2: "0.1",
+      b365_1: "5",
+      b365_2: "0.8",
+      b366_1: "1",
+      b366_2: "1",
+      b370: "5.80",
+      b370_1: "5.00",
+      b371_3: "2",
+      b373_3: "0.20",
+      b374_3: "4.00",
+      b377: "1.00",
+      b378: "1.00",
+      b383_0: "150.00",
+      b383_1: "15.00",
+      b383_2: "81.00",
+      b384_0: "100.00",
+      b384_1: "30.00",
+      b384_2: "81.00",
+      b389_1: "1",
+      b389_2: "1",
+      b390_1: "5",
+      b390_2: "0.8",
+      b391_1: "1",
+      b391_2: "1.27",
+      b392_1: "1",
+      b392_2: "0.1",
+      b393_1: "2",
+      b393_2: "0.11",
+      b394_1: "1",
+      b394_2: "0.21",
+      b395_1: "1",
+      b395_2: "0.08",
+      b396_1: "1",
+      b396_2: "1",
+      b398_1: "1",
+      b398_2: "1",
+      b399_1: "1",
+      b399_2: "0.17",
+      b400_1: "1",
+      b400_2: "0.21",
+      b401_1: "1",
+      b401_2: "6.5",
+      b402_1: "1",
+      b402_2: "0.2",
+      b403_1: "1",
+      b403_2: "0.1",
+      b404_1: "5",
+      b404_2: "0.85",
+      b408_0: "5.00",
+      b408: "2.50",
+      b409_3: "2",
+      b411_3: "0.20",
+      b412_3: "4.00",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -14930,14 +14999,1002 @@ export default {
     b155() {
       return this.b155_0;
     },
+    b156_0() {
+      return (parseFloat(this.b167) + parseFloat(this.b168) + parseFloat(this.b166)).toFixed(2);
+    },
+    b156() {
+      return (this.ROUND(parseFloat(this.b156_0), 2)).toFixed(2);
+    },
+    b157() {
+      return this.b111;
+    },
     b158() {
       return (parseFloat(this.b110)/2).toFixed(2);
     },
+    b159_0() {
+      return (parseFloat(this.b100) *
+        Math.sin(parseFloat(this.b98) * (Math.PI / 180)) / 1000
+      ).toFixed(2);
+    },
     b159() {
-      return 0.87;
+      return this.b159_0;
+    },
+    b164() {
+      return this.b155;
+    },
+    b165() {
+      return this.b153;
+    },
+    b166() {
+      return this.b150;
+    },
+    b167() {
+      return (parseFloat(this.b157) + parseFloat(this.b158) + parseFloat(this.b159) + parseFloat(this.b160) + 
+      parseFloat(this.b161) + parseFloat(this.b162) + parseFloat(this.b163) + parseFloat(this.b164) + parseFloat(this.b165) -
+      parseFloat(this.b121)
+      ).toFixed(2);
+    },
+    b172() {
+      return (parseFloat(this.b172_0)).toFixed(2);
+    },
+    b173() {
+      return (parseFloat(this.b173_0)).toFixed(2);
+    },
+    b175_0() {
+      return (parseFloat(this.b173_0) + parseFloat(this.b174)).toFixed(2);
+    },
+    b175() {
+      return (parseFloat(this.b175_0)).toFixed(2);
+    },
+    b176_0() {
+      return (parseFloat(this.b9)/parseFloat(this.b172_0)/parseFloat(this.b173_0)/3600/2).toFixed(3);
+    },
+    b180_0() {
+      return (parseFloat(this.b9)/parseFloat(this.b179)/1000).toFixed(2);
+    },
+    b181_0() {
+      return (parseFloat(this.b180_0) * 24).toFixed(2);
+    },
+    b184_0() {
+      return (parseFloat(this.b181_0)/(parseFloat(this.b182)/100)).toFixed(2);
+    },
+    b185_0() {
+      return ((parseFloat(this.b184_0)-parseFloat(this.b181_0))/parseFloat(this.b183)/24).toFixed(2);
+    },
+    b186_0() {
+      return (parseFloat(this.b181_0)/24/parseFloat(this.b182)/parseFloat(this.b183)*1000).toFixed(2);
+    },
+    b187_0() {
+      return (parseFloat(this.b186_0) * 1.3).toFixed(2);
+    },
+    b187() {
+      return (parseFloat(this.b187_0)).toFixed(2);
+    },
+    b188_0() {
+      return (parseFloat(this.b187)/parseFloat(this.b11)).toFixed(2);
+    },
+    b191_0() {
+      return (parseFloat(this.b9)/parseFloat(this.b190)/1000).toFixed(2);
+    },
+    b192_0() {
+      return (parseFloat(this.b191_0) * 24).toFixed(2);
+    },
+    b196_0() {
+      return (parseFloat(this.b192_0)/(parseFloat(this.b194)/100)).toFixed(2);
+    },
+    b196() {
+      return this.b196_0;
+    },
+    b197_0() {
+      return ((parseFloat(this.b196_0)-parseFloat(this.b192_0))/parseFloat(this.b195)/24).toFixed(2);
+    },
+    b197() {
+      return (parseFloat(this.b197_0)).toFixed(1);
+    },
+    b198_0() {
+      return (parseFloat(this.b191_0)/parseFloat(this.b195)/(parseFloat(this.b193)/100)*1000).toFixed(2);
+    },
+    b199_0() {
+      return (parseFloat(this.b197_0) + parseFloat(this.b198_0)/1000).toFixed(2);
+    },
+    b200_0() {
+      return (parseFloat(this.b198_0) * 1.3).toFixed(2);
+    },
+    b200() {
+      return this.b200_0;
+    },
+    b201_0() {
+      return (parseFloat(this.b200)/parseFloat(this.b11)).toFixed(2);
+    },
+    b201() {
+      return this.b201_0;
+    },
+    b218_0() {
+      return (28*(
+        2*parseFloat(this.b206) - parseFloat(this.b204) + parseFloat(this.b214) + parseFloat(this.b215) + parseFloat(this.b216) + parseFloat(this.b217)
+      )).toFixed(2);
+    },
+    b221_0() {
+      return (parseFloat(this.b218_0) * 74 / 56 /(parseFloat(this.b219)/100)/(parseFloat(this.b220)/100)).toFixed(2);
+    },
+    b221() {
+      return (parseFloat(this.b221_0)).toFixed(2);
+    },
+    b222_0() {
+      return (parseFloat(this.b9) * parseFloat(this.b221)/1000).toFixed(2);
+    },
+    b223_0() {
+      return ((parseFloat(this.b9) * (parseFloat(this.b218_0) * 74 / 56 /(parseFloat(this.b219)/100)/(parseFloat(this.b220)/100))/1000) * 24).toFixed(2);
+    },
+    b226_0() {
+      return (parseFloat(this.b223_0)/(parseFloat(this.b224)/100)).toFixed(2);
+    },
+    b227_0() {
+      return ((parseFloat(this.b226_0)-parseFloat(this.b223_0))/parseFloat(this.b225)/24).toFixed(2);
+    },
+    b228_0() {
+      return (parseFloat(this.b222_0)/(parseFloat(this.b224)/100)/parseFloat(this.b225)*1000).toFixed(2);
+    },
+    b229_0() {
+      return (parseFloat(this.b228_0) * 1.2 /1000).toFixed(2);
+    },
+    b230_0() {
+      return (parseFloat(this.b229) / 4).toFixed(2);
+    },
+    b230() {
+      return this.b230_0;
+    },
+    b234_0() {
+      return (53 * (parseFloat(this.b207) + parseFloat(this.b232))/(parseFloat(this.b233)/100)).toFixed(2);
+    },
+    b234() {
+      return this.b234_0;
+    },
+    b235_0() {
+      return (parseFloat(this.b9)*(53 * (parseFloat(this.b207) + parseFloat(this.b232))/(parseFloat(this.b233)/100))/1000).toFixed(2);
+    },
+    b236_0() {
+      return ((parseFloat(this.b9)*(53 * (parseFloat(this.b207) + parseFloat(this.b232))/(parseFloat(this.b233)/100))/1000) * 24).toFixed(2);
+    },
+    b239_0() {
+      return (((parseFloat(this.b9)*(53 * (parseFloat(this.b207) + parseFloat(this.b232))/(parseFloat(this.b233)/100))/1000) * 24)/(parseFloat(this.b237)/100)).toFixed(2);
+    },
+    b240_0() {
+      return ((parseFloat(this.b239_0)-parseFloat(this.b236_0)/parseFloat(this.b238)/24)).toFixed(2);
+    },
+    b241_0() {
+      return (parseFloat(this.b235_0)/(parseFloat(this.b237)/100)/parseFloat(this.b238)*1000).toFixed(2);
+    },
+    b242_0() {
+      return (parseFloat(this.b241_0)*1.2/1000).toFixed(2);
+    },
+    b242() {
+      return this.b242_0;
+    },
+    b246_0() {
+      return (parseFloat(this.b9)*parseFloat(this.b245)/1000).toFixed(2);
+    },
+    b248_0() {
+      return (parseFloat(this.b246_0) * 24).toFixed(2);
+    },
+    b249_0() {
+      return (parseFloat(this.b248_0)/(parseFloat(this.b247)/100)).toFixed(2);
+    },
+    b251_0() {
+      return (parseFloat(this.b249_0)/parseFloat(this.b250)).toFixed(2);
+    },
+    b251() {
+      return this.b251_0;
+    },
+    b252_0() {
+      return (parseFloat(this.b251)/24*1000).toFixed(2);
+    },
+    b253_0() {
+      return (parseFloat(this.b252_0) * 1.2).toFixed(2);
+    },
+    b253() {
+      return this.b253_0;
+    },
+    b257_0() {
+      return (parseFloat(this.b256)/100*parseFloat(this.b25)).toFixed(2);
+    },
+    b263_0() {
+      return (parseFloat(this.b9)*parseFloat(this.b262)*(parseFloat(this.b260_0)-parseFloat(this.b261_0))/1000).toFixed(2);
+    },
+    b264_0() {
+      return this.b179;
+    },
+    b266_0() {
+      return (parseFloat(this.b264_0)*parseFloat(this.b9)*parseFloat(this.b265)/1000).toFixed(2);
+    },
+    b267_0() {
+      return this.b190;
+    },
+    b268_0() {
+      return (parseFloat(this.b267_0) * parseFloat(this.b9) /1000).toFixed(2);
+    },
+    b269_0() {
+      return this.b221;
+    },
+    b270_0() {
+      return (parseFloat(this.b9) * parseFloat(this.b269_0) * (parseFloat(this.b219)/100)/1000 * 200/74).toFixed(2);
+    },
+    b271_0() {
+      return (parseFloat(this.b9) * parseFloat(this.b269_0) * (1-(parseFloat(this.b219))/100)/1000).toFixed(2);
+    },
+    b272_0() {
+      return (parseFloat(this.b270_0) + parseFloat(this.b271_0)).toFixed(2);
+    },
+    b273_0() {
+      return (parseFloat(this.b234)).toFixed(2);
+    },
+    b274_0() {
+      return (parseFloat(this.b9)*parseFloat(this.b273_0)*(parseFloat(this.b233)/100)/1000*100/106).toFixed(2);
+    },
+    b276_0() {
+      return (parseFloat(this.b263_0) + parseFloat(this.b266_0) + parseFloat(this.b268_0)  + parseFloat(this.b272_0) + parseFloat(this.b274_0)).toFixed(2);
+    },
+    b276() {
+      return this.b276_0;
+    },
+    b277_0() {
+      return (parseFloat(this.b276) * 24).toFixed(2);
+    },
+    b277() {
+      return this.b277_0;
+    },
+    b279_0() {
+      return ((1-(parseFloat(this.b278)/1000))*100).toFixed(1);
+    },
+    b280_0() {
+      return (parseFloat(this.b276_0)/(1-(parseFloat(this.b279_0)/100))/1000).toFixed(2);
     },
     b280() {
-      return 107.74;
+      return this.b280_0;
+    },
+    b281_0() {
+      return (parseFloat(this.b280) * 24).toFixed(2);
+    },
+    b281() {
+      return this.b281_0;
+    },
+    b282_0() {
+      return this.b257;
+    },
+    b283_0() {
+      return (parseFloat(this.b280)/parseFloat(this.b11)/parseFloat(this.b282_0) * 60).toFixed(3);
+    },
+    b289() {
+      return (116.5 * 9.8 * 0.000001).toFixed(5);
+    },
+    b290_0() {
+      return (parseFloat(this.b289) * (Math.pow(parseFloat(this.b287),2)) * parseFloat(this.b37_0) /1000).toFixed(2);
+    },
+    b293_0() {
+      return (parseFloat(this.b290_0)/(parseFloat(this.b291)*parseFloat(this.b292))).toFixed(2);
+    },
+    b294_0() {
+      return (2 * parseFloat(this.b42) / Math.sqrt(3.14)).toFixed(2);
+    },
+    b295_0() {
+      return (parseFloat(this.b38) / parseFloat(this.b294_0)).toFixed(2);
+    },
+    b297_0() {
+      return (1/3*parseFloat(this.b294_0)).toFixed(2);
+    },
+    b297() {
+      return (this.ROUND(parseFloat(this.b297_0),2)).toFixed(2);
+    },
+    b299_0() {
+      return (60 * parseFloat(this.b298) / 3.14 / parseFloat(this.b297)).toFixed(2);
+    },
+    b299() {
+      return (this.ROUND(parseFloat(this.b299_0),2)).toFixed(0);
+    },
+    b300_0() {
+      return ((1/3*parseFloat(this.b294_0)) / 2).toFixed(2);
+    },
+    b300() {
+      return this.b300_0;
+    },
+    b304_0() {
+      return (parseFloat(this.b303)*parseFloat(this.b25)/1000);
+    },
+    b304() {
+      return this.b304_0;
+    },
+    b307_0() {
+      return (Math.pow((
+        parseFloat(this.b304_0) * 1000 / (
+          31.61 * Math.pow(parseFloat(this.b306), 3)
+        )
+      ),0.5)).toFixed(2);
+    },
+    b307() {
+      return (this.ROUND(parseFloat(this.b307_0),2)).toFixed(2);
+    },
+    b308_0() {
+      return (60 * parseFloat(this.b305)/3.14/parseFloat(this.b307)).toFixed(2);
+    },
+    b309_0() {
+      return (60 * parseFloat(this.b306)/3.14/parseFloat(this.b307)).toFixed(2);
+    },
+    b310_0() {
+      return (980 * parseFloat(this.b306) * Math.pow(parseFloat(this.b307), 2)).toFixed(2);
+    },
+    b310() {
+      return this.b310_0;
+    },
+    b311_0() {
+      return (1.1 * parseFloat(this.b307)).toFixed(2);
+    },
+    b311() {
+      return (1.1 * parseFloat(this.b307)).toFixed(2);
+    },
+    b314_0() {
+      return (parseFloat(this.b310)/3600).toFixed(2);
+    },
+    b315_0() {
+      return (1.03 * parseFloat(this.b307)).toFixed(2);
+    },
+    b315() {
+      return (this.ROUND(parseFloat(this.b315_0),2)).toFixed(2);
+    },
+    b316_0() {
+      return (4 * (parseFloat(this.b310)/3600) / 
+      (3.14 * (this.ROUND(parseFloat(this.b315_0),2)) *(this.ROUND(parseFloat(this.b315_0),2)))
+      ).toFixed(2);
+    },
+    b318() {
+      return (1.4 * parseFloat(this.b307)).toFixed(2);
+    },
+    b319() {
+      return (1.732 * (parseFloat(this.b318) - parseFloat(this.b315)) / 2).toFixed(2);
+    },
+    b320() {
+      return (0.4 * parseFloat(this.b307)).toFixed(2);
+    },
+    b321() {
+      return (0.3 * parseFloat(this.b307)).toFixed(2);
+    },
+    b322() {
+      return (this.ROUND((
+        parseFloat(this.b71) - parseFloat(this.b70) - parseFloat(this.b320) - parseFloat(this.b321)
+      ), 2)).toFixed(2);
+    },
+    b326_0() {
+      return (Math.sqrt(
+        (parseFloat(this.b199_0) / 2 / parseFloat(this.b11) / 3600 / parseFloat(this.b325)) * 4 / Math.PI
+      ) * 1000).toFixed(2);
+    },
+    b327_0() {
+      return (0.25 * parseFloat(this.b199_0)).toFixed(2);
+    },
+    b330_0() {
+      return (4 * parseFloat(this.b327_0) / 3600 / 3.142 / (
+        Math.pow(parseFloat(this.b329)/1000, 2)
+      ) / parseFloat(this.b328)).toFixed(2);
+    },
+    b331_0() {
+      return (4 * parseFloat(this.b327_0) / 3600 / parseFloat(this.b330) / 3.14 / (
+        Math.pow(parseFloat(this.b329)/1000,2)
+      )).toFixed(2);
+    },
+    b332_0() {
+      return (0.7 * parseFloat(this.b315)).toFixed(2);
+    },
+    b337() {
+      return (parseFloat(this.b335) + parseFloat(this.b336)).toFixed(2);
+    },
+    b338() {
+      return this.b257;
+    },
+    b342_s() {
+      return (parseFloat(this.b338)/3600).toFixed(3);
+    },
+    b342() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b342_3() {
+      return (6.82 * parseFloat(this.b342_1)/(
+        Math.pow(parseFloat(this.b342_0)/1000,1.17)
+      )*(
+        Math.pow(parseFloat(this.b342)/parseFloat(this.b342_2), 1.85)
+      )).toFixed(3);
+    },
+    b343_s() {
+      return this.b342_s;
+    },
+    b343() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b343_3() {
+      return (6.82 * parseFloat(this.b343_1)/(
+        Math.pow(parseFloat(this.b343_0)/1000,1.17)
+      )*(
+        Math.pow(parseFloat(this.b343)/parseFloat(this.b343_2), 1.85)
+      )).toFixed(3);
+    },
+    b344_3() {
+      return (parseFloat(this.b342_3) + parseFloat(this.b343_3)).toFixed(4);
+    },
+    b348_s() {
+      return this.b342_s;
+    },
+    b349_s() {
+      return this.b342_s;
+    },
+    b350_s() {
+      return this.b342_s;
+    },
+    b351_s() {
+      return this.b342_s;
+    },
+    b352_s() {
+      return this.b342_s;
+    },
+    b353_s() {
+      return this.b342_s;
+    },
+    b354_s() {
+      return this.b342_s;
+    },
+    b355_s() {
+      return this.b342_s;
+    },
+    b356_s() {
+      return this.b342_s;
+    },
+    b358_s() {
+      return this.b342_s;
+    },
+    b359_s() {
+      return this.b342_s;
+    },
+    b360_s() {
+      return this.b342_s;
+    },
+    b361_s() {
+      return this.b342_s;
+    },
+    b362_s() {
+      return this.b342_s;
+    },
+    b364_s() {
+      return this.b342_s;
+    },
+    b365_s() {
+      return this.b342_s;
+    },
+    b366_s() {
+      return this.b342_s;
+    },
+    b348_0() {
+      return this.b342_0;
+    },
+    b349_0() {
+      return this.b342_0;
+    },
+    b350_0() {
+      return this.b342_0;
+    },
+    b351_0() {
+      return this.b342_0;
+    },
+    b352_0() {
+      return this.b342_0;
+    },
+    b353_0() {
+      return this.b342_0;
+    },
+    b354_0() {
+      return this.b342_0;
+    },
+    b355_0() {
+      return this.b342_0;
+    },
+    b356_0() {
+      return this.b342_0;
+    },
+    b358_0() {
+      return this.b343_0;
+    },
+    b359_0() {
+      return this.b343_0;
+    },
+    b360_0() {
+      return this.b343_0;
+    },
+    b361_0() {
+      return this.b343_0;
+    },
+    b362_0() {
+      return this.b343_0;
+    },
+    b364_0() {
+      return this.b343_0;
+    },
+    b365_0() {
+      return this.b343_0;
+    },
+    b366_0() {
+      return this.b343_0;
+    },
+    b348() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b349() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b350() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b351() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b352() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b353() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b354() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b355() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b356() {
+      return (4*parseFloat(this.b342_s)/(
+        3.14 * Math.pow(parseFloat(this.b342_0)/1000,2)
+      )).toFixed(2);
+    },
+    b358() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b359() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b360() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b361() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b362() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b364() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b365() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b366() {
+      return (4* (parseFloat(this.b338)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b343_0)/1000,2)
+      )).toFixed(2);
+    },
+    b348_3() {
+      return (parseFloat(this.b348_2) * parseFloat(this.b348_1) * (
+        Math.pow(parseFloat(this.b348),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b349_3() {
+      return (parseFloat(this.b349_2) * parseFloat(this.b349_1) * (
+        Math.pow(parseFloat(this.b349),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b350_3() {
+      return (parseFloat(this.b350_2) * parseFloat(this.b350_1) * (
+        Math.pow(parseFloat(this.b350),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b351_3() {
+      return (parseFloat(this.b351_2) * parseFloat(this.b351_1) * (
+        Math.pow(parseFloat(this.b351),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b352_3() {
+      return (parseFloat(this.b352_2) * parseFloat(this.b352_1) * (
+        Math.pow(parseFloat(this.b352),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b353_3() {
+      return (parseFloat(this.b353_2) * parseFloat(this.b353_1) * (
+        Math.pow(parseFloat(this.b353),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b354_3() {
+      return (parseFloat(this.b354_2) * parseFloat(this.b354_1) * (
+        Math.pow(parseFloat(this.b354),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b355_3() {
+      return (parseFloat(this.b355_2) * parseFloat(this.b355_1) * (
+        Math.pow(parseFloat(this.b355),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b356_3() {
+      return (parseFloat(this.b356_2) * parseFloat(this.b356_1) * (
+        Math.pow(parseFloat(this.b356),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b358_3() {
+      return (parseFloat(this.b358_2) * parseFloat(this.b358_1) * (
+        Math.pow(parseFloat(this.b358),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b359_3() {
+      return (parseFloat(this.b359_2) * parseFloat(this.b359_1) * (
+        Math.pow(parseFloat(this.b359),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b360_3() {
+      return (parseFloat(this.b360_2) * parseFloat(this.b360_1) * (
+        Math.pow(parseFloat(this.b360),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b361_3() {
+      return (parseFloat(this.b361_2) * parseFloat(this.b361_1) * (
+        Math.pow(parseFloat(this.b361),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b362_3() {
+      return (parseFloat(this.b362_2) * parseFloat(this.b362_1) * (
+        Math.pow(parseFloat(this.b362),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b364_3() {
+      return (parseFloat(this.b364_2) * parseFloat(this.b364_1) * (
+        Math.pow(parseFloat(this.b364),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b365_3() {
+      return (parseFloat(this.b365_2) * parseFloat(this.b365_1) * (
+        Math.pow(parseFloat(this.b365),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b366_3() {
+      return (parseFloat(this.b366_2) * parseFloat(this.b366_1) * (
+        Math.pow(parseFloat(this.b366),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b367_3() {
+      return (parseFloat(this.b348_3) + 
+      parseFloat(this.b349_3) + 
+      parseFloat(this.b350_3) + 
+      parseFloat(this.b351_3) + 
+      parseFloat(this.b352_3) + 
+      parseFloat(this.b353_3) + 
+      parseFloat(this.b354_3) + 
+      parseFloat(this.b355_3) + 
+      parseFloat(this.b356_3) + 
+      parseFloat(this.b358_3) + 
+      parseFloat(this.b359_3) + 
+      parseFloat(this.b360_3) + 
+      parseFloat(this.b361_3) + 
+      parseFloat(this.b362_3) + 
+      parseFloat(this.b364_3) + 
+      parseFloat(this.b365_3) + 
+      parseFloat(this.b366_3)
+      ).toFixed(3);
+    },
+    b368_3() {
+      return ((parseFloat(this.b367_3) + parseFloat(this.b344_3)) * 1.3).toFixed(3);
+    },
+    b370_3() {
+      return (parseFloat(this.b370) - parseFloat(this.b370_1)).toFixed(1);
+    },
+    b372_3() {
+      return (parseFloat(this.b368_3) + parseFloat(this.b370_3) + parseFloat(this.b371_3)).toFixed(3);
+    },
+    b379() {
+      return this.b338;
+    },
+    b383_s() {
+      return (parseFloat(this.b379)/3600).toFixed(3);
+    },
+    b383() {
+      return (4*parseFloat(this.b383_s)/(
+        3.14 * Math.pow(parseFloat(this.b383_0)/1000,2)
+      )).toFixed(2);
+    },
+    b383_3() {
+      return (6.82 * parseFloat(this.b383_1)/(
+        Math.pow(parseFloat(this.b383_0)/1000,1.17)
+      )*(
+        Math.pow(parseFloat(this.b383)/parseFloat(this.b383_2), 1.85)
+      )).toFixed(3);
+    },
+    b384_s() {
+      return this.b383_s;
+    },
+    b384() {
+      return (4* (parseFloat(this.b379)/3600) /(
+        3.14 * Math.pow(parseFloat(this.b384_0)/1000,2)
+      )).toFixed(2);
+    },
+    b384_3() {
+      return (6.82 * parseFloat(this.b384_1)/(
+        Math.pow(parseFloat(this.b384_0)/1000,1.17)
+      )*(
+        Math.pow(parseFloat(this.b384)/parseFloat(this.b384_2), 1.85)
+      )).toFixed(3);
+    },
+    b385_3() {
+      return (parseFloat(this.b383_3) + parseFloat(this.b384_3)).toFixed(3);
+    },
+    b389_0() {
+      return this.b383_0;
+    },
+    b390_0() {
+      return this.b383_0;
+    },
+    b391_0() {
+      return this.b383_0;
+    },
+    b392_0() {
+      return this.b383_0;
+    },
+    b393_0() {
+      return this.b383_0;
+    },
+    b394_0() {
+      return this.b383_0;
+    },
+    b395_0() {
+      return this.b383_0;
+    },
+    b396_0() {
+      return this.b383_0;
+    },
+    b398_0() {
+      return this.b384_0;
+    },
+    b399_0() {
+      return this.b384_0;
+    },
+    b400_0() {
+      return this.b384_0;
+    },
+    b401_0() {
+      return this.b384_0;
+    },
+    b402_0() {
+      return this.b384_0;
+    },
+    b403_0() {
+      return this.b384_0;
+    },
+    b404_0() {
+      return this.b384_0;
+    },
+    b389_s() {
+      return this.b383_s;
+    },
+    b390_s() {
+      return this.b383_s;
+    },
+    b391_s() {
+      return this.b383_s;
+    },
+    b392_s() {
+      return this.b383_s;
+    },
+    b393_s() {
+      return this.b383_s;
+    },
+    b394_s() {
+      return this.b383_s;
+    },
+    b395_s() {
+      return this.b383_s;
+    },
+    b396_s() {
+      return this.b383_s;
+    },
+    b398_s() {
+      return this.b383_s;
+    },
+    b399_s() {
+      return this.b383_s;
+    },
+    b400_s() {
+      return this.b383_s;
+    },
+    b401_s() {
+      return this.b383_s;
+    },
+    b402_s() {
+      return this.b383_s;
+    },
+    b403_s() {
+      return this.b383_s;
+    },
+    b404_s() {
+      return this.b383_s;
+    },
+    b389() {
+      return this.b383;
+    },
+    b390() {
+      return this.b383;
+    },
+    b391() {
+      return this.b383;
+    },
+    b392() {
+      return this.b383;
+    },
+    b393() {
+      return this.b383;
+    },
+    b394() {
+      return this.b383;
+    },
+    b395() {
+      return this.b383;
+    },
+    b396() {
+      return this.b383;
+    },
+    b398() {
+      return this.b384;
+    },
+    b399() {
+      return this.b384;
+    },
+    b400() {
+      return this.b384;
+    },
+    b401() {
+      return this.b383;
+    },
+    b402() {
+      return this.b384;
+    },
+    b403() {
+      return this.b384;
+    },
+    b404() {
+      return this.b384;
+    },
+    b389_3() {
+      return (parseFloat(this.b389_2) * parseFloat(this.b389_1) * (
+        Math.pow(parseFloat(this.b389),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b390_3() {
+      return (parseFloat(this.b390_2) * parseFloat(this.b390_1) * (
+        Math.pow(parseFloat(this.b390),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b391_3() {
+      return (parseFloat(this.b391_2) * parseFloat(this.b391_1) * (
+        Math.pow(parseFloat(this.b391),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b392_3() {
+      return (parseFloat(this.b392_2) * parseFloat(this.b392_1) * (
+        Math.pow(parseFloat(this.b392),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b393_3() {
+      return (parseFloat(this.b393_2) * parseFloat(this.b393_1) * (
+        Math.pow(parseFloat(this.b393),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b394_3() {
+      return (parseFloat(this.b394_2) * parseFloat(this.b394_1) * (
+        Math.pow(parseFloat(this.b394),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b395_3() {
+      return (parseFloat(this.b395_2) * parseFloat(this.b395_1) * (
+        Math.pow(parseFloat(this.b395),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b396_3() {
+      return (parseFloat(this.b396_2) * parseFloat(this.b396_1) * (
+        Math.pow(parseFloat(this.b396),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b398_3() {
+      return (parseFloat(this.b398_2) * parseFloat(this.b398_1) * (
+        Math.pow(parseFloat(this.b398),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b399_3() {
+      return (parseFloat(this.b399_2) * parseFloat(this.b399_1) * (
+        Math.pow(parseFloat(this.b399),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b400_3() {
+      return (parseFloat(this.b400_2) * parseFloat(this.b400_1) * (
+        Math.pow(parseFloat(this.b400),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b401_3() {
+      return (parseFloat(this.b401_2) * parseFloat(this.b401_1) * (
+        Math.pow(parseFloat(this.b401),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b402_3() {
+      return (parseFloat(this.b402_2) * parseFloat(this.b402_1) * (
+        Math.pow(parseFloat(this.b402),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b403_3() {
+      return (parseFloat(this.b403_2) * parseFloat(this.b403_1) * (
+        Math.pow(parseFloat(this.b403),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b404_3() {
+      return (parseFloat(this.b404_2) * parseFloat(this.b404_1) * (
+        Math.pow(parseFloat(this.b404),2)
+      ) / (2*9.81)).toFixed(3);
+    },
+    b405_3() {
+      return (parseFloat(this.b389_3) + 
+      parseFloat(this.b390_3) + 
+      parseFloat(this.b391_3) + 
+      parseFloat(this.b392_3) + 
+      parseFloat(this.b393_3) + 
+      parseFloat(this.b394_3) + 
+      parseFloat(this.b395_3) + 
+      parseFloat(this.b396_3) + 
+      parseFloat(this.b398_3) + 
+      parseFloat(this.b399_3) + 
+      parseFloat(this.b400_3) + 
+      parseFloat(this.b401_3) + 
+      parseFloat(this.b402_3) + 
+      parseFloat(this.b403_3) + 
+      parseFloat(this.b404_3)
+      ).toFixed(3);
+    },
+    b406_3() {
+      return ((parseFloat(this.b405_3) + parseFloat(this.b385_3)) * 1.3).toFixed(3);
+    },
+    b408_3() {
+      return (parseFloat(this.b408) - parseFloat(this.b408_0)).toFixed(2);
+    },
+    b410_3() {
+      return (parseFloat(this.b406_3) + parseFloat(this.b408_3) + parseFloat(this.b409_3)).toFixed(3);
     },
   },
   watch() {
