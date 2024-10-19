@@ -288,7 +288,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -411,17 +411,6 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [
-          this.flattenFirstRowColumns(this.columns1),
-          this.flattenSecondRowColumns(this.columns1),
-        ];
-        // 初始化 allData
-        const allData1 = [
-          ...headerData1,
-          ...this.data1.map((item) => Object.values(item)),
-        ];
-
-        // 处理表头信息
         const headerData2 = [
           this.flattenFirstRowColumns(this.columns2),
           this.flattenSecondRowColumns(this.columns2),
@@ -432,19 +421,8 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
-        ];
-        // 初始化 allData
-        const allData3 = [
-          ...headerData3,
-          ...this.data3.map((item) => Object.values(item)),
-        ];
-
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "活性炭粉末工程量", this);
+        exportExcel(allData2, "活性炭粉末工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -511,6 +489,23 @@ export default {
           parseFloat(this.b8)) /
         1000
       ).toFixed(2);
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "投加系统",
+        Dimensions: "粉末活性炭干式投加系统",
+        规格及型号: this.getkey1(),
+        单位: "套",
+        disinfectiontank: "1",
+        运行时间: "",
+        主要材质: "",
+        备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+      },
+    ];
     },
   },
   watch() {
