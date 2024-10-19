@@ -1110,7 +1110,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -1409,20 +1409,8 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-
-        // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
-        ];
-        // 初始化 allData
-        const allData3 = [
-          ...headerData3,
-          ...this.data3.map((item) => Object.values(item)),
-        ];
-
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "折板絮凝池工程量", this);
+        exportExcel2(allData1, allData2, "折板絮凝池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1520,6 +1508,30 @@ export default {
     },
     getKey123_4() {
       return this.b123_4;
+    },
+    getkey1() {
+      return (parseFloat(this.b22)+parseFloat(this.b72)+parseFloat(this.b105))+"×"+parseFloat(this.b9)+"×5m"
+    },
+    getkey2() {
+      return "折板长度="+this.b19+"m，折板宽度="+this.b13+"mm，折板夹角="+this.b14+"°，折板厚度="+this.b15+"mm，缩放数=" + this.b20
+    },
+    getkey3() {
+      return parseFloat(this.b17) * parseFloat(this.b18);
+    },
+    getkey4() {
+      return "折板长度="+this.b71+"m，折板宽度="+this.b65+"mm，折板夹角="+this.b66+"°，折板厚度="+this.b67+"mm，转弯数="+this.b68
+    },
+    getkey5() {
+      return parseFloat(this.b63) * parseFloat(this.b64);
+    },
+    getkey6() {
+      return "折板长度=m，折板宽度="+this.b15+"m，直板厚度="+this.b100+"mm"
+    },
+    getkey7() {
+      return parseFloat(this.b98) * parseFloat(this.b99);
+    },
+    getkey8() {
+      return parseFloat(this.b17)*parseFloat(this.b18)+parseFloat(this.b63)*parseFloat(this.b64)+parseFloat(this.b98)*parseFloat(this.b99)
     },
   },
   computed: {
@@ -1905,6 +1917,79 @@ export default {
         10000
       ).toFixed(4);
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "折板絮凝池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: "1",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "异波折板",
+        设备类型: "单通道折板",
+        规格及型号: this.getkey2(),
+        单位: "组",
+        数量: this.getkey3(),
+        运行时间: "",
+        主要材质: "SS304",
+        备注: "",
+      },
+      {
+        key: "2",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "同波折板",
+        设备类型: "单通道折板",
+        规格及型号: this.getkey4(),
+        单位: "组",
+        数量: this.getkey5(),
+        运行时间: "",
+        主要材质: "SS304",
+        备注: "",
+      },
+      {
+        key: "3",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "直板",
+        设备类型: "单通道折板",
+        规格及型号: this.getkey6(),
+        单位: "组",
+        数量: this.getkey7(),
+        运行时间: "",
+        主要材质: "SS304",
+        备注: "",
+      },
+      {
+        key: "4",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "絮凝池排泥阀",
+        设备类型: "单通道折板",
+        规格及型号: "DN150，PN10，开关型",
+        单位: "个",
+        数量: this.getkey8(),
+        运行时间: "",
+        主要材质: "阀体：球墨铸铁，阀板：球墨铸铁衬尼龙覆层，密封：EPDM",
+        备注: "带配套电动执行机构",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1923,7 +2008,7 @@ export default {
         序号: "",
         单体位号: "",
         名称: "折板絮凝池",
-        Dimensions: "15×10×5m",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
         disinfectiontank: "1",
@@ -1939,10 +2024,9 @@ export default {
         设备位号: "",
         设备工艺名称: "异波折板",
         设备类型: "单通道折板",
-        规格及型号:
-          "折板长度=1.5m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，缩放数=5",
+        规格及型号: this.getkey2(),
         单位: "组",
-        数量: "9",
+        数量: this.getkey3(),
         运行时间: "",
         主要材质: "SS304",
         备注: "",
@@ -1953,10 +2037,9 @@ export default {
         设备位号: "",
         设备工艺名称: "同波折板",
         设备类型: "单通道折板",
-        规格及型号:
-          "折板长度=2.4m，折板宽度=500mm，折板夹角=90°，折板厚度=3mm，转弯数=9",
+        规格及型号: this.getkey4(),
         单位: "组",
-        数量: "6",
+        数量: this.getkey5(),
         运行时间: "",
         主要材质: "SS304",
         备注: "",
@@ -1967,9 +2050,9 @@ export default {
         设备位号: "",
         设备工艺名称: "直板",
         设备类型: "单通道折板",
-        规格及型号: "折板长度=m，折板宽度=3m，直板厚度=3mm",
+        规格及型号: this.getkey6(),
         单位: "组",
-        数量: "9",
+        数量: this.getkey7(),
         运行时间: "",
         主要材质: "SS304",
         备注: "",
@@ -1982,12 +2065,13 @@ export default {
         设备类型: "单通道折板",
         规格及型号: "DN150，PN10，开关型",
         单位: "个",
-        数量: "24",
+        数量: this.getkey8(),
         运行时间: "",
         主要材质: "阀体：球墨铸铁，阀板：球墨铸铁衬尼龙覆层，密封：EPDM",
         备注: "带配套电动执行机构",
       },
     ];
+    this.data3 = [],
     this.tableData = [
       {
         key: "1",
