@@ -849,7 +849,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -870,7 +870,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -927,7 +927,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -948,7 +948,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1005,7 +1005,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -1026,7 +1026,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1164,6 +1164,24 @@ export default {
     getDimensions() {
       return "to do";
     },
+    get_a_1() {
+      return this.b21+"m×"+this.b22_1+"m×"+(parseFloat(this.b18)+parseFloat(this.b19))+"m";
+    },
+    get_a_2() {
+      return 1;
+    },
+    get_b_1() {
+      return "鼓气量>"+this.b41+"m3/h";
+    },
+    get_b_2() {
+      return this.b40;
+    },
+    get_c_1() {
+      return "臭氧产气量"+this.b10_1+"kg/h，工作压力>"+this.b49+"m";
+    },
+    get_c_2() {
+      return (parseFloat(this.b9) + parseFloat(this.b9_1))
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -1252,6 +1270,50 @@ export default {
         parseFloat(this.b48)
       ).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "臭氧接触池",
+        尺寸: this.get_a_1(),
+        标高: "",
+        单位: "座",
+        数量: this.get_a_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "微孔扩散板",
+        设备类型: this.get_b_1(),
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "臭氧发生器",
+        设备类型: this.get_c_1(),
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_c_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "一用一备，配套尾气破坏器",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1266,14 +1328,13 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        单体位号: "",
+        名称: "臭氧接触池",
+        尺寸: this.get_a_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
+        数量: this.get_a_2(),
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -1281,45 +1342,31 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        设备位号: "",
+        设备工艺名称: "微孔扩散板",
+        设备类型: this.get_b_1(),
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_2(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "臭氧发生器",
+        设备类型: this.get_c_1(),
         规格及型号: "",
         单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
+        数量: this.get_c_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "一用一备，配套尾气破坏器",
       },
     ];
+    this.data3 = [];
   },
 };
 </script>
