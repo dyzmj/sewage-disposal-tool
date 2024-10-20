@@ -14045,7 +14045,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, getValueFromLocalStorage } from "@/utils/exportUtil";
+import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -14630,7 +14630,13 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b9,
+        key2: "1",
+        key3: "16",
+        key4: "10",
+      };
+      exportWord("高密度沉淀池计算书", "3003.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
