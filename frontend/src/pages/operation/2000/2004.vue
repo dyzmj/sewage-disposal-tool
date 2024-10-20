@@ -1258,7 +1258,7 @@ export default {
       ).toFixed(2);
     },
     b37_1() {
-      if(parseFloat(this.b37) <= 5.5) {
+      if(parseFloat(this.b37)/2 <= 5.5) {
         return 5.5;
       }else if(parseFloat(this.b37)/2 <= 8) {
         return 8;

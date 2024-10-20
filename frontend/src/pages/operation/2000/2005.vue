@@ -569,6 +569,11 @@
                     :disabled="true"
                     :suffix="$t('b37_u')"
                   />
+                  <a-input
+                    v-model="b37_1"
+                    style="width: 100%"
+                    :disabled="true"
+                  />
                 </a-input-group>
               </a-form-item>
             </a-form>
@@ -1006,7 +1011,7 @@ export default {
           allData1,
           allData2,
           allData3,
-          "生物接触氧化池计算书",
+          "加药系统PAM计算书",
           this
         );
       } catch (error) {
@@ -1047,6 +1052,53 @@ export default {
     },
     getDimensions() {
       return "to do";
+    },
+    getkey1() {
+      return "φ"+this.b15+"mm×"+this.b15_1+"mm";
+    },
+    getkey2() {
+      return this.b15_2;
+    },
+    getkey3() {
+      return this.b32;
+    },
+    getkey4() {
+      return this.b15_2;
+    },
+    getkey5() {
+      if (parseFloat(this.b37_1) == 5.5) {
+        return "MS1A064A";
+      }else if (parseFloat(this.b37_1) == 8) {
+        return "MS1A064B";
+      }else if (parseFloat(this.b37_1) == 11) {
+        return "MS1A064C";
+      }else if (parseFloat(this.b37_1) == 20) {
+        return "MS1A094A";
+      }else if (parseFloat(this.b37_1) == 26) {
+        return "MS1A094B";
+      }else if (parseFloat(this.b37_1) == 40) {
+        return "MS1A094C";
+      }else if (parseFloat(this.b37_1) == 60) {
+        return "MS1B108A";
+      }else if (parseFloat(this.b37_1) == 80) {
+        return "MS1B108B";
+      }else if (parseFloat(this.b37_1) == 120) {
+        return "MS1B108C";
+      }else if (parseFloat(this.b37_1) == 155) {
+        return "MS1C138A";
+      }else if (parseFloat(this.b37_1) == 230) {
+        return "MS1C165A";
+      }else if (parseFloat(this.b37_1) == 310) {
+        return "MS1C138C";
+      }else if (parseFloat(this.b37_1) == 330) {
+        return "MS1C165B";
+      }else if (parseFloat(this.b37_1) == 460) {
+        return "MS1C165C";
+      }else if (parseFloat(this.b37_1) == 530) {
+        return "MS1C165C";
+      }else {
+        return "MS1C138B";
+      }
     },
   },
   computed: {
@@ -1128,6 +1180,169 @@ export default {
         1000
       ).toFixed(2);
     },
+    b37_1() {
+      if(parseFloat(this.b37) <= 5.5) {
+        return 5.5;
+      }else if(parseFloat(this.b37) <= 8) {
+        return 8;
+      }else if(parseFloat(this.b37) <= 11) {
+        return 11;
+      }else if(parseFloat(this.b37) <= 20) {
+        return 20;
+      }else if(parseFloat(this.b37) <= 26) {
+        return 26;
+      }else if(parseFloat(this.b37)/2 <= 40) {
+        return 40;
+      }else if(parseFloat(this.b37)/2 <= 60) {
+        return 60;
+      }else if(parseFloat(this.b37)/2 <= 80) {
+        return 80;
+      }else if(parseFloat(this.b37)/2 <= 120) {
+        return 120;
+      }else if(parseFloat(this.b37)/2 <= 155) {
+        return 155;
+      }else if(parseFloat(this.b37)/2 <= 230) {
+        return 230;
+      }else if(parseFloat(this.b37)/2 <= 310) {
+        return 310;
+      }else if(parseFloat(this.b37)/2 <= 330) {
+        return 330;
+      }else if(parseFloat(this.b37)/2 <= 460) {
+        return 460;
+      }else if(parseFloat(this.b37)/2 <= 530) {
+        return 530;
+      }else {
+        return 550;
+      }
+    },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "溶液池",
+        尺寸: this.getkey1(),
+        标高: "",
+        单位: "个",
+        数量: this.getkey2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "搅拌机",
+        设备类型: "折浆式搅拌机",
+        规格及型号: this.getkey3(),
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.getkey5(),
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },{
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        仪表位号: "",
+        仪表名称: "压力表",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.getkey4(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        key: "1",
+        序号: "",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.getkey4(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1146,23 +1361,10 @@ export default {
         序号: "",
         单体位号: "",
         名称: "溶液池",
-        尺寸: "φ970mm×1230mm",
+        尺寸: this.getkey1(),
         标高: "",
         单位: "个",
-        数量: "2",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-      {
-        key: "2",
-        序号: "",
-        单体位号: "",
-        名称: "溶液池",
-        尺寸: "",
-        标高: "",
-        单位: "个",
-        数量: "1",
+        数量: this.getkey2(),
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -1175,74 +1377,73 @@ export default {
         设备位号: "",
         设备工艺名称: "搅拌机",
         设备类型: "折浆式搅拌机",
-        规格及型号: "JBJ1-600",
+        规格及型号: this.getkey3(),
         单位: "台",
-        数量: "3",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "2",
+        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "计量泵",
         设备类型: "机械隔膜计量泵",
-        规格及型号: "MS1B108A",
+        规格及型号: this.getkey5(),
         单位: "台",
-        数量: "3",
+        数量: this.getkey4(),
         运行时间: "",
-        主要材质: "PC泵头",
-        备注: "二用一备",
-      },
-      {
-        key: "3",
+        主要材质: "",
+        备注: "",
+      },{
+        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "液压阀",
         设备类型: "",
         规格及型号: "",
-        单位: "个",
-        数量: "3",
+        单位: "台",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "4",
+        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "背压阀",
         设备类型: "",
         规格及型号: "",
-        单位: "个",
-        数量: "3",
+        单位: "台",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "5",
+        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "脉冲阻尼器",
         设备类型: "",
         规格及型号: "",
-        单位: "个",
-        数量: "3",
+        单位: "台",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "6",
+        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "Y型过滤器",
         设备类型: "",
         规格及型号: "",
-        单位: "个",
-        数量: "3",
+        单位: "台",
+        数量: this.getkey4(),
         运行时间: "",
         主要材质: "",
         备注: "",
@@ -1257,20 +1458,20 @@ export default {
         安装位置: "",
         规格及型号: "",
         单位: "个",
-        数量: "3",
+        数量: this.getkey4(),
         a: "",
         b: "",
         备注: "",
       },
       {
-        key: "2",
+        key: "1",
         序号: "",
         仪表位号: "",
         仪表名称: "流量计",
         安装位置: "",
         规格及型号: "",
         单位: "个",
-        数量: "3",
+        数量: this.getkey4(),
         a: "",
         b: "",
         备注: "",
