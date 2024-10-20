@@ -1322,20 +1322,6 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
           <a-card
             :title="$t('export')"
             :headStyle="{ 'font-weight': 'bolder' }"
@@ -1377,7 +1363,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -1533,7 +1519,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -1554,7 +1540,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1569,84 +1555,6 @@ export default {
             {
               title: "主要材质",
               dataIndex: "主要材质",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
-      columns3: [
-        {
-          title: "仪表选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "仪表位号",
-              dataIndex: "仪表位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "安装位置",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
               key: "9",
               width: "50px",
               align: "center",
@@ -1710,19 +1618,8 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        // 处理表头信息
-        const headerData3 = [
-          this.flattenFirstRowColumns(this.columns3),
-          this.flattenSecondRowColumns(this.columns3),
-        ];
-        // 初始化 allData
-        const allData3 = [
-          ...headerData3,
-          ...this.data3.map((item) => Object.values(item)),
-        ];
-
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "平流沉淀池工程量", this);
+        exportExcel2(allData1, allData2, "平流沉淀池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1769,6 +1666,18 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    getkey1() {
+      return this.b15+"×"+(2*parseFloat(this.b20_1))+"×"+this.b69+"m";
+    },
+    getkey2() {
+      return "池深"+(parseFloat(this.b69) - parseFloat(this.b62))+"m，池长"+this.b15+"m，N=0.75kW，池宽2*"+this.b20_1+"m，轨距"+(parseFloat(this.b20_1)*2 + 0.3)+"m";
+    }, 
+    getkey3() {
+      return "L×B×H="+this.b74+"×"+this.b73+"×"+this.b81_1 +"mm，δ=3mm";
+    },
+    getkey4() {
+      return (parseFloat(this.b75) * parseFloat(this.b7));
     },
   },
   computed: {
@@ -1931,6 +1840,53 @@ export default {
         0.7 * parseFloat(this.b20_1) * parseFloat(this.b15) * Math.pow(parseFloat(this.b9), 0.5) / 3600 / parseFloat(this.b103)
       ),(1/2))).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        单体位号: "",
+        名称: "平流沉淀池",
+        Dimensions: this.getkey1(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: "1",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "桁车式刮泥机",
+        设备类型: "刮泥机",
+        规格及型号: this.getkey2(),
+        单位: "台",
+        数量: "1",
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "本机含主梁、轨道、驱动装置、机架、刮板、撇渣装置，配套控制箱",
+      },
+      {
+        key: "1",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "集水槽",
+        设备类型: "集水槽",
+        规格及型号: this.getkey3(),
+        单位: "套",
+        数量: this.getkey4(),
+        运行时间: "",
+        主要材质: "SS304",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1946,56 +1902,43 @@ export default {
     this.data1 = [
       {
         key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        序号: "",
+        单体位号: "",
+        名称: "平流沉淀池",
+        Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
         disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
       },
     ];
     this.data2 = [
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "桁车式刮泥机",
+        设备类型: "刮泥机",
+        规格及型号: this.getkey2(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        数量: "1",
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "本机含主梁、轨道、驱动装置、机架、刮板、撇渣装置，配套控制箱",
       },
       {
         key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "集水槽",
+        设备类型: "集水槽",
+        规格及型号: this.getkey3(),
+        单位: "套",
+        数量: this.getkey4(),
         运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
+        主要材质: "SS304",
         备注: "",
       },
     ];
