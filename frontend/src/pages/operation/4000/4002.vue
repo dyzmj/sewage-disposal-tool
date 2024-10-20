@@ -3148,7 +3148,177 @@
                 </p>
               </a-form>
             </a-card>
+            <a-card
+              title="计算值"
+              style="margin-bottom: 24px"
+              :bordered="false"
+              :body-style="{ padding: 4 }"
+              :headStyle="{ 'font-weight': 'bolder' }"
+              size="small"
+            >
+            <a-form>
+              <a-form-item
+                  label=" "
+                  :colon="false"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 4 }"
+                  :wrapperCol="{ span: 20 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="b222"
+                      style="width: 33%;"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('b222_u')"
+                    />
+                    <a-input
+                      v-model="b223"
+                      style="width: 33%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('b223_u')"
+                    />
+                    <a-input
+                      v-model="b224"
+                      style="width: 34%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('b224_u')"
+                    />
+                    <a-input
+                      v-model="b223_1"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                    />
+                  </a-input-group>
+                </a-form-item>
+            </a-form>
+            </a-card>
           </a-card>
+          <a-card
+            :title="$t('c0')"
+              style="margin-bottom: 24px"
+              :bordered="false"
+              :body-style="{ padding: 4 }"
+              :headStyle="{ 'font-weight': 'bolder' }"
+              size="small"
+            >
+            <a-form>
+              <a-form-item
+                  :label="$t('c2')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c2"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('c2_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c3')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c3"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('c3_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c4')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c4"
+                      style="width: 100%"
+                      :disabled="false"
+                      rows="12"
+                      :suffix="$t('c4_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c4_1')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c4_1"
+                      style="width: 100%"
+                      :disabled="false"
+                      rows="12"
+                      :suffix="$t('c4_1_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c8')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c8"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c9')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c9"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('c9_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+              <a-form-item
+                  :label="$t('c10')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 8 }"
+                  :wrapperCol="{ span: 16 }"
+                >
+                  <a-input-group compact>
+                    <a-input
+                      v-model="c10"
+                      style="width: 100%"
+                      :disabled="true"
+                      rows="12"
+                      :suffix="$t('c10_u')"
+                    />
+                  </a-input-group>
+              </a-form-item>
+            </a-form>
+            </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -3341,6 +3511,8 @@ export default {
       b201: "0.3",
       b211: "2",
       b212: "10",
+      c4: "1",
+      c4_1: "1",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -3690,6 +3862,42 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    quickSort(arr, left, right) {
+  let index
+  index = this.partition(arr, left, right)
+  if(left < index-1) {
+    this.quickSort(arr, left, index-1)
+  }
+  if(index < right) {
+    this.quickSort(arr, index, right)
+  }
+  return arr
+    },
+    partition(arr, left, right) {
+  let point = arr[Math.floor((left + right) / 2)]
+  let i = left, j = right
+  while(i <= j) {
+    while(arr[i] > point) {
+      i++
+    }
+    while(arr[j] < point) {
+      j--
+    }
+    if(i <= j) {
+      let temp = arr[i]
+      arr[i] = arr[j]
+      arr[j] = temp
+      i++
+      j--
+    }
+  }
+  return i
+    },
+    findKthLargest(nums, k) {
+      nums = this.quickSort(nums, 0, nums.length-1);
+      console.log(nums[k-1]);
+      return nums[k-1];
     },
   },
   computed: {
@@ -4185,6 +4393,290 @@ export default {
     },
     b214() {
       return (5.4 + 2).toFixed(2);
+    },
+    b222() {
+      return ((parseFloat(this.b23)*parseFloat(this.b21) + 0.2*2 + 0.64) * parseFloat(this.b20) + 0.3).toFixed(2);
+    },
+    b223() {
+      return (parseFloat(this.b24) + 0.3*3 + parseFloat(this.b199) + 2.8).toFixed(1);
+    },
+    b224() {
+      return (parseFloat(this.b38)).toFixed(1);
+    },
+    b223_1() {
+      return parseFloat(this.b222).toString() + "m * " + parseFloat(this.b223).toString() + "m * " + parseFloat(this.b224).toString();
+    },
+    c2() {
+      return this.b183;
+    },
+    c3() {
+      return this.b184;
+    },
+    c9() {
+      var cal1 = (parseFloat(this.c3)/parseFloat(this.c4));
+      var cal2 = 0;
+      if(cal1 < 0.78){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 0.94){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.09){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.2){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.3){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.43){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.53){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.67){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.81){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.01){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.07){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.32){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.56){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.74){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1.9){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.12){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.32){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.48){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.71){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.09){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.48){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.76){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2.97){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.16){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.46){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.77){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.05){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.3){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.58){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.82){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.48){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3.9){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.32){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 4.74){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 5.58){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 5.99){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 6.73){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 7.23){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 7.77){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8.28){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 5.55){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 6.03){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 7){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 7.82){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8.37){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8.77){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 9.33){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 10.01){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 10.83){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 10.65){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11.54){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 13.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 15.95){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 17.17){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 18.23){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 21.05){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 23.04){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 24.48){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26.08){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 19.35){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 22.98){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 24.98){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26.37){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 30.54){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 33.55){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 35.84){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 38.38){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 28.22){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 32.34){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 36.03){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40.15){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 43.78){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 47.08){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 50.4){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 53.68){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 57.37){
+        cal2 = cal2 +1;
+      }
+      var array = [0.78,0.94,1.09,1.2,1.3,1.43,1.53,1.67,1.81,2.01,1.07,1.32,1.56,
+      1.74,1.9,2.12,2.32,2.48,2.71,3.09,2.48,2.76,2.97,3.16,3.46,3.77,4.05,4.3,4.58,
+      4.82,3.48,3.9,4.32,4.74,5.58,5.99,6.73,7.23,7.77,8.28,5.55,6.03,7,7.82,8.37,8.77,
+      9.33,10.01,10.83,11.5,10.65,11.54,13.5,15.95,17.17,18.23,21.05,23.04,24.48,26.08,
+      19.35,22.98,24.98,26.37,30.54,33.55,35.84,38.38,28.22,32.34,36.03,40.15,43.78,47.08,
+      50.4,53.68,57.37];
+
+      return this.findKthLargest(array, cal2);
+    },
+    c10() {
+      var array1 = [0.78,0.94,1.09,1.2,1.3,1.43,1.53,1.67,1.81,2.01,1.07,1.32,1.56,
+      1.74,1.9,2.12,2.32,2.48,2.71,3.09,2.48,2.76,2.97,3.16,3.46,3.77,4.05,4.3,4.58,
+      4.82,3.48,3.9,4.32,4.74,5.58,5.99,6.73,7.23,7.77,8.28,5.55,6.03,7,7.82,8.37,8.77,
+      9.33,10.01,10.83,11.5,10.65,11.54,13.5,15.95,17.17,18.23,21.05,23.04,24.48,26.08,
+      19.35,22.98,24.98,26.37,30.54,33.55,35.84,38.38,28.22,32.34,36.03,40.15,43.78,47.08,
+      50.4,53.68,57.37];
+
+      var array2 = [1.5,2.2,2.2,2.2,2.2,3,3,3,3,4,2.2,3,3,3,4,4,4,4,4,5.5,4,4,5.5,5.5,5.5,5.5,5.5,7.5,7.5,7.5,5.5,7.5,7.5,7.5,11,11,11,11,11,15,7.5,11,11,11,11,15,15,15,15,18.5,15,18.5,18.5,22,30,30,30,30,37,37,30,30,37,37,45,45,55,55,37,45,45,55,55,75,75,75,75];
+      var index = array1.indexOf(this.c9);
+      return array2[index];
+    },
+    c8() {
+      var array1 = [0.78,0.94,1.09,1.2,1.3,1.43,1.53,1.67,1.81,2.01,1.07,1.32,1.56,
+      1.74,1.9,2.12,2.32,2.48,2.71,3.09,2.48,2.76,2.97,3.16,3.46,3.77,4.05,4.3,4.58,
+      4.82,3.48,3.9,4.32,4.74,5.58,5.99,6.73,7.23,7.77,8.28,5.55,6.03,7,7.82,8.37,8.77,
+      9.33,10.01,10.83,11.5,10.65,11.54,13.5,15.95,17.17,18.23,21.05,23.04,24.48,26.08,
+      19.35,22.98,24.98,26.37,30.54,33.55,35.84,38.38,28.22,32.34,36.03,40.15,43.78,47.08,
+      50.4,53.68,57.37];
+      var array2 = ['SSR50','SSR50','SSR50','SSR50','SSR50','SSR50','SSR50','SSR50','SSR50','SSR50','SSR65','SSR65','SSR65','SSR65','SSR65','SSR65','SSR65','SSR65','SSR65','SSR65','SSR80','SSR80','SSR80','SSR80','SSR80','SSR80','SSR80','SSR80','SSR80','SSR80','SSR100','SSR100','SSR100','SSR100','SSR100','SSR100','SSR100','SSR100','SSR100','SSR100','SSR125','SSR125','SSR125','SSR125','SSR125','SSR125','SSR125','SSR125','SSR125','SSR125','SSR150','SSR150','SSR150','SSR150','SSR150','SSR150','SSR150','SSR150','SSR150','SSR150','SSR175','SSR175','SSR175','SSR175','SSR175','SSR175','SSR175','SSR175','SSR200','SSR200','SSR200','SSR200','SSR200','SSR200','SSR200','SSR200','SSR200'];
+      var index = array1.indexOf(this.c9);
+      return array2[index];
     },
   },
   watch() {
