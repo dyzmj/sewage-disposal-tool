@@ -718,9 +718,17 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b49"
+                        style="width: 50%"
                         rows="12"
                         :disabled="false"
                         :suffix="$t('b49_u')"
+                      />
+                      <a-input
+                        v-model="b49_1"
+                        style="width: 50%"
+                        rows="12"
+                        :disabled="false"
+                        :suffix="$t('b49_1_u')"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -960,6 +968,7 @@ export default {
       b43: "5.6",
       b48: "0.25",
       b49: "2",
+      b49_1: "1",
       b52: "40",
       b53: "1.2",
       b55: "1.4",
@@ -991,7 +1000,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -1012,7 +1021,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1069,7 +1078,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -1090,7 +1099,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1139,17 +1148,17 @@ export default {
               align: "center",
             },
             {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
+              title: "安装位置",
+              dataIndex: "安装位置",
               key: "3",
-              width: "100px",
+              width: "150px",
               align: "center",
             },
             {
-              title: "安装位置",
-              dataIndex: "Dimensions",
+              title: "仪表名称",
+              dataIndex: "仪表名称",
               key: "4",
-              width: "150px",
+              width: "100px",
               align: "center",
             },
             {
@@ -1168,30 +1177,30 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "9",
               width: "50px",
               align: "center",
             },
             {
               title: "备注",
               dataIndex: "备注",
-              key: "10",
+              key: "8",
               width: "80px",
+              align: "center",
+            },
+            {
+              title: "生产厂家",
+              dataIndex: "生产厂家",
+              key: "9",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "-",
+              dataIndex: "-",
+              key: "10",
+              width: "50px",
               align: "center",
             },
           ],
@@ -1305,6 +1314,48 @@ export default {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
     },
+    get_a_1_1() {
+      return this.b16+"×"+this.b15+"×"+(parseFloat(this.b7)+0.5)+"m";
+    },
+    get_a_1_2() {
+      return this.b9;
+    },
+    get_b_1_1() {
+      return "池宽"+this.b15+"m，池长"+this.b16+"m，行走速度5m/min，N=0.75kW"
+    },
+    get_b_1_2() {
+      return 1;
+    },
+    get_b_2_1() {
+      return "溶气压力0.25MPa，释放器出流量"+this.b43+"m3/h";
+    },
+    get_b_2_2() {
+      return this.b45;
+    },
+    get_b_3_1() {
+      return "Φ"+this.b40+"*"+this.b41+"m，工作压力0.2~0.5MPa，过水能力"+this.b37+"m3/h，含填料";
+    },
+    get_b_3_2() {
+      return this.b38;
+    },
+    get_b_4_1() {
+      return "Q="+this.b50+"m3/h，H="+(parseFloat(this.b48) * 100)+"m，N=7.5kW";
+    },
+    get_b_4_2() {
+      return (parseFloat(this.b49) + parseFloat(this.b49_1));
+    },
+    get_b_5_1() {
+      return "Q="+this.b56+"m3/min，P=0.6MPa，N=0.375kW";
+    },
+    get_b_5_2() {
+      return 2;
+    },
+    get_c_1_1() {
+      return "一体式，DN80，0~"+this.b50+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+    },
+    get_c_2_1() {
+      return "一体式，DN40，0~"+this.b56+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -1384,6 +1435,114 @@ export default {
         parseFloat(this.b54) * parseFloat(this.b55) / 60 / 1000
       ),2)).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "1",
+        名称: "平流式气浮池",
+        尺寸: this.get_a_1_1(),
+        标高: "",
+        单位: "座",
+        数量: this.get_a_1_2(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "桥式刮渣机",
+        设备类型: "刮渣机",
+        规格及型号: this.get_b_1_1(),
+        单位: "台",
+        数量: this.get_b_1_2(),
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "本机含主梁、轨道、驱动装置、机架、集渣斗，配套控制箱",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "溶气释放器",
+        设备类型: "溶气释放器",
+        规格及型号: this.get_b_2_1(),
+        单位: "个",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "溶气罐",
+        设备类型: "压力溶气罐",
+        规格及型号: this.get_b_3_1(),
+        单位: "台",
+        数量: this.get_b_3_2(),
+        运行时间: "",
+        主要材质: "碳钢防腐",
+        备注: "配安全阀、压力表、放空阀",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "溶气泵",
+        设备类型: "立式离心泵",
+        规格及型号: this.get_b_4_1(),
+        单位: "台",
+        数量: this.get_b_4_2(),
+        运行时间: "24h",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "空压机",
+        设备类型: "活塞式空压机",
+        规格及型号: this.get_b_5_1(),
+        单位: "台",
+        数量: this.get_b_5_2(),
+        运行时间: "24h",
+        主要材质: "",
+        备注: "",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "",
+        安装位置: "溶气泵出口总管",
+        仪表名称: "电磁流量计",
+        规格及型号: this.get_c_1_1(),
+        单位: "台",
+        数量: "2",
+        备注: "",
+        生产厂家: "",
+        a: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        安装位置: "空压机出口总管",
+        仪表名称: "涡街流量计",
+        规格及型号: this.get_c_2_1(),
+        单位: "台",
+        数量: "2",
+        备注: "",
+        生产厂家: "",
+        a: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1398,58 +1557,104 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
         单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        名称: "平流式气浮池",
+        尺寸: this.get_a_1_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
+        数量: this.get_a_1_2(),
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
       },
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备位号: "",
+        设备工艺名称: "桥式刮渣机",
+        设备类型: "刮渣机",
+        规格及型号: this.get_b_1_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_1_2(),
+        运行时间: "4h",
+        主要材质: "水上部分碳钢防腐，水下部分SS304",
+        备注: "本机含主梁、轨道、驱动装置、机架、集渣斗，配套控制箱",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "溶气释放器",
+        设备类型: "溶气释放器",
+        规格及型号: this.get_b_2_1(),
+        单位: "个",
+        数量: this.get_b_2_2(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "溶气罐",
+        设备类型: "压力溶气罐",
+        规格及型号: this.get_b_3_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_3_2(),
         运行时间: "",
+        主要材质: "碳钢防腐",
+        备注: "配安全阀、压力表、放空阀",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "溶气泵",
+        设备类型: "立式离心泵",
+        规格及型号: this.get_b_4_1(),
+        单位: "台",
+        数量: this.get_b_4_2(),
+        运行时间: "24h",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "空压机",
+        设备类型: "活塞式空压机",
+        规格及型号: this.get_b_5_1(),
+        单位: "台",
+        数量: this.get_b_5_2(),
+        运行时间: "24h",
         主要材质: "",
         备注: "",
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
+        仪表位号: "",
+        安装位置: "溶气泵出口总管",
+        仪表名称: "电磁流量计",
+        规格及型号: this.get_c_1_1(),
         单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
+        数量: "2",
         备注: "",
+        生产厂家: "",
+        a: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        安装位置: "空压机出口总管",
+        仪表名称: "涡街流量计",
+        规格及型号: this.get_c_2_1(),
+        单位: "台",
+        数量: "2",
+        备注: "",
+        生产厂家: "",
+        a: "",
       },
     ];
   },
