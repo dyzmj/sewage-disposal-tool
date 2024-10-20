@@ -790,6 +790,11 @@
                         :disabled="false"
                         :suffix="$t('b53_3_u')"
                       />
+                      <a-input
+                        v-model="b53_4"
+                        style="width: 100%;"
+                        :disabled="true"
+                      />
                     </a-input-group>
                   </a-form-item>
                 </a-form>
@@ -834,6 +839,11 @@
                         style="width: 25%;"
                         :disabled="false"
                         :suffix="$t('b56_3_u')"
+                      />
+                      <a-input
+                        v-model="b56_4"
+                        style="width: 100%;"
+                        :disabled="true"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -1003,6 +1013,11 @@
                         :disabled="false"
                         :suffix="$t('b67_3_u')"
                       />
+                      <a-input
+                        v-model="b67_4"
+                        style="width: 100%;"
+                        :disabled="true"
+                      />
                     </a-input-group>
                   </a-form-item>
                 </a-form>
@@ -1081,6 +1096,11 @@
                         :disabled="false"
                         :suffix="$t('b72_3_u')"
                       />
+                      <a-input
+                        v-model="b72_4"
+                        style="width: 100%;"
+                        :disabled="true"
+                      />
                     </a-input-group>
                   </a-form-item>
                 </a-form>
@@ -1125,6 +1145,11 @@
                         style="width: 25%;"
                         :disabled="false"
                         :suffix="$t('b74_3_u')"
+                      />
+                      <a-input
+                        v-model="b74_4"
+                        style="width: 100%;"
+                        :disabled="true"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -1401,7 +1426,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -1422,7 +1447,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1479,7 +1504,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -1500,7 +1525,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1594,7 +1619,7 @@ export default {
           allData1,
           allData2,
           allData3,
-          "生物接触氧化池计算书",
+          "加药系统NaClO工程量",
           this
         );
       } catch (error) {
@@ -1632,6 +1657,147 @@ export default {
     },
     getDimensions() {
       return "to do";
+    },
+    quickSort(arr, left, right) {
+  let index
+  index = this.partition(arr, left, right)
+  if(left < index-1) {
+    this.quickSort(arr, left, index-1)
+  }
+  if(index < right) {
+    this.quickSort(arr, index, right)
+  }
+  return arr
+    },
+    partition(arr, left, right) {
+  let point = arr[Math.floor((left + right) / 2)]
+  let i = left, j = right
+  while(i <= j) {
+    while(arr[i] > point) {
+      i++
+    }
+    while(arr[j] < point) {
+      j--
+    }
+    if(i <= j) {
+      let temp = arr[i]
+      arr[i] = arr[j]
+      arr[j] = temp
+      i++
+      j--
+    }
+  }
+  return i
+    },
+    findKthLargest(nums, k) {
+      nums = this.quickSort(nums, 0, nums.length-1);
+      console.log(nums[k-1]);
+      return nums[k-1];
+    },
+    get_a_1_1() {
+      return this.b25_1+"m3";
+    },
+    get_a_1_2() {
+      return 2;
+    },
+    get_a_2_1() {
+      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var index = array1.indexOf(this.b53_4);
+      return array2[index];
+    },
+    get_a_2_2() {
+      return 2;
+    },
+    get_a_3_1() {
+      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var index = array1.indexOf(this.b56_4);
+      return array2[index];
+    },
+    get_a_3_2() {
+      return 2;
+    },
+    get_a_4_1() {
+      return 4;
+    },
+    get_a_5_1() {
+      return 4;
+    },
+    get_a_6_1() {
+      return 4;
+    },
+    get_a_7_1() {
+      return 4;
+    },
+    get_a_8_1() {
+      return "流量="+this.b59+"m3/h";
+    },
+    get_a_8_2() {
+      return 1;
+    },
+    get_a_9_1() {
+      return "容积="+this.b50+"m3";
+    },
+    get_a_9_2() {
+      return this.b51;
+    },
+    get_b_1_1() {
+      return "发生量="+this.b62+"m3/h功率="+this.b62_1+"kw";
+    },
+    get_b_1_2() {
+      return 1;
+    },
+    get_b_2_1() {
+      return "容积="+this.b65+"m3";
+    },
+    get_b_2_2() {
+      return 2;
+    },
+    get_b_3_1() {
+      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var index = array1.indexOf(this.b67_4);
+      return array2[index];
+    },
+    get_b_3_2() {
+      return 2;
+    },
+    get_b_4_1() {
+      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var index = array1.indexOf(this.b72_4);
+      return array2[index];
+    },
+    get_b_4_2() {
+      return 2;
+    },
+    get_b_5_1() {
+      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var index = array1.indexOf(this.b74_4);
+      return array2[index];
+    },
+    get_b_5_2() {
+      return 2;
+    },
+    get_b_6_1() {
+      return 6;
+    },
+    get_b_7_1() {
+      return 6;
+    },
+    get_b_8_1() {
+      return 6;
+    },
+    get_b_9_1() {
+      return " ";
+    },
+    get_b_10_1() {
+      return "容积="+this.b69+"m3";
+    },
+    get_b_10_2() {
+      return 2;
     },
   },
   computed: {
@@ -1747,6 +1913,560 @@ export default {
     b74_1() {
       return (parseFloat(this.b74_2) + parseFloat(this.b74_3)).toFixed(0);
     },
+    b53_4() {
+      var cal1 = (parseFloat(this.b53)/parseFloat(this.b53_2));
+      var cal2 = 0;
+      if(cal1 < 5.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 20){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 60){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 80){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 120){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 155){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 550){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 310){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 230){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 330){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 460){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 530){
+        cal2 = cal2 +1;
+      }
+      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      return this.findKthLargest(array, cal2);
+    },
+    b56_4() {
+      var cal1 = (parseFloat(this.b56)/parseFloat(this.b56_2));
+      var cal2 = 0;
+      if(cal1 < 5.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 20){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 60){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 80){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 120){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 155){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 550){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 310){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 230){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 330){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 460){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 530){
+        cal2 = cal2 +1;
+      }
+      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      return this.findKthLargest(array, cal2);
+    },
+    b67_4() {
+      var cal1 = (parseFloat(this.b67)/parseFloat(this.b67_2));
+      var cal2 = 0;
+      if(cal1 < 5.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 20){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 60){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 80){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 120){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 155){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 550){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 310){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 230){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 330){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 460){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 530){
+        cal2 = cal2 +1;
+      }
+      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      return this.findKthLargest(array, cal2);
+    },
+    b72_4() {
+      var cal1 = (parseFloat(this.b72)/parseFloat(this.b72_2));
+      var cal2 = 0;
+      if(cal1 < 5.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 20){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 60){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 80){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 120){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 155){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 550){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 310){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 230){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 330){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 460){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 530){
+        cal2 = cal2 +1;
+      }
+      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      return this.findKthLargest(array, cal2);
+    },
+    b74_4() {
+      var cal1 = (parseFloat(this.b53)/parseFloat(this.b53_2));
+      var cal2 = 0;
+      if(cal1 < 5.5){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 8){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 11){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 20){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 26){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 40){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 60){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 80){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 120){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 155){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 550){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 310){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 230){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 330){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 460){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 530){
+        cal2 = cal2 +1;
+      }
+      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      return this.findKthLargest(array, cal2);
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐",
+        设备类型: "",
+        规格及型号: this.get_a_1_1(),
+        单位: "个",
+        数量: this.get_a_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "计量泵-消毒",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_a_2_1(),
+        单位: "台",
+        数量: this.get_a_2_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "计量泵-预处理",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_a_3_1(),
+        单位: "台",
+        数量: this.get_a_3_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_4_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_5_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "6",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_6_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "7",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_7_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "8",
+        设备位号: "",
+        设备工艺名称: "卸液泵",
+        设备类型: "",
+        规格及型号: this.get_a_8_1(),
+        单位: "台",
+        数量: this.get_a_8_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "9",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐（PE储罐）",
+        设备类型: "",
+        规格及型号: this.get_a_9_1(),
+        单位: "个",
+        数量: this.get_a_9_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠发生器",
+        设备类型: "",
+        规格及型号: this.get_b_1_1(),
+        单位: "台",
+        数量: this.get_b_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "溶盐箱",
+        设备类型: "",
+        规格及型号: this.get_b_2_1(),
+        单位: "个",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "食盐水计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_3_1(),
+        单位: "台",
+        数量: this.get_b_3_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "计量泵-消毒",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_4_1(),
+        单位: "台",
+        数量: this.get_b_4_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_5_1(),
+        单位: "台",
+        数量: this.get_b_5_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "6",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_6_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "7",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_7_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "8",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_8_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "9",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_9_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "10",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐（PE储罐）",
+        设备类型: "",
+        规格及型号: this.get_b_10_1(),
+        单位: "个",
+        数量: this.get_b_10_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "压力表",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "4",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "4",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "压力表",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "6",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "6",
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1759,42 +2479,232 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+    this.data1 = [];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐",
+        设备类型: "",
+        规格及型号: this.get_a_1_1(),
+        单位: "个",
+        数量: this.get_a_1_2(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "计量泵-消毒",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_a_2_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_a_2_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "计量泵-预处理",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_a_3_1(),
+        单位: "台",
+        数量: this.get_a_3_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_4_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_5_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "6",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_6_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "7",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_7_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "8",
+        设备位号: "",
+        设备工艺名称: "卸液泵",
+        设备类型: "",
+        规格及型号: this.get_a_8_1(),
+        单位: "台",
+        数量: this.get_a_8_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "9",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐（PE储罐）",
+        设备类型: "",
+        规格及型号: this.get_a_9_1(),
+        单位: "个",
+        数量: this.get_a_9_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠发生器",
+        设备类型: "",
+        规格及型号: this.get_b_1_1(),
+        单位: "台",
+        数量: this.get_b_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "溶盐箱",
+        设备类型: "",
+        规格及型号: this.get_b_2_1(),
+        单位: "个",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "食盐水计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_3_1(),
+        单位: "台",
+        数量: this.get_b_3_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "计量泵-消毒",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_4_1(),
+        单位: "台",
+        数量: this.get_b_4_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_b_5_1(),
+        单位: "台",
+        数量: this.get_b_5_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "一用一备",
+      },
+      {
+        序号: "6",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_6_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "7",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_7_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "8",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_8_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "9",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_9_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "10",
+        设备位号: "",
+        设备工艺名称: "次氯酸钠储罐（PE储罐）",
+        设备类型: "",
+        规格及型号: this.get_b_10_1(),
+        单位: "个",
+        数量: this.get_b_10_2(),
         运行时间: "",
         主要材质: "",
         备注: "",
@@ -1802,14 +2712,49 @@ export default {
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
+        仪表位号: "",
+        仪表名称: "压力表",
         安装位置: "",
         规格及型号: "",
-        单位: "台",
-        数量: "80",
+        单位: "个",
+        数量: "4",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "4",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "压力表",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "6",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: "6",
         a: "",
         b: "",
         备注: "",
