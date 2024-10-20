@@ -942,6 +942,7 @@
                   <a-button
                     style="margin-left: 10px"
                     type="danger"
+                    disabled="true"
                     @click="exportQuantities()"
                     >{{ $t("exportQuantities") }}</a-button
                   >
@@ -1431,62 +1432,9 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
-    this.data2 = [
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
+    this.data1 = [];
+    this.data2 = [];
+    this.data3 = [];
   },
 };
 </script>
