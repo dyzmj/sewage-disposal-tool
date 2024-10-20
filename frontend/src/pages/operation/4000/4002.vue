@@ -624,6 +624,13 @@
                         rows="12"
                         :suffix="$t('b42_u')"
                       />
+                      <a-input
+                        v-model="b42_1"
+                        style="width: 100%"
+                        :disabled="false"
+                        rows="12"
+                        :addon-before="$t('b42_1')"
+                      />
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
@@ -639,6 +646,13 @@
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b43_u')"
+                      />
+                      <a-input
+                        v-model="b43_1"
+                        style="width: 100%"
+                        :disabled="true"
+                        rows="12"
+                        :addon-before="$t('b43_1')"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -877,6 +891,20 @@
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b59_u')"
+                      />
+                      <a-input
+                        v-model="b59_1"
+                        style="width: 100%"
+                        :disabled="false"
+                        rows="12"
+                        :addon-before="$t('b59_1')"
+                      />
+                      <a-input
+                        v-model="b60_1"
+                        style="width: 100%"
+                        :disabled="true"
+                        rows="12"
+                        :addon-before="$t('b60_1')"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -3455,6 +3483,8 @@ export default {
       b35: "0.2",
       b36: "0.9",
       b37: "0.4",
+      b42_1: "2",
+      b59_1: "1",
       b46: "400",
       b49: "1",
       b51: "10",
@@ -3541,7 +3571,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -3562,7 +3592,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -3619,7 +3649,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -3640,7 +3670,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -3697,7 +3727,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -3718,7 +3748,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -3899,9 +3929,47 @@ export default {
       console.log(nums[k-1]);
       return nums[k-1];
     },
+    get_a_1_1() {
+      return this.b223_1;
+    },
+    get_b_1_1() {
+      return "Q="+(parseFloat(this.b179)/parseFloat(this.b42_1))+"m³/h，H="+this.b178+"m";
+    },
+    get_b_1_2() {
+      return (parseFloat(this.b42_1) + parseFloat(this.b43_1));
+    },
+    get_b_1_3() {
+      return this.b42_1+"用"+this.b43_1+"备";
+    },
+    get_b_2_1() {
+      return "Q="+this.c9+"m3/min，P=49kPa，N="+this.c10+"kW";
+    },
+    get_b_2_2() {
+      return (parseFloat(this.c4) + parseFloat(this.c4_1));
+    },
+    get_b_2_3() {
+      return this.c4+"用"+this.c4_1+"备";
+    },
+    get_c_1_1() {
+      return (parseFloat(this.b20) * 4);
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
+    b43_1() {
+      if(this.ROUND(parseFloat(this.b59_1)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b59_1)/3,0);
+      }
+    },
+    b60_1() {
+      if(this.ROUND(parseFloat(this.b59_1)/3,0) == 0){
+        return 1;
+      }else{
+        return this.ROUND(parseFloat(this.b59_1)/3,0);
+      }
+    },
     b5() {
       return (
         (parseFloat(this.b3) * parseFloat(this.b4)) / 100 + parseFloat(this.b3)
@@ -4678,6 +4746,66 @@ export default {
       var index = array1.indexOf(this.c9);
       return array2[index];
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "V型滤池",
+        尺寸: this.get_a_1_1(),
+        标高: "",
+        单位: "座",
+        数量: "1",
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "反冲洗泵",
+        设备类型: this.get_b_1_1(),
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_b_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.get_b_1_3(),
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "反冲洗风机",
+        设备类型: this.get_b_2_1(),
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.get_b_2_3(),
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "电动阀",
+        安装位置: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_c_1_1(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -4692,14 +4820,13 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        单体位号: "",
+        名称: "V型滤池",
+        尺寸: this.get_a_1_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
+        数量: "1",
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -4707,40 +4834,39 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
+        设备位号: "",
         设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备类型: this.get_b_1_1(),
+        规格及型号: "",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_1_2(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: this.get_b_1_3(),
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
+        序号: "2",
+        设备位号: "",
         设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        设备类型: this.get_b_2_1(),
+        规格及型号: "",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_2_2(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: this.get_b_2_3(),
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
+        仪表位号: "",
         仪表名称: "电动阀",
         安装位置: "",
         规格及型号: "",
         单位: "台",
-        数量: "80",
+        数量: this.get_c_1_1(),
         a: "",
         b: "",
         备注: "",
