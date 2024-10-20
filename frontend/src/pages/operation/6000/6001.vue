@@ -506,7 +506,6 @@ export default {
           ],
         },
       ],
-      data: [],
     };
   },
   methods: {
@@ -642,6 +641,22 @@ export default {
           parseFloat(this.partitionWallThickness)
       ).toFixed(2);
     },
+    data() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "接触消毒池",
+        Dimensions: this.getDimensions(),
+        标高: "",
+        单位: "座",
+        disinfectiontank: this.getDisinfectiontank(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -656,9 +671,8 @@ export default {
     this.initWaterData();
     this.data = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
+        单体位号: "",
         名称: "接触消毒池",
         Dimensions: this.getDimensions(),
         标高: "",
