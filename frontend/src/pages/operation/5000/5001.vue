@@ -1142,7 +1142,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -1163,7 +1163,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1220,7 +1220,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -1241,7 +1241,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1298,7 +1298,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -1319,7 +1319,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1459,6 +1459,33 @@ export default {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
     },
+    get_a_1_1() {
+      return this.b23+"m×"+this.b24_1+"m×"+(parseFloat(this.b20) + parseFloat(this.b21))+"m";
+    },
+    get_a_1_2() {
+      return 1;
+    },
+    get_a_2_1() {
+      return this.b61+"m×"+this.b61_2+"m×"+this.b70+"m";
+    },
+    get_a_2_2() {
+      (parseFloat(this.b59) + parseFloat(this.b59_1));
+    },
+    get_b_1_1() {
+      return "鼓气量>"+this.b43+"m3/h";
+    },
+    get_b_1_2() {
+      return this.b42;
+    },
+    get_b_2_1() {
+      return "臭氧产气量"+this.b11_1+"kg/h，工作压力>"+this.b51+"m";
+    },
+    get_b_2_2() {
+      return (parseFloat(this.b10) + parseFloat(this.b10_1));
+    },
+    get_b_3_1() {
+      return (parseFloat(this.b66)*(parseFloat(this.b59) + parseFloat(this.b59_1))).toFixed(2);
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -1577,6 +1604,74 @@ export default {
         parseFloat(this.b62)
       ).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "臭氧接触池",
+        尺寸: this.get_a_1_1(),
+        标高: "",
+        单位: "座",
+        数量: this.get_a_1_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "活性炭吸附池",
+        尺寸: this.get_a_2_1(),
+        标高: "",
+        单位: "座",
+        数量: this.get_a_2_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "微孔扩散板",
+        设备类型: this.get_b_1_1(),
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "臭氧发生器",
+        设备类型: this.get_b_2_1(),
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "颗粒活性炭",
+        设备类型: "粒径0.8～1.7mm",
+        规格及型号: "",
+        单位: "t",
+        数量: this.get_b_3_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1591,14 +1686,25 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        单体位号: "",
+        名称: "臭氧接触池",
+        尺寸: this.get_a_1_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
+        数量: this.get_a_1_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "活性炭吸附池",
+        尺寸: this.get_a_2_1(),
+        标高: "",
+        单位: "座",
+        数量: this.get_a_2_2(),
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -1606,44 +1712,43 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        设备位号: "",
+        设备工艺名称: "微孔扩散板",
+        设备类型: this.get_b_1_1(),
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_b_1_2(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "臭氧发生器",
+        设备类型: this.get_b_2_1(),
+        规格及型号: "",
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "颗粒活性炭",
+        设备类型: "粒径0.8～1.7mm",
+        规格及型号: "",
+        单位: "t",
+        数量: this.get_b_3_1(),
         运行时间: "",
         主要材质: "",
         备注: "",
       },
     ];
     this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
-      },
     ];
   },
 };
