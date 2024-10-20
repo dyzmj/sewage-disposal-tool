@@ -20,38 +20,352 @@
           <div class="baseQueryParam">
             <a-form
               :form="form"
-              :label-col="{ span: 5 }"
-              :wrapper-col="{ span: 12 }"
+              :label-col="{ span: 0 }"
+              :wrapper-col="{ span: 24 }"
               @submit="handleSubmit"
             >
               <a-row :gutter="24">
-                <a-col
-                  v-for="i in 10"
-                  :key="i"
-                  :span="8"
-                  :style="{ display: i < count ? 'block' : 'none' }"
-                >
-                  <a-form-item :label="`Field ${i}`">
-                    <a-input
-                      v-decorator="[
-                        `field-${i}`,
-                        {
-                          rules: [
-                            {
-                              required: true,
-                              message: 'Input something!',
-                            },
-                          ],
-                        },
-                      ]"
-                      placeholder="placeholder"
-                    />
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b2"
+                        style="width: 34%"
+                        :addon-before="$t('b2')"
+                        :suffix="$t('b2_u')"
+                      />
+                      <a-input
+                        v-model="b2_1"
+                        style="width: 33%"
+                        :addon-before="$t('b2_1')"
+                        :suffix="$t('b2_1_u')"
+                      />
+                      <a-input
+                        v-model="b2_2"
+                        style="width: 33%"
+                        :addon-before="$t('b2_2')"
+                        :suffix="$t('b2_2_u')"
+                      />
+                    </a-input-group>
                   </a-form-item>
                 </a-col>
                 <a-col>
-                  <a-button type="primary" html-type="submit">
-                                    提交
-                                </a-button>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b3"
+                        style="width: 34%"
+                        :addon-before="$t('b3')"
+                        :suffix="$t('b3_u')"
+                      />
+                      <a-input
+                        v-model="b3_1"
+                        style="width: 33%"
+                        :addon-before="$t('b3_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b4"
+                        style="width: 34%"
+                        :addon-before="$t('b4')"
+                        :suffix="$t('b4_u')"
+                      />
+                      <a-input
+                        v-model="b4_1"
+                        style="width: 33%"
+                        :addon-before="$t('b4_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b5"
+                        style="width: 34%"
+                        :addon-before="$t('b5')"
+                        :suffix="$t('b5_u')"
+                      />
+                      <a-input
+                        v-model="b5_1"
+                        style="width: 33%"
+                        :addon-before="$t('b5_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b6"
+                        style="width: 34%"
+                        :addon-before="$t('b6')"
+                        :suffix="$t('b6_u')"
+                      />
+                      <a-input
+                        v-model="b6_1"
+                        style="width: 33%"
+                        :addon-before="$t('b6_1')"
+                      />
+                      <a-input
+                        v-model="b6_2"
+                        style="width: 33%"
+                        :addon-before="$t('b6_2')"
+                        :suffix="$t('b6_2_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b7"
+                        style="width: 34%"
+                        :addon-before="$t('b7')"
+                        :suffix="$t('b7_u')"
+                      />
+                      <a-input
+                        v-model="b7_1"
+                        style="width: 33%"
+                        :addon-before="$t('b7_1')"
+                      />
+                      <a-input
+                        v-model="b7_2"
+                        style="width: 33%"
+                        :addon-before="$t('b7_2')"
+                        :suffix="$t('b7_2_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b8"
+                        style="width: 34%"
+                        :addon-before="$t('b8')"
+                        :suffix="$t('b8_u')"
+                      />
+                      <a-input
+                        v-model="b8_1"
+                        style="width: 33%"
+                        :addon-before="$t('b8_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b9"
+                        style="width: 34%"
+                        :addon-before="$t('b9')"
+                        :suffix="$t('b9_u')"
+                      />
+                      <a-input
+                        v-model="b9_1"
+                        style="width: 33%"
+                        :addon-before="$t('b9_1')"
+                      />
+                      <a-input
+                        v-model="b9_2"
+                        style="width: 33%"
+                        :addon-before="$t('b9_2')"
+                        :suffix="$t('b9_2_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b10"
+                        style="width: 34%"
+                        :addon-before="$t('b10')"
+                        :suffix="$t('b10_u')"
+                      />
+                      <a-input
+                        v-model="b10_1"
+                        style="width: 33%"
+                        :addon-before="$t('b10_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b11"
+                        style="width: 34%"
+                        :addon-before="$t('b11')"
+                        :suffix="$t('b11_u')"
+                      />
+                      <a-input
+                        v-model="b11_1"
+                        style="width: 33%"
+                        :addon-before="$t('b11_1')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b12"
+                        style="width: 34%"
+                        :addon-before="$t('b12')"
+                        :suffix="$t('b12_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b13"
+                        style="width: 34%"
+                        :addon-before="$t('b13')"
+                        :suffix="$t('b13_u')"
+                      />
+                      <a-input
+                        v-model="b13_1"
+                        style="width: 33%"
+                        :addon-before="$t('b13_1')"
+                        :suffix="$t('b13_1_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b14"
+                        style="width: 34%"
+                        :addon-before="$t('b14')"
+                        :suffix="$t('b14_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-form-item
+                    class="calc"
+                    label=" "
+                    :colon="false"
+                    :span="8"
+                    style="margin-top: 5px"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b15"
+                        style="width: 34%"
+                        :addon-before="$t('b15')"
+                        :suffix="$t('b15_u')"
+                      />
+                      <a-input
+                        v-model="b15_1"
+                        style="width: 33%"
+                        :addon-before="$t('b15_1')"
+                        :suffix="$t('b15_1_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-col>
+                <a-col>
+                  <a-button type="primary" html-type="submit"> 提交 </a-button>
                 </a-col>
               </a-row>
             </a-form>
@@ -310,6 +624,36 @@ export default {
       form: this.$form.createForm(this, { name: "coordinated" }),
       certificate: "",
       code: "",
+      b2: "20000",
+      b3: "20",
+      b4: "0.1",
+      b5: "1",
+      b6: "2",
+      b7: "1",
+      b8: "35",
+      b9: "1",
+      b10: "1",
+      b11: "1",
+      b12: "100.0",
+      b13: "347.13",
+      b14: "800",
+      b15: "1000",
+      b2_1: "5",
+      b2_2: "5",
+      b3_1: "365",
+      b4_1: "365",
+      b5_1: "365",
+      b6_1: "365",
+      b6_2: "10",
+      b7_1: "60",
+      b7_2: "10",
+      b8_1: "60",
+      b9_1: "60",
+      b9_2: "31",
+      b10_1: "60",
+      b11_1: "0",
+      b13_1: "80",
+      b15_1: "2",
     };
   },
   computed: {
