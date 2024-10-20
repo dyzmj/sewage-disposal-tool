@@ -1295,20 +1295,6 @@
           <a-divider :dashed="true" />
           <div class="baseQueryParam">
             <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
               :columns="columns3"
               :data-source="data3"
               bordered
@@ -1361,7 +1347,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel3,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
 } from "@/utils/exportUtil";
@@ -1431,7 +1417,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -1452,7 +1438,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1481,84 +1467,6 @@ export default {
           ],
         },
       ],
-      columns2: [
-        {
-          title: "设备选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "设备位号",
-              dataIndex: "设备位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "设备工艺名称",
-              dataIndex: "设备工艺名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "设备类型",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "运行时间",
-              dataIndex: "运行时间",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "主要材质",
-              dataIndex: "主要材质",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
       columns3: [
         {
           title: "仪表选型(结果输出)",
@@ -1579,17 +1487,17 @@ export default {
               align: "center",
             },
             {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
+              title: "安装位置",
+              dataIndex: "安装位置",
               key: "3",
-              width: "100px",
+              width: "150px",
               align: "center",
             },
             {
-              title: "安装位置",
-              dataIndex: "Dimensions",
+              title: "仪表名称",
+              dataIndex: "仪表名称",
               key: "4",
-              width: "150px",
+              width: "100px",
               align: "center",
             },
             {
@@ -1608,30 +1516,30 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "9",
               width: "50px",
               align: "center",
             },
             {
               title: "备注",
               dataIndex: "备注",
-              key: "10",
+              key: "8",
               width: "80px",
+              align: "center",
+            },
+            {
+              title: "生产厂家",
+              dataIndex: "生产厂家",
+              key: "9",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "-",
+              dataIndex: "-",
+              key: "10",
+              width: "50px",
               align: "center",
             },
           ],
@@ -1676,17 +1584,6 @@ export default {
         ];
 
         // 处理表头信息
-        const headerData2 = [
-          this.flattenFirstRowColumns(this.columns2),
-          this.flattenSecondRowColumns(this.columns2),
-        ];
-        // 初始化 allData
-        const allData2 = [
-          ...headerData2,
-          ...this.data2.map((item) => Object.values(item)),
-        ];
-
-        // 处理表头信息
         const headerData3 = [
           this.flattenFirstRowColumns(this.columns3),
           this.flattenSecondRowColumns(this.columns3),
@@ -1698,9 +1595,8 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(
+        exportExcel2(
           allData1,
-          allData2,
           allData3,
           "水力循环澄清池工程量",
           this
@@ -1752,6 +1648,12 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    get_a_1() {
+      return "Ø"+this.b39_1+"×"+this.b41+"m";
+    },
+    get_b_1() {
+      return "0~"+this.b41+"m，4~20mA信号输出，就地显示";
     },
   },
   computed: {
@@ -2001,6 +1903,38 @@ export default {
         (Math.PI * Math.pow(parseFloat(this.b78) / 1000, 2))
       ).toFixed(4);
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "1",
+        名称: "机械搅拌澄清池",
+        尺寸: this.get_a_1(),
+        标高: "",
+        单位: "座",
+        数量: "1",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "1",
+        安装位置: "污泥斗",
+        仪表名称: "超声波泥位计",
+        规格及型号: this.get_b_1(),
+        单位: "台",
+        数量: "1",
+        备注: "",
+        生产厂家: "",
+        a: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -2015,58 +1949,30 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
         单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        名称: "机械搅拌澄清池",
+        尺寸: this.get_a_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
-    this.data2 = [
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        数量: "1",
+        结构形式: "钢砼",
+        备注: "半地下式",
+        暖通要求: "无",
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
         仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
+        安装位置: "污泥斗",
+        仪表名称: "超声波泥位计",
+        规格及型号: this.get_b_1(),
         单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
+        数量: "1",
         备注: "",
+        生产厂家: "",
+        a: "",
       },
     ];
   },
