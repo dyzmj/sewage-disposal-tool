@@ -1457,34 +1457,6 @@
         >
           <div class="baseQueryParam">
             <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
               :columns="columns3"
               :data-source="data3"
               bordered
@@ -1537,7 +1509,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3 } from "@/utils/exportUtil";
+import { exportExcel, exportWord } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1603,162 +1575,6 @@ export default {
       b64: "0.55",
       b67: "2",
       b67_1: "1",
-      columns1: [
-        {
-          title: "建构筑物尺寸(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "单体位号",
-              dataIndex: "单体位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "名称",
-              dataIndex: "名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "尺寸(m)",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "标高(m)",
-              dataIndex: "标高(m)",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "结构形式",
-              dataIndex: "结构形式",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "暖通要求",
-              dataIndex: "暖通要求",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
-      columns2: [
-        {
-          title: "设备选型(结果输出)",
-          align: "left",
-          children: [
-            {
-              title: "序号",
-              dataIndex: "序号",
-              key: "1",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "设备位号",
-              dataIndex: "设备位号",
-              key: "2",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "设备工艺名称",
-              dataIndex: "设备工艺名称",
-              key: "3",
-              width: "100px",
-              align: "center",
-            },
-            {
-              title: "设备类型",
-              dataIndex: "Dimensions",
-              key: "4",
-              width: "150px",
-              align: "center",
-            },
-            {
-              title: "规格及型号",
-              dataIndex: "规格及型号",
-              key: "5",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "单位",
-              dataIndex: "单位",
-              key: "6",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "数量",
-              dataIndex: "disinfectiontank",
-              key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "运行时间",
-              dataIndex: "运行时间",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "主要材质",
-              dataIndex: "主要材质",
-              key: "9",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "备注",
-              dataIndex: "备注",
-              key: "10",
-              width: "80px",
-              align: "center",
-            },
-          ],
-        },
-      ],
       columns3: [
         {
           title: "仪表选型(结果输出)",
@@ -1787,7 +1603,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -1808,7 +1624,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1857,28 +1673,6 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [
-          this.flattenFirstRowColumns(this.columns1),
-          this.flattenSecondRowColumns(this.columns1),
-        ];
-        // 初始化 allData
-        const allData1 = [
-          ...headerData1,
-          ...this.data1.map((item) => Object.values(item)),
-        ];
-
-        // 处理表头信息
-        const headerData2 = [
-          this.flattenFirstRowColumns(this.columns2),
-          this.flattenSecondRowColumns(this.columns2),
-        ];
-        // 初始化 allData
-        const allData2 = [
-          ...headerData2,
-          ...this.data2.map((item) => Object.values(item)),
-        ];
-
-        // 处理表头信息
         const headerData3 = [
           this.flattenFirstRowColumns(this.columns3),
           this.flattenSecondRowColumns(this.columns3),
@@ -1890,7 +1684,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "脱水加药工程量", this);
+        exportExcel(allData3, "脱水加药工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1915,7 +1709,15 @@ export default {
       return secondRowHeader;
     },
     exportComputeBook() {
-      this.$message.warn(this.$t("exportComputeBookNotOpen"));
+      const data = {
+        key1: this.b1,
+        key2: this.b2,
+        key3: this.b6_1,
+        key4: this.b8,
+        key5: this.b38_1,
+        key6: this.b43_1,
+      };
+      exportWord("脱水加药计算书", "9002.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
@@ -1930,6 +1732,12 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    get_a_1() {
+      return (parseFloat(this.b31) + parseFloat(this.b31_1));
+    },
+    get_a_2() {
+      return (parseFloat(this.b31) + parseFloat(this.b31_1));
     },
   },
   computed: {
@@ -2055,59 +1863,59 @@ export default {
     b68() {
       return (parseFloat(this.b43_1)*1000/parseFloat(this.b66)/parseFloat(this.b44)/parseFloat(this.b45)*10000/parseFloat(this.b67)).toFixed(2);
     },
-  },
-  created() {
-    this.data1 = [
+    data3() {
+      return [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
-    this.data2 = [
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
+        仪表位号: "",
+        仪表名称: "压力表",
         安装位置: "",
         规格及型号: "",
-        单位: "台",
-        数量: "80",
+        单位: "个",
+        数量: this.get_a_1(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_2(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
+  },
+  created() {
+    this.data1 = [];
+    this.data2 = [];
+    this.data3 = [
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "压力表",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_1(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "流量计",
+        安装位置: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_a_2(),
         a: "",
         b: "",
         备注: "",
