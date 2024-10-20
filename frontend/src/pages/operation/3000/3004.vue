@@ -2371,14 +2371,14 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
             },
             {
               title: "标高(m)",
-              dataIndex: "标高(m)",
+              dataIndex: "标高",
               key: "5",
               width: "80px",
               align: "center",
@@ -2392,7 +2392,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2449,7 +2449,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -2470,7 +2470,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2519,17 +2519,17 @@ export default {
               align: "center",
             },
             {
-              title: "仪表名称",
-              dataIndex: "仪表名称",
+              title: "安装位置",
+              dataIndex: "安装位置",
               key: "3",
-              width: "100px",
+              width: "150px",
               align: "center",
             },
             {
-              title: "安装位置",
-              dataIndex: "Dimensions",
+              title: "仪表名称",
+              dataIndex: "仪表名称",
               key: "4",
-              width: "150px",
+              width: "100px",
               align: "center",
             },
             {
@@ -2548,30 +2548,30 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "-",
-              dataIndex: "-",
-              key: "9",
               width: "50px",
               align: "center",
             },
             {
               title: "备注",
               dataIndex: "备注",
-              key: "10",
+              key: "8",
               width: "80px",
+              align: "center",
+            },
+            {
+              title: "生产厂家",
+              dataIndex: "生产厂家",
+              key: "9",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "-",
+              dataIndex: "-",
+              key: "10",
+              width: "50px",
               align: "center",
             },
           ],
@@ -2692,6 +2692,18 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    get_a_1() {
+      return "Ø"+this.b23+"×"+this.b34+"m";
+    },
+    get_b_1() {
+      return "叶轮直径"+this.b97_1+"m，n="+this.b99+"rpm，N="+this.b125_1+"kW";
+    },
+    get_b_2() {
+      return "刮臂直径"+this.b23+"m，n=1~3rpm，N=1.5kW";
+    },
+    get_c_1() {
+      return "0~"+this.b34+"m，4~20mA信号输出，就地显示";
     },
   },
   computed: {
@@ -3031,6 +3043,66 @@ export default {
     b125() {
       return (parseFloat(this.b123) / parseFloat(this.b124)).toFixed(2);
     },
+    data1() {
+      return [
+      {
+        序号: "",
+        单体位号: "",
+        名称: "机械搅拌澄清池",
+        尺寸: this.get_a_1(),
+        标高: "",
+        单位: "座",
+        数量: "m",
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "澄清池搅拌机",
+        设备类型: "提升搅拌机",
+        规格及型号: this.get_b_1(),
+        单位: "台",
+        数量: "1",
+        运行时间: "",
+        主要材质: "SS304",
+        备注: "",
+      },
+      {
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "澄清池刮泥机",
+        设备类型: "中心传动刮泥机",
+        规格及型号: this.get_b_2(),
+        单位: "台",
+        数量: "1",
+        运行时间: "",
+        主要材质: "液下部分SS304，刮板橡胶",
+        备注: "",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "1",
+        安装位置: "污泥斗",
+        仪表名称: "超声波泥位计",
+        规格及型号: this.get_c_1(),
+        单位: "台",
+        数量: "1",
+        备注: "",
+        生产厂家: "",
+        a: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -3045,14 +3117,13 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        序号: "",
+        单体位号: "",
+        名称: "机械搅拌澄清池",
+        尺寸: this.get_a_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
+        数量: "m",
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -3060,43 +3131,42 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "澄清池搅拌机",
+        设备类型: "提升搅拌机",
+        规格及型号: this.get_b_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: "1",
         运行时间: "",
-        主要材质: "",
+        主要材质: "SS304",
         备注: "",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "澄清池刮泥机",
+        设备类型: "中心传动刮泥机",
+        规格及型号: this.get_b_2(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: "1",
         运行时间: "",
-        主要材质: "",
+        主要材质: "液下部分SS304，刮板橡胶",
         备注: "",
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
         仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
+        安装位置: "污泥斗",
+        仪表名称: "超声波泥位计",
+        规格及型号: this.get_c_1(),
         单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
+        数量: "1",
         备注: "",
+        生产厂家: "",
+        a: "",
       },
     ];
   },
