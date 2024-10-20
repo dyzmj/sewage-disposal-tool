@@ -925,6 +925,178 @@
               </a-card>
             </a-card>
           </a-card>
+          <a-card
+            title="四、仪表设置"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 2 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
+          >
+            <div class="baseQueryParam">
+            <a-table
+              :columns="columns4"
+              :data-source="data4"
+              bordered
+              size="small"
+              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+              :pagination="false"
+              :row-style="{ paddin: 16 }"
+            >
+              <a slot="序号" slot-scope="text">{{ text }}</a>
+            </a-table>
+          </div>
+          </a-card>
+          <a-card
+            :title="$t('b102')"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 2 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
+          >
+          <a-card
+            :title="$t('b103')"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 2 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
+          >
+          <a-card
+            :title="$t('b104')"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 2 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
+          >
+          <a-form>
+            <a-form-item
+                      :label="$t('b105')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b105"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b105_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b106')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b106"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b106_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b107')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b107"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b107_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b108')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b108"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b108_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b109')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b109"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b109_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b110')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b110"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b110_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b111')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b111"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b111_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+            <a-form-item
+                      :label="$t('b112')"
+                      style="margin-top: 10px"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b112"
+                          style="width: 100%"
+                          :disabled="true"
+                          :suffix="$t('b112_u')"
+                        />
+                      </a-input-group>
+            </a-form-item>
+          </a-form>
+          </a-card>
+        </a-card>
+        
+        </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -1047,6 +1219,11 @@ export default {
       b65: "100",
       b67: "7.5～8.5",
       b74: "300",
+      b105: "260",
+      b106: "1",
+      b107: "4",
+      b108: "0.5",
+      b111: "10",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -1075,14 +1252,14 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
             },
             {
               title: "标高(m)",
-              dataIndex: "标高(m)",
+              dataIndex: "标高",
               key: "5",
               width: "80px",
               align: "center",
@@ -1096,7 +1273,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -1119,6 +1296,20 @@ export default {
               title: "暖通要求",
               dataIndex: "暖通要求",
               key: "10",
+              width: "80px",
+              align: "center",
+            },
+            {
+              title: "与基础设计不同处",
+              dataIndex: "与基础设计不同处",
+              key: "11",
+              width: "80px",
+              align: "center",
+            },
+            {
+              title: "土建说明",
+              dataIndex: "土建说明",
+              key: "12",
               width: "80px",
               align: "center",
             },
@@ -1153,7 +1344,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -1174,22 +1365,8 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
-              width: "50px",
-              align: "center",
-            },
-            {
-              title: "运行时间",
-              dataIndex: "运行时间",
-              key: "8",
-              width: "80px",
-              align: "center",
-            },
-            {
-              title: "主要材质",
-              dataIndex: "主要材质",
-              key: "9",
               width: "50px",
               align: "center",
             },
@@ -1281,6 +1458,70 @@ export default {
           ],
         },
       ],
+      columns4: [
+        {
+          title: "仪表选型(结果输出)",
+          align: "left",
+          children: [
+            {
+              title: "序号",
+              dataIndex: "序号",
+              key: "1",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "仪表位号",
+              dataIndex: "仪表位号",
+              key: "2",
+              width: "80px",
+              align: "center",
+            },
+            {
+              title: "安装位置",
+              dataIndex: "安装位置",
+              key: "3",
+              width: "150px",
+              align: "center",
+            },
+            {
+              title: "仪表名称",
+              dataIndex: "仪表名称",
+              key: "4",
+              width: "100px",
+              align: "center",
+            },
+            {
+              title: "规格及型号",
+              dataIndex: "规格及型号",
+              key: "5",
+              width: "80px",
+              align: "center",
+            },
+            {
+              title: "单位",
+              dataIndex: "单位",
+              key: "6",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "数量",
+              dataIndex: "数量",
+              key: "7",
+              width: "50px",
+              align: "center",
+            },
+            {
+              title: "生产厂家",
+              dataIndex: "生产厂家",
+              key: "8",
+              width: "80px",
+              align: "center",
+            }
+          ],
+        },
+      ],
       data: [],
     };
   },
@@ -1346,7 +1587,7 @@ export default {
           allData1,
           allData2,
           allData3,
-          "生物接触氧化池计算书",
+          "折点加氯工程量",
           this
         );
       } catch (error) {
@@ -1391,6 +1632,18 @@ export default {
     },
     getDimensions() {
       return "to do";
+    },
+    get_a_1() {
+      return "液氯投加能力Q＝"+this.b65+"kg/h";
+    },
+    get_a_2() {
+      return "碱投加能力Q＝"+this.b74+"L/h";
+    },
+    get_b_1() {
+      return this.b111+"×"+this.b112+"×" +this.b109;
+    },
+    get_b_2() {
+      return this.b106;
     },
   },
   computed: {
@@ -1535,6 +1788,57 @@ export default {
     b75() {
       return (parseFloat(this.b66) * parseFloat(this.b8)).toFixed(2);
     },
+    b109() {
+      return (parseFloat(this.b107) + parseFloat(this.b108)).toFixed(1);
+    },
+    b110() {
+      return (parseFloat(this.b105)/parseFloat(this.b106)/parseFloat(this.b107)).toFixed(1);
+    },
+    b112() {
+      return (parseFloat(this.b110)/parseFloat(this.b111)).toFixed(1);
+    },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "反应池",
+        尺寸: this.get_b_1(),
+        标高: "池顶标高+3.0m,池底标高-1.5m。",
+        单位: "座",
+        数量: this.get_b_2(),
+        结构形式: "钢砼",
+        备注: "",
+        暖通要求: "",
+        与基础设计不同处: "",
+        土建说明: ""
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "加氯成套装置",
+        设备类型: "加氯成套装置",
+        规格及型号: this.get_a_1(),
+        单位: "台",
+        数量: "1",
+        备注: "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
+      },
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "加碱成套装置",
+        设备类型: "加碱成套装置",
+        规格及型号: this.get_a_2(),
+        单位: "台",
+        数量: "1",
+        备注: "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1549,58 +1853,93 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
+        单体位号: "",
+        名称: "反应池",
+        尺寸: this.get_b_1(),
+        标高: "池顶标高+3.0m,池底标高-1.5m。",
         单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
+        数量: this.get_b_2(),
+        结构形式: "钢砼",
         备注: "",
         暖通要求: "",
+        与基础设计不同处: "",
+        土建说明: ""
       },
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备位号: "",
+        设备工艺名称: "加氯成套装置",
+        设备类型: "加氯成套装置",
+        规格及型号: this.get_a_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        数量: "1",
+        备注: "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
       },
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        设备位号: "",
+        设备工艺名称: "加碱成套装置",
+        设备类型: "加碱成套装置",
+        规格及型号: this.get_a_2(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        数量: "1",
+        备注: "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
       },
     ];
-    this.data3 = [
+    this.data3 = []
+    this.data4 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
+        仪表位号: "",
+        安装位置: "产水外输管道",
+        仪表名称: "余氯分析仪",
+        规格及型号: "0-5mg/L，4-20mA输出",
         单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
+        数量: "1",
+        生产厂家: "",
+      },
+      {
+        序号: "2",
+        仪表位号: "",
+        安装位置: "产水外输管道",
+        仪表名称: "氨氮分析仪",
+        规格及型号: "0-12mg/L，介质：工业废水，4-20mA输出",
+        单位: "台",
+        数量: "1",
+        生产厂家: "",
+      },
+      {
+        序号: "3",
+        仪表位号: "",
+        安装位置: "产水外输管道",
+        仪表名称: "COD分析仪",
+        规格及型号: "0-100mg/L，介质：工业废水，4-20mA输出",
+        单位: "台",
+        数量: "1",
+        生产厂家: "",
+      },
+      {
+        序号: "4",
+        仪表位号: "",
+        安装位置: "反应池",
+        仪表名称: "PH在线监测仪",
+        规格及型号: "pH量程范围：0-14，温度量程范围：0-100℃，4-20mA输出",
+        单位: "台",
+        数量: "1",
+        生产厂家: "",
+      },
+      {
+        序号: "5",
+        仪表位号: "",
+        安装位置: "反应池",
+        仪表名称: "静压式液位计",
+        规格及型号: "一体式，0-6m，介质：回用水，4~20mA信号输出，就地显示",
+        单位: "台",
+        数量: "1",
+        生产厂家: "",
       },
     ];
   },
