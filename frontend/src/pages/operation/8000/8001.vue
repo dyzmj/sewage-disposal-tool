@@ -734,7 +734,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -755,7 +755,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -812,7 +812,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -833,7 +833,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -953,6 +953,24 @@ export default {
     getDimensions() {
       return "to do";
     },
+    get_a_1_1() {
+      return "Q="+this.b12+"m3/h,H="+this.b16+"m,N="+this.b19+"kw";
+    },
+    get_a_1_2() {
+      return (parseFloat(this.b10)+parseFloat(this.b11));
+    },
+    get_a_2_1() {
+      return "Q="+this.b27+"m3/h,H="+this.b31+"m,N="+this.b34+"kw";
+    },
+    get_a_2_2() {
+      return (parseFloat(this.b25)+parseFloat(this.b26));
+    },
+    get_b_1_1() {
+      return "一体式，DN80，0~"+this.b9_1+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+    },
+    get_b_2_1() {
+      return "一体式，DN80，0~"+this.b24_1+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -1020,6 +1038,62 @@ export default {
         parseFloat(this.b32)
       ).toFixed(2);
     },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "",
+        设备类型: "",
+        规格及型号: this.get_a_1_1(),
+        单位: "台",
+        数量: this.get_a_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "二用一备",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "",
+        设备类型: "",
+        规格及型号: this.get_a_2_1(),
+        单位: "台",
+        数量: this.get_a_2_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "二用一备",
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "电磁流量计",
+        安装位置: "",
+        规格及型号: this.get_b_1_1(),
+        单位: "台",
+        数量: "1",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "电磁流量计",
+        安装位置: "",
+        规格及型号: this.get_b_2_1(),
+        单位: "台",
+        数量: "1",
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -1032,57 +1106,54 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+    this.data1 = [];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备位号: "",
+        设备工艺名称: "",
+        设备类型: "",
+        规格及型号: this.get_a_1_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_a_1_2(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: "二用一备",
       },
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "",
+        设备类型: "",
+        规格及型号: this.get_a_2_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_a_2_2(),
         运行时间: "",
         主要材质: "",
-        备注: "",
+        备注: "二用一备",
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
+        仪表位号: "",
+        仪表名称: "电磁流量计",
         安装位置: "",
-        规格及型号: "",
+        规格及型号: this.get_b_1_1(),
         单位: "台",
-        数量: "80",
+        数量: "1",
+        a: "",
+        b: "",
+        备注: "",
+      },
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "电磁流量计",
+        安装位置: "",
+        规格及型号: this.get_b_2_1(),
+        单位: "台",
+        数量: "1",
         a: "",
         b: "",
         备注: "",
