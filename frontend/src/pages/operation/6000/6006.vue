@@ -154,21 +154,20 @@
                 <a-input-group compact>
                   <a-input
                     v-model="b10"
-                    style="width: 33%;"
+                    style="width: 50%;"
                     :disabled="true"
                     :suffix="$t('b10_u')"
                   />
                   <a-input
                     v-model="b10_1"
-                    style="width: 33%;"
+                    style="width: 50%;"
                     :disabled="true"
                     :suffix="$t('b10_1_u')"
                   />
                   <a-input
                     v-model="b10_2"
-                    style="width: 34%;"
+                    style="width: 100%;"
                     :disabled="true"
-                    :suffix="$t('b10_2_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -407,17 +406,11 @@ export default {
       b4: "1",
       b4_1: "1",
       b9: "2.00 ",
-      b10: "1.67",
-      b10_1: "1666.67",
-      b10_2: "2000",
       b11: "0.65",
       b12: "0.70",
-      b13: "1.55",
       b14: "0.30",
-      b15: "5.16",
       b16: "1.30",
       b17: "0.80",
-      b18: "8.74",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -524,7 +517,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -545,7 +538,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -717,7 +710,7 @@ export default {
           allData1,
           allData2,
           allData3,
-          "生物接触氧化池计算书",
+          "加药系统ClO2工程量",
           this
         );
       } catch (error) {
@@ -758,6 +751,48 @@ export default {
     getDimensions() {
       return "to do";
     },
+    quickSort(arr, left, right) {
+  let index
+  index = this.partition(arr, left, right)
+  if(left < index-1) {
+    this.quickSort(arr, left, index-1)
+  }
+  if(index < right) {
+    this.quickSort(arr, index, right)
+  }
+  return arr
+    },
+    partition(arr, left, right) {
+  let point = arr[Math.floor((left + right) / 2)]
+  let i = left, j = right
+  while(i <= j) {
+    while(arr[i] > point) {
+      i++
+    }
+    while(arr[j] < point) {
+      j--
+    }
+    if(i <= j) {
+      let temp = arr[i]
+      arr[i] = arr[j]
+      arr[j] = temp
+      i++
+      j--
+    }
+  }
+  return i
+    },
+    findKthLargest(nums, k) {
+      nums = this.quickSort(nums, 0, nums.length-1);
+      console.log(nums[k-1]);
+      return nums[k-1];
+    },
+    get_a_1() {
+      var array1 = [50,100,200,300,500,1000,2000,3000,5000];
+      var array2 = ['WTL（Z）-50','WTL（Z）-100','WTL（Z）-200','WTL（Z）-300','WTL（Z）-500','WTL（Z）-1000','WTL（Z）-2000','WTL（Z）-3000','WTL（Z）-5000'];
+      var index = array1.indexOf(this.b10_2);
+      return array2[index];
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -769,6 +804,70 @@ export default {
     },
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
+    },
+    b15() {
+      return (parseFloat(this.b13)/parseFloat(this.b14)).toFixed(2);
+    },
+    b10() {
+      return (parseFloat(this.b5)*parseFloat(this.b9)/1000).toFixed(2);
+    },
+    b10_1() {
+      return (parseFloat(this.b5)*parseFloat(this.b9)).toFixed(2);
+    },
+    b13() {
+      return (parseFloat(this.b11)*parseFloat(this.b10)/parseFloat(this.b12)).toFixed(2);
+    },
+    b18() {
+      return (parseFloat(this.b16)*parseFloat(this.b10/parseFloat(this.b17)/0.31)).toFixed(2);
+    },
+    b10_2() {
+      var cal1 = (parseFloat(this.b10_1));
+      var cal2 = 0;
+      if(cal1 < 50){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 100){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 200){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 300){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 500){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 1000){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 2000){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 3000){
+        cal2 = cal2 +1;
+      }
+      if(cal1 < 5000){
+        cal2 = cal2 +1;
+      }
+      var array = [50,100,200,300,500,1000,2000,3000,5000];
+      return this.findKthLargest(array, cal2);
+    },
+    data2() {
+      return [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "二氧化氯发生器",
+        设备类型: "",
+        规格及型号: this.get_a_1(),
+        单位: "台",
+        数量: "2",
+        运行时间: "24h",
+        主要材质: "",
+        备注: "一用一备",
+      },
+    ];
     },
   },
   watch() {
@@ -782,62 +881,22 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [
-      {
-        key: "1",
-        序号: "1",
-        单体位号: "1",
-        名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+    this.data1 = [];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备位号: "",
+        设备工艺名称: "二氧化氯发生器",
+        设备类型: "",
+        规格及型号: this.get_a_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
+        数量: "2",
+        运行时间: "24h",
         主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        备注: "一用一备",
       },
     ];
-    this.data3 = [
-      {
-        key: "1",
-        序号: "1",
-        仪表位号: "1",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: "80",
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
+    this.data3 = [];
   },
 };
 </script>
