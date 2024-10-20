@@ -296,6 +296,7 @@
                   <a-button
                     style="margin-left: 10px"
                     type="danger"
+                    disabled="false"
                     @click="exportQuantities()"
                     >{{ $t("exportQuantities") }}</a-button
                   >
