@@ -2082,7 +2082,7 @@ export default {
             },
             {
               title: "尺寸(m)",
-              dataIndex: "Dimensions",
+              dataIndex: "尺寸",
               key: "4",
               width: "150px",
               align: "center",
@@ -2103,7 +2103,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2160,7 +2160,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -2181,7 +2181,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2238,7 +2238,7 @@ export default {
             },
             {
               title: "安装位置",
-              dataIndex: "Dimensions",
+              dataIndex: "安装位置",
               key: "4",
               width: "150px",
               align: "center",
@@ -2259,7 +2259,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -2399,6 +2399,21 @@ export default {
     ROUND(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
+    },
+    get_a_1_1() {
+      return this.b111_1+"m×"+this.b111_2+"m×"+this.b111_3+"m"
+    },
+    get_b_1_1() {
+      return "Q="+(parseFloat(this.b76_1) / parseFloat(this.b77_1))+"m3/h，H="+this.b80+"m";
+    },
+    get_b_1_2() {
+      return (parseFloat(this.b77_1) + parseFloat(this.b78_1));
+    },
+    get_b_1_3() {
+      return this.b77_1+"用"+this.b78_1+"备";
+    },
+    get_c_1_1() {
+      return (parseFloat(this.b21) * 4);
     },
   },
   computed: {
@@ -2707,6 +2722,54 @@ export default {
     b111_3() {
       return this.b108;
     },
+    data1() {
+      return [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "普通快滤池",
+        尺寸: this.get_a_1_1(),
+        标高: "",
+        单位: "座",
+        数量: "1",
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    },
+    data2() {
+      return [
+      {
+        序号: "",
+        设备位号: "",
+        设备工艺名称: "反冲洗泵",
+        设备类型: "",
+        规格及型号: this.get_b_1_1(),
+        单位: "台",
+        数量: this.get_b_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.get_b_1_3(),
+      },
+    ];
+    },
+    data3() {
+      return [
+      {
+        序号: "1",
+        仪表位号: "",
+        仪表名称: "电动阀",
+        安装位置: "",
+        规格及型号: "",
+        单位: "台",
+        数量: this.get_c_1_1(),
+        a: "",
+        b: "",
+        备注: "",
+      },
+    ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -2721,14 +2784,13 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
-        单体位号: "1",
+        单体位号: "",
         名称: "普通快滤池",
-        Dimensions: "70.1m x 20.9m x 4.4m",
+        尺寸: this.get_a_1_1(),
         标高: "",
         单位: "座",
-        disinfectiontank: "1",
+        数量: "1",
         结构形式: "",
         备注: "",
         暖通要求: "",
@@ -2736,40 +2798,27 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
+        序号: "",
+        设备位号: "",
         设备工艺名称: "反冲洗泵",
-        规格及型号: "8",
+        设备类型: "",
+        规格及型号: this.get_b_1_1(),
         单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
+        数量: this.get_b_1_2(),
         运行时间: "",
         主要材质: "",
-        备注: "",
-      },
-      {
-        key: "1",
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "反冲洗风机",
-        规格及型号: "3",
-        单位: "台",
-        数量: "Q=554.4m3/h,H=13.26m",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
+        备注: this.get_b_1_3(),
       },
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "1",
-        仪表位号: "1",
+        仪表位号: "",
         仪表名称: "电动阀",
         安装位置: "",
         规格及型号: "",
         单位: "台",
-        数量: "80",
+        数量: this.get_c_1_1(),
         a: "",
         b: "",
         备注: "",
