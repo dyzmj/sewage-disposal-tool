@@ -17,6 +17,13 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <a-card
             :title="$t('b4')"
             style="margin-bottom: 24px"
@@ -1380,7 +1387,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel2, exportWord } from "@/utils/exportUtil";
+import { exportExcel2, exportWord,  initWordStorage, } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1667,6 +1674,26 @@ export default {
         key14: this.b40,
       };
       exportWord("UF-GE计算书", "5002.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b6,
+        key2: this.b8,
+        key3: this.b9,
+        key4: this.b10,
+        key5: this.b13,
+        key6: this.b21,
+        key7: this.b30,
+        key8: this.b22,
+        key9: this.b16,
+        key10: this.b32,
+        key11: this.b37,
+        key12: this.b38,
+        key13: this.b39,
+        key14: this.b40,
+      };
+      initWordStorage("5002.docx", data);
     },
     getDisinfectiontank() {
       return "to do";

@@ -17,6 +17,13 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <a-card
             :title="$t('b2')"
             style="margin-bottom: 24px"
@@ -3450,6 +3457,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
+  initWordStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -3878,6 +3886,24 @@ export default {
         key12: this.b14,
       };
       exportWord("V型滤池计算书", "4002.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b3,
+        key2: this.b6,
+        key3: this.b10,
+        key4: this.b10_1,
+        key5: this.b11,
+        key6: "4",
+        key7: this.b11_1,
+        key8: this.b13,
+        key9: this.b13_1,
+        key10: "12",
+        key11: "48",
+        key12: this.b14,
+      };
+      initWordStorage("4002.docx", data);
     },
     getDisinfectiontank() {
       return "to do";

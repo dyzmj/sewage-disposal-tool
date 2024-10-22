@@ -17,6 +17,13 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+          <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <div class="baseQueryParam">
             <a-form>
               <a-form-item
@@ -1845,6 +1852,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
+  initWordStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -2161,6 +2169,19 @@ export default {
         key7: this.b10,
       };
       exportWord("生物接触氧化池计算书", "1001.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b3_1,
+        key2: this.b3_2,
+        key3: this.b4,
+        key4: this.b5,
+        key5: this.b6_1,
+        key6: this.b9,
+        key7: this.b10,
+      };
+      initWordStorage("1001.docx", data);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);

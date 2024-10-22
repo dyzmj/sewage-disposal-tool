@@ -16,6 +16,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <div class="baseQueryParam">
             <a-form>
               <a-form-item
@@ -411,6 +418,7 @@ import {
   exportExcel,
   exportWord,
   getValueFromLocalStorage,
+  initWordStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -543,6 +551,18 @@ export default {
         unit3: this.$t("singleUnit2"),
       };
       exportWord("接触消毒池计算书", "6001.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.designScale,
+        unit1: this.$t("designScaleUnit"),
+        key2: this.singleTankVolume1,
+        unit2: this.$t("singleUnit1"),
+        key3: this.singleTankVolume2,
+        unit3: this.$t("singleUnit2"),
+      };
+      initWordStorage("6001.docx", data);
     },
     exportExcel() {
       try {

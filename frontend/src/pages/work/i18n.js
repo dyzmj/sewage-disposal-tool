@@ -45,7 +45,7 @@ module.exports = {
       exportCaseNotOpen: '导出计算书功能尚未开放！',
       importModelNotOpen: '模版文件导入功能尚未开放',
       openOperatePage: '打开计算页面！',
-      pleaseSelectProcessUnit: '请先处理工艺单元再操作！',
+      pleaseSelectProcessUnit: '请先选择工艺单元再操作！',
     },
     HK: {
       baseQueryParam: '基礎條件參數',

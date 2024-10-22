@@ -14,6 +14,8 @@ module.exports = {
         exportExcelError: '导出失败, 请检查后重试',
         exportComputeBookNotOpen: '计算书导出功能尚未开放！',
         exportSucc: '导出完成！',
+        refresh: '刷新',
+        refreshSucc: '后台数据刷新成功',
         designScale: '设计规模Q',
         designScaleUnit: 'm3/d',
         totalChangeFactor: '总变化系数',

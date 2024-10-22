@@ -16,6 +16,13 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <div class="baseQueryParam">
             <a-form>
               <a-form-item
@@ -318,7 +325,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord } from "@/utils/exportUtil";
+import { exportExcel3, exportWord,  initWordStorage, } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -663,6 +670,19 @@ export default {
         key7: this.scalingCoefficient,
       };
       exportWord("沉浸式紫外线消毒计算书", "6002.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.averageFlow,
+        key2: this.maxFlow,
+        key3: this.uvt,
+        key4: this.waterTurbidity,
+        key5: this.targetMeasurement,
+        key6: this.agingCoefficient,
+        key7: this.scalingCoefficient,
+      };
+      initWordStorage("6002.docx", data);
     },
     getDisinfectiontank() {
       return "to do";

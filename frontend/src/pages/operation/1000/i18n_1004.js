@@ -13,6 +13,8 @@ module.exports = {
         exportQuantitiesNotOpen: '工程量导出功能尚未开放！',
         exportComputeBookNotOpen: '计算书导出功能尚未开放！',
         exportSucc: '导出完成！',
+        refresh: '刷新',
+        refreshSucc: '后台数据刷新成功',
         b2:'一、设计输入条件',
         b3:'设计规模Q',
         b3_u:'m3/d',

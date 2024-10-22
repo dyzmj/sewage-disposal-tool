@@ -16,6 +16,13 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <a-form>
             <a-form-item
               :label="$t('b3')"
@@ -662,6 +669,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
+  initWordStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -1020,6 +1028,15 @@ export default {
         key3: this.b10,
       };
       exportWord("高锰酸钾计算书", "1005.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b3,
+        key2: this.b9,
+        key3: this.b10,
+      };
+      initWordStorage("1005.docx", data);
     },
     getDisinfectiontank() {
       return "to do";

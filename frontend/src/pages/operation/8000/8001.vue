@@ -17,6 +17,13 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
           <a-card
             :title="$t('b2')"
             style="margin-bottom: 24px"
@@ -603,7 +610,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage } from "@/utils/exportUtil";
+import { exportExcel3, exportWord, getValueFromLocalStorage,  initWordStorage, } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -938,6 +945,17 @@ export default {
         key5: '1.6',
       };
       exportWord("提升泵房计算书", "8001.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b3,
+        key2: '50',
+        key3: this.b7,
+        key4: this.b8,
+        key5: '1.6',
+      };
+      initWordStorage("8001.docx", data);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);

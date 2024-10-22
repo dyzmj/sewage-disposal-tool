@@ -23,6 +23,13 @@
               :hoverable="true"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
+            <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+            </a>
               <a-card
                 :title="$t('b2')"
                 style="margin-bottom: 24px"
@@ -1063,6 +1070,13 @@
               :hoverable="true"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
+            <a slot="extra" href="#">
+            <div class="" style="">
+              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+                {{ $t("refresh") }}</a-button
+              >
+            </div>
+          </a>
               <a-card
                 :title="$t('c2')"
                 style="margin-bottom: 24px"
@@ -2178,6 +2192,7 @@ import {
   exportExcel2,
   exportWord,
   getValueFromLocalStorage,
+  initWordStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -2518,6 +2533,16 @@ export default {
         key4: this.c7,
       };
       exportWord("机械絮凝池计算书", "2001.docx", data, this);
+    },
+    refreshInitData() {
+      this.$message.info(this.$t("refreshSucc"));
+      const data = {
+        key1: this.b3_1,
+        key2: this.b3_2,
+        key3: this.b8,
+        key4: this.b7,
+      };
+      initWordStorage("2001.docx", data);
     },
     ROUNDUP(number, num_digits) {
       var multiplier = Math.pow(10, num_digits);
