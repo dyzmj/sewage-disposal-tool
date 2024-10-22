@@ -1650,7 +1650,7 @@ export default {
         key1: this.b4,
         key2: this.b8,
       };
-      exportWord("次氯酸钠计算书", "7003.docx", data, this);
+      exportWord("次氯酸钠计算书", "6005.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";

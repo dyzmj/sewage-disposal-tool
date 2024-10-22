@@ -743,7 +743,7 @@ export default {
         key3: this.b5_1,
         key4: this.b9,
       };
-      exportWord("二氧化氯计算书", "7004.docx", data, this);
+      exportWord("二氧化氯计算书", "6006.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";

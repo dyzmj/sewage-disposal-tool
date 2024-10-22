@@ -1625,7 +1625,7 @@ export default {
         key8: "3.5",
         key9: "2",
       };
-      exportWord("折点加氯计算书", "7002.docx", data, this);
+      exportWord("折点加氯计算书", "6004.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";

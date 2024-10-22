@@ -830,6 +830,133 @@ export default {
         key3: "1.5",
         key4: "10",
       };
+      const data4001 = {
+        key1: "125000",
+        key2: "5208.33",
+        key3: "1.45",
+        key4: "6",
+        key5: "24",
+        key6: "30",
+        key7: "6",
+        key8: "0.5",
+      };
+      const data4002 = {
+        key1: "20000",
+        key2: "10",
+        key3: "15",
+        key4: "3",
+        key5: "15",
+        key6: "4",
+        key7: "4",
+        key8: "5",
+        key9: "5",
+        key10: "12",
+        key11: "48",
+        key12: "1.8",
+      };
+      const data5001 = {
+        key1: "20000",
+        key2: "833.33",
+        key3: "0.005",
+        key4: "1.06",
+        key5: "70",
+        key6: "10",
+        key7: "20",
+      };
+      const data5002 = {
+        key1: "10",
+        key2: "2660",
+        key3: "53",
+        key4: "7.4",
+        key5: "20",
+        key6: "888.9",
+        key7: "200",
+        key8: "4",
+        key9: "50",
+        key10: "90",
+        key11: "51.1",
+        key12: "1.0",
+        key13: "0.2",
+        key14: "3",
+      };
+      const data6001 = {
+        key1: "20000",
+        unit1: "m3/d",
+        key2: "833.33",
+        unit2: "m3/h",
+        key3: "0.23",
+        unit3: "m3/s",
+      };
+      const data6002 = {
+        key1: "50000",
+        key2: "60000",
+        key3: "90",
+        key4: "1",
+        key5: "40",
+        key6: "0.5",
+        key7: "0.8",
+      };
+      const data6003 = {
+        key1: "20000",
+        key2: "5",
+        key3: "0.005",
+        key4: "20",
+        key5: "10",
+      };
+      const data6004 = {
+        key1: "130",
+        key2: "34",
+        key3: "20",
+        key4: "0.5",
+        key5: "2",
+        key6: "0.5",
+        key7: "0.5",
+        key8: "3.5",
+        key9: "2",
+      };
+      const data6005 = {
+        key1: "20000",
+        key2: "2",
+      };
+      const data6006 = {
+        key1: "20000",
+        key2: "833.33",
+        key3: "0.23",
+        key4: "2.00",
+      };
+      const data8001 = {
+        key1: "20000",
+        key2: '50',
+        key3: "10",
+        key4: "5",
+        key5: '1.6',
+      };
+      const data8002 = {
+        key1: "20000",
+        key2: "2",
+        key3: "1908.3",
+      };
+      const data9001 = {
+        key1: "100000",
+        key2: "30",
+        key3: "25",
+        key4: "0",
+        key5: "20",
+        key6: "0",
+        key7: "1.5",
+        key8: "99.2",
+        key9: "97",
+        key10: "2",
+        key11: "24",
+      };
+      const data9002 = {
+        key1: "347.13",
+        key2: "97",
+        key3: "1",
+        key4: "0.5",
+        key5: "0.1",
+        key6: "0.1",
+      };
       
       initWordStorage("1001.docx", data1001);
       initWordStorage("1002.docx", data1002);
@@ -849,6 +976,20 @@ export default {
       initWordStorage("3004.docx", data3004);
       initWordStorage("3005.docx", data3005);
       initWordStorage("3006.docx", data3006);
+      initWordStorage("4001.docx", data4001);
+      initWordStorage("4002.docx", data4002);
+      initWordStorage("5001.docx", data5001);
+      initWordStorage("5002.docx", data5002);
+      initWordStorage("6001.docx", data6001);
+      initWordStorage("6002.docx", data6002);
+      initWordStorage("6003.docx", data6003);
+      initWordStorage("6004.docx", data6004);
+      initWordStorage("6005.docx", data6005);
+      initWordStorage("6006.docx", data6006);
+      initWordStorage("8001.docx", data8001);
+      initWordStorage("8002.docx", data8002);
+      initWordStorage("9001.docx", data9001);
+      initWordStorage("9002.docx", data9002);
       
     },
     calc(calcUnit) {

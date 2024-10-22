@@ -453,7 +453,7 @@ export default {
         key3: this.b10,
         key4: this.b11,
       };
-      exportWord("活性炭粉末计算书", "7007.docx", data, this);
+      exportWord("活性炭粉末计算书", "1007.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";
