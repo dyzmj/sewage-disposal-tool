@@ -15,7 +15,7 @@ export function exportExcel(data, name, self) {
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.utils.book_append_sheet(wb, ws, name);
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
       r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
@@ -40,13 +40,11 @@ export function exportExcel(data, name, self) {
  * @param { self对象 } self
  */
 export function exportExcel2(data1, data2, name, self) {
+  var data = [...data1, null, null, ...data2];
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws1 = XLSX.utils.aoa_to_sheet(data1);
-    const ws2 = XLSX.utils.aoa_to_sheet(data2);
-
+    const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws1, "Sheet1");
-    XLSX.utils.book_append_sheet(wb, ws2, "Sheet2");
+    XLSX.utils.book_append_sheet(wb, ws, name);
 
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
@@ -70,15 +68,11 @@ export function exportExcel2(data1, data2, name, self) {
  * @param { self对象 } self
  */
 export function exportExcel3(data1, data2, data3, name, self) {
+  var data = [...data1, null, null, ...data2, null, null, ...data3];
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws1 = XLSX.utils.aoa_to_sheet(data1);
-    const ws2 = XLSX.utils.aoa_to_sheet(data2);
-    const ws3 = XLSX.utils.aoa_to_sheet(data3);
-
+    const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws1, "Sheet1");
-    XLSX.utils.book_append_sheet(wb, ws2, "Sheet2");
-    XLSX.utils.book_append_sheet(wb, ws3, "Sheet3");
+    XLSX.utils.book_append_sheet(wb, ws, name);
 
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
