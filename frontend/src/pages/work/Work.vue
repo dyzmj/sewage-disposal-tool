@@ -315,7 +315,11 @@
               >
                 {{ $t("exportQuantities") }}</a-button
               >
-              <a-button type="danger" @click="operation" icon="file-search">
+              <a-button 
+                type="danger"
+                style=""
+                @click="operation" 
+                icon="file-search">
                 {{ $t("exportCalculation") }}</a-button
               >
             </div>
@@ -397,6 +401,9 @@ import {
   exportWord2,
   storeValueInLocalStorage,
   initWordStorage,
+  getArrayFromLocalStorage,
+  getKeyNameFromLocalStorage,
+  exportExcelAll,
 } from "@/utils/exportUtil";
 
 export default {
@@ -663,12 +670,43 @@ export default {
         this.$message.success("设计规模 < 5万m3/d 不建议");
       }
     },
+    // 导出总工程量
     comparison() {
-      this.$message.warn(this.$t("comparisonNotOpen"));
+      console.log("获取选中的对象");
+      const datas = [];
+      const names = [];
+      this.processUnit.forEach((element) => {
+        element.children.forEach((child) => {
+          if (child.checked) {
+            try {
+              console.log(`正在获取 ${child.key}`);
+              const array = getArrayFromLocalStorage(child.key + ".xlsx");
+              const name = getKeyNameFromLocalStorage(child.key + ".xlsx");
+              datas.push(array);
+              names.push(name);
+            } catch (error) {
+              console.error(`从 localStorage 获取 ${child.key} 时发生错误:`,error);
+            }
+          }
+        });
+      });
+
+      // 检查 buffers 是否为空
+      if (datas.length > 0) {
+        try {
+          exportExcelAll("总工程量", datas, names, this);
+          console.log("合并后的 Excel 数据已存储到本地存储");
+        } catch (error) {
+          console.error("合并文档时发生错误:", error);
+        }
+      } else {
+        this.$message.warn(this.$t("pleaseSelectProcessUnit"));
+      }
     },
     export_case() {
       this.$message.warn(this.$t("importModelNotOpen"));
     },
+    // 导出总计算书
     operation() {
       console.log("获取选中的对象");
       const buffers = [];

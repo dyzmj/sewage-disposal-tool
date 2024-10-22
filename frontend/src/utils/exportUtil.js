@@ -90,6 +90,38 @@ export function exportExcel3(data1, data2, data3, name, self) {
   });
 }
 
+/**
+ * 导出 多个 sheet的 Excel文件
+ * @param { Excel数据 } data
+ * @param { 文件名称 } name
+ * @param { self对象 } self
+ */
+export function exportExcelAll(name, datas, names, self) {
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    const wb = XLSX.utils.book_new();
+    for (let index = 0; index < datas.length; index++) {
+      const item = datas[index];
+      const sheet = names[index];
+      const ws = XLSX.utils.aoa_to_sheet(item);
+      XLSX.utils.book_append_sheet(wb, ws, sheet);
+    }
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        // throw err;
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+}
+
 async function selectFolder() {
   return await ipc.invoke(ipcApiRoute.selectFolder, "");
 }
@@ -298,6 +330,23 @@ export function getBufferFromLocalStorage(key) {
   return null;
 }
 
+export function getArrayFromLocalStorage(key) {
+  const base64String = localStorage.getItem(key);
+  if (base64String) {
+    const buffer = base64ToBuffer(base64String);
+    const jsonString = buffer.toString('utf-8');
+    const array = JSON.parse(jsonString);
+    console.log("Buffer retrieved from localStorage:", array);
+    return array;
+  }
+  console.log("No buffer data found in localStorage");
+  return null;
+}
+
+export function getKeyNameFromLocalStorage(key) {
+  return localStorage.getItem(key+".name");
+}
+
 export function storeValueInLocalStorage(key, value) {
   localStorage.setItem(key, value);
   console.log("value successfully in localStorage");
@@ -322,6 +371,24 @@ export async function initWordStorage(templatePath, data) {
     const outputBuffer = doc.getZip().generate({ type: "nodebuffer" });
     storeBufferInLocalStorage(outputBuffer, templatePath);
   } catch (error) {
-    console.error("生成Word文档时发生错误:", error);
+    console.error("缓存Word数据时发生错误:", error);
+  }
+}
+
+/**
+ * 初始化word模板缓存数据
+ * @param templatePath  模板路径
+ * @param data  模版数据
+ */
+export async function initExcelStorage(templatePath, data, name) {
+  try {
+    const jsonString = JSON.stringify(data);
+    const buffer = Buffer.from(jsonString, 'utf-8');
+    storeBufferInLocalStorage(buffer, templatePath);
+
+    // 缓存工程量sheet名称
+    localStorage.setItem(templatePath+".name", name);
+  } catch (error) {
+    console.error("生成Excel数据时发生错误:", error);
   }
 }
