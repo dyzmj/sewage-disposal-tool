@@ -1045,7 +1045,7 @@ export default {
         key4: this.b9,
         key5: this.b10,
       };
-      exportWord("PAC计算书", "7005.docx", data, this);
+      exportWord("PAM计算书", "7006.docx", data, this);
     },
     getDisinfectiontank() {
       return "to do";

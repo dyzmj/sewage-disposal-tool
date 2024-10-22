@@ -312,3 +312,22 @@ export function storeValueInLocalStorage(key, value) {
 export function getValueFromLocalStorage(key) {
   return localStorage.getItem(key);
 }
+
+/**
+ * 初始化word模板缓存数据
+ * @param templatePath  模板路径
+ * @param data  模版数据
+ */
+export async function initWordStorage(templatePath, data) {
+  try {
+    const content = await loadTemplateContent(templatePath);
+    const zip = new pizzip(content);
+    const doc = new Docxtemplater(zip);
+    doc.setData(data);
+    doc.render();
+    const outputBuffer = doc.getZip().generate({ type: "nodebuffer" });
+    storeBufferInLocalStorage(outputBuffer, templatePath);
+  } catch (error) {
+    console.error("生成Word文档时发生错误:", error);
+  }
+}
