@@ -511,7 +511,6 @@ export default {
     data2() {
       return [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "投加系统",
@@ -530,7 +529,6 @@ export default {
     this.initWaterData();
     this.data2 = [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "投加系统",

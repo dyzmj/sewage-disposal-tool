@@ -2591,7 +2591,6 @@ export default {
     data1() {
       return [
       {
-        key: "1",
         序号: "",
         单体位号: "",
         名称: "普通快滤池",
@@ -2608,7 +2607,6 @@ export default {
     data2() {
       return [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "反冲洗泵",
@@ -2620,7 +2618,6 @@ export default {
         备注: this.getKey6(),
       },
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "反冲洗风机",
@@ -2636,7 +2633,6 @@ export default {
     data3() {
       return [
       {
-        key: "1",
         序号: "",
         仪表位号: "",
         仪表名称: "电动阀",
@@ -2664,7 +2660,6 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "",
         单体位号: "",
         名称: "普通快滤池",
@@ -2679,7 +2674,6 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "反冲洗泵",
@@ -2691,7 +2685,6 @@ export default {
         备注: this.getKey6(),
       },
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "反冲洗风机",
@@ -2705,7 +2698,6 @@ export default {
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "",
         仪表位号: "",
         仪表名称: "电动阀",

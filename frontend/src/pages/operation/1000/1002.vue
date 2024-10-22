@@ -875,7 +875,6 @@ export default {
     data1() {
       return [
       {
-        key: "1",
         序号: "1",
         单体位号: "1",
         名称: "斜管沉淀池",
@@ -892,7 +891,6 @@ export default {
     data2 () {
       return [
       {
-        key: "1",
         序号: "1",
         设备位号: "1",
         设备工艺名称: "桁车式吸泥机",
@@ -920,7 +918,6 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
         单体位号: "1",
         名称: "斜管沉淀池",
@@ -935,7 +932,6 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "1",
         设备位号: "1",
         设备工艺名称: "桁车式吸泥机",

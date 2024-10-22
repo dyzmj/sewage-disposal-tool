@@ -3005,7 +3005,6 @@ export default {
     data1() {
       return [
       {
-        key: "1",
         序号: "",
         单体位号: "",
         名称: "机械搅拌絮凝池",
@@ -3022,7 +3021,6 @@ export default {
     data2() {
       return [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",
@@ -3039,7 +3037,6 @@ export default {
     data3() {
       return [
       {
-        key: "1",
         序号: "",
         单体位号: "",
         名称: "机械搅拌絮凝池",
@@ -3056,7 +3053,6 @@ export default {
     data4() {
       return [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",
@@ -3084,7 +3080,6 @@ export default {
     this.initWaterData();
     this.data1 = [
       {
-        key: "1",
         序号: "1",
         单体位号: "1",
         名称: "机械搅拌絮凝池",
@@ -3099,7 +3094,6 @@ export default {
     ];
     this.data2 = [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",
@@ -3114,7 +3108,6 @@ export default {
     ];
     this.data3 = [
       {
-        key: "1",
         序号: "",
         单体位号: "",
         名称: "机械搅拌絮凝池",
@@ -3129,7 +3122,6 @@ export default {
     ];
     this.data4 = [
       {
-        key: "1",
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",

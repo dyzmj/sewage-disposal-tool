@@ -635,7 +635,6 @@ export default {
     data2() {
       return [
       {
-        key: "1",
         序号: "1",
         设备位号: "1",
         设备工艺名称: "二氧化氯发生器",
@@ -662,7 +661,6 @@ export default {
     this.initWaterData();
     this.data2 = [
       {
-        key: "1",
         序号: "1",
         设备位号: "1",
         设备工艺名称: "二氧化氯发生器",
