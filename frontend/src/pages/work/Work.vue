@@ -142,7 +142,7 @@
                             <div class="list-content-item">
                               <a-tooltip placement="top" :title="item.message" :get-popup-container="getPopupContainer">
                                 <a-checkbox :value="item.key" name="processUnit" v-model="item.checked"
-                                  :disabled="item.disabled" @change="onChange(item.key)">
+                                  :disabled="item.disabled" @change="onChange(item.key, item.checked)">
                                   <a-tag :color="item.checked ? '#2DB7F5' : '#6C767D'" style="font-size: 13px;"
                                     @click="calc(item.key)">{{ item.title }}</a-tag>
                                 </a-checkbox>
@@ -230,8 +230,8 @@ export default {
           this.processUnit[0].children[5].checked = false;
         }
 
-        // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3
-        if (values.param4 > 15 || values.param5 === "1" || values.param7 === "3") {
+        // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3 || 0.5 < 氨氮 <=1
+        if (values.param4 > 15 || values.param5 === "1" || values.param7 === "3" || (values.param9 > 0.5 && values.param9 <= 1)) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
         } else {
@@ -267,9 +267,9 @@ export default {
         // 氨氮 <= 0.5
         if (values.param9 > 0.5 && values.param9 <= 1) {
           // 折点加氯
-          this.processUnit[6].children[1].checked = true;
+          this.processUnit[5].children[3].checked = true;
         } else {
-          this.processUnit[6].children[1].checked = false;
+          this.processUnit[5].children[3].checked = false;
         }
 
         // 浊度 < 50
@@ -343,6 +343,11 @@ export default {
         this.processUnit[1].children[3].checked = true;
         this.processUnit[1].children[4].checked = true;
 
+        if(this.processUnit[0].children[2].checked || this.processUnit[5].children[3].checked) {
+          // NaClO开启时，活性炭粉末也开启
+          this.processUnit[0].children[6].checked = true;
+        }
+
         // 将设计水量存入缓存
         const waterData = values.param14
         storeValueInLocalStorage("waterData", waterData)
@@ -359,7 +364,17 @@ export default {
       storeValueInLocalStorage("waterData", '');
       this.$message.success(this.$t("resetSucc"));
     },
-    onChange(key) {
+    onChange(key, checked) {
+      if (key === "1003" || key === "6004") {
+        if(checked){
+          // 活性炭粉末
+          this.processUnit[0].children[6].checked = true;
+        }else {
+          // 活性炭粉末
+          this.processUnit[0].children[6].checked = false;
+        }
+      }
+      
       if (key === "1006") {
         // O3
         this.$message.success(
