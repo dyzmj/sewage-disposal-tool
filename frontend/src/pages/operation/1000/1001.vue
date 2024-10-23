@@ -19,7 +19,12 @@
         >
           <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -2172,6 +2177,7 @@ export default {
       exportWord("生物接触氧化池计算书", "1001.docx", data, this);
     },
     refreshInitData() {
+      console.log("刷新方法被调用");
       this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3_1,
@@ -2219,7 +2225,15 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-        const data = [...allData1,null,null, ...allData2,null,null, ...allData3];
+        const data = [
+          ...allData1,
+          null,
+          null,
+          ...allData2,
+          null,
+          null,
+          ...allData3,
+        ];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -2633,64 +2647,64 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "",
-        单体位号: "",
-        名称: "普通快滤池",
-        Dimensions: this.getkey1(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "",
+          单体位号: "",
+          名称: "普通快滤池",
+          Dimensions: this.getkey1(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: "1",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "反冲洗泵",
-        设备类型: "",
-        规格及型号: this.getKey2(),
-        单位: "台",
-        disinfectiontank: this.getKey3(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.getKey6(),
-      },
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "反冲洗风机",
-        设备类型: "",
-        规格及型号: this.getKey4(),
-        单位: "台",
-        disinfectiontank: this.getKey5(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.getKey7(),
-      },
-    ];
-    }, 
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "反冲洗泵",
+          设备类型: "",
+          规格及型号: this.getKey2(),
+          单位: "台",
+          disinfectiontank: this.getKey3(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.getKey6(),
+        },
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "反冲洗风机",
+          设备类型: "",
+          规格及型号: this.getKey4(),
+          单位: "台",
+          disinfectiontank: this.getKey5(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.getKey7(),
+        },
+      ];
+    },
     data3() {
       return [
-      {
-        序号: "",
-        仪表位号: "",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        disinfectiontank: this.getKey8(),
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
-    }, 
+        {
+          序号: "",
+          仪表位号: "",
+          仪表名称: "电动阀",
+          安装位置: "",
+          规格及型号: "",
+          单位: "台",
+          disinfectiontank: this.getKey8(),
+          a: "",
+          b: "",
+          备注: "",
+        },
+      ];
+    },
   },
   watch() {
     this.initWaterData();
@@ -2700,6 +2714,7 @@ export default {
   },
   mounted() {
     this.initWaterData();
+    window.c1001 = this.refreshInitData();
   },
   created() {
     this.initWaterData();
