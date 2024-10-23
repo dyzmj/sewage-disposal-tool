@@ -1406,6 +1406,396 @@ export default {
         // 可以在这里添加更多的错误处理逻辑
       }
     },
+    call1002(path, name) {
+      console.info("初始化1002工程量缓存");
+      try {
+        const data1 = [
+          {
+            序号: "1",
+            单体位号: "1",
+            名称: "斜管沉淀池",
+            Dimensions: "6m x0.75m x1.5m",
+            标高: "",
+            单位: "座",
+            disinfectiontank: "2",
+            结构形式: "钢砼",
+            备注: "半地下式",
+            暖通要求: "无",
+          },
+        ];
+        const data2 = [
+          {
+            序号: "1",
+            设备位号: "1",
+            设备工艺名称: "桁车式吸泥机",
+            设备类型: "吸泥机",
+            规格及型号: "池深1.5m，N=2*0.55kW，池宽1.8m，轨距2.1m",
+            单位: "台",
+            数量: "2",
+            运行时间: "4h",
+            主要材质: "水上部分碳钢防腐，水下部分SS304",
+            备注:
+              "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+          },
+        ];
+        // 处理表头信息1
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData1
+        const allData1 = [
+          ...headerData1,
+          ...data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+        const data = [...allData1, null, null, ...allData2];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    call1003(path, name) {
+      console.info("初始化1003工程量缓存");
+      try {
+        const data1 = [];
+        const data2 = [];
+        // 处理表头信息1
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData1
+        const allData1 = [
+          ...headerData1,
+          ...data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+        const data = [...allData1, null, null, ...allData2];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    call1004(path, name) {
+      console.info("初始化1004工程量缓存");
+      try {
+        const data2 = [
+          {
+            序号: "1",
+            设备位号: "1",
+            设备工艺名称: "二氧化氯发生器",
+            规格及型号: "WTL（Z）-1000",
+            单位: "台",
+            数量: "2",
+            运行时间: "24h",
+            主要材质: "",
+            备注: "一用一备",
+          },
+        ];
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+        const data = [...allData2];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    call1005(path, name) {
+      console.info("初始化1005工程量缓存");
+      try {
+        const data1 = [
+          {
+            key: "1",
+            序号: "",
+            单体位号: "",
+            名称: "溶液池",
+            Dimensions: this.getkey1(),
+            标高: "",
+            单位: "座",
+            disinfectiontank: this.getkey2(),
+            结构形式: "",
+            备注: "",
+            暖通要求: "",
+          },
+        ];
+        const data2 = [
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "搅拌机",
+            设备类型: "折浆式搅拌机",
+            规格及型号: this.getkey3(),
+            单位: "台",
+            数量: this.getkey4(),
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "计量泵",
+            设备类型: "机械隔膜计量泵",
+            规格及型号: this.getkey5(),
+            单位: "台",
+            数量: "2",
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "液压阀",
+            设备类型: "",
+            规格及型号: "",
+            单位: "台",
+            数量: "2",
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "背压阀",
+            设备类型: "",
+            规格及型号: "",
+            单位: "台",
+            数量: "2",
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "脉冲阻尼器",
+            设备类型: "",
+            规格及型号: "",
+            单位: "台",
+            数量: "2",
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "Y型过滤器",
+            设备类型: "",
+            规格及型号: "",
+            单位: "台",
+            数量: "2",
+            运行时间: "",
+            主要材质: "",
+            备注: "",
+          },
+        ];
+        const data3 = [
+          {
+            key: "1",
+            序号: "",
+            仪表位号: "",
+            仪表名称: "压力表",
+            安装位置: "",
+            规格及型号: "",
+            单位: "个",
+            数量: "",
+            a: "",
+            b: "",
+            备注: "",
+          },
+          {
+            key: "1",
+            序号: "",
+            仪表位号: "",
+            仪表名称: "流量计",
+            安装位置: "",
+            规格及型号: "",
+            单位: "个",
+            数量: "",
+            a: "",
+            b: "",
+            备注: "",
+          },
+        ];
+        // 处理表头信息1
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData1
+        const allData1 = [
+          ...headerData1,
+          ...data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息3
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
+        // 初始化 allData3
+        const allData3 = [
+          ...headerData3,
+          ...data3.map((item) => Object.values(item)),
+        ];
+        const data = [
+          ...allData1,
+          null,
+          null,
+          ...allData2,
+          null,
+          null,
+          ...allData3,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    call1006(path, name) {
+      console.info("初始化1006工程量缓存");
+      try {
+        const data1 = [];
+        const data2 = [];
+        const data3 = [];
+        // 处理表头信息1
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData1
+        const allData1 = [
+          ...headerData1,
+          ...data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息3
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
+        // 初始化 allData3
+        const allData3 = [
+          ...headerData3,
+          ...data3.map((item) => Object.values(item)),
+        ];
+        const data = [
+          ...allData1,
+          null,
+          null,
+          ...allData2,
+          null,
+          null,
+          ...allData3,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
+    call1007(path, name) {
+      console.info("初始化1007工程量缓存");
+      try {
+        const data2 = [
+          {
+            key: "1",
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "投加系统",
+            Dimensions: "粉末活性炭干式投加系统",
+            规格及型号: "料仓容积=3 m3",
+            单位: "套",
+            disinfectiontank: "1",
+            运行时间: "",
+            主要材质: "",
+            备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+          },
+        ];
+
+        // 处理表头信息2
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData2
+        const allData2 = [
+          ...headerData2,
+          ...data2.map((item) => Object.values(item)),
+        ];
+        const data = [
+          ...allData2,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
+    },
   },
   computed: {
     ...mapState("account", { currUser: "user" }),
