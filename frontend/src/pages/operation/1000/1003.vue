@@ -358,6 +358,7 @@ import {
   exportWord,
   getValueFromLocalStorage,
   initWordStorage,
+  initExcelStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -708,6 +709,43 @@ export default {
         key2: this.b8,
       };
       initWordStorage("1003.docx", data);
+      this.handleExcelCache("1003.xlsx", "次氯酸钠工程量");
+    },
+    handleExcelCache(path, name) {
+      try {
+        // 处理表头信息
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
+
+        const data = [
+          ...allData1,
+          null,
+          null,
+          ...allData2,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
     },
     getDisinfectiontank() {
       return "to do";

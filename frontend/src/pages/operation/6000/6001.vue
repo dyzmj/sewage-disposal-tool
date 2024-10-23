@@ -418,7 +418,8 @@ import {
   exportExcel,
   exportWord,
   getValueFromLocalStorage,
-  initWordStorage,
+    initWordStorage,
+  initExcelStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -563,6 +564,29 @@ export default {
         unit3: this.$t("singleUnit2"),
       };
       initWordStorage("6001.docx", data);
+      this.handleExcelCache("6001.xlsx", "接触消毒池工程量");
+    },
+    handleExcelCache(path, name) {
+      try {
+        // 处理表头信息
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns),
+          this.flattenSecondRowColumns(this.columns),
+        ];
+        // 初始化 allData
+        const allData1 = [
+          ...headerData1,
+          ...this.data.map((item) => Object.values(item)),
+        ];
+
+        const data = [
+          ...allData1,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
     },
     exportExcel() {
       try {

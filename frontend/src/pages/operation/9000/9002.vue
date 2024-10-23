@@ -1516,7 +1516,8 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel, exportWord,  initWordStorage, } from "@/utils/exportUtil";
+import { exportExcel, exportWord,    initWordStorage,
+  initExcelStorage, } from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -1737,6 +1738,28 @@ export default {
         key6: this.b43_1,
       };
       initWordStorage("9002.docx", data);
+      this.handleExcelCache("9002.xlsx", "脱水加药工程量");
+    },
+    handleExcelCache(path, name) {
+      try {
+        // 处理表头信息
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
+        // 初始化 allData
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
+        const data = [
+          ...allData3,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
     },
     getDisinfectiontank() {
       return "to do";

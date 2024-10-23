@@ -372,6 +372,7 @@ import {
   exportWord,
   getValueFromLocalStorage,
   initWordStorage,
+  initExcelStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -545,6 +546,30 @@ export default {
         key4: this.b9,
       };
       initWordStorage("1004.docx", data);
+      this.handleExcelCache("1004.xlsx", "二氧化氯工程量");
+    },
+    handleExcelCache(path, name) {
+      try {
+
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
+
+        const data = [
+          ...allData2,
+        ];
+        initExcelStorage(path, data, name);
+      } catch (error) {
+        console.error("Error Init Excel Data:", error);
+        // 可以在这里添加更多的错误处理逻辑
+      }
     },
     getDisinfectiontank() {
       return "to do";
