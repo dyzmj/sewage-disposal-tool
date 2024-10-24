@@ -1,268 +1,9 @@
 <template>
   <div id="container">
     <a-row style="margin: 0 -6px">
-      <a-col style="padding: 0 6px" :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card
-          :loading="loading"
-          :title="$t('baseQueryParam')"
-          style="margin-bottom: 2 4px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-          :headStyle="{ 'font-weight': 'bolder' }"
-        >
-          <div class="baseQueryParam">
-            <a-form
-              class="diy-advanced-search-form"
-              :form="form"
-              @submit="handleSearch"
-            >
-              <a-form-item
-                :label="$t('param1')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param1`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param1_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param2')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param2`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param2_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param3')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param3`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param3_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param4')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-              >
-                <a-input
-                  :style="{ width: '100%' }"
-                  v-decorator="[`param4`]"
-                  :placeholder="$t('inputOne')"
-                  :disabled="false"
-                />
-              </a-form-item>
-              <a-form-item
-                :label="$t('param5')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param5`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
-                  <a-select-option value="0"> 无 </a-select-option>
-                  <a-select-option value="1"> 有 </a-select-option>
-                </a-select>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param6')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param6`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
-                  <a-select-option value="0"> 无 </a-select-option>
-                  <a-select-option value="1"> 有 </a-select-option>
-                </a-select>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param7')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-select
-                    v-decorator="[`param7`]"
-                    style="width: 70%"
-                    :placeholder="$t('selectOne')"
-                  >
-                    <a-select-option value="0"> &lt;= 3 </a-select-option>
-                    <a-select-option value="1"> 常年 3~10 </a-select-option>
-                    <a-select-option value="2"> 常年 > 5 </a-select-option>
-                    <a-select-option value="3">
-                      水质突变或季节性变化
-                    </a-select-option>
-                  </a-select>
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param7_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param8')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-select
-                  v-decorator="[`param8`]"
-                  style="width: 100%"
-                  :placeholder="$t('selectOne')"
-                >
-                  <a-select-option value="0"> 无 </a-select-option>
-                  <a-select-option value="1"> 有 </a-select-option>
-                </a-select>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param9')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param9`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param9_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param11')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input
-                  :style="{ width: '100%' }"
-                  v-decorator="[`param11`]"
-                  :placeholder="$t('inputOne')"
-                  :disabled="false"
-                />
-              </a-form-item>
-              <a-form-item
-                :label="$t('param12')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-input
-                    :style="{ width: '70%' }"
-                    v-decorator="[`param12`]"
-                    :placeholder="$t('inputOne')"
-                    :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param12_u')"
-                    :disabled="true"
-                  />
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                :label="$t('param13')"
-                :labelCol="{ span: 7 }"
-                :wrapperCol="{ span: 17 }"
-                :required="false"
-              >
-                <a-input-group
-                  :compact="true"
-                  style="display: inline-block; vertical-align: middle"
-                >
-                  <a-select
-                    v-decorator="[`param13`]"
-                    style="width: 100%"
-                    :placeholder="$t('selectOne')"
-                  >
-                    <a-select-option value="0"> 否 </a-select-option>
-                    <a-select-option value="1"> 是 </a-select-option>
-                  </a-select>
-                </a-input-group>
-              </a-form-item>
-              <a-form-item
-                style="margin-top: 0px; margin-bottom: 7px"
-                :wrapperCol="{ span: 18, offset: 6 }"
-              >
-                <a-button html-type="submit" type="primary">{{
-                  $t("submit")
-                }}</a-button>
-                <!-- <a-button @click="handleReset" style="margin-left: 8px">{{ $t('reset') }}</a-button> -->
-              </a-form-item>
-            </a-form>
-          </div>
-        </a-card>
-      </a-col>
       <a-col
-        style="padding: 0 6px; padding-bottom: 10px"
-        :xl="18"
+        style="padding: 14px 6px"
+        :xl="24"
         :lg="24"
         :md="24"
         :sm="24"
@@ -274,6 +15,7 @@
           style="margin-bottom: 0px"
           :headStyle="{ 'font-weight': 'bolder' }"
           :bordered="false"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <!-- <img src="./wio.svg" style="background-color: gray; width: 100%; height: 700px;" /> -->
           <div id="svgTemplate" ref="svg"></div>
@@ -287,13 +29,13 @@
 import proSvg from "./wio.svg";
 import { mapState } from "vuex";
 import Vue from "vue/dist/vue.esm.js";
+import { getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   name: "Demo",
   i18n: require("./i18n"),
   data() {
     return {
-      form: this.$form.createForm(this, { name: "advanced_search" }),
       loading: false,
       processUnit: [],
       processUnitData: [],
@@ -304,169 +46,358 @@ export default {
       rectDom: null,
     };
   },
-  created() {
-    this.loadSvg();
-  },
-  computed: {
-    ...mapState("setting", ["pageMinHeight"]),
-    desc() {
-      return this.$t("description");
-    },
-  },
-  mounted() {
-    //  svg 点击事件
-    window["handleClick"] = () => {
-      debugger;
-      console.log("点击事件----->>>");
-    };
-  },
   methods: {
-    handleSearch(e) {
-      e.preventDefault();
-      this.form.validateFields((error, values) => {
-        // 根据实际输入参数点亮对应的标签
-
-        // 1、含砂量
-        if (values.param1 >= 80) {
-          // 预沉池
-          const dom1002 = document.getElementById("1002");
-          dom1002.style.fill = "#1ba1e2";
-        } else if (values.param1 < 80) {
-          const dom1002 = document.getElementById("1002");
-          dom1002.style.fill = "none";
-        }
-        // 2、铁
-        if (values.param2 > 0.3) {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-        }
-        // 3、锰
-        if (values.param3 > 0.1) {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-        }
-        // 4、色度
-        if (values.param4 > 15) {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-          // 活性炭粉末
-          // 无
-        }
-
-        // 5、嗅味
-        if (values.param5 === "1") {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-          // 活性炭粉末
-          // 无
-        }
-
-        // 6、藻类
-        if (values.param6 === "1") {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-          // 活性炭粉末
-          // 无
-        }
-
-        // 7、高锰酸盐指数
-        if (values.param7 === "0") {
-          // nothing to do
-        } else if (values.param7 === "1") {
-          // 生物接触氧化
-          const dom1003 = document.getElementById("1003");
-          dom1003.style.fill = "#1ba1e2";
-        } else if (values.param7 === "2") {
-          // 臭氧活性炭
-          const dom1010 = document.getElementById("1010");
-          dom1010.style.fill = "#1ba1e2";
-        } else if (values.param7 === "3") {
-          // 配水井
-          const dom1001 = document.getElementById("1001");
-          dom1001.style.fill = "#1ba1e2";
-          // 活性炭粉末
-          // 无
-        }
-
-        // 8、溴化物
-        if (values.param8 === "1") {
-          // 不得选用臭氧
-          // this.processUnit[0].children[5].checked = false
-          // this.processUnit[0].children[5].disabled = 'true'
-          this.$message.error(this.$t("不得选用臭氧"));
-        }
-
-        // 9、氨氮
-        if (values.param9 <= 0.5) {
-          // nothing to do
-        } else if (values.param9 > 0.5 && values.param9 <= 1) {
-          // 折点加氯
-        } else if (values.param9 > 1) {
-          // 生物接触氧化
-          const dom1003 = document.getElementById("1003");
-          dom1003.style.fill = "#1ba1e2";
-        }
-
-        // 11、浊度
-        if (values.param11 < 50) {
-          // nothing to do
-        } else if (values.param11 < 100) {
-          // 气浮池
-          const dom1020 = document.getElementById("1020");
-          dom1020.style.fill = "#1ba1e2";
-        } else if (values.param11 < 500) {
-          // 水力循环澄清池
-          const dom1019 = document.getElementById("1019");
-          dom1019.style.fill = "#1ba1e2";
-        } else if (values.param11 < 3000) {
-          // 机械搅拌澄清池
-          const dom1018 = document.getElementById("1018");
-          dom1018.style.fill = "#1ba1e2";
-        } else if (values.param11 < 5000) {
-          // 平流沉淀池
-          const dom1006 = document.getElementById("1006");
-          dom1006.style.fill = "#1ba1e2";
-        } else if (values.param11 < 10000) {
-          // 斜管沉淀池
-          const dom1007 = document.getElementById("1007");
-          dom1007.style.fill = "#1ba1e2";
-          // 高密度沉淀池
-          const dom1017 = document.getElementById("1017");
-          dom1017.style.fill = "#1ba1e2";
-        }
-
-        // 12、出水浊度
-        if (values.param12 < 0.5) {
-          // 超滤
-          const dom1012 = document.getElementById("1012");
-          dom1012.style.fill = "#1ba1e2";
-        }
-
-        // 13、消毒
-        if (values.param13 === "0") {
-          // nothing to do
-        } else if (values.param13 === "1") {
-          // 接触消毒
-          this.processUnit[5].children[0].checked = true;
-        }
-      });
+    initProcessUnitData() {
+      // 初始化
+      this.fc1001();
+      this.fc1002();
+      this.fc1003();
+      this.fc1004();
+      this.fc1005();
+      this.fc1006();
+      this.fc1007();
+      this.fc2001();
+      this.fc2002();
+      this.fc2003();
+      this.fc2004();
+      this.fc2005();
+      this.fc3001();
+      this.fc3002();
+      this.fc3003();
+      this.fc3004();
+      this.fc3005();
+      this.fc3006();
+      this.fc4001();
+      this.fc4002();
+      this.fc5001();
+      this.fc5002();
+      this.fc6001();
+      this.fc6002();
+      this.fc6003();
+      this.fc6004();
+      this.fc6005();
+      this.fc6006();
+      this.fc8001();
+      this.fc8002();
+      this.fc9001();
+      this.fc9002();
     },
-    handleReset() {
-      this.$message.info(this.$t("resetSucc"));
-      this.form.resetFields();
-
-      // console.log('Received values of form: ', this.form);
-      let svgcanvasDom = document.getElementById("svgcanvas");
-      // this.rectDom = svgcanvasDom.getElementsByTagName("rect");
-      this.rectDom = svgcanvasDom.getElementsByClassName("rect");
-      for (let i = 0; i < this.rectDom.length; i++) {
-        this.rectDom[i].style.fill = "none";
+    fc1001() {
+      // 生物接触氧化池
+      const fc1001 = getValueFromLocalStorage("fc1001");
+      const dom1003 = document.getElementById("1003");
+      // ;
+      if (fc1001 === '1'){
+        dom1003.style.fill = "#1ba1e2";
+      }else {
+        dom1003.style.fill = "none";
       }
+    },
+    fc1002() {
+      // 预沉池
+      const fc1002 = getValueFromLocalStorage("fc1002");
+      const dom1002 = document.getElementById("1002");
+      if (fc1002 === '1'){
+        dom1002.style.fill = "#1ba1e2";
+      }else {
+        dom1002.style.fill = "none";
+      }
+    },
+    fc1003() {
+      // 配水井
+      const fc1003 = getValueFromLocalStorage("fc1003");
+      const dom1001 = document.getElementById("1001");
+      if (fc1003 === '1'){
+        dom1001.style.fill = "#1ba1e2";
+      }else {
+        dom1001.style.fill = "none";
+      }
+    },
+    fc1004() {
+      // 配水井
+      const fc1004 = getValueFromLocalStorage("fc1004");
+      const dom1001 = document.getElementById("1001");
+      if (fc1004 === '1'){
+        dom1001.style.fill = "#1ba1e2";
+      }else {
+        dom1001.style.fill = "none";
+      }
+    },
+    fc1005() {
+      // 配水井
+      const fc1005 = getValueFromLocalStorage("fc1005");
+      const dom1001 = document.getElementById("1001");
+      if (fc1005 === '1'){
+        dom1001.style.fill = "#1ba1e2";
+      }else {
+        dom1001.style.fill = "none";
+      }
+    },
+    fc1006() {
+      // 配水井
+      const fc1006 = getValueFromLocalStorage("fc1006");
+      const dom1001 = document.getElementById("1001");
+      if (fc1006 === '1'){
+        dom1001.style.fill = "#1ba1e2";
+      }else {
+        dom1001.style.fill = "none";
+      }
+    },
+    fc1007() {
+      // 机械絮凝池\折板絮凝池\网格絮凝池
+      const fc1007 = getValueFromLocalStorage("fc1007");
+      const dom1004 = document.getElementById("1004");
+      const dom1005 = document.getElementById("1005");
+      const dom1006 = document.getElementById("1006");
+      if (fc1007 === '1'){
+        dom1004.style.fill = "#1ba1e2";
+        dom1005.style.fill = "#1ba1e2";
+        dom1006.style.fill = "#1ba1e2";
+      }else {
+        dom1004.style.fill = "none";
+        dom1005.style.fill = "none";
+        dom1006.style.fill = "none";
+      }
+    },
+    fc2001() {
+      // 机械絮凝池
+      const fc2001 = getValueFromLocalStorage("fc2001");
+      const dom1004 = document.getElementById("1004");
+      if (fc2001 === '1'){
+        dom1004.style.fill = "#1ba1e2";
+      }else {
+        dom1004.style.fill = "none";
+      }
+    },
+    fc2002() {
+      // 网格絮凝池
+      const fc2002 = getValueFromLocalStorage("fc2002");
+      const dom1030 = document.getElementById("1030");
+      if (fc2002 === '1'){
+        dom1030.style.fill = "#1ba1e2";
+      }else {
+        dom1030.style.fill = "none";
+      }
+    },
+    fc2003() {
+      // 折板絮凝池
+      const fc2003 = getValueFromLocalStorage("fc2003");
+      const dom1005 = document.getElementById("1005");
+      if (fc2003 === '1'){
+        dom1005.style.fill = "#1ba1e2";
+      }else {
+        dom1005.style.fill = "none";
+      }
+    },
+    fc2004() {
+      // const fc2004 = getValueFromLocalStorage("fc2004");
+      // const dom2004 = document.getElementById("2004");
+      // if (fc2004 === '1'){
+      //   dom2004.style.fill = "#1ba1e2";
+      // }else {
+      //   dom2004.style.fill = "none";
+      // }
+    },
+    fc2005() {
+      // const fc2005 = getValueFromLocalStorage("fc2005");
+      // const dom2005 = document.getElementById("2005");
+      // if (fc2005 === '1'){
+      //   dom2005.style.fill = "#1ba1e2";
+      // }else {
+      //   dom2005.style.fill = "none";
+      // }
+    },
+    fc3001() {
+      // 平流沉淀池
+      const fc3001 = getValueFromLocalStorage("fc3001");
+      const dom1006 = document.getElementById("1006");
+      if (fc3001 === '1'){
+        dom1006.style.fill = "#1ba1e2";
+      }else {
+        dom1006.style.fill = "none";
+      }
+    },
+    fc3002() {
+      // 斜管沉淀池
+      const fc3002 = getValueFromLocalStorage("fc3002");
+      const dom1007 = document.getElementById("1007");
+      if (fc3002 === '1'){
+        dom1007.style.fill = "#1ba1e2";
+      }else {
+        dom1007.style.fill = "none";
+      }
+    },
+    fc3003() {
+      // 高密度沉淀池
+      const fc3003 = getValueFromLocalStorage("fc3003");
+      const dom1017 = document.getElementById("1017");
+      if (fc3003 === '1'){
+        dom1017.style.fill = "#1ba1e2";
+      }else {
+        dom1017.style.fill = "none";
+      }
+    },
+    fc3004() {
+      // 机械澄清池
+      const fc3004 = getValueFromLocalStorage("fc3004");
+      const dom1018 = document.getElementById("1018");
+      if (fc3004 === '1'){
+        dom1018.style.fill = "#1ba1e2";
+      }else {
+        dom1018.style.fill = "none";
+      }
+    },
+    fc3005() {
+      // 水力循环澄清池
+      const fc3005 = getValueFromLocalStorage("fc3005");
+      const dom1019 = document.getElementById("1019");
+      if (fc3005 === '1'){
+        dom1019.style.fill = "#1ba1e2";
+      }else {
+        dom1019.style.fill = "none";
+      }
+    },
+    fc3006() {
+      // 气浮池
+      const fc3006 = getValueFromLocalStorage("fc3006");
+      const dom1020 = document.getElementById("1020");
+      if (fc3006 === '1'){
+        dom1020.style.fill = "#1ba1e2";
+      }else {
+        dom1020.style.fill = "none";
+      }
+    },
+    fc4001() {
+      // 普通快滤池
+      const fc4001 = getValueFromLocalStorage("fc4001");
+      const dom1008 = document.getElementById("1008");
+      if (fc4001 === '1'){
+        dom1008.style.fill = "#1ba1e2";
+      }else {
+        dom1008.style.fill = "none";
+      }
+    },
+    fc4002() {
+      // V型滤池
+      const fc4002 = getValueFromLocalStorage("fc4002");
+      const dom1009 = document.getElementById("1009");
+      if (fc4002 === '1'){
+        dom1009.style.fill = "#1ba1e2";
+      }else {
+        dom1009.style.fill = "none";
+      }
+    },
+    fc5001() {
+      // 臭氧活性炭
+      const fc5001 = getValueFromLocalStorage("fc5001");
+      const dom1010 = document.getElementById("1010");
+      if (fc5001 === '1'){
+        dom1010.style.fill = "#1ba1e2";
+      }else {
+        dom1010.style.fill = "none";
+      }
+    },
+    fc5002() {
+      // 超滤
+      const fc5002 = getValueFromLocalStorage("fc5002");
+      const dom1012 = document.getElementById("1012");
+      if (fc5002 === '1'){
+        dom1012.style.fill = "#1ba1e2";
+      }else {
+        dom1012.style.fill = "none";
+      }
+    },
+    fc6001() {
+      // const fc6001 = getValueFromLocalStorage("fc6001");
+      // const dom6001 = document.getElementById("6001");
+      // if (fc6001 === '1'){
+      //   dom6001.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6001.style.fill = "none";
+      // }
+    },
+    fc6002() {
+      // const fc6002 = getValueFromLocalStorage("fc6002");
+      // const dom6002 = document.getElementById("6002");
+      // if (fc6002 === '1'){
+      //   dom6002.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6002.style.fill = "none";
+      // }
+    },
+    fc6003() {
+      // const fc6003 = getValueFromLocalStorage("fc6003");
+      // const dom6003 = document.getElementById("6003");
+      // if (fc6003 === '1'){
+      //   dom6003.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6003.style.fill = "none";
+      // }
+    },
+    fc6004() {
+      // const fc6004 = getValueFromLocalStorage("fc6004");
+      // const dom6004 = document.getElementById("6004");
+      // if (fc6004 === '1'){
+      //   dom6004.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6004.style.fill = "none";
+      // }
+    },
+    fc6005() {
+      // const fc6005 = getValueFromLocalStorage("fc6005");
+      // const dom6005 = document.getElementById("6005");
+      // if (fc6005 === '1'){
+      //   dom6005.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6005.style.fill = "none";
+      // }
+    },
+    fc6006() {
+      // const fc6006 = getValueFromLocalStorage("fc6006");
+      // const dom6006 = document.getElementById("6006");
+      // if (fc6006 === '1'){
+      //   dom6006.style.fill = "#1ba1e2";
+      // }else {
+      //   dom6006.style.fill = "none";
+      // }
+    },
+    fc8001() {
+      // const fc8001 = getValueFromLocalStorage("fc8001");
+      // const dom8001 = document.getElementById("8001");
+      // if (fc8001 === '1'){
+      //   dom8001.style.fill = "#1ba1e2";
+      // }else {
+      //   dom8001.style.fill = "none";
+      // }
+    },
+    fc8002() {
+      // 清水池
+      const fc8002 = getValueFromLocalStorage("fc8002");
+      const dom1011 = document.getElementById("1011");
+      if (fc8002 === '1'){
+        dom1011.style.fill = "#1ba1e2";
+      }else {
+        dom1011.style.fill = "none";
+      }
+    },
+    fc9001() {
+      // 污泥浓缩池
+      const fc9001 = getValueFromLocalStorage("fc9001");
+      const dom1015 = document.getElementById("1015");
+      if (fc9001 === '1'){
+        dom1015.style.fill = "#1ba1e2";
+      }else {
+        dom1015.style.fill = "none";
+      }
+    },
+    fc9002() {
+      // const fc9002 = getValueFromLocalStorage("fc9002");
+      // const dom9002 = document.getElementById("9002");
+      // if (fc9002 === '1'){
+      //   dom9002.style.fill = "#1ba1e2";
+      // }else {
+      //   dom9002.style.fill = "none";
+      // }
     },
     loadSvg() {
       const xhr = new XMLHttpRequest();
@@ -483,7 +414,7 @@ export default {
         // this.svgDom.setAttribute("v-on:mousewheel", "this.havcZooming($event)");
 
         // let btm = this.svgDom.getElementById("1");
-        // // debugger;
+        // // ;
         // btm.setAttribute("v-on:click", "this.handleClick($event)");
 
         // svg - g
@@ -526,7 +457,7 @@ export default {
           // this.rectDom[i].setAttribute("v-on:click", "this.handleClick()"); // 为每个节点绑定点击事件
           // console.log('当前 rect 标签下的节点id----->>>', currNodeId)
 
-          this.rectDom[i].addEventListener("click", function (event) {
+          this.rectDom[i].addEventListener("click", function(event) {
             console.log(">>>>>>>>Rectangle clicked!", event);
             this.rectDom[i].style.fill = "green";
           });
@@ -534,6 +465,33 @@ export default {
       });
     },
   },
+  computed: {
+    ...mapState("setting", ["pageMinHeight"]),
+    desc() {
+      return this.$t("description");
+    },
+  },
+  watch() {
+    this.initProcessUnitData();
+  },
+  activated() {
+    // this.loadSvg();
+    this.initProcessUnitData();
+  },
+  mounted() {
+    // this.loadSvg();
+    // this.initProcessUnitData();
+    //  svg 点击事件
+    // window["handleClick"] = () => {
+    //   console.log("点击事件----->>>");
+    // };
+  },
+  created() {
+    
+    this.loadSvg();
+    // setTimeout(() => { console.log('pause')}, 1000);
+    this.initProcessUnitData();
+  }
 };
 </script>
 

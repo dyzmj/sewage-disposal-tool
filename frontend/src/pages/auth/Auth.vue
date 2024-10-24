@@ -2,7 +2,7 @@
     <div class="container">
         <a-row style="margin: 0 -6px">
             <a-col style="padding: 0 6px; height: 100%;" :xl="24" :lg="24" :md="24" :sm="24" :xs="24">
-                <a-card :loading="loading" :title="$t('authPage')" :headStyle='{"font-weight": "bolder"}'
+                <a-card :title="$t('authPage')" :headStyle='{"font-weight": "bolder"}'
                     style="margin-bottom: 24px" :bordered="false" :body-style="{ padding: 4 }">
                     <div class="baseQueryParam">
                         <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }"
@@ -22,12 +22,12 @@
                                 </a-button>
                             </a-form-item>
                             <a-form-item :label="$t('certificate')">
-                                <a-input v-model="certificate" disabled="true" >
+                                <a-input v-model="certificate" :disabled="true" >
                                     <a-icon slot="prefix" type="safety-certificate"/>
                                 </a-input>
                             </a-form-item>
                             <a-form-item :label="$t('certificate')">
-                                <a-input v-model="code" disabled="true" >
+                                <a-input v-model="code" :disabled="true" >
                                     <a-icon slot="prefix" type="safety-certificate"/>
                                 </a-input>
                             </a-form-item>

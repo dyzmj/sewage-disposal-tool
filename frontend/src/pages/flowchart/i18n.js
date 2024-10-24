@@ -22,6 +22,8 @@ module.exports = {
       param12: '出水浊度',
       param12_u: 'NTU',
       param13: '消毒',
+      param14: '设计水量',
+      param14_u: 'm3/d',
       submit: '初始化',
       reset: '重置',
       selectOne: '请选择',

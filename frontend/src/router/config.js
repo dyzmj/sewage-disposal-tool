@@ -88,7 +88,7 @@ const options = {
               component: () => import('@/pages/operation/1000/1002')
             },
             {
-              name: '加药系统-NaClO',
+              name: 'NaClO',
               path: '/sub/1003',
               meta: {
                 keepAlive: true,
@@ -96,7 +96,7 @@ const options = {
               component: () => import('@/pages/operation/1000/1003')
             },
             {
-              name: '加药系统-ClO2',
+              name: 'ClO2',
               path: '/sub/1004',
               meta: {
                 keepAlive: true,
@@ -482,15 +482,15 @@ const options = {
             },
           ]
         },
-        {
-          path: 'about',
-          name: '关于',
-          meta: {
-            icon: 'check-circle-o',
-            keepAlive: true,
-          },
-          component: () => import('@/pages/about')
-        },
+        // {
+        //   path: 'about',
+        //   name: '关于',
+        //   meta: {
+        //     icon: 'check-circle-o',
+        //     keepAlive: true,
+        //   },
+        //   component: () => import('@/pages/about')
+        // },
         {
           path: 'auth',
           name: '授权',

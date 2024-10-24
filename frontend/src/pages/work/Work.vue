@@ -12,10 +12,10 @@
         <a-card
           :loading="loading"
           :title="$t('baseQueryParam')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
+          style="margin-bottom: 2 4px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
+          :headStyle="{ 'font-weight': 'bolder' }"
         >
           <div class="baseQueryParam">
             <a-form
@@ -301,7 +301,7 @@
           :loading="loading"
           :title="$t('processUnit')"
           :headStyle="{ 'font-weight': 'bolder' }"
-          :bodyStyle="{ 'padding-bottom': '12px' }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           style="margin-bottom: 0px"
           :bordered="false"
         >
@@ -674,8 +674,10 @@ export default {
         if (values.param1 >= 80) {
           // 沉淀池
           this.processUnit[0].children[1].checked = true;
+          storeValueInLocalStorage("fc1002", "1");
         } else {
           this.processUnit[0].children[1].checked = false;
+          storeValueInLocalStorage("fc1002", "0");
         }
 
         // 铁 > 0.3 || 锰 > 0.1 || 色度 > 15 || 嗅味 == 1 || 藻类 == 1 || 高锰酸盐指数 == 3
@@ -692,12 +694,20 @@ export default {
           this.processUnit[0].children[3].checked = true;
           this.processUnit[0].children[4].checked = true;
           this.processUnit[0].children[5].checked = true;
+          storeValueInLocalStorage("fc1003", "1");
+          storeValueInLocalStorage("fc1004", "1");
+          storeValueInLocalStorage("fc1005", "1");
+          storeValueInLocalStorage("fc1006", "1");
           //   this.processUnit[0].children[5].color = '#00a24e'
         } else {
           this.processUnit[0].children[2].checked = false;
           this.processUnit[0].children[3].checked = false;
           this.processUnit[0].children[4].checked = false;
           this.processUnit[0].children[5].checked = false;
+          storeValueInLocalStorage("fc1003", "0");
+          storeValueInLocalStorage("fc1004", "0");
+          storeValueInLocalStorage("fc1005", "0");
+          storeValueInLocalStorage("fc1006", "0");
         }
 
         // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3 || 0.5 < 氨氮 <=1
@@ -709,24 +719,30 @@ export default {
         ) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
+          storeValueInLocalStorage("fc1007", "1");
         } else {
           this.processUnit[0].children[6].checked = false;
+          storeValueInLocalStorage("fc1007", "0");
         }
 
         // 高锰酸盐指数 == 1 || 氨氮 > 1
         if (values.param7 === "1" || values.param9 > 1) {
           // 生物接触氧化
           this.processUnit[0].children[0].checked = true;
+          storeValueInLocalStorage("fc1001", "1");
         } else {
           this.processUnit[0].children[0].checked = false;
+          storeValueInLocalStorage("fc1001", "0");
         }
 
         // 高锰酸盐指数 == 2
         if (values.param7 === "2") {
           // 臭氧活性炭
           this.processUnit[4].children[0].checked = true;
+          storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[4].children[0].checked = false;
+          storeValueInLocalStorage("fc5001", "0");
         }
 
         // 溴化物 == 1
@@ -735,16 +751,20 @@ export default {
           this.processUnit[0].children[5].checked = false;
           this.processUnit[0].children[5].disabled = true;
           this.$message.error(this.$t("不得选用臭氧"));
+          storeValueInLocalStorage("fc1006", "0");
         } else {
           this.processUnit[0].children[5].disabled = false;
+          storeValueInLocalStorage("fc1006", "0");
         }
 
         // 氨氮 <= 0.5
         if (values.param9 > 0.5 && values.param9 <= 1) {
           // 折点加氯
           this.processUnit[5].children[3].checked = true;
+          storeValueInLocalStorage("fc6004", "1");
         } else {
           this.processUnit[5].children[3].checked = false;
+          storeValueInLocalStorage("fc6004", "0");
         }
 
         // 浊度 < 50
@@ -758,32 +778,40 @@ export default {
         if (values.param11 < 100) {
           // 气浮池
           this.processUnit[2].children[5].checked = true;
+          storeValueInLocalStorage("fc3006", "1");
         } else {
           this.processUnit[2].children[5].checked = false;
+          storeValueInLocalStorage("fc3006", "0");
         }
 
         // 浊度 < 500
         if (values.param11 < 500) {
           // 水力循环澄清池
           this.processUnit[2].children[4].checked = true;
+          storeValueInLocalStorage("fc3005", "1");
         } else {
           this.processUnit[2].children[4].checked = false;
+          storeValueInLocalStorage("fc3005", "0");
         }
 
         // 浊度 < 3000
         if (values.param11 < 3000) {
           // 机械搅拌澄清池
           this.processUnit[2].children[3].checked = true;
+          storeValueInLocalStorage("fc3004", "1");
         } else {
           this.processUnit[2].children[3].checked = false;
+          storeValueInLocalStorage("fc3004", "0");
         }
 
         // 浊度 < 5000
         if (values.param11 < 5000) {
           // 平流沉淀池
           this.processUnit[2].children[0].checked = true;
+          storeValueInLocalStorage("fc3001", "1");
         } else {
           this.processUnit[2].children[0].checked = false;
+          storeValueInLocalStorage("fc3001", "0");
         }
 
         // 浊度 < 10000
@@ -792,25 +820,33 @@ export default {
           this.processUnit[2].children[1].checked = true;
           // 高密度沉淀池
           this.processUnit[2].children[2].checked = true;
+          storeValueInLocalStorage("fc3002", "1");
+          storeValueInLocalStorage("fc3003", "1");
         } else {
           this.processUnit[2].children[1].checked = false;
           this.processUnit[2].children[2].checked = false;
+          storeValueInLocalStorage("fc3002", "0");
+          storeValueInLocalStorage("fc3003", "0");
         }
 
         // 出水浊度 < 0.5
         if (values.param12 < 0.5) {
           // 超滤
           this.processUnit[4].children[1].checked = true;
+          storeValueInLocalStorage("fc5002", "1");
         } else {
           this.processUnit[4].children[1].checked = false;
+          storeValueInLocalStorage("fc5002", "0");
         }
 
         // 13、消毒 == 1
         if (values.param13 === "1") {
           // 接触消毒
           this.processUnit[5].children[0].checked = true;
+          storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[5].children[0].checked = false;
+          storeValueInLocalStorage("fc5001", "0");
         }
 
         // 初始化时常选中：混凝工艺全部、PAC、PAM
@@ -819,6 +855,11 @@ export default {
         this.processUnit[1].children[2].checked = true;
         this.processUnit[1].children[3].checked = true;
         this.processUnit[1].children[4].checked = true;
+        storeValueInLocalStorage("fc5001", "1");
+        storeValueInLocalStorage("fc5002", "1");
+        storeValueInLocalStorage("fc5003", "1");
+        storeValueInLocalStorage("fc5004", "1");
+        storeValueInLocalStorage("fc5005", "1");
 
         if (
           this.processUnit[0].children[2].checked ||
@@ -826,6 +867,7 @@ export default {
         ) {
           // NaClO开启时，活性炭粉末也开启
           this.processUnit[0].children[6].checked = true;
+          storeValueInLocalStorage("fc1007", "1");
         }
 
         // 将设计水量存入缓存
@@ -841,9 +883,11 @@ export default {
       this.getProcessUnit();
       // 重置时将设计水量缓存也清空
       storeValueInLocalStorage("waterData", "");
+      // 清空单元选择缓存
+      this.handleInitChangeCache();
       this.$message.success(this.$t("resetSucc"));
     },
-    onChange(key, checked) {
+    handleChangeMassage(key, checked) {
       if (key === "1003" || key === "6004") {
         if (checked) {
           // 活性炭粉末
@@ -853,7 +897,6 @@ export default {
           this.processUnit[0].children[6].checked = false;
         }
       }
-
       if (key === "1006") {
         // O3
         this.$message.success(
@@ -872,7 +915,6 @@ export default {
         // NaClO
         this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
       }
-
       if (key === "2002") {
         // 网格絮凝池
         this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
@@ -905,6 +947,270 @@ export default {
         // 气浮池
         this.$message.success("设计规模 < 5万m3/d 不建议");
       }
+    },
+    handleChangeCache(key, checked) {
+      if (key === "1001") {
+        if(checked){
+          storeValueInLocalStorage("fc1001", "1");
+        }else{
+          storeValueInLocalStorage("fc1001", "0");
+        }
+      }
+      if (key === "1002") {
+        if(checked){
+          storeValueInLocalStorage("fc1002", "1");
+        }else{
+          storeValueInLocalStorage("fc1002", "0");
+        }
+      }
+      if (key === "1003") {
+        if(checked){
+          storeValueInLocalStorage("fc1003", "1");
+        }else{
+          storeValueInLocalStorage("fc1003", "0");
+        }
+      }
+      if (key === "1004") {
+        if(checked){
+          storeValueInLocalStorage("fc1004", "1");
+        }else{
+          storeValueInLocalStorage("fc1004", "0");
+        }
+      }
+      if (key === "1005") {
+        if(checked){
+          storeValueInLocalStorage("fc1005", "1");
+        }else{
+          storeValueInLocalStorage("fc1005", "0");
+        }
+      }
+      if (key === "1006") {
+        if(checked){
+          storeValueInLocalStorage("fc1006", "1");
+        }else{
+          storeValueInLocalStorage("fc1006", "0");
+        }
+      }
+      if (key === "1007") {
+        if(checked){
+          storeValueInLocalStorage("fc1007", "1");
+        }else{
+          storeValueInLocalStorage("fc1007", "0");
+        }
+      }
+      if (key === "2001") {
+        if(checked){
+          storeValueInLocalStorage("fc2001", "1");
+        }else{
+          storeValueInLocalStorage("fc2001", "0");
+        }
+      }
+      if (key === "2002") {
+        if(checked){
+          storeValueInLocalStorage("fc2002", "1");
+        }else{
+          storeValueInLocalStorage("fc2002", "0");
+        }
+      }
+      if (key === "2003") {
+        if(checked){
+          storeValueInLocalStorage("fc2003", "1");
+        }else{
+          storeValueInLocalStorage("fc2003", "0");
+        }
+      }
+      if (key === "2004") {
+        if(checked){
+          storeValueInLocalStorage("fc2004", "1");
+        }else{
+          storeValueInLocalStorage("fc2004", "0");
+        }
+      }
+      if (key === "2005") {
+        if(checked){
+          storeValueInLocalStorage("fc2005", "1");
+        }else{
+          storeValueInLocalStorage("fc2005", "0");
+        }
+      }
+      if (key === "3001") {
+        if(checked){
+          storeValueInLocalStorage("fc3001", "1");
+        }else{
+          storeValueInLocalStorage("fc3001", "0");
+        }
+      }
+      if (key === "3002") {
+        if(checked){
+          storeValueInLocalStorage("fc3002", "1");
+        }else{
+          storeValueInLocalStorage("fc3002", "0");
+        }
+      }
+      if (key === "3003") {
+        if(checked){
+          storeValueInLocalStorage("fc3003", "1");
+        }else{
+          storeValueInLocalStorage("fc3003", "0");
+        }
+      }
+      if (key === "3004") {
+        if(checked){
+          storeValueInLocalStorage("fc3004", "1");
+        }else{
+          storeValueInLocalStorage("fc3004", "0");
+        }
+      }
+      if (key === "3005") {
+        if(checked){
+          storeValueInLocalStorage("fc3005", "1");
+        }else{
+          storeValueInLocalStorage("fc3005", "0");
+        }
+      }
+      if (key === "3006") {
+        if(checked){
+          storeValueInLocalStorage("fc3006", "1");
+        }else{
+          storeValueInLocalStorage("fc3006", "0");
+        }
+      }
+      if (key === "4001") {
+        if(checked){
+          storeValueInLocalStorage("fc4001", "1");
+        }else{
+          storeValueInLocalStorage("fc4001", "0");
+        }
+      }
+      if (key === "4002") {
+        if(checked){
+          storeValueInLocalStorage("fc4002", "1");
+        }else{
+          storeValueInLocalStorage("fc4002", "0");
+        }
+      }
+      if (key === "5001") {
+        if(checked){
+          storeValueInLocalStorage("fc5001", "1");
+        }else{
+          storeValueInLocalStorage("fc5001", "0");
+        }
+      }
+      if (key === "5002") {
+        if(checked){
+          storeValueInLocalStorage("fc5002", "1");
+        }else{
+          storeValueInLocalStorage("fc5002", "0");
+        }
+      }
+      if (key === "6001") {
+        if(checked){
+          storeValueInLocalStorage("fc6001", "1");
+        }else{
+          storeValueInLocalStorage("fc6001", "0");
+        }
+      }
+      if (key === "6002") {
+        if(checked){
+          storeValueInLocalStorage("fc6002", "1");
+        }else{
+          storeValueInLocalStorage("fc6002", "0");
+        }
+      }
+      if (key === "6003") {
+        if(checked){
+          storeValueInLocalStorage("fc6003", "1");
+        }else{
+          storeValueInLocalStorage("fc6003", "0");
+        }
+      }
+      if (key === "6004") {
+        if(checked){
+          storeValueInLocalStorage("fc6004", "1");
+        }else{
+          storeValueInLocalStorage("fc6004", "0");
+        }
+      }
+      if (key === "6005") {
+        if(checked){
+          storeValueInLocalStorage("fc6005", "1");
+        }else{
+          storeValueInLocalStorage("fc6005", "0");
+        }
+      }
+      if (key === "6006") {
+        if(checked){
+          storeValueInLocalStorage("fc6006", "1");
+        }else{
+          storeValueInLocalStorage("fc6006", "0");
+        }
+      }
+      if (key === "8001") {
+        if(checked){
+          storeValueInLocalStorage("fc8001", "1");
+        }else{
+          storeValueInLocalStorage("fc8001", "0");
+        }
+      }
+      if (key === "8002") {
+        if(checked){
+          storeValueInLocalStorage("fc8002", "1");
+        }else{
+          storeValueInLocalStorage("fc8002", "0");
+        }
+      }
+      if (key === "9001") {
+        if(checked){
+          storeValueInLocalStorage("fc9001", "1");
+        }else{
+          storeValueInLocalStorage("fc9001", "0");
+        }
+      }
+      if (key === "9002") {
+        if(checked){
+          storeValueInLocalStorage("fc9002", "1");
+        }else{
+          storeValueInLocalStorage("fc9002", "0");
+        }
+      }
+    },
+    onChange(key, checked) {
+      this.handleChangeMassage(key, checked);
+      this.handleChangeCache(key, checked);
+    },
+    handleInitChangeCache() {
+      storeValueInLocalStorage("fc1001", "0");
+      storeValueInLocalStorage("fc1002", "0");
+      storeValueInLocalStorage("fc1003", "0");
+      storeValueInLocalStorage("fc1004", "0");
+      storeValueInLocalStorage("fc1005", "0");
+      storeValueInLocalStorage("fc1006", "0");
+      storeValueInLocalStorage("fc1007", "0");
+      storeValueInLocalStorage("fc2001", "0");
+      storeValueInLocalStorage("fc2002", "0");
+      storeValueInLocalStorage("fc2003", "0");
+      storeValueInLocalStorage("fc2004", "0");
+      storeValueInLocalStorage("fc2005", "0");
+      storeValueInLocalStorage("fc3001", "0");
+      storeValueInLocalStorage("fc3002", "0");
+      storeValueInLocalStorage("fc3003", "0");
+      storeValueInLocalStorage("fc3004", "0");
+      storeValueInLocalStorage("fc3005", "0");
+      storeValueInLocalStorage("fc3006", "0");
+      storeValueInLocalStorage("fc4001", "0");
+      storeValueInLocalStorage("fc4002", "0");
+      storeValueInLocalStorage("fc5001", "0");
+      storeValueInLocalStorage("fc5002", "0");
+      storeValueInLocalStorage("fc6001", "0");
+      storeValueInLocalStorage("fc6002", "0");
+      storeValueInLocalStorage("fc6003", "0");
+      storeValueInLocalStorage("fc6004", "0");
+      storeValueInLocalStorage("fc6005", "0");
+      storeValueInLocalStorage("fc6006", "0");
+      storeValueInLocalStorage("fc8001", "0");
+      storeValueInLocalStorage("fc8002", "0");
+      storeValueInLocalStorage("fc9001", "0");
+      storeValueInLocalStorage("fc9002", "0");
     },
     // 导出总工程量
     comparison() {
@@ -4949,7 +5255,8 @@ export default {
             仪表位号: "",
             仪表名称: "电磁流量计",
             安装位置: "",
-            规格及型号: "一体式，DN80，0~1000m3/h，4-20mA信号输出，就地显示，电源：220V，防爆	",
+            规格及型号:
+              "一体式，DN80，0~1000m3/h，4-20mA信号输出，就地显示，电源：220V，防爆	",
             单位: "台",
             数量: "1",
             a: "",
@@ -4961,7 +5268,8 @@ export default {
             仪表位号: "",
             仪表名称: "电磁流量计",
             安装位置: "",
-            规格及型号: "一体式，DN80，0~1500m3/h，4-20mA信号输出，就地显示，电源：220V，防爆	",
+            规格及型号:
+              "一体式，DN80，0~1500m3/h，4-20mA信号输出，就地显示，电源：220V，防爆	",
             单位: "台",
             数量: "1",
             a: "",
@@ -5383,6 +5691,8 @@ export default {
     // 初始化计算书缓存数据
     this.exportAllComputeBook();
     this.exportAllQuantities();
+    // 清空单元选择缓存
+    this.handleInitChangeCache();
   },
 };
 </script>

@@ -13,4 +13,10 @@
 
 
 ## 📒 开始使用
-![](https://img.dyzmj.top/img202309121656574.png)
+![image-20241024140823083](https://img.dyzmj.top/img202410241408629.png)
+
+![image-20241024140847315](https://img.dyzmj.top/img202410241408885.png)
+
+![image-20241024140915290](https://img.dyzmj.top/img202410241409630.png)
+
+![image-20241024140948489](https://img.dyzmj.top/img202410241409751.png)
