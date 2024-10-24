@@ -473,7 +473,7 @@ export default {
         key4: this.b11,
       };
       initWordStorage("1007.docx", data);
-      this.handleExcelCache("1007.xlsx", "活性炭粉末");
+      this.handleExcelCache("1007.xlsx", "活性炭粉末工程量");
     },
     handleExcelCache(path, name) {
       try {
