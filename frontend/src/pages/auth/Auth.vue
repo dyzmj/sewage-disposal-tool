@@ -26,6 +26,10 @@
                                     <a-icon slot="prefix" type="safety-certificate"/>
                                 </a-input>
                             </a-form-item>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <a-form-item :label="$t('certificate')">
                                 <a-input v-model="code" :disabled="true" >
                                     <a-icon slot="prefix" type="safety-certificate"/>

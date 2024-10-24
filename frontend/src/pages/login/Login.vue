@@ -5,7 +5,7 @@
         <img alt="logo" class="logo" src="@/assets/img/logo.png" />
         <span class="title">{{ systemName }}</span>
       </div>
-      <div class="desc">污水处理构筑物辅助设计工具</div>
+      <div class="desc">Sewage Disposal Tool</div>
     </div>
     <div class="login">
       <a-form @submit="onSubmit" :form="form">
@@ -14,13 +14,13 @@
             <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
               style="margin-bottom: 24px;" />
             <a-form-item>
-              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="admin"
+              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="演示账号:admin"
                 v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
                 <a-icon slot="prefix" type="user" />
               </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input v-model="password" size="large" placeholder="888888" autocomplete="autocomplete" type="password"
+              <a-input v-model="password" size="large" placeholder="演示密码:888888" autocomplete="autocomplete" type="password"
                 v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
                 <a-icon slot="prefix" type="lock" />
               </a-input>
@@ -28,7 +28,7 @@
           </a-tab-pane>
         </a-tabs>
         <div>
-          <a-checkbox style="float: right">记住密码</a-checkbox>
+          <!-- <a-checkbox style="float: right">记住密码</a-checkbox> -->
           <!-- <a style="float: right">忘记密码</a> -->
         </div>
         <a-form-item>

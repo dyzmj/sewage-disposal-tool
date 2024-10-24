@@ -17,7 +17,7 @@ module.exports = {
   multiPage: true,                     //多页签模式，true:开启，false:不开启
   cachePage: false,                      //是否缓存页面数据，仅多页签模式下生效，true 缓存, false 不缓存
   hideSetting: true,                   //隐藏设置抽屉，true:隐藏，false:不隐藏
-  systemName: 'S D T',                  //系统名称
+  systemName: '污水处理构筑物辅助设计工具', //系统名称
   copyright: '2024',                    //copyright
   asyncRoutes: false,                   //异步加载路由，true:开启，false:不开启
   showPageTitle: true,                  //是否显示页面标题（PageLayout 布局中的页面标题），true:显示，false:不显示
