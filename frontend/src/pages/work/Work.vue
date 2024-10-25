@@ -368,15 +368,16 @@
                                   :disabled="item.disabled"
                                   @change="onChange(item.key, item.checked)"
                                 >
-                                  <a-tag
+
+                                </a-checkbox>
+                                <a-tag
                                     :color="
                                       item.checked ? '#2DB7F5' : '#6C767D'
                                     "
-                                    style="font-size: 13px;"
+                                    style="font-size: 13px;margin-left: 10px;"
                                     @click="calc(item.key)"
                                     >{{ item.title }}</a-tag
                                   >
-                                </a-checkbox>
                               </a-tooltip>
                             </div>
                           </div>
