@@ -310,18 +310,18 @@
               <a-button
                 type="primary"
                 style="margin-right: 20px;"
-                @click="comparison"
-                icon="file-done"
-              >
-                {{ $t("exportQuantities") }}</a-button
-              >
-              <a-button
-                type="danger"
-                style=""
                 @click="operation"
                 icon="file-search"
               >
                 {{ $t("exportCalculation") }}</a-button
+              >
+              <a-button
+                type="danger"
+                style="margin-right: 10px;"
+                @click="comparison"
+                icon="file-done"
+              >
+                {{ $t("exportQuantities") }}</a-button
               >
             </div>
           </a>
@@ -421,6 +421,7 @@ export default {
       processUnitData: [],
       modelVisible: false,
       param1: null,
+      waterData: '20000',
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -872,12 +873,16 @@ export default {
         }
 
         // 将设计水量存入缓存
-        const waterData = values.param14;
-        storeValueInLocalStorage("waterData", waterData);
+        this.waterData = values.param14;
+        storeValueInLocalStorage("waterData", this.waterData);
       });
 
       this.$message.success(this.$t("initSucc"));
       // console.log('Received values of form: ', this.form);
+
+      // 初始化计算书缓存数据
+      this.exportAllComputeBook();
+
     },
     handleReset() {
       this.form.resetFields();
@@ -1294,8 +1299,8 @@ export default {
     // 初始化总计算书
     exportAllComputeBook() {
       const data1001 = {
-        key1: "120000",
-        key2: "5000",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
         key3: "5",
         key4: "72",
         key5: "6",
@@ -1303,81 +1308,77 @@ export default {
         key7: "1.05",
       };
       const data1002 = {
-        key1: "20000",
-        key2: "833.33",
-        key3: "0.23",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         key4: "0.2",
         key5: "30",
         key6: "2",
         key7: "2",
       };
       const data1003 = {
-        key1: "2000",
-        key2: "2",
+        key1: this.waterData,
       };
       const data1004 = {
-        key1: "20000",
-        key2: "833.33",
-        key3: "0.23",
-        key4: "2.00",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
       };
       const data1005 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "1",
         key3: "4",
       };
       const data1006 = {
-        key1: "20000",
-        key2: "833.33",
+        key1: this.waterData,
+        key2: "5",
         key3: "0.005",
-        key4: "1.06",
-        key5: "4.42",
       };
       const data1007 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "35",
-        key3: "29.167",
+        key3: (35 * parseFloat(this.waterData) / 1000 / 24).toFixed(3),
         key4: "3",
       };
       const data2001 = {
-        key1: "30000",
-        key2: "1250",
-        key3: "2",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: "4",
         key4: "20",
       };
       const data2002 = {
-        key1: "50000",
+        key1: this.waterData,
         key2: "2",
-        key3: "10",
+        key3: "15",
       };
       const data2003 = {
-        key1: "40000",
-        key2: "42000",
-        key3: "0.49",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) * 1.05).toFixed(0),
+        key3: (parseFloat(this.waterData) * 1.05 / (24 * 60 * 60)).toFixed(2),
         key4: "20",
         key5: "10",
         key6: "4.5",
         key7: "2",
-        key8: "0.2431",
+        key8: (parseFloat(this.waterData) * 1.05 / (24 * 60 * 60) / 2).toFixed(4),
         key9: "500",
       };
       const data2004 = {
-        key1: "20000",
-        key2: "833.33",
-        key3: "0.23",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         key4: "20",
         key5: "15",
       };
       const data2005 = {
-        key1: "20000",
-        key2: "833.33",
-        key3: "0.23",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         key4: "0.1",
         key5: "0.5",
       };
       const data3001 = {
-        key1: "20000",
-        key2: "833.33",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
         key3: "2",
         key4: "1",
         key5: "10",

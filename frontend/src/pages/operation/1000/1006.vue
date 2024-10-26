@@ -636,12 +636,8 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b3,
-        key2: this.b3_1,
-        key3: this.b4,
-        key4: this.b5,
-        key5: this.b7,
-        key6: this.b14,
-        key7: this.b28,
+        key2: (parseFloat(this.b11) * 1000),
+        key3: this.b11,
       };
       exportWord("臭氧计算书", "1006.docx", data, this);
     },
@@ -649,12 +645,8 @@ export default {
       this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
-        key2: this.b3_1,
-        key3: this.b4,
-        key4: this.b5,
-        key5: this.b7,
-        key6: this.b14,
-        key7: this.b28,
+        key2: (parseFloat(this.b11) * 1000),
+        key3: this.b11,
       };
       initWordStorage("1006.docx", data);
       this.handleExcelCache("1006.xlsx", "臭氧工程量");
