@@ -48,6 +48,7 @@
                       rows="12"
                       :placeholder="$t('b3')"
                       :suffix="$t('b3_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b3_1"
@@ -56,6 +57,7 @@
                       rows="12"
                       :placeholder="$t('b3_1')"
                       :suffix="$t('b3_1_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -73,6 +75,7 @@
                       rows="12"
                       :placeholder="$t('b4')"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -89,6 +92,7 @@
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b5')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -123,6 +127,7 @@
                       rows="12"
                       :placeholder="$t('b7')"
                       :suffix="$t('b7_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -194,6 +199,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b11_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b11_1"
@@ -272,6 +278,7 @@
                       style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b16_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -450,6 +457,7 @@
                       style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b30_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1449,13 +1457,12 @@ export default {
         key3: this.b4,
         key4: this.b5,
         key5: this.b7,
-        key6: this.b14,
-        key7: this.b28,
+        key6: this.b16,
+        key7: this.b30,
       };
       exportWord("臭氧活性炭计算书", "5001.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b3_1,

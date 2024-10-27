@@ -45,6 +45,7 @@
                     :placeholder="$t('b4')"
                     :suffix="$t('b4_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                   <a-input
                     v-model="b4_1"
@@ -118,6 +119,7 @@
                     :placeholder="$t('b7')"
                     :suffix="$t('b7_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -131,6 +133,7 @@
                     :placeholder="$t('b8')"
                     :suffix="$t('b8_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -195,6 +198,7 @@
                     v-model="b13"
                     :placeholder="$t('b13')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -210,6 +214,7 @@
                       :disabled="false"
                       rows="12"
                       :placeholder="$t('b14')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -790,7 +795,6 @@ export default {
       exportWord("预沉池计算书", "1002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b4,
         key2: this.b4_1,

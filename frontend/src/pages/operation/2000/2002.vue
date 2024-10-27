@@ -36,6 +36,7 @@
                   v-model="b3"
                   :placeholder="$t('b3')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -48,6 +49,7 @@
                   v-model="b4"
                   :placeholder="$t('b4')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -60,6 +62,7 @@
                   v-model="b5"
                   :placeholder="$t('b5')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -1112,7 +1115,6 @@ export default {
       exportWord("网格絮凝池计算书", "2002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b4,

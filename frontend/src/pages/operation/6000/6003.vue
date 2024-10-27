@@ -46,6 +46,7 @@
                       style="width: 50%"
                       :suffix="$t('b3_u')"
                       :disabled="false"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b3_1"
@@ -66,6 +67,7 @@
                     :placeholder="$t('b4')"
                     :suffix="$t('b4_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -223,6 +225,7 @@
                         style="width: 100%"
                         :suffix="$t('b14_u')"
                         :disabled="false"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -410,6 +413,7 @@
                       style="width: 50%"
                       :suffix="$t('b28_u')"
                       :disabled="false"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1160,7 +1164,6 @@ export default {
       exportWord("臭氧消毒计算书", "6003.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: parseFloat(this.b4) * 1000,

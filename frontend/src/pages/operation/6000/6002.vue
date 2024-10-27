@@ -36,6 +36,7 @@
                   :placeholder="$t('averageFlow')"
                   :suffix="$t('averageFlowUnit')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -49,6 +50,7 @@
                   :placeholder="$t('maxFlow')"
                   :suffix="$t('maxFlowUnit')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -60,6 +62,7 @@
                   v-model="uvt"
                   :placeholder="$t('uvt')"
                   :suffix="$t('uvtUnit')"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -73,6 +76,7 @@
                   :placeholder="$t('waterTurbidity')"
                   :suffix="$t('waterTurbidityUnit')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -86,6 +90,7 @@
                   :placeholder="$t('targetMeasurement')"
                   :suffix="$t('targetMeasurementUnit')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -96,6 +101,7 @@
                 <a-input
                   v-model="agingCoefficient"
                   :placeholder="$t('agingCoefficient')"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -106,6 +112,7 @@
                 <a-input
                   v-model="scalingCoefficient"
                   :placeholder="$t('scalingCoefficient')"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
             </a-form>
@@ -673,7 +680,6 @@ export default {
       exportWord("沉浸式紫外线消毒计算书", "6002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.averageFlow,
         key2: this.maxFlow,

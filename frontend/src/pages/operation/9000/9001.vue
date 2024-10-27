@@ -48,6 +48,7 @@
                       rows="12"
                       :placeholder="$t('b1')"
                       :suffix="$t('b1_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -109,6 +110,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -140,6 +142,7 @@
                       :disabled="false"
                       :placeholder="$t('b5')"
                       :suffix="$t('b5_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -185,6 +188,7 @@
                       rows="12"
                       :disabled="false"
                       :suffix="$t('b6_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -240,6 +244,7 @@
                       rows="12"
                       :disabled="false"
                       :suffix="$t('b7_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -270,6 +275,7 @@
                       rows="12"
                       :disabled="false"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -300,6 +306,7 @@
                       rows="12"
                       :disabled="false"
                       :placeholder="$t('b9')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -744,6 +751,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b26_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -760,6 +768,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b27_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -792,6 +801,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b29_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -838,6 +848,7 @@
                       v-model="b32"
                       style="width: 100%;"
                       :disabled="false"
+                      @change="refreshInitData()"
                       rows="12"
                     />
                   </a-input-group>
@@ -2163,7 +2174,6 @@ export default {
       exportWord("浓缩池计算书", "9001.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b1,
         key2: this.b4,

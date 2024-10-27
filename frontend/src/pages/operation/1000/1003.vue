@@ -55,6 +55,7 @@
                       rows="12"
                       :placeholder="$t('b4')"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -134,6 +135,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -703,7 +705,6 @@ export default {
       exportWord("次氯酸钠计算书", "1003.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b4,
         key2: this.b8,

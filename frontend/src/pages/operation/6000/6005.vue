@@ -54,6 +54,7 @@
                       rows="12"
                       :placeholder="$t('b4')"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -71,6 +72,7 @@
                       rows="12"
                       :placeholder="$t('b5')"
                       :suffix="$t('b5_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -88,6 +90,7 @@
                       rows="12"
                       :placeholder="$t('b6')"
                       :suffix="$t('b6_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b6_1"
@@ -133,6 +136,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1662,7 +1666,6 @@ export default {
       exportWord("加药系统次氯酸钠计算书", "6005.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b4,
         key2: this.b8,

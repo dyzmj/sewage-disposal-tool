@@ -36,7 +36,8 @@
                   :placeholder="$t('designScale')"
                   :suffix="$t('designScaleUnit')"
                   value="20000.00"
-                  :disabled="true"
+                  :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -48,6 +49,7 @@
                   v-model="totalChangeFactor"
                   :placeholder="$t('totalChangeFactor')"
                   value="1"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -61,6 +63,7 @@
                   :placeholder="$t('singleTankVolume')"
                   :suffix="$t('singleUnit1')"
                   :disabled="true"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -74,6 +77,7 @@
                   :placeholder="$t('singleTankVolume')"
                   :suffix="$t('singleUnit2')"
                   :disabled="true"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
             </a-form>
@@ -554,7 +558,6 @@ export default {
       exportWord("接触消毒池计算书", "6001.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.designScale,
         unit1: this.$t("designScaleUnit"),

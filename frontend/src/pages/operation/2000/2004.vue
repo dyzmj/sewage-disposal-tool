@@ -47,6 +47,7 @@
                     rows="12"
                     :placeholder="$t('b3')"
                     :suffix="$t('b3_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -88,6 +89,7 @@
                     rows="12"
                     :placeholder="$t('b5')"
                     :suffix="$t('b5_u')"
+                    @change="refreshInitData()"
                   />
                   <a-input
                     v-model="b5_1"
@@ -161,6 +163,7 @@
                       style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b9_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -176,6 +179,7 @@
                       style="width: 100%"
                       :disabled="false"
                       :suffix="$t('b10_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1131,7 +1135,6 @@ export default {
       exportWord("PAC计算书", "2004.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b5,

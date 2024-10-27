@@ -97,6 +97,7 @@
                       v-model="b9"
                       :disabled="false"
                       style="width: 16%"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       :disabled="true"
@@ -14647,7 +14648,6 @@ export default {
       exportWord("高密度沉淀池计算书", "3003.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b9,
         key2: "1",

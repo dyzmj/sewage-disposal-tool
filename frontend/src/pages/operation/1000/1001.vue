@@ -42,12 +42,14 @@
                   :placeholder="$t('b3_1')"
                   :suffix="$t('b3_1_u')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
                 <a-input
                   v-model="b3_2"
                   :placeholder="$t('b3_2')"
                   :suffix="$t('b3_2_u')"
                   :disabled="true"
+                  @change="refreshInitData()"
                 />
                 <a-input
                   v-model="b3_3"
@@ -66,6 +68,7 @@
                   :placeholder="$t('b4')"
                   :suffix="$t('b4_u')"
                   value="1"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -79,6 +82,7 @@
                   :placeholder="$t('b5')"
                   :suffix="$t('b5_u')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
               </a-form-item>
               <a-form-item
@@ -92,6 +96,7 @@
                   :placeholder="$t('b6_1')"
                   :suffix="$t('b6_1_u')"
                   :disabled="false"
+                  @change="refreshInitData()"
                 />
                 <a-input
                   v-model="b6_2"
@@ -162,6 +167,7 @@
                     :placeholder="$t('b9')"
                     :suffix="$t('b9_u')"
                     value="14"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
               </a-form>
@@ -177,6 +183,7 @@
                     v-model="b10"
                     :placeholder="$t('b10')"
                     value="1.05"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
               </a-form>
@@ -2178,7 +2185,7 @@ export default {
     },
     refreshInitData() {
       console.log("刷新方法被调用");
-      this.$message.info(this.$t("refreshSucc"));
+      // this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3_1,
         key2: this.b3_2,

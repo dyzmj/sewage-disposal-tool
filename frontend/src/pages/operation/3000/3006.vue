@@ -47,6 +47,7 @@
                       rows="12"
                       :placeholder="$t('b3')"
                       :suffix="$t('b3_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -62,6 +63,7 @@
                       rows="12"
                       :placeholder="$t('b4')"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -77,6 +79,7 @@
                       rows="12"
                       :placeholder="$t('b5')"
                       :suffix="$t('b5_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -87,7 +90,7 @@
                   :wrapperCol="{ span: 14 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b6" rows="12" :placeholder="$t('b6')" />
+                    <a-input v-model="b6" rows="12" :placeholder="$t('b6')" @change="refreshInitData()" />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -1310,7 +1313,6 @@ export default {
       exportWord("平流式气浮池计算书", "3006.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b4,

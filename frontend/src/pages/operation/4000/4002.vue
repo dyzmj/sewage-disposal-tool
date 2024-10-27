@@ -47,6 +47,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b3_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -82,7 +83,7 @@
                   :wrapperCol="{ span: 16 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b6" rows="12" :suffix="$t('b6_u')" />
+                    <a-input v-model="b6" rows="12" :suffix="$t('b6_u')" @change="refreshInitData()" />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -130,8 +131,8 @@
                     :wrapperCol="{ span: 16 }"
                   >
                     <a-input-group compact>
-                      <a-input v-model="b10" style="width: 50%" rows="12" />
-                      <a-input v-model="b10_1" style="width: 50%" rows="12" />
+                      <a-input v-model="b10" style="width: 50%" rows="12" @change="refreshInitData()" />
+                      <a-input v-model="b10_1" style="width: 50%" rows="12" @change="refreshInitData()" />
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
@@ -141,12 +142,12 @@
                     :wrapperCol="{ span: 16 }"
                   >
                     <a-input-group compact>
-                      <a-input v-model="b11" style="width: 50%" rows="12" />
-                      <a-input v-model="b11_1" style="width: 50%" rows="12" />
+                      <a-input v-model="b11" style="width: 50%" rows="12" @change="refreshInitData()" />
+                      <a-input v-model="b11_1" style="width: 50%" rows="12" @change="refreshInitData()" />
                     </a-input-group>
                     <a-input-group compact>
-                      <a-input v-model="b12" style="width: 50%" rows="12" />
-                      <a-input v-model="b12_1" style="width: 50%" rows="12" />
+                      <a-input v-model="b12" style="width: 50%" rows="12" @change="refreshInitData()" />
+                      <a-input v-model="b12_1" style="width: 50%" rows="12" @change="refreshInitData()" />
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
@@ -156,8 +157,8 @@
                     :wrapperCol="{ span: 16 }"
                   >
                     <a-input-group compact>
-                      <a-input v-model="b13" style="width: 50%" rows="12" />
-                      <a-input v-model="b13_1" style="width: 50%" rows="12" />
+                      <a-input v-model="b13" style="width: 50%" rows="12" @change="refreshInitData()" />
+                      <a-input v-model="b13_1" style="width: 50%" rows="12" @change="refreshInitData()" />
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
@@ -167,7 +168,7 @@
                     :wrapperCol="{ span: 16 }"
                   >
                     <a-input-group compact>
-                      <a-input v-model="b14" style="width: 50%" rows="12" />
+                      <a-input v-model="b14" style="width: 50%" rows="12" @change="refreshInitData()" />
                       <a-input style="width: 50%" rows="12" disabled="true" />
                     </a-input-group>
                   </a-form-item>
@@ -3889,7 +3890,6 @@ export default {
       exportWord("V型滤池计算书", "4002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b6,

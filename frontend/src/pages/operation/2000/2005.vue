@@ -47,6 +47,7 @@
                     rows="12"
                     :placeholder="$t('b3')"
                     :suffix="$t('b3_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -88,6 +89,7 @@
                     rows="12"
                     :placeholder="$t('b5')"
                     :suffix="$t('b5_u')"
+                    @change="refreshInitData()"
                   />
                   <a-input
                     v-model="b5_1"
@@ -96,6 +98,7 @@
                     rows="12"
                     :placeholder="$t('b5_1')"
                     :suffix="$t('b5_1_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -153,6 +156,7 @@
                     style="width: 100%"
                     :disabled="false"
                     :suffix="$t('b10_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -168,6 +172,7 @@
                     style="width: 100%"
                     :disabled="false"
                     :suffix="$t('b11_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -1051,19 +1056,18 @@ export default {
         key1: this.b3,
         key2: this.b5,
         key3: this.b5_1,
-        key4: this.b9,
-        key5: this.b10,
+        key4: this.b10,
+        key5: this.b11,
       };
       exportWord("PAM计算书", "2005.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b5,
         key3: this.b5_1,
-        key4: this.b9,
-        key5: this.b10,
+        key4: this.b10,
+        key5: this.b11,
       };
       initWordStorage("2005.docx", data);
       this.handleExcelCache("2005.xlsx", "PAM工程量");

@@ -48,6 +48,7 @@
                       rows="12"
                       :placeholder="$t('b3')"
                       :suffix="$t('b3_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b3_1"
@@ -79,6 +80,7 @@
                       rows="12"
                       :placeholder="$t('b4')"
                       :suffix="$t('b4_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -114,6 +116,7 @@
                       rows="12"
                       :placeholder="$t('b7')"
                       :suffix="$t('b7_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -130,6 +133,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b8_1"
@@ -154,6 +158,7 @@
                       rows="12"
                       :placeholder="$t('b9')"
                       :suffix="$t('b9_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b9_1"
@@ -172,7 +177,7 @@
                   :wrapperCol="{ span: 14 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b10" rows="12" :placeholder="$t('b10')" />
+                    <a-input v-model="b10" rows="12" :placeholder="$t('b10')" @change="refreshInitData()" />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -2396,7 +2401,6 @@ export default {
       exportWord("普通快滤池计算书", "4001.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b3_1,

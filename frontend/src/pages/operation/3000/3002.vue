@@ -72,6 +72,7 @@
                       :disabled="true"
                       rows="12"
                       :suffix="$t('b6_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b6_1"
@@ -166,6 +167,7 @@
                     v-model="b13"
                     :suffix="$t('b13_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -190,6 +192,7 @@
                     v-model="b15"
                     :suffix="$t('b15_u')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
               </a-form>
@@ -1394,7 +1397,6 @@ export default {
       exportWord("斜管沉淀池计算书", "3002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b6,
         key2: this.b13,

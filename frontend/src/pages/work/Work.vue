@@ -5693,6 +5693,8 @@ export default {
     this.exportAllQuantities();
     // 清空单元选择缓存
     this.handleInitChangeCache();
+
+    storeValueInLocalStorage("waterData", 20000);
   },
 };
 </script>

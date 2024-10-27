@@ -47,6 +47,7 @@
                       :disabled="false"
                       rows="12"
                       :suffix="$t('b1_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -57,7 +58,7 @@
                   :wrapperCol="{ span: 16 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b2" rows="12" :suffix="$t('b2_u')" />
+                    <a-input v-model="b2" rows="12" :suffix="$t('b2_u')" @change="refreshInitData()" />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -140,6 +141,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b6_1_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -172,6 +174,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b8_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -798,6 +801,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b38_1_u')"
+                        @change="refreshInitData()"
                       />
                       <a-input
                         v-model="b38_2"
@@ -805,6 +809,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b38_2_u')"
+                        @change="refreshInitData()"
                       />
                       <a-input
                         v-model="b38_3"
@@ -812,6 +817,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b38_3_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -921,6 +927,7 @@
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b43_1_u')"
+                        @change="refreshInitData()"
                       />
                       <a-input
                         v-model="b43_2"
@@ -928,6 +935,7 @@
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b43_2_u')"
+                        @change="refreshInitData()"
                       />
                       <a-input
                         v-model="b43_3"
@@ -935,6 +943,7 @@
                         :disabled="true"
                         rows="12"
                         :suffix="$t('b43_3_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -1728,7 +1737,6 @@ export default {
       exportWord("脱水加药计算书", "9002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b1,
         key2: this.b2,

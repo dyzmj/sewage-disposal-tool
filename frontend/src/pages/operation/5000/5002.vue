@@ -48,6 +48,7 @@
                       rows="12"
                       :placeholder="$t('b6')"
                       :suffix="$t('b6_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -82,6 +83,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -99,6 +101,7 @@
                       rows="12"
                       :placeholder="$t('b9')"
                       :suffix="$t('b9_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -116,6 +119,7 @@
                       rows="12"
                       :placeholder="$t('b10')"
                       :suffix="$t('b10_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -166,6 +170,7 @@
                       rows="12"
                       :placeholder="$t('b13')"
                       :suffix="$t('b13_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -217,6 +222,7 @@
                       rows="12"
                       :placeholder="$t('b16')"
                       :suffix="$t('b16_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -291,6 +297,7 @@
                         style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b21_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -306,6 +313,7 @@
                         style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b22_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -416,6 +424,7 @@
                         style="width: 100%"
                         :disabled="true"
                         :suffix="$t('b30_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -446,6 +455,7 @@
                         style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b32_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -518,6 +528,7 @@
                         style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b37_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -533,6 +544,7 @@
                         style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b38_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -548,6 +560,7 @@
                         style="width: 100%"
                         :disabled="false"
                         :suffix="$t('b39_u')"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -562,6 +575,7 @@
                         v-model="b40"
                         style="width: 100%"
                         :disabled="false"
+                        @change="refreshInitData()"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -1677,7 +1691,6 @@ export default {
       exportWord("UF-GE计算书", "5002.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b6,
         key2: this.b8,

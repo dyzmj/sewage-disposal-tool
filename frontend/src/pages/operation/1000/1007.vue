@@ -47,6 +47,7 @@
                     rows="12"
                     :placeholder="$t('b3')"
                     :suffix="$t('b3_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -153,6 +154,7 @@
                     style="width: 100%"
                     :disabled="false"
                     :suffix="$t('b7_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -198,6 +200,7 @@
                     style="width: 100%"
                     :disabled="true"
                     :suffix="$t('b10_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -213,6 +216,7 @@
                     style="width: 50%"
                     :disabled="true"
                     :suffix="$t('b11_u')"
+                    @change="refreshInitData()"
                   />
                   <a-input
                     v-model="b11_1"
@@ -465,7 +469,6 @@ export default {
       exportWord("活性炭粉末计算书", "1007.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b7,

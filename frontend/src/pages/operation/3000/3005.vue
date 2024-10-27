@@ -48,6 +48,7 @@
                       rows="12"
                       :placeholder="$t('b3')"
                       :suffix="$t('b3_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b3_1"
@@ -56,6 +57,7 @@
                       rows="12"
                       :placeholder="$t('b3_1')"
                       :suffix="$t('b3_1_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -66,7 +68,7 @@
                   :wrapperCol="{ span: 14 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b4" rows="12" :placeholder="$t('b4')" />
+                    <a-input v-model="b4" rows="12" :placeholder="$t('b4')" @change="refreshInitData()" />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -127,6 +129,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b8_1"
@@ -150,6 +153,7 @@
                       rows="12"
                       :placeholder="$t('b9')"
                       :suffix="$t('b9_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1645,7 +1649,6 @@ export default {
       exportWord("水力循环澄清池计算书", "3005.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b3_1,

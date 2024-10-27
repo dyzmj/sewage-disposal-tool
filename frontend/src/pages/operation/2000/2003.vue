@@ -44,6 +44,7 @@
                     :placeholder="$t('b5')"
                     value="40000"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -70,12 +71,14 @@
                       :placeholder="$t('b7_1')"
                       style="width: 50%"
                       :disabled="true"
+                      @change="refreshInitData()"
                     />
                     <a-input
                       v-model="b7_2"
                       :placeholder="$t('b7_2')"
                       style="width: 50%"
                       :disabled="true"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -89,6 +92,7 @@
                     v-model="b8"
                     :placeholder="$t('b8')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -101,6 +105,7 @@
                     v-model="b9"
                     :placeholder="$t('b9')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -113,6 +118,7 @@
                     v-model="b10"
                     :placeholder="$t('b10')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -125,6 +131,7 @@
                     v-model="b11"
                     :placeholder="$t('b11')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -137,6 +144,7 @@
                     v-model="b12"
                     :placeholder="$t('b12')"
                     :disabled="true"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -149,6 +157,7 @@
                     v-model="b13"
                     :placeholder="$t('b13')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -161,6 +170,7 @@
                     v-model="b14"
                     :placeholder="$t('b14')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
                 <a-form-item
@@ -173,6 +183,7 @@
                     v-model="b15"
                     :placeholder="$t('b15')"
                     :disabled="false"
+                    @change="refreshInitData()"
                   />
                 </a-form-item>
               </a-form>
@@ -1460,7 +1471,6 @@ export default {
       exportWord("折板絮凝池计算书", "2003.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b5,
         key2: this.b7_1,

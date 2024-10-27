@@ -38,6 +38,7 @@
                   rows="12"
                   :placeholder="$t('b3')"
                   :suffix="$t('b3_u')"
+                  @change="refreshInitData()"
                 />
               </a-input-group>
             </a-form-item>
@@ -147,6 +148,7 @@
                     style="width: 100%"
                     :disabled="false"
                     :suffix="$t('b10_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -162,6 +164,7 @@
                     style="width: 100%"
                     :disabled="false"
                     :suffix="$t('b11_u')"
+                    @change="refreshInitData()"
                   />
                 </a-input-group>
               </a-form-item>
@@ -1025,13 +1028,12 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b3,
-        key2: this.b9,
-        key3: this.b10,
+        key2: this.b10,
+        key3: this.b11,
       };
       exportWord("高锰酸钾计算书", "1005.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3,
         key2: this.b9,

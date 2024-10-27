@@ -54,6 +54,7 @@
                       rows="12"
                       :placeholder="$t('b8')"
                       :suffix="$t('b8_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -81,6 +82,7 @@
                       rows="12"
                       :placeholder="$t('b11')"
                       :suffix="$t('b11_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -148,6 +150,7 @@
                       rows="12"
                       :placeholder="$t('b15')"
                       :suffix="$t('b15_u')"
+                      @change="refreshInitData()"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -1637,7 +1640,6 @@ export default {
       exportWord("折点加氯计算书", "6004.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b8,
         key2: this.b11,

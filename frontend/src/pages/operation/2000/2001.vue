@@ -53,6 +53,7 @@
                         :suffix="$t('b3_1_u')"
                         value="120000"
                         :disabled="false"
+                        @change="refreshInitData()"
                       />
                       <a-input
                         v-model="b3_2"
@@ -92,6 +93,7 @@
                         :placeholder="$t('b7')"
                         :suffix="$t('b7_u')"
                         :disabled="false"
+                        @change="refreshInitData()"
                       />
                     </a-form-item>
                     <a-form-item
@@ -105,6 +107,7 @@
                         :placeholder="$t('b8')"
                         :suffix="$t('b8_u')"
                         :disabled="false"
+                        @change="refreshInitData()"
                       />
                     </a-form-item>
                     <a-form-item
@@ -2536,7 +2539,6 @@ export default {
       exportWord("机械絮凝池计算书", "2001.docx", data, this);
     },
     refreshInitData() {
-      this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b3_1,
         key2: this.b3_2,
