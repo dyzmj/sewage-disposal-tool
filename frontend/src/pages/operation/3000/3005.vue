@@ -1366,7 +1366,7 @@ export default {
   i18n: require("./i18n_3005"),
   data() {
     return {
-      b3: "50",
+      b3: "833.33",
       b4: "4",
       b5: "7.5",
       b6: "0.08",
@@ -1564,9 +1564,9 @@ export default {
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
-        this.b3 = 40000;
+        this.b3 = 833.33;
       } else {
-        this.b3 = waterData;
+        this.b3 = (parseFloat(waterData) / 24).toFixed(2);
       }
     },
     exportQuantities() {

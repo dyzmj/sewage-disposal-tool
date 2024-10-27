@@ -1541,9 +1541,9 @@ export default {
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
-        this.b8 = 40000;
+        this.b8 = 130.00;
       } else {
-        this.b8 = waterData;
+        this.b8 = (parseFloat(waterData) / 24).toFixed(2);
       }
     },
     exportQuantities() {

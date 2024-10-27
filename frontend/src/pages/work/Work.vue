@@ -1384,42 +1384,42 @@ export default {
         key5: "10",
       };
       const data3002 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "9.0",
         key3: "2",
       };
       const data3003 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "1",
         key3: "16",
         key4: "10",
       };
       const data3004 = {
-        key1: "5250",
-        key2: "218.75",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
         key3: "1.2",
         key4: "4",
         key5: "100",
         key6: "5",
       };
       const data3005 = {
-        key1: "50",
-        key2: "0.0139",
+        key1: (parseFloat(this.waterData) / 24).toFixed(2),
+        key2: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         key3: "1",
         key4: "4",
         key5: "1.2",
-        key6: "1.3",
+        key6: "15",
       };
       const data3006 = {
-        key1: "50000",
+        key1: this.waterData,
         key2: "15",
         key3: "1.5",
         key4: "10",
       };
       const data4001 = {
-        key1: "125000",
-        key2: "5208.33",
-        key3: "1.45",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         key4: "6",
         key5: "24",
         key6: "30",
@@ -1427,7 +1427,7 @@ export default {
         key8: "0.5",
       };
       const data4002 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "10",
         key3: "15",
         key4: "3",
@@ -1441,8 +1441,8 @@ export default {
         key12: "1.8",
       };
       const data5001 = {
-        key1: "20000",
-        key2: "833.33",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
         key3: "0.005",
         key4: "1.06",
         key5: "70",
@@ -1466,11 +1466,11 @@ export default {
         key14: "3",
       };
       const data6001 = {
-        key1: "20000",
+        key1: this.waterData,
         unit1: "m3/d",
-        key2: "833.33",
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
         unit2: "m3/h",
-        key3: "0.23",
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
         unit3: "m3/s",
       };
       const data6002 = {
@@ -1483,14 +1483,14 @@ export default {
         key7: "0.8",
       };
       const data6003 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "5",
         key3: "0.005",
         key4: "20",
         key5: "10",
       };
       const data6004 = {
-        key1: "130",
+        key1: (parseFloat(this.waterData) / 24).toFixed(2),
         key2: "34",
         key3: "20",
         key4: "0.5",
@@ -1501,33 +1501,31 @@ export default {
         key9: "2",
       };
       const data6005 = {
-        key1: "20000",
-        key2: "2",
+        key1: this.waterData,
       };
       const data6006 = {
-        key1: "20000",
-        key2: "833.33",
-        key3: "0.23",
-        key4: "2.00",
+        key1: this.waterData,
+        key2: (parseFloat(this.waterData) / 24).toFixed(2),
+        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
       };
       const data8001 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "50",
         key3: "10",
         key4: "5",
         key5: "1.6",
       };
       const data8002 = {
-        key1: "20000",
+        key1: this.waterData,
         key2: "2",
-        key3: "1908.3",
+        key3: (((parseFloat(this.waterData) * 0.15) + (parseFloat(this.waterData) * 0.02 + 81.25) + 144 + ((((parseFloat(this.waterData) * 0.15) + (parseFloat(this.waterData) * 0.02 + 81.25) + 144) / 3.8) * 0.2)) / 2).toFixed(2)
       };
       const data9001 = {
-        key1: "100000",
-        key2: "30",
-        key3: "25",
+        key1: this.waterData,
+        key2: "20",
+        key3: "20",
         key4: "0",
-        key5: "20",
+        key5: "2",
         key6: "0",
         key7: "1.5",
         key8: "99.2",

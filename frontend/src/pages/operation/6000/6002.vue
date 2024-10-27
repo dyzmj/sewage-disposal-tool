@@ -35,7 +35,7 @@
                   v-model="averageFlow"
                   :placeholder="$t('averageFlow')"
                   :suffix="$t('averageFlowUnit')"
-                  :disabled="true"
+                  :disabled="false"
                 />
               </a-form-item>
               <a-form-item
@@ -48,7 +48,7 @@
                   v-model="maxFlow"
                   :placeholder="$t('maxFlow')"
                   :suffix="$t('maxFlowUnit')"
-                  :disabled="true"
+                  :disabled="false"
                 />
               </a-form-item>
               <a-form-item
@@ -72,7 +72,7 @@
                   v-model="waterTurbidity"
                   :placeholder="$t('waterTurbidity')"
                   :suffix="$t('waterTurbidityUnit')"
-                  :disabled="true"
+                  :disabled="false"
                 />
               </a-form-item>
               <a-form-item
@@ -85,7 +85,7 @@
                   v-model="targetMeasurement"
                   :placeholder="$t('targetMeasurement')"
                   :suffix="$t('targetMeasurementUnit')"
-                  :disabled="true"
+                  :disabled="false"
                 />
               </a-form-item>
               <a-form-item

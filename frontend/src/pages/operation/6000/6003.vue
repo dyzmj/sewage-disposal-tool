@@ -45,7 +45,7 @@
                       v-model="b3"
                       style="width: 50%"
                       :suffix="$t('b3_u')"
-                      :disabled="true"
+                      :disabled="false"
                     />
                     <a-input
                       v-model="b3_1"
@@ -65,7 +65,7 @@
                     v-model="b4"
                     :placeholder="$t('b4')"
                     :suffix="$t('b4_u')"
-                    :disabled="true"
+                    :disabled="false"
                   />
                 </a-form-item>
                 <a-form-item
@@ -77,7 +77,7 @@
                   <a-input
                     v-model="b5"
                     :placeholder="$t('b5')"
-                    :disabled="true"
+                    :disabled="false"
                   />
                 </a-form-item>
                 <a-form-item

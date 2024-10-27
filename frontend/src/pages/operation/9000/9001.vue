@@ -2149,16 +2149,16 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b1,
-        key2: "30",
-        key3: "25",
-        key4: "0",
-        key5: "20",
-        key6: "0",
-        key7: "1.5",
-        key8: "99.2",
-        key9: "97",
-        key10: "2",
-        key11: "24",
+        key2: this.b4,
+        key3: this.b5,
+        key4: this.b6,
+        key5: this.b7,
+        key6: this.b8,
+        key7: this.b9,
+        key8: this.b26,
+        key9: this.b27,
+        key10: this.b32,
+        key11: this.b29,
       };
       exportWord("浓缩池计算书", "9001.docx", data, this);
     },
@@ -2166,16 +2166,16 @@ export default {
       this.$message.info(this.$t("refreshSucc"));
       const data = {
         key1: this.b1,
-        key2: "30",
-        key3: "25",
-        key4: "0",
-        key5: "20",
-        key6: "0",
-        key7: "1.5",
-        key8: "99.2",
-        key9: "97",
-        key10: "2",
-        key11: "24",
+        key2: this.b4,
+        key3: this.b5,
+        key4: this.b6,
+        key5: this.b7,
+        key6: this.b8,
+        key7: this.b9,
+        key8: this.b26,
+        key9: this.b27,
+        key10: this.b32,
+        key11: this.b29,
       };
       initWordStorage("9001.docx", data);
       this.handleExcelCache("9001.xlsx", "浓缩池工程量");
