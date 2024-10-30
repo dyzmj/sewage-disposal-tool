@@ -371,9 +371,7 @@
 
                                 </a-checkbox>
                                 <a-tag
-                                    :color="
-                                      item.checked ? '#2DB7F5' : '#6C767D'
-                                    "
+                                    :color="processColor"
                                     style="font-size: 13px;margin-left: 10px;"
                                     @click="calc(item.key)"
                                     >{{ item.title }}</a-tag
@@ -416,6 +414,7 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this, { name: "advanced_search" }),
+      processColor: "#6C767D",
       loading: true,
       processUnit: [],
       processUnitData: [],
@@ -659,6 +658,19 @@ export default {
     };
   },
   methods: {
+    changeColor(checked) {
+      // 初始化字体为蓝色
+      if (checked === null) {
+        this.processColor =  "#2DB7F5";
+      }
+      // 选中时字体变为绿色
+      if (checked) {
+        this.processColor = "#00a24e";
+      } else {
+        // 其他情况为灰色
+        this.processColor = "#6C767D";
+      }
+    },
     getProcessUnit() {
       request("/work/processUnit", METHOD.GET).then((res) => {
         this.processUnit = res.data;
@@ -676,6 +688,10 @@ export default {
         if (values.param1 >= 80) {
           // 沉淀池
           this.processUnit[0].children[1].checked = true;
+          // this.processUnit[0].children[5].color = '#2DB7F5'
+          this.changeColor(null);
+          // this.processColor = '#00a24e';
+          // #00a24e  #2DB7F5
           storeValueInLocalStorage("fc1002", "1");
         } else {
           this.processUnit[0].children[1].checked = false;
