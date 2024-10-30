@@ -1223,7 +1223,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/work");
+      this.$router.push("/works");
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");

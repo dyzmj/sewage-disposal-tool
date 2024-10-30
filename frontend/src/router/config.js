@@ -45,7 +45,7 @@ const options = {
           component: PageView,
           children: [
             {
-              path: 'work',
+              path: '/works',
               name: '工作台',
               meta: {
                 icon: 'dashboard',

@@ -2161,7 +2161,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/work");
+      this.$router.push("/works");
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -2657,7 +2657,7 @@ export default {
         {
           序号: "",
           单体位号: "",
-          名称: "普通快滤池",
+          名称: "陶粒生物接触氧化池",
           Dimensions: this.getkey1(),
           标高: "",
           单位: "座",
@@ -2729,7 +2729,7 @@ export default {
       {
         序号: "",
         单体位号: "",
-        名称: "普通快滤池",
+        名称: "陶粒生物接触氧化池",
         Dimensions: this.getkey1(),
         标高: "",
         单位: "座",

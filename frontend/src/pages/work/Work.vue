@@ -2,7 +2,7 @@
   <div id="testApp" style="background-color: #EDEFF2;">
     <a-row style="margin: 0 -6px">
       <a-col
-        style="padding: 14px 6px"
+        style="padding: 10px 6px"
         :xl="6"
         :lg="24"
         :md="24"
@@ -14,8 +14,8 @@
           :title="$t('baseQueryParam')"
           style="margin-bottom: 2 4px"
           :bordered="false"
-          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
-          :headStyle="{ 'font-weight': 'bolder' }"
+          :body-style="{ padding: 2, height: '730px' }"
+          :headStyle="{ 'font-weight': 'bolder'}"
         >
           <div class="baseQueryParam">
             <a-form
@@ -33,15 +33,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param1`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param1_u')"
-                    :disabled="true"
+                    :addon-after="$t('param1_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -55,15 +51,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param2`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param2_u')"
-                    :disabled="true"
+                    :addon-after="$t('param2_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -77,15 +69,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param3`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param3_u')"
-                    :disabled="true"
+                    :addon-after="$t('param3_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -151,8 +139,9 @@
                 >
                   <a-select
                     v-decorator="[`param7`]"
-                    style="width: 70%"
+                    style="width: 100%"
                     :placeholder="$t('selectOne')"
+                    :addon-after="$t('param7_u')"
                   >
                     <a-select-option value="0">
                       &lt;= 3
@@ -167,11 +156,6 @@
                       水质突变或季节性变化
                     </a-select-option>
                   </a-select>
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param7_u')"
-                    :disabled="true"
-                  />
                 </a-input-group>
               </a-form-item>
               <a-form-item
@@ -204,15 +188,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param9`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param9_u')"
-                    :disabled="true"
+                    :addon-after="$t('param9_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -240,15 +220,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param12`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param12_u')"
-                    :disabled="true"
+                    :addon-after="$t('param12_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -262,15 +238,11 @@
                   style="display: inline-block; vertical-align: middle"
                 >
                   <a-input
-                    :style="{ width: '70%' }"
+                    :style="{ width: '100%' }"
                     v-decorator="[`param14`]"
                     :placeholder="$t('inputOne')"
                     :disabled="false"
-                  />
-                  <a-input
-                    :style="{ width: '30%' }"
-                    :value="$t('param14_u')"
-                    :disabled="true"
+                    :addon-after="$t('param14_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -290,7 +262,7 @@
         </a-card>
       </a-col>
       <a-col
-        style="padding: 14px 6px"
+        style="padding: 10px 6px"
         :xl="18"
         :lg="24"
         :md="24"
@@ -300,9 +272,9 @@
         <a-card
           :loading="loading"
           :title="$t('processUnit')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
-          style="margin-bottom: 0px"
+          style="margin-bottom: 2 4px;"
+          :headStyle="{ 'font-weight': 'bolder', 'height' : '56px' }"
+          :body-style="{ padding: 2, height: '730px' }"
           :bordered="false"
         >
           <a slot="extra" href="#">
@@ -333,7 +305,7 @@
               :md="24"
               :sm="24"
               :xs="24"
-              style="margin: 0 -16px"
+              style="margin: 0 -10px"
               :loading="loading"
             >
               <a-list-item
@@ -368,14 +340,13 @@
                                   :disabled="item.disabled"
                                   @change="onChange(item.key, item.checked)"
                                 >
-
                                 </a-checkbox>
                                 <a-tag
-                                    :color="processColor"
-                                    style="font-size: 13px;margin-left: 10px;"
-                                    @click="calc(item.key)"
-                                    >{{ item.title }}</a-tag
-                                  >
+                                  :color="processColor"
+                                  style="font-size: 13px;margin-left: 10px;"
+                                  @click="calc(item.key)"
+                                  >{{ item.title }}</a-tag
+                                >
                               </a-tooltip>
                             </div>
                           </div>
@@ -386,6 +357,37 @@
                 </a-card>
               </a-list-item>
             </a-list>
+          </div>
+        </a-card>
+      </a-col>
+      <a-col
+        style="padding: 0px 6px"
+        :xl="24"
+        :lg="24"
+        :md="24"
+        :sm="24"
+        :xs="24"
+      >
+        <a-card
+          :size="small"
+          :loading="loading"
+          :bordered="false"
+          :body-style="{ padding: 2, height: '90px'}"
+          :headStyle="{ 'font-weight': 'bolder' }"
+        >
+          <div
+            style="padding: 2"
+          >
+            <a-tag style="margin: 4px 4px;" color="#00be7f">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#f3e449">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#96b7c3">单池 > 2.5万m3/d 不建议采用网格絮凝池</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#1ba7ed">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#96b7c3">单池 > 2.5万m3/d 不建议采用网格絮凝池</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#00be7f">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#5397d2">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#f3e449">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
           </div>
         </a-card>
       </a-col>
@@ -420,7 +422,7 @@ export default {
       processUnitData: [],
       modelVisible: false,
       param1: null,
-      waterData: '20000',
+      waterData: "20000",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -661,7 +663,7 @@ export default {
     changeColor(checked) {
       // 初始化字体为蓝色
       if (checked === null) {
-        this.processColor =  "#2DB7F5";
+        this.processColor = "#2DB7F5";
       }
       // 选中时字体变为绿色
       if (checked) {
@@ -898,7 +900,6 @@ export default {
 
       // 初始化计算书缓存数据
       this.exportAllComputeBook();
-
     },
     handleReset() {
       this.form.resetFields();
@@ -972,226 +973,226 @@ export default {
     },
     handleChangeCache(key, checked) {
       if (key === "1001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1001", "0");
         }
       }
       if (key === "1002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1002", "0");
         }
       }
       if (key === "1003") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1003", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1003", "0");
         }
       }
       if (key === "1004") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1004", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1004", "0");
         }
       }
       if (key === "1005") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1005", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1005", "0");
         }
       }
       if (key === "1006") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1006", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1006", "0");
         }
       }
       if (key === "1007") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc1007", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc1007", "0");
         }
       }
       if (key === "2001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc2001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc2001", "0");
         }
       }
       if (key === "2002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc2002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc2002", "0");
         }
       }
       if (key === "2003") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc2003", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc2003", "0");
         }
       }
       if (key === "2004") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc2004", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc2004", "0");
         }
       }
       if (key === "2005") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc2005", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc2005", "0");
         }
       }
       if (key === "3001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3001", "0");
         }
       }
       if (key === "3002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3002", "0");
         }
       }
       if (key === "3003") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3003", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3003", "0");
         }
       }
       if (key === "3004") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3004", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3004", "0");
         }
       }
       if (key === "3005") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3005", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3005", "0");
         }
       }
       if (key === "3006") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc3006", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc3006", "0");
         }
       }
       if (key === "4001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc4001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc4001", "0");
         }
       }
       if (key === "4002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc4002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc4002", "0");
         }
       }
       if (key === "5001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc5001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc5001", "0");
         }
       }
       if (key === "5002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc5002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc5002", "0");
         }
       }
       if (key === "6001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6001", "0");
         }
       }
       if (key === "6002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6002", "0");
         }
       }
       if (key === "6003") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6003", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6003", "0");
         }
       }
       if (key === "6004") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6004", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6004", "0");
         }
       }
       if (key === "6005") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6005", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6005", "0");
         }
       }
       if (key === "6006") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc6006", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc6006", "0");
         }
       }
       if (key === "8001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc8001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc8001", "0");
         }
       }
       if (key === "8002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc8002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc8002", "0");
         }
       }
       if (key === "9001") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc9001", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc9001", "0");
         }
       }
       if (key === "9002") {
-        if(checked){
+        if (checked) {
           storeValueInLocalStorage("fc9002", "1");
-        }else{
+        } else {
           storeValueInLocalStorage("fc9002", "0");
         }
       }
@@ -1353,7 +1354,7 @@ export default {
       const data1007 = {
         key1: this.waterData,
         key2: "35",
-        key3: (35 * parseFloat(this.waterData) / 1000 / 24).toFixed(3),
+        key3: ((35 * parseFloat(this.waterData)) / 1000 / 24).toFixed(3),
         key4: "3",
       };
       const data2001 = {
@@ -1370,12 +1371,16 @@ export default {
       const data2003 = {
         key1: this.waterData,
         key2: (parseFloat(this.waterData) * 1.05).toFixed(0),
-        key3: (parseFloat(this.waterData) * 1.05 / (24 * 60 * 60)).toFixed(2),
+        key3: ((parseFloat(this.waterData) * 1.05) / (24 * 60 * 60)).toFixed(2),
         key4: "20",
         key5: "10",
         key6: "4.5",
         key7: "2",
-        key8: (parseFloat(this.waterData) * 1.05 / (24 * 60 * 60) / 2).toFixed(4),
+        key8: (
+          (parseFloat(this.waterData) * 1.05) /
+          (24 * 60 * 60) /
+          2
+        ).toFixed(4),
         key9: "500",
       };
       const data2004 = {
@@ -1534,7 +1539,17 @@ export default {
       const data8002 = {
         key1: this.waterData,
         key2: "2",
-        key3: (((parseFloat(this.waterData) * 0.15) + (parseFloat(this.waterData) * 0.02 + 81.25) + 144 + ((((parseFloat(this.waterData) * 0.15) + (parseFloat(this.waterData) * 0.02 + 81.25) + 144) / 3.8) * 0.2)) / 2).toFixed(2)
+        key3: (
+          (parseFloat(this.waterData) * 0.15 +
+            (parseFloat(this.waterData) * 0.02 + 81.25) +
+            144 +
+            ((parseFloat(this.waterData) * 0.15 +
+              (parseFloat(this.waterData) * 0.02 + 81.25) +
+              144) /
+              3.8) *
+              0.2) /
+          2
+        ).toFixed(2),
       };
       const data9001 = {
         key1: this.waterData,
@@ -1662,7 +1677,7 @@ export default {
           {
             序号: "",
             单体位号: "",
-            名称: "普通快滤池",
+            名称: "陶粒生物接触氧化池",
             尺寸: "70.1m x20.9m x4.4m",
             标高: "",
             单位: "座",
@@ -1766,7 +1781,7 @@ export default {
           {
             序号: "1",
             单体位号: "1",
-            名称: "斜管沉淀池",
+            名称: "预沉池",
             尺寸: "6m x0.75m x1.5m",
             标高: "",
             单位: "座",
@@ -5719,11 +5734,11 @@ export default {
 @import "index";
 
 .ant-form-item {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .list-card {
-  height: 350px;
+  height: 310px;
   // width: 300px;
   // flex: 0 0 auto
 }

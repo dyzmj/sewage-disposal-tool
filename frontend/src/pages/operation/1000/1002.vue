@@ -711,7 +711,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/work");
+      this.$router.push("/works");
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -919,7 +919,7 @@ export default {
       {
         序号: "1",
         单体位号: "1",
-        名称: "斜管沉淀池",
+        名称: "预沉池",
         Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
@@ -962,7 +962,7 @@ export default {
       {
         序号: "1",
         单体位号: "1",
-        名称: "斜管沉淀池",
+        名称: "预沉池",
         Dimensions: this.getkey1(),
         标高: "",
         单位: "座",
