@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -401,7 +406,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/work");
+      this.$router.push("/works");
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -491,9 +496,7 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        const data = [
-          ...allData2,
-        ];
+        const data = [...allData2];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -537,19 +540,19 @@ export default {
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "投加系统",
-        Dimensions: "粉末活性炭干式投加系统",
-        规格及型号: this.getkey1(),
-        单位: "套",
-        disinfectiontank: "1",
-        运行时间: "",
-        主要材质: "",
-        备注: "含物料储存、定量投加、射流混合及相关辅助部分",
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "投加系统",
+          Dimensions: "粉末活性炭干式投加系统",
+          规格及型号: this.getkey1(),
+          单位: "套",
+          disinfectiontank: "1",
+          运行时间: "",
+          主要材质: "",
+          备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+        },
+      ];
     },
   },
   watch() {
