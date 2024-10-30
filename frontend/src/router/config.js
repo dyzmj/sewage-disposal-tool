@@ -42,8 +42,17 @@ const options = {
             icon: 'dashboard',
             keepAlive: true,
           },
-          component: () => import('@/pages/work'),
+          component: PageView,
           children: [
+            {
+              path: 'work',
+              name: '工作台',
+              meta: {
+                icon: 'dashboard',
+                keepAlive: true,
+              },
+              component: () => import('@/pages/work'),
+            },
             {
               path: '1000',
               name: '预处理工艺',
@@ -334,81 +343,6 @@ const options = {
                 },
               ]
             },
-            // {
-            //   path: '7000',
-            //   name: '加药工艺',
-            //   meta: {
-            //     icon: 'block',
-            //     keepAlive: true,
-            //   },
-            //   component: PageView,
-            //   children: [
-            //     {
-            //       name: '活性炭吸附塔',
-            //       path: '/sub/7001',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7001')
-            //     },
-            //     {
-            //       name: '折点加氯',
-            //       path: '/sub/7002',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7002')
-            //     },
-            //     {
-            //       name: 'NaClO',
-            //       path: '/sub/7003',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7003')
-            //     },
-            //     {
-            //       name: 'ClO2',
-            //       path: '/sub/7004',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7004')
-            //     },
-            //     {
-            //       name: 'PAC',
-            //       path: '/sub/7005',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7005')
-            //     },
-            //     {
-            //       name: 'PAM',
-            //       path: '/sub/7006',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7006')
-            //     },
-            //     {
-            //       name: '活性炭粉末',
-            //       path: '/sub/7007',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7007')
-            //     },
-            //     {
-            //       name: '高锰酸钾',
-            //       path: '/sub/7008',
-            //       meta: {
-            //         keepAlive: true,
-            //       },
-            //       component: () => import('@/pages/operation/7000/7008')
-            //     },
-            //   ]
-            // },
             {
               path: '8000',
               name: '其他工艺',
