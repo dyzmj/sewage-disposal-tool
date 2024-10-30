@@ -384,9 +384,9 @@
             <a-tag style="margin: 4px 4px;" color="#1ba7ed">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
             <a-tag style="margin: 4px 4px;" color="#96b7c3">单池 > 2.5万m3/d 不建议采用网格絮凝池</a-tag>
             <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#00be7f">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#1ba7ed">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
             <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#5397d2">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
+            <a-tag style="margin: 4px 4px;" color="#00be7f">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
             <a-tag style="margin: 4px 4px;" color="#f3e449">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
           </div>
         </a-card>

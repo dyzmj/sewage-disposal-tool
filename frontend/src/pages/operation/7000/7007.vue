@@ -570,7 +570,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/works");
+      this.$router.push("/work");
     },
     exportQuantities() {
       try{

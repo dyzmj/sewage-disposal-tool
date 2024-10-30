@@ -711,7 +711,7 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push("/works");
+      this.$router.push("/work");
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
