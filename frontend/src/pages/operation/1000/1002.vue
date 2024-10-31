@@ -16,9 +16,14 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '800px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -455,6 +460,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '800px', overflow: 'auto' }"
         >
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -516,6 +528,44 @@
           </a-card>
         </a-card>
       </a-col>
+      <a-modal
+        :visible="modelVisible"
+        title="工程量计算"
+        :footer="null"
+        width="1200"
+        @ok="handleOk"
+        @cancel="handleOk"
+      >
+      <div>
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+      </div>
+      </a-modal>
     </a-row>
   </div>
 </template>
@@ -535,6 +585,7 @@ export default {
   i18n: require("./i18n_1002"),
   data() {
     return {
+      modelVisible: false,
       b4: "20000",
       b7: "0.2",
       b8: "30",
@@ -713,6 +764,12 @@ export default {
     backHome() {
       this.$router.push("/works");
     },
+    showModal() {
+      this.modelVisible = true;
+    },
+    handleOk() {
+      this.modelVisible = false;
+    },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
@@ -831,12 +888,7 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        const data = [
-          ...allData1,
-          null,
-          null,
-          ...allData2,
-        ];
+        const data = [...allData1, null, null, ...allData2];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -856,7 +908,15 @@ export default {
       return this.b13;
     },
     getkey3() {
-      return "池深"+this.b22+"m，N=2*0.55kW，池宽"+this.b19_2+"m，轨距"+(parseFloat(this.b19_2) + 0.3)+"m"
+      return (
+        "池深" +
+        this.b22 +
+        "m，N=2*0.55kW，池宽" +
+        this.b19_2 +
+        "m，轨距" +
+        (parseFloat(this.b19_2) + 0.3) +
+        "m"
+      );
     },
     getkey4() {
       return this.b13;
@@ -916,35 +976,36 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "1",
-        名称: "预沉池",
-        Dimensions: this.getkey1(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: this.getkey2(),
-        结构形式: "钢砼",
-        备注: "半地下式",
-        暖通要求: "无",
-      },
-    ];
-    }, 
-    data2 () {
+        {
+          序号: "1",
+          单体位号: "1",
+          名称: "预沉池",
+          Dimensions: this.getkey1(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: this.getkey2(),
+          结构形式: "钢砼",
+          备注: "半地下式",
+          暖通要求: "无",
+        },
+      ];
+    },
+    data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "桁车式吸泥机",
-        设备类型: "吸泥机",
-        规格及型号: this.getkey3(),
-        单位: "台",
-        数量: this.getkey4(),
-        运行时间: "4h",
-        主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "1",
+          设备工艺名称: "桁车式吸泥机",
+          设备类型: "吸泥机",
+          规格及型号: this.getkey3(),
+          单位: "台",
+          数量: this.getkey4(),
+          运行时间: "4h",
+          主要材质: "水上部分碳钢防腐，水下部分SS304",
+          备注:
+            "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+        },
+      ];
     },
   },
   watch() {
@@ -983,7 +1044,8 @@ export default {
         数量: this.getkey4(),
         运行时间: "4h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+        备注:
+          "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
       },
     ];
   },

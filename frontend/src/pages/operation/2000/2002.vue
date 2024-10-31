@@ -778,6 +778,9 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
+          <a-icon type="zoom-in" />
+        </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -840,6 +843,37 @@
         </a-card>
       </a-col>
     </a-row>
+    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+      <div>
+        <div class="baseQueryParam">
+            <a-table
+              :columns="columns1"
+              :data-source="data1"
+              bordered
+              size="small"
+              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+              :pagination="false"
+              :row-style="{ paddin: 16 }"
+            >
+              <a slot="序号" slot-scope="text">{{ text }}</a>
+            </a-table>
+          </div>
+          <a-divider :dashed="true" />
+          <div class="baseQueryParam">
+            <a-table
+              :columns="columns2"
+              :data-source="data2"
+              bordered
+              size="small"
+              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+              :pagination="false"
+              :row-style="{ paddin: 16 }"
+            >
+              <a slot="序号" slot-scope="text">{{ text }}</a>
+            </a-table>
+          </div>
+      </div>
+    </a-modal>
   </div>
 </template>
 
@@ -858,6 +892,7 @@ export default {
   i18n: require("./i18n_2002"),
   data() {
     return {
+      modelVisible: false,
       b3: "40000",
       b4: "2",
       b5: "15",
@@ -1039,6 +1074,12 @@ export default {
   methods: {
     backHome() {
       this.$router.push("/works");
+    },
+    showModal() {
+      this.modelVisible = true
+    },
+    handleOk() {
+      this.modelVisible = false
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");

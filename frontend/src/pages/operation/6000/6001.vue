@@ -345,6 +345,9 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
+        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
+          <a-icon type="zoom-in" />
+        </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns"
@@ -413,6 +416,23 @@
       </p>
       <br />
     </div>
+    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+      <div>
+        <div class="baseQueryParam">
+            <a-table
+              :columns="columns"
+              :data-source="data"
+              bordered
+              size="small"
+              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+              :pagination="false"
+              :row-style="{ paddin: 16 }"
+            >
+              <a slot="序号" slot-scope="text">{{ text }}</a>
+            </a-table>
+          </div>
+      </div>
+    </a-modal>
   </div>
 </template>
 
@@ -431,6 +451,7 @@ export default {
   i18n: require("./i18n_6001"),
   data() {
     return {
+      modelVisible: false,
       designScale: "20000",
       totalChangeFactor: "1",
       contactTime: "30",
@@ -524,6 +545,12 @@ export default {
   methods: {
     backHome() {
       this.$router.push("/works");
+    },
+    showModal() {
+      this.modelVisible = true
+    },
+    handleOk() {
+      this.modelVisible = false
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");

@@ -23,13 +23,18 @@
               :hoverable="true"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
-            <a slot="extra" href="#">
-            <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
-                {{ $t("refresh") }}</a-button
-              >
-            </div>
-            </a>
+              <a slot="extra" href="#">
+                <div class="" style="">
+                  <a-button
+                    type="primary"
+                    @click="refreshInitData"
+                    icon="sync"
+                    size="small"
+                  >
+                    {{ $t("refresh") }}</a-button
+                  >
+                </div>
+              </a>
               <a-card
                 :title="$t('b2')"
                 style="margin-bottom: 24px"
@@ -988,6 +993,13 @@
               :bordered="false"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
+              <a
+                slot="extra"
+                style="color: rgb(120, 120, 120); font-size: 15px;"
+                @click="showModal"
+              >
+                <a-icon type="zoom-in" />
+              </a>
               <div class="baseQueryParam">
                 <a-table
                   :columns="columns1"
@@ -1073,13 +1085,18 @@
               :hoverable="true"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
-            <a slot="extra" href="#">
-            <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
-                {{ $t("refresh") }}</a-button
-              >
-            </div>
-          </a>
+              <a slot="extra" href="#">
+                <div class="" style="">
+                  <a-button
+                    type="primary"
+                    @click="refreshInitData"
+                    icon="sync"
+                    size="small"
+                  >
+                    {{ $t("refresh") }}</a-button
+                  >
+                </div>
+              </a>
               <a-card
                 :title="$t('c2')"
                 style="margin-bottom: 24px"
@@ -2122,6 +2139,13 @@
               :bordered="false"
               :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
             >
+              <a
+                slot="extra"
+                style="color: rgb(120, 120, 120); font-size: 15px;"
+                @click="showModal"
+              >
+                <a-icon type="zoom-in" />
+              </a>
               <div class="baseQueryParam">
                 <a-table
                   :columns="columns1"
@@ -2186,6 +2210,44 @@
         </a-row>
       </a-tab-pane>
     </a-tabs>
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
+      <div>
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+      </div>
+    </a-modal>
   </div>
 </template>
 
@@ -2204,6 +2266,7 @@ export default {
   i18n: require("./i18n_2001"),
   data() {
     return {
+      modelVisible: false,
       b3_1: "105000",
       b7: "20",
       b8: "4",
@@ -2412,6 +2475,12 @@ export default {
     backHome() {
       this.$router.push("/works");
     },
+    showModal() {
+      this.modelVisible = true;
+    },
+    handleOk() {
+      this.modelVisible = false;
+    },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
@@ -2571,12 +2640,7 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-        const data = [
-          ...allData1,
-          null,
-          null,
-          ...allData2,
-        ];
+        const data = [...allData1, null, null, ...allData2];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -2602,25 +2666,53 @@ export default {
       return "to do";
     },
     getkey1() {
-      return this.b17_1 +"×"+this.b18_1+"×"+this.b9+"m";
+      return this.b17_1 + "×" + this.b18_1 + "×" + this.b9 + "m";
     },
     getkey2() {
       return this.b8;
     },
     getkey3() {
-      return "池深"+this.b9+"m，N="+this.b48+"kW，R1="+this.b40_1+"rpm，R2="+this.b40_2+"rpm，R3="+this.b40_3+"rpm，叶轮直径"+(parseFloat(this.b22)*1000)+"mm";
+      return (
+        "池深" +
+        this.b9 +
+        "m，N=" +
+        this.b48 +
+        "kW，R1=" +
+        this.b40_1 +
+        "rpm，R2=" +
+        this.b40_2 +
+        "rpm，R3=" +
+        this.b40_3 +
+        "rpm，叶轮直径" +
+        parseFloat(this.b22) * 1000 +
+        "mm"
+      );
     },
     getkey4() {
       return this.b8;
     },
     getkey1c() {
-      return this.c15 +"×"+this.c16+"×"+this.c19+"m";
+      return this.c15 + "×" + this.c16 + "×" + this.c19 + "m";
     },
     getkey2c() {
       return this.c8;
     },
     getkey3c() {
-      return "池深m，N="+this.c57+"kW，R1="+this.c57_1+"rpm，R2="+this.c57+"rpm，N3="+this.c57_1+"R3="+this.c57_2+"rpm，叶轮直径"+(parseFloat(this.c25)*1000)+"mm";
+      return (
+        "池深m，N=" +
+        this.c57 +
+        "kW，R1=" +
+        this.c57_1 +
+        "rpm，R2=" +
+        this.c57 +
+        "rpm，N3=" +
+        this.c57_1 +
+        "R3=" +
+        this.c57_2 +
+        "rpm，叶轮直径" +
+        parseFloat(this.c25) * 1000 +
+        "mm"
+      );
     },
     getkey4c() {
       return this.c8;
@@ -2841,13 +2933,25 @@ export default {
       return (parseFloat(this.c3_1) / (24 * 60 * 60)).toFixed(2);
     },
     c14() {
-      return (parseFloat(this.c3_2) * parseFloat(this.c7) / 60 / parseFloat(this.c8)).toFixed(2);
+      return (
+        (parseFloat(this.c3_2) * parseFloat(this.c7)) /
+        60 /
+        parseFloat(this.c8)
+      ).toFixed(2);
     },
     c17() {
-      return (parseFloat(this.c14)/parseFloat(this.c8)/3/parseFloat(this.c15)/parseFloat(this.c16)).toFixed(2);
+      return (
+        parseFloat(this.c14) /
+        parseFloat(this.c8) /
+        3 /
+        parseFloat(this.c15) /
+        parseFloat(this.c16)
+      ).toFixed(2);
     },
     c19() {
-      return (this.ROUND(parseFloat(this.c18) + parseFloat(this.c17), 2)).toFixed(2);
+      return this.ROUND(parseFloat(this.c18) + parseFloat(this.c17), 2).toFixed(
+        2
+      );
     },
     c20() {
       return this.c16;
@@ -2862,28 +2966,28 @@ export default {
       return (parseFloat(this.c26) / parseFloat(this.c25)).toFixed(2);
     },
     c30() {
-      return ((parseFloat(this.c29)*parseFloat(this.c26)*parseFloat(this.c28))/(
-        parseFloat(this.c17) * parseFloat(this.c16)
-      )).toFixed(2);
+      return (
+        (parseFloat(this.c29) * parseFloat(this.c26) * parseFloat(this.c28)) /
+        (parseFloat(this.c17) * parseFloat(this.c16))
+      ).toFixed(2);
     },
     c33() {
-      return (parseFloat(this.c31) * parseFloat(this.c32) * 4 / (
-        parseFloat(this.c16) * parseFloat(this.c17)
-      )).toFixed(3);
+      return (
+        (parseFloat(this.c31) * parseFloat(this.c32) * 4) /
+        (parseFloat(this.c16) * parseFloat(this.c17))
+      ).toFixed(3);
     },
     c34() {
       return (parseFloat(this.c33) + parseFloat(this.c30)).toFixed(2);
     },
     c37() {
-      return ((
-        (1000 - 440) / 2 + 440
-      ) * 2 / 1000).toFixed(2);
+      return ((((1000 - 440) / 2 + 440) * 2) / 1000).toFixed(2);
     },
     c38() {
       return (parseFloat(this.c28) / parseFloat(this.c26)).toFixed(1);
     },
     c40() {
-      return (parseFloat(this.c39) * 1000 / 2 / 9.81).toFixed(2);
+      return ((parseFloat(this.c39) * 1000) / 2 / 9.81).toFixed(2);
     },
     c41() {
       return (parseFloat(this.c25) / 2).toFixed(2);
@@ -2895,76 +2999,97 @@ export default {
       return 0.44;
     },
     c47() {
-      return (this.ROUND((
-        60 * parseFloat(this.c46) / 3.14 / parseFloat(this.c37)
-      ),2)).toFixed(2);
+      return this.ROUND(
+        (60 * parseFloat(this.c46)) / 3.14 / parseFloat(this.c37),
+        2
+      ).toFixed(2);
     },
     c47_1() {
-      return (this.ROUND((
-        60 * parseFloat(this.c46_1) / 3.14 / parseFloat(this.c37)
-      ),2)).toFixed(2);
+      return this.ROUND(
+        (60 * parseFloat(this.c46_1)) / 3.14 / parseFloat(this.c37),
+        2
+      ).toFixed(2);
     },
     c47_2() {
-      return (this.ROUND((
-        60 * parseFloat(this.c46_2) / 3.14 / parseFloat(this.c37)
-      ),2)).toFixed(2);
+      return this.ROUND(
+        (60 * parseFloat(this.c46_2)) / 3.14 / parseFloat(this.c37),
+        2
+      ).toFixed(2);
     },
     c48() {
-      return (2 * parseFloat(this.c46) / parseFloat(this.c37)).toFixed(2);
+      return ((2 * parseFloat(this.c46)) / parseFloat(this.c37)).toFixed(2);
     },
     c48_1() {
-      return (2 * parseFloat(this.c46_1) / parseFloat(this.c37)).toFixed(2);
+      return ((2 * parseFloat(this.c46_1)) / parseFloat(this.c37)).toFixed(2);
     },
     c48_2() {
-      return (2 * parseFloat(this.c46_2) / parseFloat(this.c37)).toFixed(2);
+      return ((2 * parseFloat(this.c46_2)) / parseFloat(this.c37)).toFixed(2);
     },
     c49() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48), 3) * (
-          Math.pow(parseFloat(this.c41), 4) -
-          Math.pow(parseFloat(this.c42), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48), 3) *
+          (Math.pow(parseFloat(this.c41), 4) -
+            Math.pow(parseFloat(this.c42), 4))) /
+        408
+      ).toFixed(2);
     },
     c49_1() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48_1), 3) * (
-          Math.pow(parseFloat(this.c41), 4) -
-          Math.pow(parseFloat(this.c42), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48_1), 3) *
+          (Math.pow(parseFloat(this.c41), 4) -
+            Math.pow(parseFloat(this.c42), 4))) /
+        408
+      ).toFixed(2);
     },
     c49_2() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48_2), 3) * (
-          Math.pow(parseFloat(this.c41), 4) -
-          Math.pow(parseFloat(this.c42), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48_2), 3) *
+          (Math.pow(parseFloat(this.c41), 4) -
+            Math.pow(parseFloat(this.c42), 4))) /
+        408
+      ).toFixed(2);
     },
     c50() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48), 3) * (
-          Math.pow(parseFloat(this.c43), 4) -
-          Math.pow(parseFloat(this.c44), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48), 3) *
+          (Math.pow(parseFloat(this.c43), 4) -
+            Math.pow(parseFloat(this.c44), 4))) /
+        408
+      ).toFixed(2);
     },
     c50_1() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48_1), 3) * (
-          Math.pow(parseFloat(this.c43), 4) -
-          Math.pow(parseFloat(this.c44), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48_1), 3) *
+          (Math.pow(parseFloat(this.c43), 4) -
+            Math.pow(parseFloat(this.c44), 4))) /
+        408
+      ).toFixed(2);
     },
     c50_2() {
-      return (4*parseFloat(this.c40)*parseFloat(this.c26)*
-        Math.pow(parseFloat(this.c48_2), 3) * (
-          Math.pow(parseFloat(this.c43), 4) -
-          Math.pow(parseFloat(this.c44), 4)
-          ) / 408 
-        ).toFixed(2);
+      return (
+        (4 *
+          parseFloat(this.c40) *
+          parseFloat(this.c26) *
+          Math.pow(parseFloat(this.c48_2), 3) *
+          (Math.pow(parseFloat(this.c43), 4) -
+            Math.pow(parseFloat(this.c44), 4))) /
+        408
+      ).toFixed(2);
     },
     c51() {
       return (parseFloat(this.c49) + parseFloat(this.c50)).toFixed(3);
@@ -2976,16 +3101,33 @@ export default {
       return (parseFloat(this.c49_2) + parseFloat(this.c50_2)).toFixed(3);
     },
     c52() {
-      return (parseFloat(this.c51) +parseFloat(this.c51_1) + parseFloat(this.c51_2)).toFixed(2);
+      return (
+        parseFloat(this.c51) +
+        parseFloat(this.c51_1) +
+        parseFloat(this.c51_2)
+      ).toFixed(2);
     },
     c57() {
-      return (this.ROUND(parseFloat(this.c51)/parseFloat(this.c55)/parseFloat(this.c56), 2)).toFixed(2);
+      return this.ROUND(
+        parseFloat(this.c51) / parseFloat(this.c55) / parseFloat(this.c56),
+        2
+      ).toFixed(2);
     },
     c57_1() {
-      return (this.ROUND(parseFloat(this.c51_1)/parseFloat(this.c55_1)/parseFloat(this.c56_1), 2)).toFixed(2);
+      return this.ROUND(
+        parseFloat(this.c51_1) /
+          parseFloat(this.c55_1) /
+          parseFloat(this.c56_1),
+        2
+      ).toFixed(2);
     },
     c57_2() {
-      return (this.ROUND(parseFloat(this.c51_2)/parseFloat(this.c55_2)/parseFloat(this.c56_2), 2)).toFixed(2);
+      return this.ROUND(
+        parseFloat(this.c51_2) /
+          parseFloat(this.c55_2) /
+          parseFloat(this.c56_2),
+        2
+      ).toFixed(2);
     },
     c60() {
       return (1.75 * parseFloat(this.c48)).toFixed(2);
@@ -2997,113 +3139,127 @@ export default {
       return (1.75 * parseFloat(this.c48_2)).toFixed(2);
     },
     c62() {
-      return (parseFloat(this.c3_3) / parseFloat(this.c8) /  parseFloat(this.c60_1)).toFixed(2);
+      return (
+        parseFloat(this.c3_3) /
+        parseFloat(this.c8) /
+        parseFloat(this.c60_1)
+      ).toFixed(2);
     },
     c62_1() {
-      return (parseFloat(this.c3_3) / parseFloat(this.c8) /  parseFloat(this.c60_2)).toFixed(2);
+      return (
+        parseFloat(this.c3_3) /
+        parseFloat(this.c8) /
+        parseFloat(this.c60_2)
+      ).toFixed(2);
     },
     c63() {
-      return (Math.pow(parseFloat(this.c62), 0.5)).toFixed(2);
+      return Math.pow(parseFloat(this.c62), 0.5).toFixed(2);
     },
     c63_1() {
-      return (Math.pow(parseFloat(this.c62_1), 0.5)).toFixed(2);
+      return Math.pow(parseFloat(this.c62_1), 0.5).toFixed(2);
     },
     c64() {
-      return "0.4*0.4"
+      return "0.4*0.4";
     },
     c64_1() {
-      return "0.5*0.5"
+      return "0.5*0.5";
     },
     c68() {
-      return (Math.sqrt(
-        (102*parseFloat(this.c51)) * 1000000 / 102 /
-        (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
-      )).toFixed(2);
+      return Math.sqrt(
+        (102 * parseFloat(this.c51) * 1000000) /
+          102 /
+          (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
+      ).toFixed(2);
     },
     c68_1() {
-      return (Math.sqrt(
-        (102*parseFloat(this.c51_1)) * 1000000 / 102 /
-        (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
-      )).toFixed(2);
+      return Math.sqrt(
+        (102 * parseFloat(this.c51_1) * 1000000) /
+          102 /
+          (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
+      ).toFixed(2);
     },
     c68_2() {
-      return (Math.sqrt(
-        (102*parseFloat(this.c51_2)) * 1000000 / 102 /
-        (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
-      )).toFixed(2);
+      return Math.sqrt(
+        (102 * parseFloat(this.c51_2) * 1000000) /
+          102 /
+          (parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
+      ).toFixed(2);
     },
     c69() {
-      return (Math.sqrt(
-        parseFloat(this.c52) * 1000000 / 
-        (3 * parseFloat(this.c15) * parseFloat(this.c16) * parseFloat(this.c17))
-      )).toFixed(2);
+      return Math.sqrt(
+        (parseFloat(this.c52) * 1000000) /
+          (3 *
+            parseFloat(this.c15) *
+            parseFloat(this.c16) *
+            parseFloat(this.c17))
+      ).toFixed(2);
     },
     c70() {
       return (parseFloat(this.c69) * parseFloat(this.c7) * 60).toFixed(2);
     },
     data1() {
       return [
-      {
-        序号: "",
-        单体位号: "",
-        名称: "机械搅拌絮凝池",
-        Dimensions: this.getkey1(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: this.getkey2(),
-        结构形式: "钢砼",
-        备注: "半地下式",
-        暖通要求: "无",
-      },
-    ];
+        {
+          序号: "",
+          单体位号: "",
+          名称: "机械搅拌絮凝池",
+          Dimensions: this.getkey1(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: this.getkey2(),
+          结构形式: "钢砼",
+          备注: "半地下式",
+          暖通要求: "无",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "机械搅拌絮凝池搅拌机",
-        设备类型: "水平轴搅拌器",
-        规格及型号: this.getkey3(),
-        单位: "台",
-        数量: this.getkey4(),
-        运行时间: "24h",
-        主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "",
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "机械搅拌絮凝池搅拌机",
+          设备类型: "水平轴搅拌器",
+          规格及型号: this.getkey3(),
+          单位: "台",
+          数量: this.getkey4(),
+          运行时间: "24h",
+          主要材质: "水上部分碳钢防腐，水下部分SS304",
+          备注: "",
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "",
-        单体位号: "",
-        名称: "机械搅拌絮凝池",
-        Dimensions: this.getkey1c(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: this.getkey2c(),
-        结构形式: "钢砼",
-        备注: "半地下式",
-        暖通要求: "无",
-      },
-    ];
+        {
+          序号: "",
+          单体位号: "",
+          名称: "机械搅拌絮凝池",
+          Dimensions: this.getkey1c(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: this.getkey2c(),
+          结构形式: "钢砼",
+          备注: "半地下式",
+          暖通要求: "无",
+        },
+      ];
     },
     data4() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "机械搅拌絮凝池搅拌机",
-        设备类型: "水平轴搅拌器",
-        规格及型号: this.getkey3c(),
-        单位: "台",
-        数量: this.getkey4c(),
-        运行时间: "24h",
-        主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "",
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "机械搅拌絮凝池搅拌机",
+          设备类型: "水平轴搅拌器",
+          规格及型号: this.getkey3c(),
+          单位: "台",
+          数量: this.getkey4c(),
+          运行时间: "24h",
+          主要材质: "水上部分碳钢防腐，水下部分SS304",
+          备注: "",
+        },
+      ];
     },
   },
   watch() {
