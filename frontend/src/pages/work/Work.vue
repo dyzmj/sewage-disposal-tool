@@ -369,25 +369,24 @@
         :xs="24"
       >
         <a-card
+          title="注意事项"
           size="small"
           :loading="loading"
           :bordered="false"
-          :body-style="{ padding: 2, height: '90px'}"
-          :headStyle="{ 'font-weight': 'bolder' }"
+          :body-style="{ padding: 2, height: '60px', overflow: 'auto' }"
+          :headStyle="{ 'font-weight': 'bolder', 'font-size': '15px', }"
         >
           <div
             style="padding: 2"
           >
-            <a-tag style="margin: 4px 4px;" color="#00be7f">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#f3e449">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#96b7c3">单池 > 2.5万m3/d 不建议采用网格絮凝池</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#1ba7ed">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#96b7c3">单池 > 2.5万m3/d 不建议采用网格絮凝池</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#1ba7ed">Fe、Mn超标尤其适用，后端为生物处理慎用</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#ee5531">不得选用臭氧</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#00be7f">厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用</a-tag>
-            <a-tag style="margin: 4px 4px;" color="#f3e449">厂区消毒剂为ClO2优选选用，后端为生物处理慎用</a-tag>
+          <a-tag
+            :key="i" v-for="(item, i) in tipMessage"
+            closable 
+            :color="item.color"
+            style="margin-bottom: 4px;"
+          >
+            {{ item.message }}
+          </a-tag>
           </div>
         </a-card>
       </a-col>
@@ -416,7 +415,7 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this, { name: "advanced_search" }),
-      processColor: "#6C767D",
+      tipMessage: [], // 提示信息
       loading: true,
       processUnit: [],
       processUnitData: [],
@@ -661,7 +660,7 @@ export default {
   },
   methods: {
     getTagColor(item) {
-      return item.checked ? '#00cb7a' : '#6C767D';
+      return item.checked ? '#00be7f' : '#6C767D';
     },
     getProcessUnit() {
       request("/work/processUnit", METHOD.GET).then((res) => {
@@ -711,7 +710,7 @@ export default {
           storeValueInLocalStorage("fc1004", "1");
           storeValueInLocalStorage("fc1005", "1");
           storeValueInLocalStorage("fc1006", "1");
-          //   this.processUnit[0].children[5].color = '#00a24e'
+          //   this.processUnit[0].children[5].color = '#00be7f'
         } else {
           this.processUnit[0].children[2].checked = false;
           this.processUnit[0].children[3].checked = false;
@@ -775,6 +774,10 @@ export default {
           this.processUnit[0].children[5].checked = false;
           this.processUnit[0].children[5].color = '#6C767D';
           this.processUnit[0].children[5].disabled = true;
+          this.tipMessage.push({
+          message: "不得选用臭氧",
+          color: "#ee5531",
+          });
           this.$message.error(this.$t("不得选用臭氧"));
           storeValueInLocalStorage("fc1006", "0");
         } else {
@@ -917,7 +920,7 @@ export default {
         ) {
           // NaClO开启时，活性炭粉末也开启
           this.processUnit[0].children[6].checked = true;
-          this.processUnit[0].children[6].color = '#00a24e';
+          this.processUnit[0].children[6].color = '#00be7f';
           storeValueInLocalStorage("fc1007", "1");
         }
 
@@ -940,15 +943,18 @@ export default {
       // 清空单元选择缓存
       this.handleInitChangeCache();
       this.$message.success(this.$t("resetSucc"));
+      this.tipMessage = [];
     },
     handleChangeMassage(key, checked) {
       if (key === "1003" || key === "6004") {
         if (checked) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
+          this.processUnit[0].children[6].color = '#00be7f';
         } else {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = false;
+          this.processUnit[0].children[6].color = '#6C767D';
         }
       }
       if (key === "1006") {
@@ -956,50 +962,122 @@ export default {
         this.$message.success(
           "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
         );
+        if(checked){
+          this.tipMessage.push({
+          message: "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用",
+          color: "#00be7f",
+          });
+        }
       }
       if (key === "1005") {
         // 高锰酸钾
         this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
+        if(checked) {
+          this.tipMessage.push({
+          message: "Fe、Mn超标尤其适用，后端为生物处理慎用",
+          color: "#f3e449",
+        });
+        }
       }
       if (key === "1004") {
         // ClO2
         this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
+        if(checked) {
+          this.tipMessage.push({
+          message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
+          color: "#1ba7ed",
+        });
+        }
       }
       if (key === "1003") {
         // NaClO
         this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
+        if(checked) {
+          this.tipMessage.push({
+          message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
+          color: "#ee5531",
+        });
+        }
       }
       if (key === "2002") {
         // 网格絮凝池
         this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
+        if(checked){
+          this.tipMessage.push({
+          message: "单池 > 2.5万m3/d 不建议采用网格絮凝池",
+          color: "#1ba7ed",
+        });
+        }
       }
       if (key === "2003") {
         // 折板絮凝池
         this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
+        if(checked) {
+          this.tipMessage.push({
+          message: "单池 >= 5万m3/d 不建议采用折板絮凝池",
+          color: "#f3e449",
+        });
+        }
       }
       if (key === "3001") {
         // 平流沉淀池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#00be7f",
+        });
+        }
       }
       if (key === "3002") {
         // 斜管沉淀池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#f3e449",
+        });
+        }
       }
       if (key === "3003") {
         // 高密度沉淀池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#00be7f",
+        });
+        }
       }
       if (key === "3004") {
         // 机械搅拌澄清池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#ee5531",
+        });
+        }
       }
       if (key === "3005") {
         // 水力循环澄清池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#80c262",
+        });
+        }
       }
       if (key === "3006") {
         // 气浮池
         this.$message.success("设计规模 < 5万m3/d 不建议");
+        if(checked) {
+          this.tipMessage.push({
+          message: "设计规模 < 5万m3/d 不建议",
+          color: "#1ba7ed",
+        });
+        }
       }
     },
     handleChangeCache(key, checked) {
@@ -1230,7 +1308,7 @@ export default {
     },
     onChange(item, key, checked) {
       if (checked) {
-        item.color = "#00a24e"
+        item.color = "#00be7f"
       } else {
         item.color = "#6C767D"
       }
