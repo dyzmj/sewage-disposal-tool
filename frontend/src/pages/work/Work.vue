@@ -338,12 +338,12 @@
                                   name="processUnit"
                                   v-model="item.checked"
                                   :disabled="item.disabled"
-                                  @change="onChange(item.key, item.checked)"
+                                  @change="onChange(item, item.key, item.checked)"
                                 >
                                 </a-checkbox>
                                 <a-tag
-                                  :color="processColor"
-                                  style="font-size: 13px;margin-left: 10px;"
+                                  :color="item.color"
+                                  style="font-size: 15px;margin-left: 10px;"
                                   @click="calc(item.key)"
                                   >{{ item.title }}</a-tag
                                 >
@@ -369,7 +369,7 @@
         :xs="24"
       >
         <a-card
-          :size="small"
+          size="small"
           :loading="loading"
           :bordered="false"
           :body-style="{ padding: 2, height: '90px'}"
@@ -660,18 +660,8 @@ export default {
     };
   },
   methods: {
-    changeColor(checked) {
-      // 初始化字体为蓝色
-      if (checked === null) {
-        this.processColor = "#2DB7F5";
-      }
-      // 选中时字体变为绿色
-      if (checked) {
-        this.processColor = "#00a24e";
-      } else {
-        // 其他情况为灰色
-        this.processColor = "#6C767D";
-      }
+    getTagColor(item) {
+      return item.checked ? '#00cb7a' : '#6C767D';
     },
     getProcessUnit() {
       request("/work/processUnit", METHOD.GET).then((res) => {
@@ -689,14 +679,12 @@ export default {
         // 含砂量 >= 80
         if (values.param1 >= 80) {
           // 沉淀池
-          this.processUnit[0].children[1].checked = true;
-          // this.processUnit[0].children[5].color = '#2DB7F5'
-          this.changeColor(null);
-          // this.processColor = '#00a24e';
-          // #00a24e  #2DB7F5
+          // this.processUnit[0].children[1].checked = true;
+          this.processUnit[0].children[1].color = '#2DB7F5';
           storeValueInLocalStorage("fc1002", "1");
         } else {
           this.processUnit[0].children[1].checked = false;
+          this.processUnit[0].children[1].color = '#6C767D';
           storeValueInLocalStorage("fc1002", "0");
         }
 
@@ -710,10 +698,15 @@ export default {
           values.param7 === "3"
         ) {
           // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].checked = true;
-          this.processUnit[0].children[3].checked = true;
-          this.processUnit[0].children[4].checked = true;
-          this.processUnit[0].children[5].checked = true;
+          // this.processUnit[0].children[2].checked = true;
+          // this.processUnit[0].children[3].checked = true;
+          // this.processUnit[0].children[4].checked = true;
+          // this.processUnit[0].children[5].checked = true;
+          
+          this.processUnit[0].children[2].color = '#2DB7F5';
+          this.processUnit[0].children[3].color = '#2DB7F5';
+          this.processUnit[0].children[4].color = '#2DB7F5';
+          this.processUnit[0].children[5].color = '#2DB7F5';
           storeValueInLocalStorage("fc1003", "1");
           storeValueInLocalStorage("fc1004", "1");
           storeValueInLocalStorage("fc1005", "1");
@@ -724,6 +717,11 @@ export default {
           this.processUnit[0].children[3].checked = false;
           this.processUnit[0].children[4].checked = false;
           this.processUnit[0].children[5].checked = false;
+
+          this.processUnit[0].children[2].color = '#6C767D';
+          this.processUnit[0].children[3].color = '#6C767D';
+          this.processUnit[0].children[4].color = '#6C767D';
+          this.processUnit[0].children[5].color = '#6C767D';
           storeValueInLocalStorage("fc1003", "0");
           storeValueInLocalStorage("fc1004", "0");
           storeValueInLocalStorage("fc1005", "0");
@@ -738,30 +736,36 @@ export default {
           (values.param9 > 0.5 && values.param9 <= 1)
         ) {
           // 活性炭粉末
-          this.processUnit[0].children[6].checked = true;
+          // this.processUnit[0].children[6].checked = true;
+          this.processUnit[0].children[6].color = '#2DB7F5';
           storeValueInLocalStorage("fc1007", "1");
         } else {
           this.processUnit[0].children[6].checked = false;
+          this.processUnit[0].children[6].color = '#6C767D';
           storeValueInLocalStorage("fc1007", "0");
         }
 
         // 高锰酸盐指数 == 1 || 氨氮 > 1
         if (values.param7 === "1" || values.param9 > 1) {
           // 生物接触氧化
-          this.processUnit[0].children[0].checked = true;
+          // this.processUnit[0].children[0].checked = true;
+          this.processUnit[0].children[0].color = '#2DB7F5';
           storeValueInLocalStorage("fc1001", "1");
         } else {
           this.processUnit[0].children[0].checked = false;
+          this.processUnit[0].children[0].color = '#6C767D';
           storeValueInLocalStorage("fc1001", "0");
         }
 
         // 高锰酸盐指数 == 2
         if (values.param7 === "2") {
           // 臭氧活性炭
-          this.processUnit[4].children[0].checked = true;
+          // this.processUnit[4].children[0].checked = true;
+          this.processUnit[4].children[0].color = '#2DB7F5';
           storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[4].children[0].checked = false;
+          this.processUnit[4].children[0].color = '#6C767D';
           storeValueInLocalStorage("fc5001", "0");
         }
 
@@ -769,21 +773,25 @@ export default {
         if (values.param8 === "1") {
           // 不得选用臭氧
           this.processUnit[0].children[5].checked = false;
+          this.processUnit[0].children[5].color = '#6C767D';
           this.processUnit[0].children[5].disabled = true;
           this.$message.error(this.$t("不得选用臭氧"));
           storeValueInLocalStorage("fc1006", "0");
         } else {
           this.processUnit[0].children[5].disabled = false;
+          this.processUnit[0].children[5].color = '#6C767D';
           storeValueInLocalStorage("fc1006", "0");
         }
 
         // 氨氮 <= 0.5
         if (values.param9 > 0.5 && values.param9 <= 1) {
           // 折点加氯
-          this.processUnit[5].children[3].checked = true;
+          // this.processUnit[5].children[3].checked = true;
+          this.processUnit[5].children[3].color = '#2DB7F5';
           storeValueInLocalStorage("fc6004", "1");
         } else {
           this.processUnit[5].children[3].checked = false;
+          this.processUnit[5].children[3].color = '#6C767D';
           storeValueInLocalStorage("fc6004", "0");
         }
 
@@ -797,54 +805,67 @@ export default {
         // 浊度 < 100
         if (values.param11 < 100) {
           // 气浮池
-          this.processUnit[2].children[5].checked = true;
+          // this.processUnit[2].children[5].checked = true;
+          this.processUnit[2].children[5].color = '#2DB7F5';
           storeValueInLocalStorage("fc3006", "1");
         } else {
           this.processUnit[2].children[5].checked = false;
+          this.processUnit[2].children[5].color = '#6C767D';
           storeValueInLocalStorage("fc3006", "0");
         }
 
         // 浊度 < 500
         if (values.param11 < 500) {
           // 水力循环澄清池
-          this.processUnit[2].children[4].checked = true;
+          // this.processUnit[2].children[4].checked = true;
+          this.processUnit[2].children[4].color = '#2DB7F5';
           storeValueInLocalStorage("fc3005", "1");
         } else {
           this.processUnit[2].children[4].checked = false;
+          this.processUnit[2].children[4].color = '#6C767D';
           storeValueInLocalStorage("fc3005", "0");
         }
 
         // 浊度 < 3000
         if (values.param11 < 3000) {
           // 机械搅拌澄清池
-          this.processUnit[2].children[3].checked = true;
+          // this.processUnit[2].children[3].checked = true;
+          this.processUnit[2].children[3].color = '#2DB7F5';
           storeValueInLocalStorage("fc3004", "1");
         } else {
           this.processUnit[2].children[3].checked = false;
+          this.processUnit[2].children[3].color = '#6C767D';
           storeValueInLocalStorage("fc3004", "0");
         }
 
         // 浊度 < 5000
         if (values.param11 < 5000) {
           // 平流沉淀池
-          this.processUnit[2].children[0].checked = true;
+          // this.processUnit[2].children[0].checked = true;
+          this.processUnit[2].children[0].color = '#2DB7F5';
           storeValueInLocalStorage("fc3001", "1");
         } else {
           this.processUnit[2].children[0].checked = false;
+          this.processUnit[2].children[0].color = '#6C767D';
           storeValueInLocalStorage("fc3001", "0");
         }
 
         // 浊度 < 10000
         if (values.param11 < 10000) {
           // 斜管沉淀池
-          this.processUnit[2].children[1].checked = true;
+          // this.processUnit[2].children[1].checked = true;
+          this.processUnit[2].children[1].color = '#2DB7F5';
           // 高密度沉淀池
-          this.processUnit[2].children[2].checked = true;
+          // this.processUnit[2].children[2].checked = true;
+          this.processUnit[2].children[2].color = '#2DB7F5';
           storeValueInLocalStorage("fc3002", "1");
           storeValueInLocalStorage("fc3003", "1");
         } else {
           this.processUnit[2].children[1].checked = false;
           this.processUnit[2].children[2].checked = false;
+          
+          this.processUnit[2].children[1].color = '#6C767D';
+          this.processUnit[2].children[2].color = '#6C767D';
           storeValueInLocalStorage("fc3002", "0");
           storeValueInLocalStorage("fc3003", "0");
         }
@@ -852,29 +873,38 @@ export default {
         // 出水浊度 < 0.5
         if (values.param12 < 0.5) {
           // 超滤
-          this.processUnit[4].children[1].checked = true;
+          // this.processUnit[4].children[1].checked = true;
+          this.processUnit[4].children[1].color = '#2DB7F5';
           storeValueInLocalStorage("fc5002", "1");
         } else {
           this.processUnit[4].children[1].checked = false;
+          this.processUnit[4].children[1].color = '#6C767D';
           storeValueInLocalStorage("fc5002", "0");
         }
 
         // 13、消毒 == 1
         if (values.param13 === "1") {
           // 接触消毒
-          this.processUnit[5].children[0].checked = true;
+          // this.processUnit[5].children[0].checked = true;
+          this.processUnit[5].children[0].color = '#2DB7F5';
           storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[5].children[0].checked = false;
+          this.processUnit[5].children[0].color = '#6C767D';
           storeValueInLocalStorage("fc5001", "0");
         }
 
         // 初始化时常选中：混凝工艺全部、PAC、PAM
-        this.processUnit[1].children[0].checked = true;
-        this.processUnit[1].children[1].checked = true;
-        this.processUnit[1].children[2].checked = true;
-        this.processUnit[1].children[3].checked = true;
-        this.processUnit[1].children[4].checked = true;
+        // this.processUnit[1].children[0].checked = true;
+        // this.processUnit[1].children[1].checked = true;
+        // this.processUnit[1].children[2].checked = true;
+        // this.processUnit[1].children[3].checked = true;
+        // this.processUnit[1].children[4].checked = true;
+        this.processUnit[1].children[0].color = '#2DB7F5';
+        this.processUnit[1].children[1].color = '#2DB7F5';
+        this.processUnit[1].children[2].color = '#2DB7F5';
+        this.processUnit[1].children[3].color = '#2DB7F5';
+        this.processUnit[1].children[4].color = '#2DB7F5';
         storeValueInLocalStorage("fc5001", "1");
         storeValueInLocalStorage("fc5002", "1");
         storeValueInLocalStorage("fc5003", "1");
@@ -887,6 +917,7 @@ export default {
         ) {
           // NaClO开启时，活性炭粉末也开启
           this.processUnit[0].children[6].checked = true;
+          this.processUnit[0].children[6].color = '#00a24e';
           storeValueInLocalStorage("fc1007", "1");
         }
 
@@ -1197,7 +1228,12 @@ export default {
         }
       }
     },
-    onChange(key, checked) {
+    onChange(item, key, checked) {
+      if (checked) {
+        item.color = "#00a24e"
+      } else {
+        item.color = "#6C767D"
+      }
       this.handleChangeMassage(key, checked);
       this.handleChangeCache(key, checked);
     },
