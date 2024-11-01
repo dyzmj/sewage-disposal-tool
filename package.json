@@ -1,6 +1,6 @@
 {
   "name": "sdt",
-  "version": "3.7.7",
+  "version": "3.7.8",
   "description": "Sewage Disposal Tool",
   "main": "main.js",
   "scripts": {
