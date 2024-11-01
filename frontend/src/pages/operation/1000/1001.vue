@@ -2774,7 +2774,6 @@ export default {
   },
   mounted() {
     this.initWaterData();
-    window.c1001 = this.refreshInitData();
   },
   created() {
     this.initWaterData();

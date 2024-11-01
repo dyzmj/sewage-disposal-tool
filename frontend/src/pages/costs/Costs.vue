@@ -611,6 +611,9 @@
 
 <script>
 import { mapState } from "vuex";
+import {
+  getValueFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   name: "Demo",
@@ -653,16 +656,15 @@ export default {
       b15_1: "2",
     };
   },
-  computed: {
-    ...mapState("setting", ["pageMinHeight"]),
-    desc() {
-      return this.$t("description");
-    },
-    count() {
-      return this.expand ? 11 : 7;
-    },
-  },
   methods: {
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b2 = 20000;
+      } else {
+        this.b2 = waterData;
+      }
+    },
     handleSubmit(e) {
       e.preventDefault();
       this.$message.info("运行成本计算完成");
@@ -673,7 +675,28 @@ export default {
       this.code = "";
     },
   },
-};
+  computed: {
+    ...mapState("setting", ["pageMinHeight"]),
+    desc() {
+      return this.$t("description");
+    },
+    count() {
+      return this.expand ? 11 : 7;
+    },
+  },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
+  },
+  created() {
+    this.initWaterData();
+  },
+}
 </script>
 
 <style scoped></style>
