@@ -164,8 +164,6 @@ const processUnit = [
         state: '2',
         color: '#6C767D',
         detail: '斜管沉淀池',
-        tips: true,
-        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '高密度沉淀池',
@@ -186,8 +184,6 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: '机械搅拌澄清池',
-        tips: true,
-        message: '设计规模 < 5万m3/d 不建议'
       },
       {
         title: '水力循环澄清池',
@@ -208,8 +204,6 @@ const processUnit = [
         state: '0',
         color: '#6C767D',
         detail: '平流式气浮池',
-        tips: true,
-        message: '设计规模 < 5万m3/d 不建议'
       },
   
     ]

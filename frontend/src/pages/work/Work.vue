@@ -1035,14 +1035,14 @@ export default {
         }
       }
       if (key === "3002") {
-        // 斜管沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
-          this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#f3e449",
-        });
-        }
+        // // 斜管沉淀池
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        // if(checked) {
+        //   this.tipMessage.push({
+        //   message: "设计规模 < 5万m3/d 不建议",
+        //   color: "#f3e449",
+        // });
+        // }
       }
       if (key === "3003") {
         // 高密度沉淀池
@@ -1055,14 +1055,14 @@ export default {
         }
       }
       if (key === "3004") {
-        // 机械搅拌澄清池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
-          this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#ee5531",
-        });
-        }
+        // // 机械搅拌澄清池
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        // if(checked) {
+        //   this.tipMessage.push({
+        //   message: "设计规模 < 5万m3/d 不建议",
+        //   color: "#ee5531",
+        // });
+        // }
       }
       if (key === "3005") {
         // 水力循环澄清池
@@ -1075,14 +1075,14 @@ export default {
         }
       }
       if (key === "3006") {
-        // 气浮池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
-          this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#1ba7ed",
-        });
-        }
+        // // 气浮池
+        // this.$message.success("设计规模 < 5万m3/d 不建议");
+        // if(checked) {
+        //   this.tipMessage.push({
+        //   message: "设计规模 < 5万m3/d 不建议",
+        //   color: "#1ba7ed",
+        // });
+        // }
       }
     },
     handleChangeCache(key, checked) {
