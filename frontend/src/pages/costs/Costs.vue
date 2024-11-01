@@ -389,177 +389,177 @@
         >
           <div class="baseQueryParam">
             <table>
-                <tr>
-                  <th>序号</th>
-                  <th colspan="2">名称</th>
-                  <th colspan="2">全年量</th>
-                  <th colspan="2">单价</th>
-                  <th>年费用（万元）</th>
-                  <th>吨水成本（元/m3）</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td colspan="2">水资源费</td>
-                  <td><a-input v-model="e19"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g19"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i19"/></td>
-                  <td><a-input v-model="j19"/></td>
-                </tr>
-                <tr>
-                  <td rowspan="9">2</td>
-                  <td rowspan="9">药剂费</td>
-                  <td>PAC</td>
-                  <td><a-input v-model="e20"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g20"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i20"/></td>
-                  <td><a-input v-model="j20"/></td>
-                </tr>
-                <tr>
-                  <td>PAM</td>
-                  <td><a-input v-model="e21"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g21"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i21"/></td>
-                  <td><a-input v-model="j21"/></td>
-                </tr>
-                <tr>
-                  <td>脱水PAM</td>
-                  <td><a-input v-model="e22"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g22"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i22"/></td>
-                  <td><a-input v-model="j22"/></td>
-                </tr>
-                <tr>
-                  <td>次氯酸钠</td>
-                  <td><a-input v-model="e23"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g23"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i23"/></td>
-                  <td><a-input v-model="j23"/></td>
-                </tr>
-                <tr>
-                  <td>粉末活性炭</td>
-                  <td><a-input v-model="e24"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g24"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i24"/></td>
-                  <td><a-input v-model="j24"/></td>
-                </tr>
-                <tr>
-                  <td>HCl</td>
-                  <td><a-input v-model="e25"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g25"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i25"/></td>
-                  <td><a-input v-model="j25"/></td>
-                </tr>
-                <tr>
-                  <td>NaOH</td>
-                  <td><a-input v-model="e26"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g26"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i26"/></td>
-                  <td><a-input v-model="j26"/></td>
-                </tr>
-                <tr>
-                  <td>高锰酸钾</td>
-                  <td><a-input v-model="e27"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g27"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i27"/></td>
-                  <td><a-input v-model="j27"/></td>
-                </tr>
-                <tr>
-                  <td>小计</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><a-input v-model="i28"/></td>
-                  <td><a-input v-model="j28"/></td>
-                </tr>
-                <tr>
-                  <td rowspan="2">3</td>
-                  <td rowspan="2">动力燃料费</td>
-                  <td>电度电费</td>
-                  <td><a-input v-model="e29"/></td>
-                  <td>kWh</td>
-                  <td><a-input v-model="g29"/></td>
-                  <td>元/kWh</td>
-                  <td><a-input v-model="i29"/></td>
-                  <td><a-input v-model="j29"/></td>
-                </tr>
-                <tr>
-                  <td>小计</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><a-input v-model="i30"/></td>
-                  <td><a-input v-model="j30"/></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td colspan="2">污水处理费</td>
-                  <td><a-input v-model="e31"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g31"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i31"/></td>
-                  <td><a-input v-model="j31"/></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td colspan="2">污泥外运及处置费</td>
-                  <td><a-input v-model="e32"/></td>
-                  <td>t</td>
-                  <td><a-input v-model="g32"/></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i32"/></td>
-                  <td><a-input v-model="j32"/></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td colspan="2">工资福利费</td>
-                  <td><a-input v-model="e33"/></td>
-                  <td>人</td>
-                  <td><a-input v-model="g33"/></td>
-                  <td>元/人年</td>
-                  <td><a-input v-model="i33"/></td>
-                  <td><a-input v-model="j33"/></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td colspan="2">日常检修维护费</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><a-input v-model="i34"/></td>
-                  <td><a-input v-model="j34"/></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td colspan="2">经营成本合计</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><a-input v-model="j35"/></td>
-                </tr>
+              <tr>
+                <th>序号</th>
+                <th colspan="2">名称</th>
+                <th colspan="2">全年量</th>
+                <th colspan="2">单价</th>
+                <th>年费用（万元）</th>
+                <th>吨水成本（元/m3）</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td colspan="2">水资源费</td>
+                <td><a-input v-model="e19" /></td>
+                <td>t</td>
+                <td><a-input v-model="g19" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i19" /></td>
+                <td><a-input v-model="j19" /></td>
+              </tr>
+              <tr>
+                <td rowspan="9">2</td>
+                <td rowspan="9">药剂费</td>
+                <td>PAC</td>
+                <td><a-input v-model="e20" /></td>
+                <td>t</td>
+                <td><a-input v-model="g20" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i20" /></td>
+                <td><a-input v-model="j20" /></td>
+              </tr>
+              <tr>
+                <td>PAM</td>
+                <td><a-input v-model="e21" /></td>
+                <td>t</td>
+                <td><a-input v-model="g21" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i21" /></td>
+                <td><a-input v-model="j21" /></td>
+              </tr>
+              <tr>
+                <td>脱水PAM</td>
+                <td><a-input v-model="e22" /></td>
+                <td>t</td>
+                <td><a-input v-model="g22" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i22" /></td>
+                <td><a-input v-model="j22" /></td>
+              </tr>
+              <tr>
+                <td>次氯酸钠</td>
+                <td><a-input v-model="e23" /></td>
+                <td>t</td>
+                <td><a-input v-model="g23" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i23" /></td>
+                <td><a-input v-model="j23" /></td>
+              </tr>
+              <tr>
+                <td>粉末活性炭</td>
+                <td><a-input v-model="e24" /></td>
+                <td>t</td>
+                <td><a-input v-model="g24" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i24" /></td>
+                <td><a-input v-model="j24" /></td>
+              </tr>
+              <tr>
+                <td>HCl</td>
+                <td><a-input v-model="e25" /></td>
+                <td>t</td>
+                <td><a-input v-model="g25" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i25" /></td>
+                <td><a-input v-model="j25" /></td>
+              </tr>
+              <tr>
+                <td>NaOH</td>
+                <td><a-input v-model="e26" /></td>
+                <td>t</td>
+                <td><a-input v-model="g26" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i26" /></td>
+                <td><a-input v-model="j26" /></td>
+              </tr>
+              <tr>
+                <td>高锰酸钾</td>
+                <td><a-input v-model="e27" /></td>
+                <td>t</td>
+                <td><a-input v-model="g27" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i27" /></td>
+                <td><a-input v-model="j27" /></td>
+              </tr>
+              <tr>
+                <td>小计</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a-input v-model="i28" /></td>
+                <td><a-input v-model="j28" /></td>
+              </tr>
+              <tr>
+                <td rowspan="2">3</td>
+                <td rowspan="2">动力燃料费</td>
+                <td>电度电费</td>
+                <td><a-input v-model="e29" /></td>
+                <td>kWh</td>
+                <td><a-input v-model="g29" /></td>
+                <td>元/kWh</td>
+                <td><a-input v-model="i29" /></td>
+                <td><a-input v-model="j29" /></td>
+              </tr>
+              <tr>
+                <td>小计</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a-input v-model="i30" /></td>
+                <td><a-input v-model="j30" /></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td colspan="2">污水处理费</td>
+                <td><a-input v-model="e31" /></td>
+                <td>t</td>
+                <td><a-input v-model="g31" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i31" /></td>
+                <td><a-input v-model="j31" /></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td colspan="2">污泥外运及处置费</td>
+                <td><a-input v-model="e32" /></td>
+                <td>t</td>
+                <td><a-input v-model="g32" /></td>
+                <td>元/t</td>
+                <td><a-input v-model="i32" /></td>
+                <td><a-input v-model="j32" /></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td colspan="2">工资福利费</td>
+                <td><a-input v-model="e33" /></td>
+                <td>人</td>
+                <td><a-input v-model="g33" /></td>
+                <td>元/人年</td>
+                <td><a-input v-model="i33" /></td>
+                <td><a-input v-model="j33" /></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td colspan="2">日常检修维护费</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a-input v-model="i34" /></td>
+                <td><a-input v-model="j34" /></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td colspan="2">经营成本合计</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a-input v-model="j35" /></td>
+              </tr>
             </table>
           </div>
         </a-card>
@@ -570,9 +570,7 @@
 
 <script>
 import { mapState } from "vuex";
-import {
-  getValueFromLocalStorage,
-} from "@/utils/exportUtil";
+import { getValueFromLocalStorage } from "@/utils/exportUtil";
 
 export default {
   name: "Demo",
@@ -657,150 +655,283 @@ export default {
       return this.expand ? 11 : 7;
     },
     e19() {
-      return (parseFloat(this.b2) * (1+(parseFloat(this.b2_1)/100)) * (1+(parseFloat(this.b2_2)/100)) * 365).toFixed(4);
+      return (
+        parseFloat(this.b2) *
+        (1 + parseFloat(this.b2_1) / 100) *
+        (1 + parseFloat(this.b2_2) / 100) *
+        365
+      ).toFixed(4);
     },
     i19() {
-      return (parseFloat(this.e19)*parseFloat(this.g19) / 10000).toFixed(4);
+      return ((parseFloat(this.e19) * parseFloat(this.g19)) / 10000).toFixed(4);
     },
     j19() {
-      return (parseFloat(this.i19) / (parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i19) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e20() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b3) * parseFloat(this.b3_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b3) *
+          parseFloat(this.b3_1)) /
+        1000000
+      ).toFixed(4);
     },
     i20() {
-      return (parseFloat(this.e20)*parseFloat(this.g20)/10000).toFixed(4);
+      return ((parseFloat(this.e20) * parseFloat(this.g20)) / 10000).toFixed(4);
     },
     j20() {
-      return (parseFloat(this.i20)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i20) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e21() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b4) * parseFloat(this.b4_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b4) *
+          parseFloat(this.b4_1)) /
+        1000000
+      ).toFixed(4);
     },
     i21() {
-      return (parseFloat(this.e21)*parseFloat(this.g21)/10000).toFixed(4);
+      return ((parseFloat(this.e21) * parseFloat(this.g21)) / 10000).toFixed(4);
     },
     j21() {
-      return (parseFloat(this.i21)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i21) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e22() {
-      return (parseFloat(this.b5)* parseFloat(this.b13) / 1000000 * parseFloat(this.b5_1)).toFixed(4);
+      return (
+        ((parseFloat(this.b5) * parseFloat(this.b13)) / 1000000) *
+        parseFloat(this.b5_1)
+      ).toFixed(4);
     },
     i22() {
-      return (parseFloat(this.e22)*parseFloat(this.g22)/10000).toFixed(4);
+      return ((parseFloat(this.e22) * parseFloat(this.g22)) / 10000).toFixed(4);
     },
     j22() {
-      return (parseFloat(this.i22)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i22) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e23() {
-      return (parseFloat(this.b2) * (1+(parseFloat(this.b2_1)/100)) * (
-        parseFloat(this.b6) / (parseFloat(this.b6_2)/100) * (parseFloat(this.b6_1)) +
-        parseFloat(this.b7) / (parseFloat(this.b7_2)/100) * (parseFloat(this.b7_1))
-      ) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          ((parseFloat(this.b6) / (parseFloat(this.b6_2) / 100)) *
+            parseFloat(this.b6_1) +
+            (parseFloat(this.b7) / (parseFloat(this.b7_2) / 100)) *
+              parseFloat(this.b7_1))) /
+        1000000
+      ).toFixed(4);
     },
     i23() {
-      return (parseFloat(this.e23)*parseFloat(this.g23)/10000).toFixed(4);
+      return ((parseFloat(this.e23) * parseFloat(this.g23)) / 10000).toFixed(4);
     },
     j23() {
-      return (parseFloat(this.i23)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i23) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e24() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b8) * parseFloat(this.b8_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b8) *
+          parseFloat(this.b8_1)) /
+        1000000
+      ).toFixed(4);
     },
     i24() {
-      return (parseFloat(this.e24)*parseFloat(this.g24)/10000).toFixed(4);
+      return ((parseFloat(this.e24) * parseFloat(this.g24)) / 10000).toFixed(4);
     },
     j24() {
-      return (parseFloat(this.i24)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i24) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e25() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b9) * parseFloat(this.b9_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b9) *
+          parseFloat(this.b9_1)) /
+        1000000
+      ).toFixed(4);
     },
     i25() {
-      return (parseFloat(this.e25)*parseFloat(this.g25)/10000).toFixed(4);
+      return ((parseFloat(this.e25) * parseFloat(this.g25)) / 10000).toFixed(4);
     },
     j25() {
-      return (parseFloat(this.i25)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i25) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e26() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b10) * parseFloat(this.b10_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b10) *
+          parseFloat(this.b10_1)) /
+        1000000
+      ).toFixed(4);
     },
     i26() {
-      return (parseFloat(this.e26)*parseFloat(this.g26)/10000).toFixed(4);
+      return ((parseFloat(this.e26) * parseFloat(this.g26)) / 10000).toFixed(4);
     },
     j26() {
-      return (parseFloat(this.i26)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i26) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e27() {
-      return (parseFloat(this.b2)*(1+(parseFloat(this.b2_1)/100)) * parseFloat(this.b11) * parseFloat(this.b11_1) / 1000000).toFixed(4);
+      return (
+        (parseFloat(this.b2) *
+          (1 + parseFloat(this.b2_1) / 100) *
+          parseFloat(this.b11) *
+          parseFloat(this.b11_1)) /
+        1000000
+      ).toFixed(4);
     },
     i27() {
-      return (parseFloat(this.e27)*parseFloat(this.g27)/10000).toFixed(4);
+      return ((parseFloat(this.e27) * parseFloat(this.g27)) / 10000).toFixed(4);
     },
     j27() {
-      return (parseFloat(this.i27)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i27) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     i28() {
-      return (parseFloat(this.i20) + parseFloat(this.i21) + parseFloat(this.i22) + 
-      parseFloat(this.i23) + parseFloat(this.i24) + parseFloat(this.i25) + parseFloat(this.i26) +
-      parseFloat(this.i27)
-    ).toFixed(4);
+      return (
+        parseFloat(this.i20) +
+        parseFloat(this.i21) +
+        parseFloat(this.i22) +
+        parseFloat(this.i23) +
+        parseFloat(this.i24) +
+        parseFloat(this.i25) +
+        parseFloat(this.i26) +
+        parseFloat(this.i27)
+      ).toFixed(4);
     },
     j28() {
-      return (parseFloat(this.j20) + parseFloat(this.j21) + parseFloat(this.j22) + 
-      parseFloat(this.j23) + parseFloat(this.j24) + parseFloat(this.j25) + parseFloat(this.j26) + 
-      parseFloat(this.j27)
-    ).toFixed(4);
+      return (
+        parseFloat(this.j20) +
+        parseFloat(this.j21) +
+        parseFloat(this.j22) +
+        parseFloat(this.j23) +
+        parseFloat(this.j24) +
+        parseFloat(this.j25) +
+        parseFloat(this.j26) +
+        parseFloat(this.j27)
+      ).toFixed(4);
     },
     e29() {
       return (parseFloat(this.b14) * 365).toFixed(4);
     },
     i29() {
-      return (parseFloat(this.e29) * parseFloat(this.g29) / 10000).toFixed(4);
+      return ((parseFloat(this.e29) * parseFloat(this.g29)) / 10000).toFixed(4);
     },
     j29() {
-      return (parseFloat(this.i29)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i29) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     i30() {
-      return (parseFloat(this.e29) * parseFloat(this.g29) / 10000).toFixed(4);
+      return ((parseFloat(this.e29) * parseFloat(this.g29)) / 10000).toFixed(4);
     },
     j30() {
-      return (parseFloat(this.i29)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i29) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e31() {
-      return (parseFloat(this.b12) * parseFloat(this.e33) / 1000 * 365).toFixed(4);
+      return (
+        ((parseFloat(this.b12) * parseFloat(this.e33)) / 1000) *
+        365
+      ).toFixed(4);
     },
     i31() {
-      return (parseFloat(this.e31)*parseFloat(this.g31)/10000).toFixed(4);
+      return ((parseFloat(this.e31) * parseFloat(this.g31)) / 10000).toFixed(4);
     },
     j31() {
-      return (parseFloat(this.i31)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i31) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     e32() {
-      return (parseFloat(this.b13) / (1 - (parseFloat(this.b13_1)/100)) / 1000 * 365).toFixed(4);
+      return (
+        (parseFloat(this.b13) / (1 - parseFloat(this.b13_1) / 100) / 1000) *
+        365
+      ).toFixed(4);
     },
     i32() {
-      return (parseFloat(this.e32) * parseFloat(this.g32) / 10000).toFixed(4);
+      return ((parseFloat(this.e32) * parseFloat(this.g32)) / 10000).toFixed(4);
     },
     j32() {
-      return (parseFloat(this.i32)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i32) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     i33() {
-      return (parseFloat(this.e33) * parseFloat(this.g33) / 10000).toFixed(4);
+      return ((parseFloat(this.e33) * parseFloat(this.g33)) / 10000).toFixed(4);
     },
     j33() {
-      return (parseFloat(this.i33)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i33) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     i34() {
-      return (parseFloat(this.b15) * (parseFloat(this.b15_1)/100)).toFixed(4);
+      return (parseFloat(this.b15) * (parseFloat(this.b15_1) / 100)).toFixed(4);
     },
     j34() {
-      return (parseFloat(this.i34)/(parseFloat(this.b2)/10000) / 365).toFixed(4);
+      return (
+        parseFloat(this.i34) /
+        (parseFloat(this.b2) / 10000) /
+        365
+      ).toFixed(4);
     },
     j35() {
-      return (parseFloat(this.j30) + parseFloat(this.j31) + parseFloat(this.j32) +
-      parseFloat(this.j33) + parseFloat(this.j34) + parseFloat(this.j28) + parseFloat(this.j19)
-    ).toFixed(4);
+      return (
+        parseFloat(this.j30) +
+        parseFloat(this.j31) +
+        parseFloat(this.j32) +
+        parseFloat(this.j33) +
+        parseFloat(this.j34) +
+        parseFloat(this.j28) +
+        parseFloat(this.j19)
+      ).toFixed(4);
     },
   },
   watch() {
@@ -815,25 +946,28 @@ export default {
   created() {
     this.initWaterData();
   },
-}
+};
 </script>
 
 <style scoped>
-  table {
-    width: 100%;
-    border-collapse: collapse; /* 删除表格之间的间隔 */
-  }
-  table, th, td {
-    border: 1px solid black; /* 添加表格的边框 */
-  }
-  th, td {
-    padding: 8px; /* 设置内边距 */
-    text-align: center; /* 文本对齐方式 */
-  }
-  th {
-    background-color: #f2f2f2; /* 设置表头背景色 */
-  }
-  input {
-    border: none;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse; /* 删除表格之间的间隔 */
+}
+table,
+th,
+td {
+  border: 1px solid black; /* 添加表格的边框 */
+}
+th,
+td {
+  padding: 8px; /* 设置内边距 */
+  text-align: center; /* 文本对齐方式 */
+}
+th {
+  background-color: #f2f2f2; /* 设置表头背景色 */
+}
+input {
+  border: none;
+}
 </style>
