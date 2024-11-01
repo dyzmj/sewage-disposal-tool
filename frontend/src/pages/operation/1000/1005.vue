@@ -1091,7 +1091,7 @@ export default {
     refreshInitData() {
       const data = {
         key1: this.b3,
-        key2: this.b9,
+        key2: this.b10,
         key3: this.b10,
       };
       initWordStorage("1005.docx", data);
