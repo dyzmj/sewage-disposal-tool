@@ -422,6 +422,7 @@ export default {
       modelVisible: false,
       param1: null,
       waterData: "20000",
+      sandData: "80",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -927,6 +928,9 @@ export default {
         // 将设计水量存入缓存
         this.waterData = values.param14;
         storeValueInLocalStorage("waterData", this.waterData);
+        // 将含砂量存入缓存
+        this.sandData = values.param1;
+        storeValueInLocalStorage("sandData", this.sandData);
       });
 
       this.$message.success(this.$t("initSucc"));
@@ -938,8 +942,9 @@ export default {
     handleReset() {
       this.form.resetFields();
       this.getProcessUnit();
-      // 重置时将设计水量缓存也清空
+      // 重置时将设计水量和含砂量缓存也清空
       storeValueInLocalStorage("waterData", "");
+      storeValueInLocalStorage("sandData", "");
       // 清空单元选择缓存
       this.handleInitChangeCache();
       this.$message.success(this.$t("resetSucc"));

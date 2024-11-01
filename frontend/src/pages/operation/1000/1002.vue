@@ -777,6 +777,12 @@ export default {
       } else {
         this.b4 = waterData;
       }
+      const sandData = getValueFromLocalStorage("sandData");
+      if (sandData == null || sandData == "") {
+        this.b10 = 80;
+      } else {
+        this.b10 = sandData;
+      }
     },
     exportQuantities() {
       try {
