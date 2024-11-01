@@ -106,8 +106,12 @@ export default {
     fc1003() {
       // 配水井
       const fc1003 = getValueFromLocalStorage("fc1003");
+      const fc1004 = getValueFromLocalStorage("fc1004");
+      const fc1005 = getValueFromLocalStorage("fc1005");
+      const fc1006 = getValueFromLocalStorage("fc1006");
+
       const dom1001 = document.getElementById("1001");
-      if (fc1003 === '1'){
+      if (fc1003 === '1' || fc1004 === '1' || fc1005 === '1' || fc1006 === '1'){
         dom1001.style.fill = "#1ba1e2";
       }else {
         dom1001.style.fill = "none";
@@ -115,55 +119,59 @@ export default {
     },
     fc1004() {
       // 配水井
-      const fc1004 = getValueFromLocalStorage("fc1004");
-      const dom1001 = document.getElementById("1001");
-      if (fc1004 === '1'){
-        dom1001.style.fill = "#1ba1e2";
-      }else {
-        dom1001.style.fill = "none";
-      }
+      // const fc1004 = getValueFromLocalStorage("fc1004");
+      // const dom1001 = document.getElementById("1001");
+      // if (fc1004 === '1'){
+      //   dom1001.style.fill = "#1ba1e2";
+      // }else {
+      //   dom1001.style.fill = "none";
+      // }
     },
     fc1005() {
       // 配水井
-      const fc1005 = getValueFromLocalStorage("fc1005");
-      const dom1001 = document.getElementById("1001");
-      if (fc1005 === '1'){
-        dom1001.style.fill = "#1ba1e2";
-      }else {
-        dom1001.style.fill = "none";
-      }
+      // const fc1005 = getValueFromLocalStorage("fc1005");
+      // const dom1001 = document.getElementById("1001");
+      // if (fc1005 === '1'){
+      //   dom1001.style.fill = "#1ba1e2";
+      // }else {
+      //   dom1001.style.fill = "none";
+      // }
     },
     fc1006() {
       // 配水井
-      const fc1006 = getValueFromLocalStorage("fc1006");
-      const dom1001 = document.getElementById("1001");
-      if (fc1006 === '1'){
-        dom1001.style.fill = "#1ba1e2";
-      }else {
-        dom1001.style.fill = "none";
-      }
+      // const fc1006 = getValueFromLocalStorage("fc1006");
+      // const dom1001 = document.getElementById("1001");
+      // if (fc1006 === '1'){
+      //   dom1001.style.fill = "#1ba1e2";
+      // }else {
+      //   dom1001.style.fill = "none";
+      // }
     },
     fc1007() {
       // 机械絮凝池\折板絮凝池\网格絮凝池
-      const fc1007 = getValueFromLocalStorage("fc1007");
-      const dom1004 = document.getElementById("1004");
-      const dom1005 = document.getElementById("1005");
-      const dom1006 = document.getElementById("1006");
-      if (fc1007 === '1'){
-        dom1004.style.fill = "#1ba1e2";
-        dom1005.style.fill = "#1ba1e2";
-        dom1006.style.fill = "#1ba1e2";
-      }else {
-        dom1004.style.fill = "none";
-        dom1005.style.fill = "none";
-        dom1006.style.fill = "none";
-      }
+      // const fc1007 = getValueFromLocalStorage("fc1007");
+      // const dom1004 = document.getElementById("1004");
+      // const dom1005 = document.getElementById("1005");
+      // const dom1030 = document.getElementById("1030");
+      // if (fc1007 === '1'){
+      //   dom1004.style.fill = "#1ba1e2";
+      //   dom1005.style.fill = "#1ba1e2";
+      //   dom1030.style.fill = "#1ba1e2";
+      // }else {
+      //   dom1004.style.fill = "none";
+      //   dom1005.style.fill = "none";
+      //   dom1030.style.fill = "none";
+      // }
     },
     fc2001() {
       // 机械絮凝池
       const fc2001 = getValueFromLocalStorage("fc2001");
+      const fc1007 = getValueFromLocalStorage("fc1007");
+      const fc2004 = getValueFromLocalStorage("fc2004");
+      const fc2005 = getValueFromLocalStorage("fc2005");
+
       const dom1004 = document.getElementById("1004");
-      if (fc2001 === '1'){
+      if (fc2001 === '1' || fc2004 === '1' || fc2005 === '1' || fc1007 === '1'){
         dom1004.style.fill = "#1ba1e2";
       }else {
         dom1004.style.fill = "none";
@@ -172,8 +180,12 @@ export default {
     fc2002() {
       // 网格絮凝池
       const fc2002 = getValueFromLocalStorage("fc2002");
+      const fc1007 = getValueFromLocalStorage("fc1007");
+      const fc2004 = getValueFromLocalStorage("fc2004");
+      const fc2005 = getValueFromLocalStorage("fc2005");
+
       const dom1030 = document.getElementById("1030");
-      if (fc2002 === '1'){
+      if (fc2002 === '1' || fc2004 === '1' || fc2005 === '1' || fc1007 === '1'){
         dom1030.style.fill = "#1ba1e2";
       }else {
         dom1030.style.fill = "none";
@@ -182,8 +194,12 @@ export default {
     fc2003() {
       // 折板絮凝池
       const fc2003 = getValueFromLocalStorage("fc2003");
+      const fc1007 = getValueFromLocalStorage("fc1007");
+      const fc2004 = getValueFromLocalStorage("fc2004");
+      const fc2005 = getValueFromLocalStorage("fc2005");
+
       const dom1005 = document.getElementById("1005");
-      if (fc2003 === '1'){
+      if (fc2003 === '1' || fc2004 === '1' || fc2005 === '1' || fc1007 === '1'){
         dom1005.style.fill = "#1ba1e2";
       }else {
         dom1005.style.fill = "none";
@@ -191,20 +207,32 @@ export default {
     },
     fc2004() {
       // const fc2004 = getValueFromLocalStorage("fc2004");
-      // const dom2004 = document.getElementById("2004");
+      // const dom1004 = document.getElementById("1004");
+      // const dom1005 = document.getElementById("1005");
+      // const dom1030 = document.getElementById("1030");
       // if (fc2004 === '1'){
-      //   dom2004.style.fill = "#1ba1e2";
+      //   dom1004.style.fill = "#1ba1e2";
+      //   dom1005.style.fill = "#1ba1e2";
+      //   dom1030.style.fill = "#1ba1e2";
       // }else {
-      //   dom2004.style.fill = "none";
+      //   dom1004.style.fill = "none";
+      //   dom1005.style.fill = "none";
+      //   dom1030.style.fill = "none";
       // }
     },
     fc2005() {
       // const fc2005 = getValueFromLocalStorage("fc2005");
-      // const dom2005 = document.getElementById("2005");
+      // const dom1004 = document.getElementById("1004");
+      // const dom1005 = document.getElementById("1005");
+      // const dom1030 = document.getElementById("1030");
       // if (fc2005 === '1'){
-      //   dom2005.style.fill = "#1ba1e2";
+      //   dom1004.style.fill = "#1ba1e2";
+      //   dom1005.style.fill = "#1ba1e2";
+      //   dom1030.style.fill = "#1ba1e2";
       // }else {
-      //   dom2005.style.fill = "none";
+      //   dom1004.style.fill = "none";
+      //   dom1005.style.fill = "none";
+      //   dom1030.style.fill = "none";
       // }
     },
     fc3001() {
@@ -384,10 +412,22 @@ export default {
       // 污泥浓缩池
       const fc9001 = getValueFromLocalStorage("fc9001");
       const dom1015 = document.getElementById("1015");
+      // 排水池
+      const dom1014 = document.getElementById("1014");
+      // 排泥池
+      const dom1016 = document.getElementById("1016");
+      // 污泥平衡池
+      const dom1021 = document.getElementById("1021");
       if (fc9001 === '1'){
         dom1015.style.fill = "#1ba1e2";
+        dom1014.style.fill = "#1ba1e2";
+        dom1016.style.fill = "#1ba1e2";
+        dom1021.style.fill = "#1ba1e2";
       }else {
         dom1015.style.fill = "none";
+        dom1014.style.fill = "none";
+        dom1016.style.fill = "none";
+        dom1021.style.fill = "none";
       }
     },
     fc9002() {
