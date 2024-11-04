@@ -21,7 +21,7 @@ stages:
         displayName: Nodejs 构建前端
         nodeVersion: 16.14.2
         commands:
-          - cd .\frontend\ && npm install && rm -rf ./dist && npm run build
+          - cd ./frontend/ && npm install && rm -rf ./dist && npm run build
         artifacts:
           - name: BUILD_ARTIFACT
             path:
