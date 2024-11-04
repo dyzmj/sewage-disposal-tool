@@ -21,13 +21,33 @@ stages:
         displayName: Nodejs 构建前端
         nodeVersion: 16.14.2
         commands:
-          - cd .\frontend\
-          - npm install && rm -rf ./dist && npm run build
+          - cd .\frontend\ && npm install && rm -rf ./dist && npm run build
         artifacts:
           - name: BUILD_ARTIFACT
             path:
               - ./dist
         strategy: {}
+      - step: build@nodejs
+        name: build_electron_nodejs
+        displayName: Nodejs 构建后端
+        nodeVersion: 16.14.2
+        commands:
+          - '# 设置NPM源，提升安装速度'
+          - npm config set registry https://registry.npmmirror.com
+          - ''
+          - '# 执行编译命令'
+          - npm run rd && npm install && npm run build-wz-64
+        artifacts:
+          - name: BUILD_ARTIFACT
+            path:
+              - ./dist
+        caches:
+          - ~/.npm
+          - ~/.yarn
+        notify: []
+        strategy:
+          retry: '0'
+        dependsOn: build_nodejs
   - name: release
     displayName: 发布
     strategy: naturally
