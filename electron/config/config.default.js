@@ -58,7 +58,7 @@ module.exports = (appInfo) => {
     frame: true,
     show: false,
     // transparent: true,
-    resizable: false,
+    resizable: true,
     movable: true,
     icon: path.join(appInfo.home, 'public', 'images', 'logo-32.png'),
   };

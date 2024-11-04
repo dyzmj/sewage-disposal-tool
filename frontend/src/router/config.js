@@ -37,18 +37,18 @@ const options = {
       children: [
         {
           path: 'work',
-          name: '工作台',
+          name: '工艺设计',
           meta: {
-            icon: 'dashboard',
+            icon: 'experiment',
             keepAlive: true,
           },
           component: PageView,
           children: [
             {
               path: '/works',
-              name: '工作台',
+              name: '智慧设计平台',
               meta: {
-                icon: 'dashboard',
+                icon: 'desktop',
                 keepAlive: true,
               },
               component: () => import('@/pages/work'),
@@ -175,7 +175,7 @@ const options = {
               path: '3000',
               name: '沉淀工艺',
               meta: {
-                icon: 'appstore-o',
+                icon: 'inbox',
                 keepAlive: true,
               },
               component: PageView,
