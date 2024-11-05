@@ -2,6 +2,7 @@
 module.exports = {
   theme: {
     color: '#000000',
+    menuColor: '#145eb6',
     mode: 'dark',
     success: '#52c41a',
     warning: '#faad14',
