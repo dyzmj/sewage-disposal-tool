@@ -349,8 +349,8 @@
                 <a-form-item
                   :label="$t('b19')"
                   style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
+                  :labelCol="{ span: 4 }"
+                  :wrapperCol="{ span: 20 }"
                 >
                   <a-input-group compact>
                     <a-input
@@ -1307,7 +1307,7 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 +
+        parseFloat(this.b3) / 24 *
         parseFloat(this.b4) / parseFloat(this.b4_1)
       ).toFixed(2);
     },
@@ -1358,10 +1358,10 @@ export default {
         parseFloat(this.b27) *
         parseFloat(this.b19_1) *
         Math.sin(parseFloat(this.b19_3)) *
-        (Math.pow(parseFloat(this.b18_1) / 2, 4) -
-          Math.pow(parseFloat(this.b18_1) / 2 - parseFloat(this.b20_1), 4) /
-            408 /
-            9.81)
+        (
+          Math.pow(parseFloat(this.b18_1)/2, 4) -
+          Math.pow(parseFloat(this.b18_1)/2-parseFloat(this.b20_1), 4)
+        ) / 408 / 9.81
       ).toFixed(2);
     },
     b31() {

@@ -202,7 +202,6 @@
                     v-model="b13"
                     style="width: 100%"
                     :disabled="false"
-                    :suffix="$t('b13_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -250,7 +249,7 @@
                     v-model="b15_2"
                     style="width: 34%"
                     :disabled="false"
-                    :suffix="$t('b15_1_u')"
+                    :suffix="$t('b15_2_u')"
                   />
                 </a-input-group>
               </a-form-item>
@@ -275,13 +274,13 @@
                   <a-input
                     v-model="b17"
                     style="width: 50%"
-                    :disabled="true"
+                    :disabled="false"
                     :suffix="$t('b17_u')"
                   />
                   <a-input
                     v-model="b17_1"
                     style="width: 50%"
-                    :disabled="false"
+                    :disabled="true"
                     :suffix="$t('b17_u')"
                   />
                 </a-input-group>
@@ -289,8 +288,8 @@
               <a-form-item
                 :label="$t('b18')"
                 style="margin-top: 10px"
-                :labelCol="{ span: 8 }"
-                :wrapperCol="{ span: 16 }"
+                :labelCol="{ span: 4 }"
+                :wrapperCol="{ span: 20 }"
               >
                 <a-input-group compact>
                   <a-input
@@ -1234,7 +1233,7 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 +
+        parseFloat(this.b3) / 24 *
         parseFloat(this.b4) / parseFloat(this.b4_1)
       ).toFixed(2);
     },
@@ -1283,9 +1282,9 @@ export default {
         parseFloat(this.b18_1) *
         Math.sin(parseFloat(this.b18_3)) *
         (Math.pow(parseFloat(this.b17_1) / 2, 4) -
-          Math.pow(parseFloat(this.b17_1) / 2 - parseFloat(this.b19_1), 4) /
+          Math.pow(parseFloat(this.b17_1) / 2 - parseFloat(this.b19_1), 4)) /
             408 /
-            9.81)
+            9.81
       ).toFixed(2);
     },
     b30() {
