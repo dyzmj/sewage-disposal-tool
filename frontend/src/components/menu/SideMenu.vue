@@ -1,4 +1,5 @@
 <template>
+  <div>
   <a-layout-sider :theme="sideTheme" :class="['side-menu', 'beauty-scroll', isMobile ? null : 'shadow']" width="256px" :collapsible="collapsible" v-model="collapsed" :trigger="null">
     <!-- <div :class="['logo', theme]">
       <router-link to="/dashboard/workplace">
@@ -8,6 +9,12 @@
     </div> -->
     <i-menu :theme="theme" :collapsed="collapsed" :options="menuData" @select="onSelect" class="menu"/>
   </a-layout-sider>
+  <div>
+    <img 
+  :theme="sideTheme" :class="['logo', theme]" :collapsible="collapsible" :trigger="null"
+  width="256px" height="40px" style="margin-bottom: 20px; margin-top: 20px;" src="@/assets/img/logo1.png" />
+  </div>
+</div>
 </template>
 
 <script>

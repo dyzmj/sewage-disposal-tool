@@ -373,7 +373,7 @@
           size="small"
           :loading="loading"
           :bordered="false"
-          :body-style="{ padding: 2, height: '100px', overflow: 'auto' }"
+          :body-style="{ padding: 2, height: '40px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder', 'font-size': '15px', }"
         >
           <div
