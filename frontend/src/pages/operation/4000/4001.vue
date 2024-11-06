@@ -511,7 +511,7 @@
                         v-model="b28"
                         rows="12"
                         style="width: 100%"
-                        :disabled="true"
+                        :disabled="false"
                         :suffix="$t('b28_u')"
                       />
                     </a-input-group>
@@ -667,7 +667,7 @@
                         v-model="b38"
                         rows="12"
                         style="width: 100%"
-                        :disabled="true"
+                        :disabled="false"
                         :suffix="$t('b38_u')"
                       />
                     </a-input-group>
@@ -1119,7 +1119,7 @@
                         v-model="b65_1"
                         rows="12"
                         style="width: 50%"
-                        :disabled="false"
+                        :disabled="true"
                         :suffix="$t('b65_1_u')"
                       />
                     </a-input-group>
@@ -1299,7 +1299,7 @@
                         v-model="b76_1"
                         rows="12"
                         style="width: 50%"
-                        :disabled="false"
+                        :disabled="true"
                         :suffix="$t('b76_1_u')"
                       />
                     </a-input-group>
@@ -1656,7 +1656,7 @@
                           v-model="b96"
                           rows="12"
                           style="width: 100%"
-                          :disabled="true"
+                          :disabled="false"
                           :suffix="$t('b96_u')"
                         />
                       </a-input-group>
