@@ -1,13 +1,13 @@
 <template>
   <common-layout>
-    <div class="top">
+    <div class="top" style="margin-right: 100px;">
       <div class="header">
         <img alt="logo" class="logo" src="@/assets/img/logo.png" />
         <span class="title">{{ systemName }}</span>
       </div>
       <div class="desc">Sewage Disposal Tool</div>
     </div>
-    <div class="login">
+    <div class="login" style="margin-right: 100px;">
       <a-form @submit="onSubmit" :form="form">
         <a-tabs size="large" :tabBarStyle="{ textAlign: 'center' }" style="padding: 0 2px;">
           <a-tab-pane tab="账户密码登录" key="1">
@@ -170,7 +170,7 @@ export default {
 <style lang="less" scoped>
 .common-layout {
   .top {
-    text-align: center;
+    text-align: right;
 
     .header {
       height: 44px;
@@ -231,5 +231,7 @@ export default {
       }
     }
   }
+
+  color: red;
 }
 </style>
