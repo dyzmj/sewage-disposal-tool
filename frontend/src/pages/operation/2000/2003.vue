@@ -675,7 +675,7 @@
                   :labelCol="{ span: 10 }"
                   :wrapperCol="{ span: 14 }"
                 >
-                  <a-input v-model="b71" :disabled="false" />
+                  <a-input v-model="b71" :disabled="true" />
                 </a-form-item>
                 <a-form-item
                   :label="$t('b72')"
@@ -835,6 +835,67 @@
             </a-card>
           </a-card>
           <a-card
+            :title="$t('b90')"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            size="small"
+          >
+          <div class="baseQueryParam">
+            <a-form>
+              <a-form-item
+                  :label="$t('b91')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b91" :disabled="true" />
+              </a-form-item>
+              <a-form-item
+                  :label="$t('b92')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b92" :disabled="true" />
+              </a-form-item>
+              <a-form-item
+                  :label="$t('b93')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b93" :disabled="true" />
+              </a-form-item>
+              <a-form-item
+                  :label="$t('b94')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b94" :disabled="true" />
+              </a-form-item>
+              <a-form-item
+                  :label="$t('b95')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b95" :disabled="false" />
+              </a-form-item>
+              <a-form-item
+                  :label="$t('b96')"
+                  style="margin-top: 10px"
+                  :labelCol="{ span: 10 }"
+                  :wrapperCol="{ span: 14 }"
+                >
+                  <a-input v-model="b96" :disabled="false" />
+              </a-form-item>
+            </a-form>
+          </div>
+          </a-card>
+          <a-card
             :title="$t('b97')"
             style="margin-bottom: 24px"
             :bordered="false"
@@ -971,7 +1032,7 @@
             </div>
           </a-card>
           <a-card
-            :title="$t('b112')"
+            :title="$t('b112_0')"
             style="margin-bottom: 24px"
             :bordered="false"
             :body-style="{ padding: 4 }"
@@ -1715,7 +1776,7 @@ export default {
     },
     b34() {
       return (
-        (parseFloat(this.b12) *
+        (parseFloat(this.b35) *
           (parseFloat(this.b21) * parseFloat(this.b21) -
             parseFloat(this.b30) * parseFloat(this.b30))) /
         2 /
@@ -1753,14 +1814,11 @@ export default {
     },
     b40() {
       return (
-        1 +
+        (1 +
         parseFloat(this.b37) -
-        (((parseFloat(this.b28) * parseFloat(this.b28)) /
-          (parseFloat(this.b29) * parseFloat(this.b29))) *
-          parseFloat(this.b31) *
-          parseFloat(this.b31)) /
-          2 /
-          9.8
+        (parseFloat(this.b28) * parseFloat(this.b28)) /
+        (parseFloat(this.b29) * parseFloat(this.b29))) *
+          parseFloat(this.b31) * parseFloat(this.b31) /2/9.8
       ).toFixed(4);
     },
     b41() {
