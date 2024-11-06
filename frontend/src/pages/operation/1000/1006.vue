@@ -754,7 +754,7 @@ export default {
       return (parseFloat(this.b10) / 24).toFixed(2);
     },
     b13() {
-      return (1.06 * parseFloat(this.b11) * parseFloat(this.b10_1)).toFixed(2);
+      return (parseFloat(this.b12) * parseFloat(this.b11) * parseFloat(this.b10_1)).toFixed(2);
     },
   },
   watch() {
