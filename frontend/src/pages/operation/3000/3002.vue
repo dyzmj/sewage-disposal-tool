@@ -68,7 +68,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b6"
-                      style="width: 33%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :suffix="$t('b6_u')"
@@ -76,14 +76,14 @@
                     />
                     <a-input
                       v-model="b6_1"
-                      style="width: 33%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :suffix="$t('b6_1_u')"
                     />
                     <a-input
                       v-model="b6_2"
-                      style="width: 34%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :suffix="$t('b6_2_u')"
@@ -1572,7 +1572,7 @@ export default {
       return (parseFloat(this.b28) / parseFloat(this.b24) / 60).toFixed(2);
     },
     b46() {
-      return (parseFloat(this.b6_2) / parseFloat(this.b45)).toFixed(2);
+      return ((parseFloat(this.b6) / 24 / 3600) / parseFloat(this.b45)).toFixed(2);
     },
     b48() {
       return (3.1415926 * (Math.pow(parseFloat(this.b47), 2)) / 4).toFixed(3);
@@ -1581,7 +1581,7 @@ export default {
       return this.ROUND((parseFloat(this.b46) / parseFloat(this.b48) / parseFloat(this.b15)), 0);
     },
     b51() {
-      return (parseFloat(this.b49) / parseFloat(this.b50)).toFixed(1);
+      return (parseFloat(this.b49) / parseFloat(this.b50)).toFixed(0);
     },
     b52() {
       return this.ROUND((parseFloat(this.b21)/(parseFloat(this.b51)+1)), 2);
