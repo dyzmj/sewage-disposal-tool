@@ -1204,7 +1204,7 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 +
+        parseFloat(this.b3) / 24 *
         parseFloat(this.b4) / parseFloat(this.b4_1)
       ).toFixed(2);
     },
