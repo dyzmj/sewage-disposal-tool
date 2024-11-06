@@ -1238,7 +1238,7 @@ export default {
       ).toFixed(2);
     },
     b26() {
-      return (parseFloat(this.b20) / parseFloat(this.b25)).toFixed(0);
+      return (parseFloat(this.b20) * parseFloat(this.b25)).toFixed(0);
     },
     b30() {
       return (
