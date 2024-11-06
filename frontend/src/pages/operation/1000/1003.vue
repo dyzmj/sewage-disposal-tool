@@ -85,7 +85,7 @@
                   <a-input-group compact>
                     <a-input
                       v-model="b6"
-                      style="width: 33%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6')"
@@ -93,7 +93,7 @@
                     />
                     <a-input
                       v-model="b6_1"
-                      style="width: 33%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6_1')"
@@ -101,7 +101,7 @@
                     />
                     <a-input
                       v-model="b6_2"
-                      style="width: 34%"
+                      style="width: 100%"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6_2')"
@@ -263,7 +263,7 @@
                   <a-input
                     v-model="b16"
                     style="width: 100%"
-                    :disabled="false"
+                    :disabled="true"
                     :suffix="$t('b16_u')"
                   />
                 </a-input-group>
