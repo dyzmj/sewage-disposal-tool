@@ -796,7 +796,7 @@
                     <a-input
                       v-model="b66"
                       :suffix="$t('b66_u')"
-                      :disabled="false"
+                      :disabled="true"
                     />
                   </a-form-item>
                   <a-form-item
@@ -883,7 +883,7 @@
                         style="width: 100%"
                         v-model="b74"
                         :suffix="$t('b74_u')"
-                        :disabled="false"
+                        :disabled="true"
                       />
                     </a-input-group>
                   </a-form-item>
@@ -1063,6 +1063,21 @@
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
+                    :label="$t('b87')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 10 }"
+                    :wrapperCol="{ span: 14 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        style="width: 100%"
+                        v-model="b87"
+                        :suffix="$t('b87_u')"
+                        :disabled="true"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
                     :label="$t('b88')"
                     style="margin-top: 10px"
                     :labelCol="{ span: 10 }"
@@ -1212,8 +1227,8 @@
                   <a-form-item
                     :label="$t('b100')"
                     style="margin-top: 10px"
-                    :labelCol="{ span: 10 }"
-                    :wrapperCol="{ span: 14 }"
+                    :labelCol="{ span: 6 }"
+                    :wrapperCol="{ span: 18 }"
                   >
                     <a-input-group compact>
                       <a-input
@@ -1446,11 +1461,9 @@ export default {
       b59: "1",
       b60: "1",
       b61: "45",
-      b66: "0.54",
       b67: "0.8",
       b68: "0.5",
       b73: "0.3",
-      b74: "4",
       b75: "6",
       b79: "0.4",
       b81_1: "0.3",
@@ -1632,11 +1645,26 @@ export default {
       this.modelVisible = false
     },
     initWaterData() {
+      // 设计水量
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
-        this.b3 = 40000;
+        this.b3 = 20000;
       } else {
         this.b3 = waterData;
+      }
+      // 进水浊度
+      const inTurbidityData = getValueFromLocalStorage("inTurbidityData");
+      if (inTurbidityData == null || inTurbidityData == "") {
+        this.b49 = 100;
+      } else {
+        this.b49 = inTurbidityData;
+      }
+      // 出水浊度
+      const outTurbidityData = getValueFromLocalStorage("outTurbidityData");
+      if (outTurbidityData == null || outTurbidityData == "") {
+        this.b50 = 5;
+      } else {
+        this.b50 = outTurbidityData;
       }
     },
     exportQuantities() {
@@ -1887,8 +1915,14 @@ export default {
     b65() {
       return (parseFloat(this.b64) * 24 / parseFloat(this.b54)).toFixed(2);
     },
+    b66() {
+      return (0.008 * (parseFloat(this.b15) - parseFloat(this.b57))).toFixed(2);
+    },
     b69() {
       return this.ROUND(parseFloat(this.b68) + parseFloat(this.b9) + parseFloat(this.b67) + parseFloat(this.b66) + parseFloat(this.b62) , 2);
+    },
+    b74() {
+      return this.b20_1;
     },
     b76() {
       return ((parseFloat(this.b74) - 0.3) * 2 * (parseFloat(this.b75) -1) + parseFloat(this.b20_1)).toFixed(0);
@@ -1927,9 +1961,11 @@ export default {
       return (parseFloat(this.b91) * 2).toFixed(2);
     },
     b97() {
-      return (1.73 * Math.pow(
-        Math.pow((parseFloat(this.b3)/24/3600/2),2) / 9.81 / Math.pow(parseFloat(this.b96),2)
-      ),(1/3)).toFixed(2);
+      return (
+        1.73 * 
+        (Math.pow( 
+        (Math.pow((parseFloat(this.b3)/24/3600/2), 2) / 9.81 / Math.pow(parseFloat(this.b96),2))  
+        ,  (1/3) ))).toFixed(2);
     },
     b98() {
       return (parseFloat(this.b97) + parseFloat(this.b80) + 0.05 + parseFloat(this.b84)).toFixed(2);

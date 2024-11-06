@@ -207,6 +207,7 @@
                   v-decorator="[`param11`]"
                   :placeholder="$t('inputOne')"
                   :disabled="false"
+                  :addon-after="$t('param11_u')"
                 />
               </a-form-item>
               <a-form-item
@@ -423,6 +424,8 @@ export default {
       param1: null,
       waterData: "20000",
       sandData: "80",
+      inTurbidityData: '100',
+      outTurbidityData: '5',
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -931,6 +934,13 @@ export default {
         // 将含砂量存入缓存
         this.sandData = values.param1;
         storeValueInLocalStorage("sandData", this.sandData);
+        // 将进水浊度存入缓存
+        this.inTurbidityData = values.param11;
+        storeValueInLocalStorage("inTurbidityData", this.inTurbidityData);
+        // 将出水浊度存入缓存
+        this.outTurbidityData = values.param12;
+        storeValueInLocalStorage("outTurbidityData", this.outTurbidityData);
+
       });
 
       this.$message.success(this.$t("initSucc"));
