@@ -361,7 +361,7 @@
                   :labelCol="{ span: 10 }"
                   :wrapperCol="{ span: 14 }"
                 >
-                  <a-input v-model="b29" :disabled="true" />
+                  <a-input v-model="b29" :disabled="false" />
                 </a-form-item>
                 <a-form-item
                   :label="$t('b30')"
