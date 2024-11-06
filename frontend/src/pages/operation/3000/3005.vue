@@ -265,7 +265,7 @@
                       style="width: 50%"
                       rows="12"
                       :suffix="$t('b14_1_u')"
-                      :disabled="true"
+                      :disabled="false"
                     />
                   </a-input-group>
                 </a-form-item>
