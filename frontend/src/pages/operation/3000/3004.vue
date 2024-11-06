@@ -1914,6 +1914,14 @@
                         rows="12"
                         :suffix="$t('b108_u')"
                       />
+                      <a-input
+                        v-model="b108_1"
+                        style="width: 100%"
+                        :addon-before="$t('b108_1')"
+                        :disabled="false"
+                        rows="12"
+                        :suffix="$t('b108_u')"
+                      />
                     </a-input-group>
                   </a-form-item>
                   <a-form-item
