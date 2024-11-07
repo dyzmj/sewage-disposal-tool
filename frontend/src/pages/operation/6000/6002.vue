@@ -380,7 +380,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord,    initWordStorage,
+import { exportExcel3, exportWord, getValueFromLocalStorage, initWordStorage,
   initExcelStorage, } from "@/utils/exportUtil";
 
 export default {
@@ -646,6 +646,21 @@ export default {
     handleOk() {
       this.modelVisible = false
     },
+    initWaterData() {
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.averageFlow = 50000;
+      } else {
+        this.averageFlow = waterData;
+      }
+
+      const outTurbidityData = getValueFromLocalStorage("outTurbidityData");
+      if (outTurbidityData == null || outTurbidityData == "") {
+        this.waterTurbidity = 1;
+      } else {
+        this.waterTurbidity = outTurbidityData;
+      }
+    },
     exportQuantities() {
       try {
         this.exportExcel();
@@ -826,7 +841,17 @@ export default {
       );
     },
   },
+  watch() {
+    this.initWaterData();
+  },
+  activated() {
+    this.initWaterData();
+  },
+  mounted() {
+    this.initWaterData();
+  },
   created() {
+    this.initWaterData();
     this.data1 = [];
     this.data2 = [];
     this.data3 = [];
