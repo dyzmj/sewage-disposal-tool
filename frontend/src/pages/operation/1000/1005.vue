@@ -720,7 +720,8 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  storeValueInLocalStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1212,6 +1213,7 @@ export default {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
     b14() {
+      storeValueInLocalStorage("KMnO4Data", this.b10);
       return (
         (parseFloat(this.b10) * parseFloat(this.b5)) /
         parseFloat(this.b11) /

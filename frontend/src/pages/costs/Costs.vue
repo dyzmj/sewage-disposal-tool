@@ -69,6 +69,7 @@
                         style="width: 34%"
                         :addon-before="$t('b3')"
                         :suffix="$t('b3_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b3_1"
@@ -92,6 +93,7 @@
                         style="width: 34%"
                         :addon-before="$t('b4')"
                         :suffix="$t('b4_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b4_1"
@@ -115,6 +117,7 @@
                         style="width: 34%"
                         :addon-before="$t('b5')"
                         :suffix="$t('b5_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b5_1"
@@ -138,6 +141,7 @@
                         style="width: 34%"
                         :addon-before="$t('b6')"
                         :suffix="$t('b6_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b6_1"
@@ -167,6 +171,7 @@
                         style="width: 34%"
                         :addon-before="$t('b7')"
                         :suffix="$t('b7_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b7_1"
@@ -196,6 +201,7 @@
                         style="width: 34%"
                         :addon-before="$t('b8')"
                         :suffix="$t('b8_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b8_1"
@@ -271,6 +277,7 @@
                         style="width: 34%"
                         :addon-before="$t('b11')"
                         :suffix="$t('b11_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b11_1"
@@ -312,6 +319,7 @@
                         style="width: 34%"
                         :addon-before="$t('b13')"
                         :suffix="$t('b13_u')"
+                        :disabled="true"
                       />
                       <a-input
                         v-model="b13_1"
@@ -635,6 +643,57 @@ export default {
       } else {
         this.b2 = waterData;
       }
+      const pacData = getValueFromLocalStorage("pacData");
+      if (pacData == null || pacData == "") {
+        this.b3 = 20;
+      } else {
+        this.b3 = pacData;
+      }
+      const pamData = getValueFromLocalStorage("pamData");
+      if (pamData == null || pamData == "") {
+        this.b4 = 0.1;
+      } else {
+        this.b4 = pamData;
+      }
+      const dehydrationPamData = getValueFromLocalStorage("dehydrationPamData");
+      if (dehydrationPamData == null || dehydrationPamData == "") {
+        this.b5 = 1;
+      } else {
+        this.b5 = dehydrationPamData;
+      }
+      const naclo1Data = getValueFromLocalStorage("naclo1Data");
+      if (naclo1Data == null || naclo1Data == "") {
+        this.b6 = 2;
+      } else {
+        this.b6 = naclo1Data;
+      }
+
+      const naclo2Data = getValueFromLocalStorage("naclo2Data");
+      if (naclo2Data == null || naclo2Data == "") {
+        this.b7 = 1;
+      } else {
+        this.b7 = naclo2Data;
+      }
+      const carbonData = getValueFromLocalStorage("carbonData");
+      if (carbonData == null || carbonData == "") {
+        this.b8 = 35;
+      } else {
+        this.b8 = carbonData;
+      }
+      const KMnO4Data = getValueFromLocalStorage("KMnO4Data");
+      if (KMnO4Data == null || KMnO4Data == "") {
+        this.b11 = 1;
+      } else {
+        this.b11 = KMnO4Data;
+      }
+
+      const sludgeData = getValueFromLocalStorage("sludgeData");
+      if (sludgeData == null || sludgeData == "") {
+        this.b13 = 347.13;
+      } else {
+        this.b13 = sludgeData;
+      }
+
     },
     handleSubmit(e) {
       e.preventDefault();

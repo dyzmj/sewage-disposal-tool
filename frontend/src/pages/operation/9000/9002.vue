@@ -1545,7 +1545,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel, exportWord,    initWordStorage,
+import { exportExcel, exportWord, storeValueInLocalStorage, initWordStorage,
   initExcelStorage, } from "@/utils/exportUtil";
 
 export default {
@@ -1827,6 +1827,7 @@ export default {
       ).toFixed(7);
     },
     b7() {
+      storeValueInLocalStorage("dehydrationPamData", this.b6_1)
       return (parseFloat(this.b6_1) * parseFloat(this.b1) / 1000000).toFixed(8);
     },
     b11() {

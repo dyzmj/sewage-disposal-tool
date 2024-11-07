@@ -809,6 +809,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
+  storeValueInLocalStorage,
   initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
@@ -819,6 +820,7 @@ export default {
   data() {
     return {
       modelVisible: false,
+      pacData: 20,
       b3: "20000.00",
       b4: "1",
       b4_1: "1",
@@ -1315,6 +1317,7 @@ export default {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
     b13() {
+      storeValueInLocalStorage("pacData", this.b9);
       return (
         (parseFloat(this.b9) * parseFloat(this.b5)) /
         parseFloat(this.b10) /

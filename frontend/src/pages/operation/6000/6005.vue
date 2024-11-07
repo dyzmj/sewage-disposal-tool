@@ -1334,7 +1334,8 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  storeValueInLocalStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1943,6 +1944,7 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b16() {
+      storeValueInLocalStorage("naclo1Data", this.b8)
       return (parseFloat(this.b8) * parseFloat(this.b6_1) / 1000).toFixed(2);
     },
     b20() {

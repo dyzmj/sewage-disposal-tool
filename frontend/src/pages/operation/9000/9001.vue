@@ -1829,7 +1829,8 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  storeValueInLocalStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -2433,8 +2434,10 @@ export default {
     },
     b6_3() {
       if (parseFloat(this.b5_2) > parseFloat(this.b6_2)) {
+        storeValueInLocalStorage("sludgeData", this.b5_2);
         return parseFloat(this.b5_2);
       } else {
+        storeValueInLocalStorage("sludgeData", this.b6_2);
         return parseFloat(this.b6_2);
       }
     },

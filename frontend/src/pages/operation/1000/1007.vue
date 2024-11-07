@@ -327,6 +327,7 @@ import {
   exportExcel,
   exportWord,
   getValueFromLocalStorage,
+  storeValueInLocalStorage,
   initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
@@ -552,6 +553,7 @@ export default {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
     b10() {
+      storeValueInLocalStorage("carbonData", this.b7)
       return ((parseFloat(this.b7) * parseFloat(this.b3)) / 1000 / 24).toFixed(
         8
       );

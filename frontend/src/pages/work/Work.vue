@@ -959,6 +959,14 @@ export default {
       this.handleInitChangeCache();
       this.$message.success(this.$t("resetSucc"));
       this.tipMessage = [];
+      storeValueInLocalStorage("pacData", "");
+      storeValueInLocalStorage("pamData", "");
+      storeValueInLocalStorage("dehydrationPamData", "");
+      storeValueInLocalStorage("naclo1Data", "");
+      storeValueInLocalStorage("naclo2Data", "");
+      storeValueInLocalStorage("carbonData", "");
+      storeValueInLocalStorage("KMnO4Data", "");
+      storeValueInLocalStorage("sludgeData", "");
     },
     handleChangeMassage(key, checked) {
       if (key === "1003" || key === "6004") {
