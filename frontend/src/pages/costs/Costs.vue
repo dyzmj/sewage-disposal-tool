@@ -11,565 +11,563 @@
       >
         <a-card
           :loading="loading"
-          :title="$t('baseQueryParam')"
+          :title="$t('operatingCosts')"
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
           :bordered="false"
-          :body-style="{ padding: 4 }"
+          :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-          <div class="baseQueryParam">
-            <a-form
-              :form="form"
-              :label-col="{ span: 0 }"
-              :wrapper-col="{ span: 24 }"
-              @submit="handleSubmit"
-            >
-              <a-row :gutter="24">
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b2"
-                        style="width: 34%"
-                        :addon-before="$t('b2')"
-                        :suffix="$t('b2_u')"
-                      />
-                      <a-input
-                        v-model="b2_1"
-                        style="width: 33%"
-                        :addon-before="$t('b2_1')"
-                        :suffix="$t('b2_1_u')"
-                      />
-                      <a-input
-                        v-model="b2_2"
-                        style="width: 33%"
-                        :addon-before="$t('b2_2')"
-                        :suffix="$t('b2_2_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b3"
-                        style="width: 34%"
-                        :addon-before="$t('b3')"
-                        :suffix="$t('b3_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b3_1"
-                        style="width: 33%"
-                        :addon-before="$t('b3_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b4"
-                        style="width: 34%"
-                        :addon-before="$t('b4')"
-                        :suffix="$t('b4_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b4_1"
-                        style="width: 33%"
-                        :addon-before="$t('b4_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b5"
-                        style="width: 34%"
-                        :addon-before="$t('b5')"
-                        :suffix="$t('b5_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b5_1"
-                        style="width: 33%"
-                        :addon-before="$t('b5_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b6"
-                        style="width: 34%"
-                        :addon-before="$t('b6')"
-                        :suffix="$t('b6_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b6_1"
-                        style="width: 33%"
-                        :addon-before="$t('b6_1')"
-                      />
-                      <a-input
-                        v-model="b6_2"
-                        style="width: 33%"
-                        :addon-before="$t('b6_2')"
-                        :suffix="$t('b6_2_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b7"
-                        style="width: 34%"
-                        :addon-before="$t('b7')"
-                        :suffix="$t('b7_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b7_1"
-                        style="width: 33%"
-                        :addon-before="$t('b7_1')"
-                      />
-                      <a-input
-                        v-model="b7_2"
-                        style="width: 33%"
-                        :addon-before="$t('b7_2')"
-                        :suffix="$t('b7_2_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b8"
-                        style="width: 34%"
-                        :addon-before="$t('b8')"
-                        :suffix="$t('b8_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b8_1"
-                        style="width: 33%"
-                        :addon-before="$t('b8_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b9"
-                        style="width: 34%"
-                        :addon-before="$t('b9')"
-                        :suffix="$t('b9_u')"
-                      />
-                      <a-input
-                        v-model="b9_1"
-                        style="width: 33%"
-                        :addon-before="$t('b9_1')"
-                      />
-                      <a-input
-                        v-model="b9_2"
-                        style="width: 33%"
-                        :addon-before="$t('b9_2')"
-                        :suffix="$t('b9_2_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b10"
-                        style="width: 34%"
-                        :addon-before="$t('b10')"
-                        :suffix="$t('b10_u')"
-                      />
-                      <a-input
-                        v-model="b10_1"
-                        style="width: 33%"
-                        :addon-before="$t('b10_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b11"
-                        style="width: 34%"
-                        :addon-before="$t('b11')"
-                        :suffix="$t('b11_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b11_1"
-                        style="width: 33%"
-                        :addon-before="$t('b11_1')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b12"
-                        style="width: 34%"
-                        :addon-before="$t('b12')"
-                        :suffix="$t('b12_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b13"
-                        style="width: 34%"
-                        :addon-before="$t('b13')"
-                        :suffix="$t('b13_u')"
-                        :disabled="true"
-                      />
-                      <a-input
-                        v-model="b13_1"
-                        style="width: 33%"
-                        :addon-before="$t('b13_1')"
-                        :suffix="$t('b13_1_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b14"
-                        style="width: 34%"
-                        :addon-before="$t('b14')"
-                        :suffix="$t('b14_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-                <a-col>
-                  <a-form-item
-                    class="calc"
-                    label=" "
-                    :colon="false"
-                    :span="8"
-                    style="margin-top: 5px"
-                  >
-                    <a-input-group compact>
-                      <a-input
-                        v-model="b15"
-                        style="width: 34%"
-                        :addon-before="$t('b15')"
-                        :suffix="$t('b15_u')"
-                      />
-                      <a-input
-                        v-model="b15_1"
-                        style="width: 33%"
-                        :addon-before="$t('b15_1')"
-                        :suffix="$t('b15_1_u')"
-                      />
-                    </a-input-group>
-                  </a-form-item>
-                </a-col>
-              </a-row>
-            </a-form>
-          </div>
-        </a-card>
-      </a-col>
-    </a-row>
-    <a-row style="margin: 0 -6px">
-      <a-col
-        style="padding: 0 6px; height: 100%"
-        :xl="24"
-        :lg="24"
-        :md="24"
-        :sm="24"
-        :xs="24"
-      >
-        <a-card
-          :loading="loading"
-          title="污水厂经营成本"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <table>
-              <tr>
-                <th>序号</th>
-                <th colspan="2">名称</th>
-                <th colspan="2">全年量</th>
-                <th colspan="2">单价</th>
-                <th>年费用（万元）</th>
-                <th>吨水成本（元/m3）</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td colspan="2">水资源费</td>
-                <td><a-input v-model="e19" /></td>
-                <td>t</td>
-                <td><a-input v-model="g19" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i19" /></td>
-                <td><a-input v-model="j19" /></td>
-              </tr>
-              <tr>
-                <td rowspan="9">2</td>
-                <td rowspan="9">药剂费</td>
-                <td>PAC</td>
-                <td><a-input v-model="e20" /></td>
-                <td>t</td>
-                <td><a-input v-model="g20" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i20" /></td>
-                <td><a-input v-model="j20" /></td>
-              </tr>
-              <tr>
-                <td>PAM</td>
-                <td><a-input v-model="e21" /></td>
-                <td>t</td>
-                <td><a-input v-model="g21" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i21" /></td>
-                <td><a-input v-model="j21" /></td>
-              </tr>
-              <tr>
-                <td>脱水PAM</td>
-                <td><a-input v-model="e22" /></td>
-                <td>t</td>
-                <td><a-input v-model="g22" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i22" /></td>
-                <td><a-input v-model="j22" /></td>
-              </tr>
-              <tr>
-                <td>次氯酸钠</td>
-                <td><a-input v-model="e23" /></td>
-                <td>t</td>
-                <td><a-input v-model="g23" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i23" /></td>
-                <td><a-input v-model="j23" /></td>
-              </tr>
-              <tr>
-                <td>粉末活性炭</td>
-                <td><a-input v-model="e24" /></td>
-                <td>t</td>
-                <td><a-input v-model="g24" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i24" /></td>
-                <td><a-input v-model="j24" /></td>
-              </tr>
-              <tr>
-                <td>HCl</td>
-                <td><a-input v-model="e25" /></td>
-                <td>t</td>
-                <td><a-input v-model="g25" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i25" /></td>
-                <td><a-input v-model="j25" /></td>
-              </tr>
-              <tr>
-                <td>NaOH</td>
-                <td><a-input v-model="e26" /></td>
-                <td>t</td>
-                <td><a-input v-model="g26" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i26" /></td>
-                <td><a-input v-model="j26" /></td>
-              </tr>
-              <tr>
-                <td>高锰酸钾</td>
-                <td><a-input v-model="e27" /></td>
-                <td>t</td>
-                <td><a-input v-model="g27" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i27" /></td>
-                <td><a-input v-model="j27" /></td>
-              </tr>
-              <tr>
-                <td>小计</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a-input v-model="i28" /></td>
-                <td><a-input v-model="j28" /></td>
-              </tr>
-              <tr>
-                <td rowspan="2">3</td>
-                <td rowspan="2">动力燃料费</td>
-                <td>电度电费</td>
-                <td><a-input v-model="e29" /></td>
-                <td>kWh</td>
-                <td><a-input v-model="g29" /></td>
-                <td>元/kWh</td>
-                <td><a-input v-model="i29" /></td>
-                <td><a-input v-model="j29" /></td>
-              </tr>
-              <tr>
-                <td>小计</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a-input v-model="i30" /></td>
-                <td><a-input v-model="j30" /></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td colspan="2">污水处理费</td>
-                <td><a-input v-model="e31" /></td>
-                <td>t</td>
-                <td><a-input v-model="g31" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i31" /></td>
-                <td><a-input v-model="j31" /></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td colspan="2">污泥外运及处置费</td>
-                <td><a-input v-model="e32" /></td>
-                <td>t</td>
-                <td><a-input v-model="g32" /></td>
-                <td>元/t</td>
-                <td><a-input v-model="i32" /></td>
-                <td><a-input v-model="j32" /></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td colspan="2">工资福利费</td>
-                <td><a-input v-model="e33" /></td>
-                <td>人</td>
-                <td><a-input v-model="g33" /></td>
-                <td>元/人年</td>
-                <td><a-input v-model="i33" /></td>
-                <td><a-input v-model="j33" /></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td colspan="2">日常检修维护费</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a-input v-model="i34" /></td>
-                <td><a-input v-model="j34" /></td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td colspan="2">经营成本合计</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a-input v-model="j35" /></td>
-              </tr>
-            </table>
-          </div>
+          <a-card
+            :loading="loading"
+            :title="$t('baseQueryParam')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form
+                :form="form"
+                :label-col="{ span: 0 }"
+                :wrapper-col="{ span: 24 }"
+                @submit="handleSubmit"
+              >
+                <a-row :gutter="24">
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b2"
+                          style="width: 34%"
+                          :addon-before="$t('b2')"
+                          :suffix="$t('b2_u')"
+                        />
+                        <a-input
+                          v-model="b2_1"
+                          style="width: 33%"
+                          :addon-before="$t('b2_1')"
+                          :suffix="$t('b2_1_u')"
+                        />
+                        <a-input
+                          v-model="b2_2"
+                          style="width: 33%"
+                          :addon-before="$t('b2_2')"
+                          :suffix="$t('b2_2_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b3"
+                          style="width: 34%"
+                          :addon-before="$t('b3')"
+                          :suffix="$t('b3_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b3_1"
+                          style="width: 33%"
+                          :addon-before="$t('b3_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b4"
+                          style="width: 34%"
+                          :addon-before="$t('b4')"
+                          :suffix="$t('b4_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b4_1"
+                          style="width: 33%"
+                          :addon-before="$t('b4_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b5"
+                          style="width: 34%"
+                          :addon-before="$t('b5')"
+                          :suffix="$t('b5_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b5_1"
+                          style="width: 33%"
+                          :addon-before="$t('b5_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b6"
+                          style="width: 34%"
+                          :addon-before="$t('b6')"
+                          :suffix="$t('b6_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b6_1"
+                          style="width: 33%"
+                          :addon-before="$t('b6_1')"
+                        />
+                        <a-input
+                          v-model="b6_2"
+                          style="width: 33%"
+                          :addon-before="$t('b6_2')"
+                          :suffix="$t('b6_2_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b7"
+                          style="width: 34%"
+                          :addon-before="$t('b7')"
+                          :suffix="$t('b7_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b7_1"
+                          style="width: 33%"
+                          :addon-before="$t('b7_1')"
+                        />
+                        <a-input
+                          v-model="b7_2"
+                          style="width: 33%"
+                          :addon-before="$t('b7_2')"
+                          :suffix="$t('b7_2_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b8"
+                          style="width: 34%"
+                          :addon-before="$t('b8')"
+                          :suffix="$t('b8_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b8_1"
+                          style="width: 33%"
+                          :addon-before="$t('b8_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b9"
+                          style="width: 34%"
+                          :addon-before="$t('b9')"
+                          :suffix="$t('b9_u')"
+                        />
+                        <a-input
+                          v-model="b9_1"
+                          style="width: 33%"
+                          :addon-before="$t('b9_1')"
+                        />
+                        <a-input
+                          v-model="b9_2"
+                          style="width: 33%"
+                          :addon-before="$t('b9_2')"
+                          :suffix="$t('b9_2_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b10"
+                          style="width: 34%"
+                          :addon-before="$t('b10')"
+                          :suffix="$t('b10_u')"
+                        />
+                        <a-input
+                          v-model="b10_1"
+                          style="width: 33%"
+                          :addon-before="$t('b10_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b11"
+                          style="width: 34%"
+                          :addon-before="$t('b11')"
+                          :suffix="$t('b11_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b11_1"
+                          style="width: 33%"
+                          :addon-before="$t('b11_1')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b12"
+                          style="width: 34%"
+                          :addon-before="$t('b12')"
+                          :suffix="$t('b12_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b13"
+                          style="width: 34%"
+                          :addon-before="$t('b13')"
+                          :suffix="$t('b13_u')"
+                          :disabled="true"
+                        />
+                        <a-input
+                          v-model="b13_1"
+                          style="width: 33%"
+                          :addon-before="$t('b13_1')"
+                          :suffix="$t('b13_1_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b14"
+                          style="width: 34%"
+                          :addon-before="$t('b14')"
+                          :suffix="$t('b14_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                  <a-col>
+                    <a-form-item
+                      class="calc"
+                      label=" "
+                      :colon="false"
+                      :span="8"
+                      style="margin-top: 5px"
+                    >
+                      <a-input-group compact>
+                        <a-input
+                          v-model="b15"
+                          style="width: 34%"
+                          :addon-before="$t('b15')"
+                          :suffix="$t('b15_u')"
+                        />
+                        <a-input
+                          v-model="b15_1"
+                          style="width: 33%"
+                          :addon-before="$t('b15_1')"
+                          :suffix="$t('b15_1_u')"
+                        />
+                      </a-input-group>
+                    </a-form-item>
+                  </a-col>
+                </a-row>
+              </a-form>
+            </div>
+          </a-card>
+          <a-card
+            :loading="loading"
+            title="污水厂经营成本"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <table>
+                <tr>
+                  <th>序号</th>
+                  <th colspan="2">名称</th>
+                  <th colspan="2">全年量</th>
+                  <th colspan="2">单价</th>
+                  <th>年费用（万元）</th>
+                  <th>吨水成本（元/m3）</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td colspan="2">水资源费</td>
+                  <td><a-input v-model="e19" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g19" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i19" /></td>
+                  <td><a-input v-model="j19" /></td>
+                </tr>
+                <tr>
+                  <td rowspan="9">2</td>
+                  <td rowspan="9">药剂费</td>
+                  <td>PAC</td>
+                  <td><a-input v-model="e20" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g20" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i20" /></td>
+                  <td><a-input v-model="j20" /></td>
+                </tr>
+                <tr>
+                  <td>PAM</td>
+                  <td><a-input v-model="e21" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g21" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i21" /></td>
+                  <td><a-input v-model="j21" /></td>
+                </tr>
+                <tr>
+                  <td>脱水PAM</td>
+                  <td><a-input v-model="e22" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g22" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i22" /></td>
+                  <td><a-input v-model="j22" /></td>
+                </tr>
+                <tr>
+                  <td>次氯酸钠</td>
+                  <td><a-input v-model="e23" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g23" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i23" /></td>
+                  <td><a-input v-model="j23" /></td>
+                </tr>
+                <tr>
+                  <td>粉末活性炭</td>
+                  <td><a-input v-model="e24" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g24" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i24" /></td>
+                  <td><a-input v-model="j24" /></td>
+                </tr>
+                <tr>
+                  <td>HCl</td>
+                  <td><a-input v-model="e25" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g25" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i25" /></td>
+                  <td><a-input v-model="j25" /></td>
+                </tr>
+                <tr>
+                  <td>NaOH</td>
+                  <td><a-input v-model="e26" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g26" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i26" /></td>
+                  <td><a-input v-model="j26" /></td>
+                </tr>
+                <tr>
+                  <td>高锰酸钾</td>
+                  <td><a-input v-model="e27" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g27" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i27" /></td>
+                  <td><a-input v-model="j27" /></td>
+                </tr>
+                <tr>
+                  <td>小计</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a-input v-model="i28" /></td>
+                  <td><a-input v-model="j28" /></td>
+                </tr>
+                <tr>
+                  <td rowspan="2">3</td>
+                  <td rowspan="2">动力燃料费</td>
+                  <td>电度电费</td>
+                  <td><a-input v-model="e29" /></td>
+                  <td>kWh</td>
+                  <td><a-input v-model="g29" /></td>
+                  <td>元/kWh</td>
+                  <td><a-input v-model="i29" /></td>
+                  <td><a-input v-model="j29" /></td>
+                </tr>
+                <tr>
+                  <td>小计</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a-input v-model="i30" /></td>
+                  <td><a-input v-model="j30" /></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td colspan="2">污水处理费</td>
+                  <td><a-input v-model="e31" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g31" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i31" /></td>
+                  <td><a-input v-model="j31" /></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td colspan="2">污泥外运及处置费</td>
+                  <td><a-input v-model="e32" /></td>
+                  <td>t</td>
+                  <td><a-input v-model="g32" /></td>
+                  <td>元/t</td>
+                  <td><a-input v-model="i32" /></td>
+                  <td><a-input v-model="j32" /></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td colspan="2">工资福利费</td>
+                  <td><a-input v-model="e33" /></td>
+                  <td>人</td>
+                  <td><a-input v-model="g33" /></td>
+                  <td>元/人年</td>
+                  <td><a-input v-model="i33" /></td>
+                  <td><a-input v-model="j33" /></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td colspan="2">日常检修维护费</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a-input v-model="i34" /></td>
+                  <td><a-input v-model="j34" /></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td colspan="2">经营成本合计</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a-input v-model="j35" /></td>
+                </tr>
+              </table>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
     </a-row>
@@ -693,7 +691,6 @@ export default {
       } else {
         this.b13 = sludgeData;
       }
-
     },
     handleSubmit(e) {
       e.preventDefault();
