@@ -55,13 +55,13 @@
                   :disabled="false"
                   rows="12"
                   :placeholder="$t('b4')"
-                  :suffix="$t('b4_u')"
                 />
                 <a-input
                   v-model="b4_1"
                   style="width: 50%;"
                   :disabled="false"
                   rows="12"
+                  :addon-before="$t('b4_u')"
                   :placeholder="$t('b4_1')"
                 />
               </a-input-group>
@@ -925,7 +925,7 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 +
+        parseFloat(this.b3) / 24 *
         parseFloat(this.b4) / parseFloat(this.b4_1)
       ).toFixed(2);
     },
