@@ -79,13 +79,13 @@
                 <a-form-item
                   :label="$t('b6')"
                   style="margin-top: 10px"
-                  :labelCol="{ span: 6 }"
-                  :wrapperCol="{ span: 18 }"
+                  :labelCol="{ span: 14}"
+                  :wrapperCol="{ span: 10 }"
                 >
                   <a-input-group compact>
                     <a-input
                       v-model="b6"
-                      style="width: 33%;"
+                      style="width: 100%;"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6')"
@@ -94,7 +94,7 @@
                     />
                     <a-input
                       v-model="b6_1"
-                      style="width: 33%;"
+                      style="width: 100%;"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6_1')"
@@ -102,7 +102,7 @@
                     />
                     <a-input
                       v-model="b6_2"
-                      style="width: 34%;"
+                      style="width: 100%;"
                       :disabled="true"
                       rows="12"
                       :placeholder="$t('b6_2')"
@@ -279,7 +279,7 @@
                   <a-input
                     v-model="b17"
                     style="width: 100%;"
-                    :disabled="false"
+                    :disabled="true"
                     :suffix="$t('b17_u')"
                   />
                 </a-input-group>
@@ -943,7 +943,7 @@
                       <a-input
                         v-model="b63"
                         style="width: 100%;"
-                        :disabled="true"
+                        :disabled="false"
                         :suffix="$t('b63_u')"
                       />
                     </a-input-group>
@@ -1635,6 +1635,12 @@ export default {
         this.b4 = 40000;
       } else {
         this.b4 = waterData;
+      }
+      const clData = getValueFromLocalStorage("clData");
+      if (clData == null || clData == "") {
+        this.b17 = 0.875;
+      } else {
+        this.b17 = clData;
       }
     },
     exportQuantities() {

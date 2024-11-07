@@ -393,6 +393,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
+  storeValueInLocalStorage,
   initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
@@ -808,7 +809,9 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b16() {
-      return ((parseFloat(this.b8) * parseFloat(this.b6_1)) / 1000).toFixed(3);
+      const clData = ((parseFloat(this.b8) * parseFloat(this.b6_1)) / 1000).toFixed(3);
+      storeValueInLocalStorage("clData",clData);
+      return clData;
     },
   },
   watch() {
