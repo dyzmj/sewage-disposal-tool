@@ -658,7 +658,7 @@
                       <a-input
                         v-model="b43_1"
                         style="width: 100%"
-                        :disabled="true"
+                        :disabled="false"
                         rows="12"
                         :addon-before="$t('b43_1')"
                       />
@@ -910,7 +910,7 @@
                       <a-input
                         v-model="b60_1"
                         style="width: 100%"
-                        :disabled="true"
+                        :disabled="false"
                         rows="12"
                         :addon-before="$t('b60_1')"
                       />
@@ -2413,6 +2413,7 @@
                       style="width: 100%"
                       :disabled="true"
                       rows="12"
+                      :suffix="$t('b163_u')"
                     />
                   </a-input-group>
                 </a-form-item>
@@ -4308,8 +4309,8 @@ export default {
     },
     b103() {
       return (
-        ((Math.pow(parseFloat(this.b101), 2) / 3) *
-          Math.pow(parseFloat(this.b94), 0.5)) /
+        Math.pow(parseFloat(this.b101), (2/3)) *
+        Math.pow(parseFloat(this.b94), 0.5) /
         parseFloat(this.b102)
       ).toFixed(2);
     },
@@ -4342,7 +4343,7 @@ export default {
       return this.ROUND(parseFloat(this.b109), 1);
     },
     b115() {
-      return (parseFloat(this.b29) / parseFloat(this.b26)).toFixed(2);
+      return (parseFloat(this.b29) * parseFloat(this.b26)).toFixed(2);
     },
     b119() {
       return (
@@ -4372,8 +4373,8 @@ export default {
       return (
         Math.pow(
           parseFloat(this.b115) / 3600 / (1.84 * parseFloat(this.b128)),
-          2
-        ) / 3
+          (2/3)
+        )
       ).toFixed(3);
     },
     b134() {
@@ -4393,14 +4394,13 @@ export default {
     b138() {
       return (
         (parseFloat(this.b132) * parseFloat(this.b135)) /
-        (2 * parseFloat(this.b135) * parseFloat(this.b132))
+        (2 * parseFloat(this.b135) + parseFloat(this.b132))
       ).toFixed(2);
     },
     b139() {
       return Math.pow(
         (0.013 * parseFloat(this.b136)) /
-          Math.pow(parseFloat(this.b138), 2) /
-          3,
+          Math.pow(parseFloat(this.b138), (2/3)),
         2
       ).toFixed(6);
     },
@@ -4459,9 +4459,9 @@ export default {
     },
     b163() {
       return (
-        (parseFloat(this.b158) * 6.12) /
+        ((parseFloat(this.b158) * 6.12) /
         10000 /
-        parseFloat(this.b26)
+        parseFloat(this.b26)) * 100
       ).toFixed(2);
     },
     b164() {
@@ -4473,11 +4473,11 @@ export default {
       ).toFixed(3);
     },
     b168() {
-      return (parseFloat(this.b46) / 10000).toFixed(1);
+      return (parseFloat(this.b46) / 1000).toFixed(1);
     },
     b169() {
       return (
-        (parseFloat(this.b42) * 4) /
+        parseFloat(this.b42) * 4 /
         3.14 /
         3600 /
         Math.pow(parseFloat(this.b168), 2)
@@ -4494,7 +4494,7 @@ export default {
     },
     b177() {
       return (
-        parseFloat(this.b116) +
+        parseFloat(this.b166) +
         parseFloat(this.b171) +
         parseFloat(this.b173) +
         parseFloat(this.b174) +
@@ -4576,10 +4576,10 @@ export default {
       ).toFixed(2);
     },
     b208() {
-      return (parseFloat(this.b42) / parseFloat(this.b13_1) / 60).toFixed(1);
+      return (parseFloat(this.b42) * parseFloat(this.b13_1) / 60).toFixed(1);
     },
     b209() {
-      return (parseFloat(this.b43) / 15 / 60).toFixed(1);
+      return (parseFloat(this.b43) * 15 / 60).toFixed(1);
     },
     b210() {
       return (28.7 * 2.9 * 2).toFixed(1);
