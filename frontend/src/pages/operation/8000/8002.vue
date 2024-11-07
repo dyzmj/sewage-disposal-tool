@@ -496,20 +496,14 @@
                     <a-form-item
                       :label="$t('b33')"
                       style="margin-top: 10px"
-                      :labelCol="{ span: 10 }"
-                      :wrapperCol="{ span: 14 }"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
                     >
                       <a-input-group compact>
                         <a-input
                           v-model="b33"
-                          style="width: 50%;"
+                          style="width: 100%;"
                           :disabled="true"
-                          :suffix="$t('b33_u')"
-                        />
-                        <a-input
-                          v-model="b33_1"
-                          style="width: 50%;"
-                          :disabled="false"
                           :suffix="$t('b33_u')"
                         />
                       </a-input-group>
@@ -532,20 +526,14 @@
                     <a-form-item
                       :label="$t('b35')"
                       style="margin-top: 10px"
-                      :labelCol="{ span: 10 }"
-                      :wrapperCol="{ span: 14 }"
+                      :labelCol="{ span: 14 }"
+                      :wrapperCol="{ span: 10 }"
                     >
                       <a-input-group compact>
                         <a-input
                           v-model="b35"
-                          style="width: 50%;"
+                          style="width: 100%;"
                           :disabled="true"
-                          :suffix="$t('b35_u')"
-                        />
-                        <a-input
-                          v-model="b35_1"
-                          style="width: 50%;"
-                          :disabled="false"
                           :suffix="$t('b35_u')"
                         />
                       </a-input-group>
