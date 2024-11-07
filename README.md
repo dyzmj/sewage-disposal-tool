@@ -20,3 +20,21 @@
 ![image-20241024140915290](https://img.dyzmj.top/img202410241409630.png)
 
 ![image-20241024140948489](https://img.dyzmj.top/img202410241409751.png)
+
+## 📚 构建过程
+frontend 目录下执行
+```
+npm run build
+```
+
+根目录下执行
+
+```
+npm run rd
+
+# 打包 （windows版）
+npm run build-w-64
+
+# 打包 （windows 免安装版）
+npm run build-wz-64
+```
