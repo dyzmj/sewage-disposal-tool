@@ -402,7 +402,7 @@
                         <a-input
                           v-model="b39"
                           style="width: 100%"
-                          ::disabled="true"
+                          :disabled="true"
                           :suffix="$t('b39_u')"
                         />
                       </a-input-group>
