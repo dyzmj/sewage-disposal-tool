@@ -428,6 +428,15 @@ const options = {
           component: () => import('@/pages/auth')
         },
         {
+          path: 'about',
+          name: '关于',
+          meta: {
+            icon: 'safety',
+            keepAlive: true,
+          },
+          component: () => import('@/pages/about')
+        },
+        {
           name: '验权页面',
           path: 'auth/work',
           meta: {
