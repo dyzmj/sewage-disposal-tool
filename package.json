@@ -1,7 +1,7 @@
 {
   "name": "sdt",
-  "version": "3.8.2",
-  "description": "Sewage Disposal Tool",
+  "version": "3.8.3",
+  "description": "Water Purification Intelligent Interactive Software",
   "main": "main.js",
   "scripts": {
     "start": "electron . ",
