@@ -37,6 +37,17 @@ const processUnit = [
         detail: '预沉池',
       },
       {
+        title: '臭氧',
+        key: '1006',
+        checked: false,
+        disabled: false,
+        state: '1',
+        color: '#6C767D',
+        detail: '臭氧',
+        tips: true,
+        message: '厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用'
+      },
+      {
         title: '加药系统-NaClO',
         key: '1003',
         checked: false,
@@ -68,17 +79,6 @@ const processUnit = [
         detail: '加药系统-高锰酸钾',
         tips: true,
         message: 'Fe、Mn超标尤其适用, 后端为生物处理慎用'
-      },
-      {
-        title: '臭氧',
-        key: '1006',
-        checked: false,
-        disabled: false,
-        state: '1',
-        color: '#6C767D',
-        detail: '臭氧',
-        tips: true,
-        message: '厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用'
       },
       {
         title: '加药系统-活性炭粉末',

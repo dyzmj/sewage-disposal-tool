@@ -12,7 +12,7 @@
   <div>
     <img 
   :theme="sideTheme" :class="['logo', theme]" :collapsible="collapsible" :trigger="null"
-  width="256px" height="40px" style="margin-bottom: 20px; margin-top: 20px;" src="@/assets/img/logo1.png" />
+  style="max-width: 215px; height: auto; margin-left: 20px;  margin-top: 6px;" src="@/assets/img/logo1.png" />
   </div>
 </div>
 </template>

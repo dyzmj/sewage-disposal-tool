@@ -79,7 +79,15 @@ const options = {
                   component: () => import('@/pages/operation/1000/1002')
                 },
                 {
-                  name: 'NaClO',
+                  name: '臭氧',
+                  path: '/sub/1006',
+                  meta: {
+                    keepAlive: true,
+                  },
+                  component: () => import('@/pages/operation/1000/1006')
+                },
+                {
+                  name: '加药系统-NaClO',
                   path: '/sub/1003',
                   meta: {
                     keepAlive: true,
@@ -87,7 +95,7 @@ const options = {
                   component: () => import('@/pages/operation/1000/1003')
                 },
                 {
-                  name: 'ClO2',
+                  name: '加药系统-ClO2',
                   path: '/sub/1004',
                   meta: {
                     keepAlive: true,
@@ -101,14 +109,6 @@ const options = {
                     keepAlive: true,
                   },
                   component: () => import('@/pages/operation/1000/1005')
-                },
-                {
-                  name: '臭氧',
-                  path: '/sub/1006',
-                  meta: {
-                    keepAlive: true,
-                  },
-                  component: () => import('@/pages/operation/1000/1006')
                 },
                 {
                   name: '加药系统-活性炭粉末',
