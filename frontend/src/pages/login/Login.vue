@@ -6,7 +6,6 @@
         <span style="color: #ffffff;" class="title">{{ systemName }}</span>
       </div>
       <div class="desc" style="color: #ffffff;" >&nbsp;</div>
-      <div class="desc" style="color: #ffffff;" >&nbsp;</div>
     </div>
     <div class="login" style="margin-right: 100px;">
       <a-form @submit="onSubmit" :form="form">

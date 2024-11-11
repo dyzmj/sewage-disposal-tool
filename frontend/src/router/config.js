@@ -293,22 +293,22 @@ const options = {
               },
               component: PageView,
               children: [
-                {
-                  name: '接触消毒池',
-                  path: '/sub/6001',
-                  meta: {
-                    keepAlive: true,
-                  },
-                  component: () => import('@/pages/operation/6000/6001')
-                },
-                {
-                  name: '浸水式紫外线消毒',
-                  path: '/sub/6002',
-                  meta: {
-                    keepAlive: true,
-                  },
-                  component: () => import('@/pages/operation/6000/6002')
-                },
+                // {
+                //   name: '接触消毒池',
+                //   path: '/sub/6001',
+                //   meta: {
+                //     keepAlive: true,
+                //   },
+                //   component: () => import('@/pages/operation/6000/6001')
+                // },
+                // {
+                //   name: '浸水式紫外线消毒',
+                //   path: '/sub/6002',
+                //   meta: {
+                //     keepAlive: true,
+                //   },
+                //   component: () => import('@/pages/operation/6000/6002')
+                // },
                 {
                   name: '臭氧消毒',
                   path: '/sub/6003',

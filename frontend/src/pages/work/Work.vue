@@ -15,7 +15,7 @@
           style="margin-bottom: 2 4px"
           :bordered="false"
           :body-style="{ padding: 2, height: '730px' }"
-          :headStyle="{ 'font-weight': 'bolder'}"
+          :headStyle="{ 'font-weight': 'bolder' }"
         >
           <div class="baseQueryParam">
             <a-form
@@ -274,7 +274,7 @@
           :loading="loading"
           :title="$t('processUnit')"
           style="margin-bottom: 2 4px;"
-          :headStyle="{ 'font-weight': 'bolder', 'height' : '56px' }"
+          :headStyle="{ 'font-weight': 'bolder', height: '56px' }"
           :body-style="{ padding: 2, height: '730px' }"
           :bordered="false"
         >
@@ -339,7 +339,9 @@
                                   name="processUnit"
                                   v-model="item.checked"
                                   :disabled="item.disabled"
-                                  @change="onChange(item, item.key, item.checked)"
+                                  @change="
+                                    onChange(item, item.key, item.checked)
+                                  "
                                 >
                                 </a-checkbox>
                                 <a-tag
@@ -375,19 +377,18 @@
           :loading="loading"
           :bordered="false"
           :body-style="{ padding: 2, height: '40px', overflow: 'auto' }"
-          :headStyle="{ 'font-weight': 'bolder', 'font-size': '15px', }"
+          :headStyle="{ 'font-weight': 'bolder', 'font-size': '15px' }"
         >
-          <div
-            style="padding: 2"
-          >
-          <a-tag
-            :key="i" v-for="(item, i) in tipMessage"
-            closable 
-            :color="item.color"
-            style="margin-bottom: 4px;"
-          >
-            {{ item.message }}
-          </a-tag>
+          <div style="padding: 2">
+            <a-tag
+              :key="i"
+              v-for="(item, i) in tipMessage"
+              closable
+              :color="item.color"
+              style="margin-bottom: 4px;"
+            >
+              {{ item.message }}
+            </a-tag>
           </div>
         </a-card>
       </a-col>
@@ -424,8 +425,8 @@ export default {
       param1: null,
       waterData: "20000",
       sandData: "80",
-      inTurbidityData: '100',
-      outTurbidityData: '5',
+      inTurbidityData: "100",
+      outTurbidityData: "5",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -664,7 +665,7 @@ export default {
   },
   methods: {
     getTagColor(item) {
-      return item.checked ? '#00be7f' : '#6C767D';
+      return item.checked ? "#00be7f" : "#6C767D";
     },
     getProcessUnit() {
       request("/work/processUnit", METHOD.GET).then((res) => {
@@ -682,12 +683,11 @@ export default {
         // 含砂量 >= 80
         if (values.param1 >= 80) {
           // 沉淀池
-          // this.processUnit[0].children[1].checked = true;
-          this.processUnit[0].children[1].color = '#2DB7F5';
+          this.processUnit[0].children[1].color = "#2DB7F5";
           storeValueInLocalStorage("fc1002", "1");
         } else {
           this.processUnit[0].children[1].checked = false;
-          this.processUnit[0].children[1].color = '#6C767D';
+          this.processUnit[0].children[1].color = "#6C767D";
           storeValueInLocalStorage("fc1002", "0");
         }
 
@@ -701,15 +701,10 @@ export default {
           values.param7 === "3"
         ) {
           // 高锰酸钾、ClO2、NaClO、O3
-          // this.processUnit[0].children[2].checked = true;
-          // this.processUnit[0].children[3].checked = true;
-          // this.processUnit[0].children[4].checked = true;
-          // this.processUnit[0].children[5].checked = true;
-          
-          this.processUnit[0].children[2].color = '#2DB7F5';
-          this.processUnit[0].children[3].color = '#2DB7F5';
-          this.processUnit[0].children[4].color = '#2DB7F5';
-          this.processUnit[0].children[5].color = '#2DB7F5';
+          this.processUnit[0].children[2].color = "#2DB7F5";
+          this.processUnit[0].children[3].color = "#2DB7F5";
+          this.processUnit[0].children[4].color = "#2DB7F5";
+          this.processUnit[0].children[5].color = "#2DB7F5";
           storeValueInLocalStorage("fc1003", "1");
           storeValueInLocalStorage("fc1004", "1");
           storeValueInLocalStorage("fc1005", "1");
@@ -721,10 +716,10 @@ export default {
           this.processUnit[0].children[4].checked = false;
           this.processUnit[0].children[5].checked = false;
 
-          this.processUnit[0].children[2].color = '#6C767D';
-          this.processUnit[0].children[3].color = '#6C767D';
-          this.processUnit[0].children[4].color = '#6C767D';
-          this.processUnit[0].children[5].color = '#6C767D';
+          this.processUnit[0].children[2].color = "#6C767D";
+          this.processUnit[0].children[3].color = "#6C767D";
+          this.processUnit[0].children[4].color = "#6C767D";
+          this.processUnit[0].children[5].color = "#6C767D";
           storeValueInLocalStorage("fc1003", "0");
           storeValueInLocalStorage("fc1004", "0");
           storeValueInLocalStorage("fc1005", "0");
@@ -740,11 +735,11 @@ export default {
         ) {
           // 活性炭粉末
           // this.processUnit[0].children[6].checked = true;
-          this.processUnit[0].children[6].color = '#2DB7F5';
+          this.processUnit[0].children[6].color = "#2DB7F5";
           storeValueInLocalStorage("fc1007", "1");
         } else {
           this.processUnit[0].children[6].checked = false;
-          this.processUnit[0].children[6].color = '#6C767D';
+          this.processUnit[0].children[6].color = "#6C767D";
           storeValueInLocalStorage("fc1007", "0");
         }
 
@@ -752,11 +747,11 @@ export default {
         if (values.param7 === "1" || values.param9 > 1) {
           // 生物接触氧化
           // this.processUnit[0].children[0].checked = true;
-          this.processUnit[0].children[0].color = '#2DB7F5';
+          this.processUnit[0].children[0].color = "#2DB7F5";
           storeValueInLocalStorage("fc1001", "1");
         } else {
           this.processUnit[0].children[0].checked = false;
-          this.processUnit[0].children[0].color = '#6C767D';
+          this.processUnit[0].children[0].color = "#6C767D";
           storeValueInLocalStorage("fc1001", "0");
         }
 
@@ -764,11 +759,11 @@ export default {
         if (values.param7 === "2") {
           // 臭氧活性炭
           // this.processUnit[4].children[0].checked = true;
-          this.processUnit[4].children[0].color = '#2DB7F5';
+          this.processUnit[4].children[0].color = "#2DB7F5";
           storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[4].children[0].checked = false;
-          this.processUnit[4].children[0].color = '#6C767D';
+          this.processUnit[4].children[0].color = "#6C767D";
           storeValueInLocalStorage("fc5001", "0");
         }
 
@@ -776,17 +771,17 @@ export default {
         if (values.param8 === "1") {
           // 不得选用臭氧
           this.processUnit[0].children[5].checked = false;
-          this.processUnit[0].children[5].color = '#6C767D';
+          this.processUnit[0].children[5].color = "#6C767D";
           this.processUnit[0].children[5].disabled = true;
           this.tipMessage.push({
-          message: "不得选用臭氧",
-          color: "#ee5531",
+            message: "不得选用臭氧",
+            color: "#ee5531",
           });
           this.$message.error(this.$t("不得选用臭氧"));
           storeValueInLocalStorage("fc1006", "0");
         } else {
           this.processUnit[0].children[5].disabled = false;
-          this.processUnit[0].children[5].color = '#6C767D';
+          this.processUnit[0].children[5].color = "#6C767D";
           storeValueInLocalStorage("fc1006", "0");
         }
 
@@ -794,11 +789,11 @@ export default {
         if (values.param9 > 0.5 && values.param9 <= 1) {
           // 折点加氯
           // this.processUnit[5].children[3].checked = true;
-          this.processUnit[5].children[3].color = '#2DB7F5';
+          this.processUnit[5].children[3].color = "#2DB7F5";
           storeValueInLocalStorage("fc6004", "1");
         } else {
           this.processUnit[5].children[3].checked = false;
-          this.processUnit[5].children[3].color = '#6C767D';
+          this.processUnit[5].children[3].color = "#6C767D";
           storeValueInLocalStorage("fc6004", "0");
         }
 
@@ -813,11 +808,11 @@ export default {
         if (values.param11 < 100) {
           // 气浮池
           // this.processUnit[2].children[5].checked = true;
-          this.processUnit[2].children[5].color = '#2DB7F5';
+          this.processUnit[2].children[5].color = "#2DB7F5";
           storeValueInLocalStorage("fc3006", "1");
         } else {
           this.processUnit[2].children[5].checked = false;
-          this.processUnit[2].children[5].color = '#6C767D';
+          this.processUnit[2].children[5].color = "#6C767D";
           storeValueInLocalStorage("fc3006", "0");
         }
 
@@ -825,11 +820,11 @@ export default {
         if (values.param11 < 500) {
           // 水力循环澄清池
           // this.processUnit[2].children[4].checked = true;
-          this.processUnit[2].children[4].color = '#2DB7F5';
+          this.processUnit[2].children[4].color = "#2DB7F5";
           storeValueInLocalStorage("fc3005", "1");
         } else {
           this.processUnit[2].children[4].checked = false;
-          this.processUnit[2].children[4].color = '#6C767D';
+          this.processUnit[2].children[4].color = "#6C767D";
           storeValueInLocalStorage("fc3005", "0");
         }
 
@@ -837,11 +832,11 @@ export default {
         if (values.param11 < 3000) {
           // 机械搅拌澄清池
           // this.processUnit[2].children[3].checked = true;
-          this.processUnit[2].children[3].color = '#2DB7F5';
+          this.processUnit[2].children[3].color = "#2DB7F5";
           storeValueInLocalStorage("fc3004", "1");
         } else {
           this.processUnit[2].children[3].checked = false;
-          this.processUnit[2].children[3].color = '#6C767D';
+          this.processUnit[2].children[3].color = "#6C767D";
           storeValueInLocalStorage("fc3004", "0");
         }
 
@@ -849,11 +844,11 @@ export default {
         if (values.param11 < 5000) {
           // 平流沉淀池
           // this.processUnit[2].children[0].checked = true;
-          this.processUnit[2].children[0].color = '#2DB7F5';
+          this.processUnit[2].children[0].color = "#2DB7F5";
           storeValueInLocalStorage("fc3001", "1");
         } else {
           this.processUnit[2].children[0].checked = false;
-          this.processUnit[2].children[0].color = '#6C767D';
+          this.processUnit[2].children[0].color = "#6C767D";
           storeValueInLocalStorage("fc3001", "0");
         }
 
@@ -861,18 +856,18 @@ export default {
         if (values.param11 < 10000) {
           // 斜管沉淀池
           // this.processUnit[2].children[1].checked = true;
-          this.processUnit[2].children[1].color = '#2DB7F5';
+          this.processUnit[2].children[1].color = "#2DB7F5";
           // 高密度沉淀池
           // this.processUnit[2].children[2].checked = true;
-          this.processUnit[2].children[2].color = '#2DB7F5';
+          this.processUnit[2].children[2].color = "#2DB7F5";
           storeValueInLocalStorage("fc3002", "1");
           storeValueInLocalStorage("fc3003", "1");
         } else {
           this.processUnit[2].children[1].checked = false;
           this.processUnit[2].children[2].checked = false;
-          
-          this.processUnit[2].children[1].color = '#6C767D';
-          this.processUnit[2].children[2].color = '#6C767D';
+
+          this.processUnit[2].children[1].color = "#6C767D";
+          this.processUnit[2].children[2].color = "#6C767D";
           storeValueInLocalStorage("fc3002", "0");
           storeValueInLocalStorage("fc3003", "0");
         }
@@ -881,11 +876,11 @@ export default {
         if (values.param12 < 0.5) {
           // 超滤
           // this.processUnit[4].children[1].checked = true;
-          this.processUnit[4].children[1].color = '#2DB7F5';
+          this.processUnit[4].children[1].color = "#2DB7F5";
           storeValueInLocalStorage("fc5002", "1");
         } else {
           this.processUnit[4].children[1].checked = false;
-          this.processUnit[4].children[1].color = '#6C767D';
+          this.processUnit[4].children[1].color = "#6C767D";
           storeValueInLocalStorage("fc5002", "0");
         }
 
@@ -893,11 +888,11 @@ export default {
         if (values.param13 === "1") {
           // 接触消毒
           // this.processUnit[5].children[0].checked = true;
-          this.processUnit[5].children[0].color = '#2DB7F5';
+          this.processUnit[5].children[0].color = "#2DB7F5";
           storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[5].children[0].checked = false;
-          this.processUnit[5].children[0].color = '#6C767D';
+          this.processUnit[5].children[0].color = "#6C767D";
           storeValueInLocalStorage("fc5001", "0");
         }
 
@@ -907,16 +902,24 @@ export default {
         // this.processUnit[1].children[2].checked = true;
         // this.processUnit[1].children[3].checked = true;
         // this.processUnit[1].children[4].checked = true;
-        this.processUnit[1].children[0].color = '#2DB7F5';
-        this.processUnit[1].children[1].color = '#2DB7F5';
-        this.processUnit[1].children[2].color = '#2DB7F5';
-        this.processUnit[1].children[3].color = '#2DB7F5';
-        this.processUnit[1].children[4].color = '#2DB7F5';
-        storeValueInLocalStorage("fc5001", "1");
-        storeValueInLocalStorage("fc5002", "1");
-        storeValueInLocalStorage("fc5003", "1");
-        storeValueInLocalStorage("fc5004", "1");
-        storeValueInLocalStorage("fc5005", "1");
+        this.processUnit[1].children[0].color = "#2DB7F5";
+        this.processUnit[1].children[1].color = "#2DB7F5";
+        this.processUnit[1].children[2].color = "#2DB7F5";
+        this.processUnit[1].children[3].color = "#2DB7F5";
+        this.processUnit[1].children[4].color = "#2DB7F5";
+        this.processUnit[3].children[0].color = "#2DB7F5";
+        this.processUnit[3].children[1].color = "#2DB7F5";
+        this.processUnit[6].children[0].color = "#2DB7F5";
+        this.processUnit[6].children[1].checked = true;
+        this.processUnit[6].children[1].color = "#00be7f";
+        this.processUnit[7].children[0].color = "#2DB7F5";
+        this.processUnit[7].children[1].color = "#2DB7F5";
+        // storeValueInLocalStorage("fc5001", "1");
+        // storeValueInLocalStorage("fc5002", "1");
+        // storeValueInLocalStorage("fc5003", "1");
+        // storeValueInLocalStorage("fc5004", "1");
+        // storeValueInLocalStorage("fc5005", "1");
+        storeValueInLocalStorage("fc8002", "1");
 
         if (
           this.processUnit[0].children[2].checked ||
@@ -924,23 +927,30 @@ export default {
         ) {
           // NaClO开启时，活性炭粉末也开启
           this.processUnit[0].children[6].checked = true;
-          this.processUnit[0].children[6].color = '#00be7f';
+          this.processUnit[0].children[6].color = "#00be7f";
           storeValueInLocalStorage("fc1007", "1");
         }
 
         // 将设计水量存入缓存
-        this.waterData = values.param14;
-        storeValueInLocalStorage("waterData", this.waterData);
+        if (values.param14 != null && values.param14 != "") {
+          this.waterData = values.param14;
+          storeValueInLocalStorage("waterData", this.waterData);
+        }
         // 将含砂量存入缓存
-        this.sandData = values.param1;
-        storeValueInLocalStorage("sandData", this.sandData);
+        if (values.param1 != null && values.param1 != "") {
+          this.sandData = values.param1;
+          storeValueInLocalStorage("sandData", this.sandData);
+        }
         // 将进水浊度存入缓存
-        this.inTurbidityData = values.param11;
-        storeValueInLocalStorage("inTurbidityData", this.inTurbidityData);
+        if (values.param11 != null && values.param11 != "") {
+          this.inTurbidityData = values.param11;
+          storeValueInLocalStorage("inTurbidityData", this.inTurbidityData);
+        }
         // 将出水浊度存入缓存
-        this.outTurbidityData = values.param12;
-        storeValueInLocalStorage("outTurbidityData", this.outTurbidityData);
-
+        if (values.param12 != null && values.param12 != "") {
+          this.outTurbidityData = values.param12;
+          storeValueInLocalStorage("outTurbidityData", this.outTurbidityData);
+        }
       });
 
       this.$message.success(this.$t("initSucc"));
@@ -973,11 +983,11 @@ export default {
         if (checked) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
-          this.processUnit[0].children[6].color = '#00be7f';
+          this.processUnit[0].children[6].color = "#00be7f";
         } else {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = false;
-          this.processUnit[0].children[6].color = '#6C767D';
+          this.processUnit[0].children[6].color = "#6C767D";
         }
       }
       if (key === "1006") {
@@ -985,71 +995,71 @@ export default {
         this.$message.success(
           "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
         );
-        if(checked){
+        if (checked) {
           this.tipMessage.push({
-          message: "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用",
-          color: "#00be7f",
+            message: "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用",
+            color: "#00be7f",
           });
         }
       }
       if (key === "1005") {
         // 高锰酸钾
         this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "Fe、Mn超标尤其适用，后端为生物处理慎用",
-          color: "#f3e449",
-        });
+            message: "Fe、Mn超标尤其适用，后端为生物处理慎用",
+            color: "#f3e449",
+          });
         }
       }
       if (key === "1004") {
         // ClO2
         this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
-          color: "#1ba7ed",
-        });
+            message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
+            color: "#1ba7ed",
+          });
         }
       }
       if (key === "1003") {
         // NaClO
         this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
-          color: "#ee5531",
-        });
+            message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
+            color: "#ee5531",
+          });
         }
       }
       if (key === "2002") {
         // 网格絮凝池
         this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
-        if(checked){
+        if (checked) {
           this.tipMessage.push({
-          message: "单池 > 2.5万m3/d 不建议采用网格絮凝池",
-          color: "#1ba7ed",
-        });
+            message: "单池 > 2.5万m3/d 不建议采用网格絮凝池",
+            color: "#1ba7ed",
+          });
         }
       }
       if (key === "2003") {
         // 折板絮凝池
         this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "单池 >= 5万m3/d 不建议采用折板絮凝池",
-          color: "#f3e449",
-        });
+            message: "单池 >= 5万m3/d 不建议采用折板絮凝池",
+            color: "#f3e449",
+          });
         }
       }
       if (key === "3001") {
         // 平流沉淀池
         this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#00be7f",
-        });
+            message: "设计规模 < 5万m3/d 不建议",
+            color: "#00be7f",
+          });
         }
       }
       if (key === "3002") {
@@ -1065,11 +1075,11 @@ export default {
       if (key === "3003") {
         // 高密度沉淀池
         this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#00be7f",
-        });
+            message: "设计规模 < 5万m3/d 不建议",
+            color: "#00be7f",
+          });
         }
       }
       if (key === "3004") {
@@ -1085,11 +1095,11 @@ export default {
       if (key === "3005") {
         // 水力循环澄清池
         this.$message.success("设计规模 < 5万m3/d 不建议");
-        if(checked) {
+        if (checked) {
           this.tipMessage.push({
-          message: "设计规模 < 5万m3/d 不建议",
-          color: "#80c262",
-        });
+            message: "设计规模 < 5万m3/d 不建议",
+            color: "#80c262",
+          });
         }
       }
       if (key === "3006") {
@@ -1331,9 +1341,9 @@ export default {
     },
     onChange(item, key, checked) {
       if (checked) {
-        item.color = "#00be7f"
+        item.color = "#00be7f";
       } else {
-        item.color = "#6C767D"
+        item.color = "#6C767D";
       }
       this.handleChangeMassage(key, checked);
       this.handleChangeCache(key, checked);
