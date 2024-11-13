@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -55,15 +60,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/8000/8001.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -532,9 +536,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -576,84 +584,91 @@
               <a slot="序号" slot-scope="text">{{ text }}</a>
             </a-table>
           </div>
-        <a-card
-          :title="$t('export')"
-          :headStyle="{ 'font-weight': 'bolder' }"
-          style="margin-bottom: 24px"
-          :bordered="false"
-          :body-style="{ padding: 4 }"
-        >
-          <div class="baseQueryParam">
-            <a-form>
-              <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
-                <a-button
-                  style="margin-left: 30px;"
-                  type="primary"
-                  @click="exportComputeBook()"
-                  >{{ $t("exportComputeBook") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="danger"
-                  @click="exportQuantities()"
-                  >{{ $t("exportQuantities") }}</a-button
-                >
-                <a-button
-                  style="margin-left: 10px"
-                  type="dashed"
-                  @click="backHome()"
-                  >{{ $t("backWork") }}</a-button
-                >
-              </a-form-item>
-            </a-form>
-          </div>
+          <a-card
+            :title="$t('export')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+            style="margin-bottom: 24px"
+            :bordered="false"
+            :body-style="{ padding: 4 }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 120px;">
+                  <a-button
+                    style="margin-left: 30px;"
+                    type="primary"
+                    @click="exportComputeBook()"
+                    >{{ $t("exportComputeBook") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="danger"
+                    @click="exportQuantities()"
+                    >{{ $t("exportQuantities") }}</a-button
+                  >
+                  <a-button
+                    style="margin-left: 10px"
+                    type="dashed"
+                    @click="backHome()"
+                    >{{ $t("backWork") }}</a-button
+                  >
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
-      </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -661,8 +676,13 @@
 
 <script>
 import { mapState } from "vuex";
-import { exportExcel3, exportWord, getValueFromLocalStorage,    initWordStorage,
-  initExcelStorage, } from "@/utils/exportUtil";
+import {
+  exportExcel3,
+  exportWord,
+  getValueFromLocalStorage,
+  initWordStorage,
+  initExcelStorage,
+} from "@/utils/exportUtil";
 
 export default {
   components: {},
@@ -930,23 +950,23 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
-      const waterData = getValueFromLocalStorage("waterData")
-      if (waterData == null || waterData == ''){
-        this.b3 = 40000
-      }else{
-        this.b3 = waterData
+      const waterData = getValueFromLocalStorage("waterData");
+      if (waterData == null || waterData == "") {
+        this.b3 = 40000;
+      } else {
+        this.b3 = waterData;
       }
     },
     exportQuantities() {
-      try{
+      try {
         this.exportExcel();
-      }catch(error){
+      } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
@@ -956,19 +976,37 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
-        const headerData1 = [this.flattenFirstRowColumns(this.columns1), this.flattenSecondRowColumns(this.columns1)];
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
         // 初始化 allData
-        const allData1 = [...headerData1, ...this.data1.map(item => Object.values(item))];
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData2 = [this.flattenFirstRowColumns(this.columns2), this.flattenSecondRowColumns(this.columns2)];
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
         // 初始化 allData
-        const allData2 = [...headerData2, ...this.data2.map(item => Object.values(item))];
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
 
         // 处理表头信息
-        const headerData3 = [this.flattenFirstRowColumns(this.columns3), this.flattenSecondRowColumns(this.columns3)];
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns3),
+          this.flattenSecondRowColumns(this.columns3),
+        ];
         // 初始化 allData
-        const allData3 = [...headerData3, ...this.data3.map(item => Object.values(item))];
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
 
         // 导出 Excel
         exportExcel3(allData1, allData2, allData3, "提升泵房工程量", this);
@@ -998,20 +1036,20 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b3,
-        key2: '50',
+        key2: "50",
         key3: this.b7,
         key4: this.b8,
-        key5: '1.6',
+        key5: "1.6",
       };
       exportWord("提升泵房计算书", "8001.docx", data, this);
     },
     refreshInitData() {
       const data = {
         key1: this.b3,
-        key2: '50',
+        key2: "50",
         key3: this.b7,
         key4: this.b8,
-        key5: '1.6',
+        key5: "1.6",
       };
       initWordStorage("8001.docx", data);
       this.handleExcelCache("8001.xlsx", "提升泵房工程量");
@@ -1080,22 +1118,30 @@ export default {
       return "to do";
     },
     get_a_1_1() {
-      return "Q="+this.b12+"m3/h,H="+this.b16+"m,N="+this.b19+"kw";
+      return "Q=" + this.b12 + "m3/h,H=" + this.b16 + "m,N=" + this.b19 + "kw";
     },
     get_a_1_2() {
-      return (parseFloat(this.b10)+parseFloat(this.b11));
+      return parseFloat(this.b10) + parseFloat(this.b11);
     },
     get_a_2_1() {
-      return "Q="+this.b27+"m3/h,H="+this.b31+"m,N="+this.b34+"kw";
+      return "Q=" + this.b27 + "m3/h,H=" + this.b31 + "m,N=" + this.b34 + "kw";
     },
     get_a_2_2() {
-      return (parseFloat(this.b25)+parseFloat(this.b26));
+      return parseFloat(this.b25) + parseFloat(this.b26);
     },
     get_b_1_1() {
-      return "一体式，DN80，0~"+this.b9_1+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+      return (
+        "一体式，DN80，0~" +
+        this.b9_1 +
+        "m3/h，4-20mA信号输出，就地显示，电源：220V，防爆"
+      );
     },
     get_b_2_1() {
-      return "一体式，DN80，0~"+this.b24_1+"m3/h，4-20mA信号输出，就地显示，电源：220V，防爆";
+      return (
+        "一体式，DN80，0~" +
+        this.b24_1 +
+        "m3/h，4-20mA信号输出，就地显示，电源：220V，防爆"
+      );
     },
   },
   computed: {
@@ -1166,59 +1212,59 @@ export default {
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "",
-        设备类型: "",
-        规格及型号: this.get_a_1_1(),
-        单位: "台",
-        数量: this.get_a_1_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        设备位号: "",
-        设备工艺名称: "",
-        设备类型: "",
-        规格及型号: this.get_a_2_1(),
-        单位: "台",
-        数量: this.get_a_2_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "",
+          设备类型: "",
+          规格及型号: this.get_a_1_1(),
+          单位: "台",
+          数量: this.get_a_1_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "",
+          设备类型: "",
+          规格及型号: this.get_a_2_1(),
+          单位: "台",
+          数量: this.get_a_2_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "1",
-        仪表位号: "",
-        仪表名称: "电磁流量计",
-        安装位置: "",
-        规格及型号: this.get_b_1_1(),
-        单位: "台",
-        数量: "1",
-        a: "",
-        b: "",
-        备注: "",
-      },
-      {
-        序号: "1",
-        仪表位号: "",
-        仪表名称: "电磁流量计",
-        安装位置: "",
-        规格及型号: this.get_b_2_1(),
-        单位: "台",
-        数量: "1",
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
+        {
+          序号: "1",
+          仪表位号: "",
+          仪表名称: "电磁流量计",
+          安装位置: "",
+          规格及型号: this.get_b_1_1(),
+          单位: "台",
+          数量: "1",
+          a: "",
+          b: "",
+          备注: "",
+        },
+        {
+          序号: "1",
+          仪表位号: "",
+          仪表名称: "电磁流量计",
+          安装位置: "",
+          规格及型号: this.get_b_2_1(),
+          单位: "台",
+          数量: "1",
+          a: "",
+          b: "",
+          备注: "",
+        },
+      ];
     },
   },
   watch() {

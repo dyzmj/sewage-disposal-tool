@@ -72,14 +72,10 @@
             :title="$t('referenceInformation')"
             :headStyle="{ 'font-weight': 'bolder' }"
           >
-            <div>
-              <p>预沉池</p>
-              <!-- <p>《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min</p> -->
-            </div>
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/1000/1002.png" />
+                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1002.png" />
                 </a-form-item>
               </a-form>
             </div>

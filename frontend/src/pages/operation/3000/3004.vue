@@ -16,9 +16,14 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -138,14 +143,14 @@
               </a-form-item>
             </a-form>
           </div>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/3000/3004.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -2213,9 +2218,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -2292,49 +2301,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -2346,7 +2362,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -2657,10 +2673,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -2833,16 +2849,24 @@ export default {
       return Math.round(number * multiplier) / multiplier;
     },
     get_a_1() {
-      return "Ø"+this.b23+"×"+this.b34+"m";
+      return "Ø" + this.b23 + "×" + this.b34 + "m";
     },
     get_b_1() {
-      return "叶轮直径"+this.b97_1+"m，n="+this.b99+"rpm，N="+this.b125_1+"kW";
+      return (
+        "叶轮直径" +
+        this.b97_1 +
+        "m，n=" +
+        this.b99 +
+        "rpm，N=" +
+        this.b125_1 +
+        "kW"
+      );
     },
     get_b_2() {
-      return "刮臂直径"+this.b23+"m，n=1~3rpm，N=1.5kW";
+      return "刮臂直径" + this.b23 + "m，n=1~3rpm，N=1.5kW";
     },
     get_c_1() {
-      return "0~"+this.b34+"m，4~20mA信号输出，就地显示";
+      return "0~" + this.b34 + "m，4~20mA信号输出，就地显示";
     },
   },
   computed: {
@@ -3052,34 +3076,40 @@ export default {
       ).toFixed(2);
     },
     b59() {
-      return (parseFloat(this.b24) -(parseFloat(this.b57)+parseFloat(this.b58))).toFixed(2);
+      return (
+        parseFloat(this.b24) -
+        (parseFloat(this.b57) + parseFloat(this.b58))
+      ).toFixed(2);
     },
     b60() {
-      return (parseFloat(this.b58)/parseFloat(this.b57)).toFixed(5);
+      return (parseFloat(this.b58) / parseFloat(this.b57)).toFixed(5);
     },
     b61() {
-      return (parseFloat(this.b59)/parseFloat(this.b57)).toFixed(5);
+      return (parseFloat(this.b59) / parseFloat(this.b57)).toFixed(5);
     },
     b63_1() {
-      return (parseFloat(this.b63)/1000).toFixed(1);
+      return (parseFloat(this.b63) / 1000).toFixed(1);
     },
     b64() {
-      return (4 * parseFloat(this.b3_3) / (
-        Math.PI * Math.pow(parseFloat(this.b63_1), 2)
-      )).toFixed(2);
+      return (
+        (4 * parseFloat(this.b3_3)) /
+        (Math.PI * Math.pow(parseFloat(this.b63_1), 2))
+      ).toFixed(2);
     },
     b65_1() {
-      return (parseFloat(this.b65)/1000).toFixed(1);
+      return (parseFloat(this.b65) / 1000).toFixed(1);
     },
     b68() {
-      return (Math.pow((
-        ((0.45 * parseFloat(this.b20) + 
-        Math.PI * Math.pow(parseFloat(this.b18),2) / 4
-      )) * 4 / Math.PI
-      ),0.5)).toFixed(2);
+      return Math.pow(
+        ((0.45 * parseFloat(this.b20) +
+          (Math.PI * Math.pow(parseFloat(this.b18), 2)) / 4) *
+          4) /
+          Math.PI,
+        0.5
+      ).toFixed(2);
     },
     b71() {
-      return (parseFloat(this.b3_3) * 1.5 / 2).toFixed(3);
+      return ((parseFloat(this.b3_3) * 1.5) / 2).toFixed(3);
     },
     b72() {
       return (0.9 * Math.pow(parseFloat(this.b71), 0.4)).toFixed(3);
@@ -3091,66 +3121,88 @@ export default {
       return (1.25 * parseFloat(this.b72)).toFixed(3);
     },
     b77() {
-      return (parseFloat(this.b71) / (
-        0.62 * Math.pow((2 * 9.81 *parseFloat(this.b76)), 0.5)
-      )).toFixed(4);
+      return (
+        parseFloat(this.b71) /
+        (0.62 * Math.pow(2 * 9.81 * parseFloat(this.b76), 0.5))
+      ).toFixed(4);
     },
     b78_1() {
-      return ((
-        Math.PI * Math.pow(parseFloat(this.b78)/10, 2)
-      )/4).toFixed(2);
+      return ((Math.PI * Math.pow(parseFloat(this.b78) / 10, 2)) / 4).toFixed(
+        2
+      );
     },
     b79() {
-      return (parseFloat(this.b77) * 10000 / parseFloat(this.b78_1)).toFixed(3);
+      return ((parseFloat(this.b77) * 10000) / parseFloat(this.b78_1)).toFixed(
+        3
+      );
     },
     b79_1() {
       return this.ROUND(parseFloat(this.b79), 0);
     },
     b81() {
-      return (2 * Math.PI * parseFloat(this.b69) / parseFloat(this.b79_1)).toFixed(5);
+      return (
+        (2 * Math.PI * parseFloat(this.b69)) /
+        parseFloat(this.b79_1)
+      ).toFixed(5);
     },
     b83() {
       return (2 * parseFloat(this.b71)).toFixed(5);
     },
     b85() {
-      return (parseFloat(this.b83) / (parseFloat(this.b84) * parseFloat(this.b84_1))).toFixed(5);
+      return (
+        parseFloat(this.b83) /
+        (parseFloat(this.b84) * parseFloat(this.b84_1))
+      ).toFixed(5);
     },
     b87_1() {
       return (parseFloat(this.b87) / 60).toFixed(2);
     },
     b89() {
-      return (parseFloat(this.b3_1) * (parseFloat(this.b4_1) - parseFloat(this.b5_1)) 
-      * parseFloat(this.b87_1) / parseFloat(this.b88) 
-    ).toFixed(2);
+      return (
+        (parseFloat(this.b3_1) *
+          (parseFloat(this.b4_1) - parseFloat(this.b5_1)) *
+          parseFloat(this.b87_1)) /
+        parseFloat(this.b88)
+      ).toFixed(2);
     },
     b91() {
-      return ((1.6*1.6 + 
-        0.4*0.4 + 
-        Math.pow(1.6*1.6*0.4*0.4, 0.5))
-        * 1.8 /3
+      return (
+        ((1.6 * 1.6 + 0.4 * 0.4 + Math.pow(1.6 * 1.6 * 0.4 * 0.4, 0.5)) * 1.8) /
+        3
       ).toFixed(3);
     },
     b97() {
       return (parseFloat(this.b96) * parseFloat(this.b11)).toFixed(2);
     },
     b99() {
-      return this.ROUND(parseFloat(this.b98)/Math.PI/parseFloat(this.b97_1)*60, 2);
+      return this.ROUND(
+        (parseFloat(this.b98) / Math.PI / parseFloat(this.b97_1)) * 60,
+        2
+      );
     },
     b101() {
-      return (3.65 * parseFloat(this.b99) * Math.pow(parseFloat(this.b8_1),0.5)/(
+      return (
+        (3.65 * parseFloat(this.b99) * Math.pow(parseFloat(this.b8_1), 0.5)) /
         Math.pow(parseFloat(this.b100), 0.75)
-      )).toFixed(2);
+      ).toFixed(2);
     },
     b103() {
       return (parseFloat(this.b97_1) / parseFloat(this.b102)).toFixed(2);
     },
     b105() {
-      return (60*parseFloat(this.b8_1)/(
-        parseFloat(this.b104) * parseFloat(this.b99) * Math.pow(parseFloat(this.b97_1), 2)
-      )).toFixed(2);
+      return (
+        (60 * parseFloat(this.b8_1)) /
+        (parseFloat(this.b104) *
+          parseFloat(this.b99) *
+          Math.pow(parseFloat(this.b97_1), 2))
+      ).toFixed(2);
     },
     b108() {
-      return (60*parseFloat(this.b107)/Math.PI/parseFloat(this.b99)).toFixed(2);
+      return (
+        (60 * parseFloat(this.b107)) /
+        Math.PI /
+        parseFloat(this.b99)
+      ).toFixed(2);
     },
     b109() {
       return (parseFloat(this.b51) / 3).toFixed(2);
@@ -3159,26 +3211,32 @@ export default {
       return (parseFloat(this.b109) / 3).toFixed(2);
     },
     b116() {
-      return (parseFloat(this.b114) * parseFloat(this.b8_1) * parseFloat(this.b100) / 102 /parseFloat(this.b115)).toFixed(2);
+      return (
+        (parseFloat(this.b114) *
+          parseFloat(this.b8_1) *
+          parseFloat(this.b100)) /
+        102 /
+        parseFloat(this.b115)
+      ).toFixed(2);
     },
     b119() {
-      return (2 * parseFloat(this.b107) / parseFloat(this.b108_1)).toFixed(2);
+      return ((2 * parseFloat(this.b107)) / parseFloat(this.b108_1)).toFixed(2);
     },
     b120() {
       return (parseFloat(this.b108_1) / 2 - parseFloat(this.b110)).toFixed(2);
     },
     b121() {
       return (
-        parseFloat(this.b118) * 
-        parseFloat(this.b114) * 
-        Math.pow(parseFloat(this.b119),3) * 
-        parseFloat(this.b109) / 400 / 9.81 * 
-        (
-          (Math.pow(parseFloat(this.b108_1)/2, 4)) - 
-          (Math.pow(parseFloat(this.b120_1)/2, 4))
-        ) *
+        ((parseFloat(this.b118) *
+          parseFloat(this.b114) *
+          Math.pow(parseFloat(this.b119), 3) *
+          parseFloat(this.b109)) /
+          400 /
+          9.81) *
+        (Math.pow(parseFloat(this.b108_1) / 2, 4) -
+          Math.pow(parseFloat(this.b120_1) / 2, 4)) *
         parseFloat(this.b111)
-    ).toFixed(2);
+      ).toFixed(2);
     },
     b123() {
       return (parseFloat(this.b116) + parseFloat(this.b121)).toFixed(2);
@@ -3188,63 +3246,63 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "",
-        单体位号: "",
-        名称: "机械搅拌澄清池",
-        尺寸: this.get_a_1(),
-        标高: "",
-        单位: "座",
-        数量: "m",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "",
+          单体位号: "",
+          名称: "机械搅拌澄清池",
+          尺寸: this.get_a_1(),
+          标高: "",
+          单位: "座",
+          数量: "m",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "澄清池搅拌机",
-        设备类型: "提升搅拌机",
-        规格及型号: this.get_b_1(),
-        单位: "台",
-        数量: "1",
-        运行时间: "",
-        主要材质: "SS304",
-        备注: "",
-      },
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "澄清池刮泥机",
-        设备类型: "中心传动刮泥机",
-        规格及型号: this.get_b_2(),
-        单位: "台",
-        数量: "1",
-        运行时间: "",
-        主要材质: "液下部分SS304，刮板橡胶",
-        备注: "",
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "澄清池搅拌机",
+          设备类型: "提升搅拌机",
+          规格及型号: this.get_b_1(),
+          单位: "台",
+          数量: "1",
+          运行时间: "",
+          主要材质: "SS304",
+          备注: "",
+        },
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "澄清池刮泥机",
+          设备类型: "中心传动刮泥机",
+          规格及型号: this.get_b_2(),
+          单位: "台",
+          数量: "1",
+          运行时间: "",
+          主要材质: "液下部分SS304，刮板橡胶",
+          备注: "",
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "1",
-        仪表位号: "1",
-        安装位置: "污泥斗",
-        仪表名称: "超声波泥位计",
-        规格及型号: this.get_c_1(),
-        单位: "台",
-        数量: "1",
-        备注: "",
-        生产厂家: "",
-        a: "",
-      },
-    ];
+        {
+          序号: "1",
+          仪表位号: "1",
+          安装位置: "污泥斗",
+          仪表名称: "超声波泥位计",
+          规格及型号: this.get_c_1(),
+          单位: "台",
+          数量: "1",
+          备注: "",
+          生产厂家: "",
+          a: "",
+        },
+      ];
     },
   },
   watch() {

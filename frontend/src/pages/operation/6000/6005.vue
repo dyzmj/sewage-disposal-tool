@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -79,7 +84,7 @@
                 <a-form-item
                   :label="$t('b6')"
                   style="margin-top: 10px"
-                  :labelCol="{ span: 14}"
+                  :labelCol="{ span: 14 }"
                   :wrapperCol="{ span: 10 }"
                 >
                   <a-input-group compact>
@@ -227,6 +232,18 @@
                 </a-form-item>
               </a-form>
             </a-card>
+          </a-card>
+          <a-card :title="$t('referenceInformation')">
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/6000/6005.jpg"
+                  />
+                </a-form-item>
+              </a-form>
+            </div>
           </a-card>
         </a-card>
       </a-col>
@@ -1201,9 +1218,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1280,49 +1301,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -1625,10 +1653,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -1690,13 +1718,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(
-          allData1,
-          allData2,
-          allData3,
-          "加药系统NaClO工程量",
-          this
-        );
+        exportExcel3(allData1, allData2, allData3, "加药系统NaClO工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1725,7 +1747,7 @@ export default {
         key1: this.b4,
         key2: this.b8,
       };
-      exportWord("加药系统次氯酸钠计算书", "6005.docx", data, this);
+      exportWord("次氯酸钠计算书", "6005.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -1733,7 +1755,7 @@ export default {
         key2: this.b8,
       };
       initWordStorage("6005.docx", data);
-      this.handleExcelCache("6005.xlsx", "加药系统次氯酸钠工程量");
+      this.handleExcelCache("6005.xlsx", "次氯酸钠工程量");
     },
     handleExcelCache(path, name) {
       try {
@@ -1791,50 +1813,85 @@ export default {
       return "to do";
     },
     quickSort(arr, left, right) {
-  let index
-  index = this.partition(arr, left, right)
-  if(left < index-1) {
-    this.quickSort(arr, left, index-1)
-  }
-  if(index < right) {
-    this.quickSort(arr, index, right)
-  }
-  return arr
+      let index;
+      index = this.partition(arr, left, right);
+      if (left < index - 1) {
+        this.quickSort(arr, left, index - 1);
+      }
+      if (index < right) {
+        this.quickSort(arr, index, right);
+      }
+      return arr;
     },
     partition(arr, left, right) {
-  let point = arr[Math.floor((left + right) / 2)]
-  let i = left, j = right
-  while(i <= j) {
-    while(arr[i] > point) {
-      i++
-    }
-    while(arr[j] < point) {
-      j--
-    }
-    if(i <= j) {
-      let temp = arr[i]
-      arr[i] = arr[j]
-      arr[j] = temp
-      i++
-      j--
-    }
-  }
-  return i
+      let point = arr[Math.floor((left + right) / 2)];
+      let i = left,
+        j = right;
+      while (i <= j) {
+        while (arr[i] > point) {
+          i++;
+        }
+        while (arr[j] < point) {
+          j--;
+        }
+        if (i <= j) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+          i++;
+          j--;
+        }
+      }
+      return i;
     },
     findKthLargest(nums, k) {
-      nums = this.quickSort(nums, 0, nums.length-1);
-      console.log(nums[k-1]);
-      return nums[k-1];
+      nums = this.quickSort(nums, 0, nums.length - 1);
+      console.log(nums[k - 1]);
+      return nums[k - 1];
     },
     get_a_1_1() {
-      return this.b25_1+"m3";
+      return this.b25_1 + "m3";
     },
     get_a_1_2() {
       return 2;
     },
     get_a_2_1() {
-      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
-      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var array1 = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
+      var array2 = [
+        "MS1A064A",
+        "MS1A064B",
+        "MS1A064C",
+        "MS1A094A",
+        "MS1A094B",
+        "MS1A094C",
+        "MS1B108A",
+        "MS1B108B",
+        "MS1B108C",
+        "MS1C138A",
+        "MS1C138B",
+        "MS1C138C",
+        "MS1C165A",
+        "MS1C165B",
+        "MS1C165C",
+        "MS1C165C",
+      ];
       var index = array1.indexOf(this.b53_4);
       return array2[index];
     },
@@ -1842,8 +1899,42 @@ export default {
       return 2;
     },
     get_a_3_1() {
-      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
-      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var array1 = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
+      var array2 = [
+        "MS1A064A",
+        "MS1A064B",
+        "MS1A064C",
+        "MS1A094A",
+        "MS1A094B",
+        "MS1A094C",
+        "MS1B108A",
+        "MS1B108B",
+        "MS1B108C",
+        "MS1C138A",
+        "MS1C138B",
+        "MS1C138C",
+        "MS1C165A",
+        "MS1C165B",
+        "MS1C165C",
+        "MS1C165C",
+      ];
       var index = array1.indexOf(this.b56_4);
       return array2[index];
     },
@@ -1863,32 +1954,66 @@ export default {
       return 4;
     },
     get_a_8_1() {
-      return "流量="+this.b59+"m3/h";
+      return "流量=" + this.b59 + "m3/h";
     },
     get_a_8_2() {
       return 1;
     },
     get_a_9_1() {
-      return "容积="+this.b50+"m3";
+      return "容积=" + this.b50 + "m3";
     },
     get_a_9_2() {
       return this.b51;
     },
     get_b_1_1() {
-      return "发生量="+this.b62+"m3/h功率="+this.b62_1+"kw";
+      return "发生量=" + this.b62 + "m3/h功率=" + this.b62_1 + "kw";
     },
     get_b_1_2() {
       return 1;
     },
     get_b_2_1() {
-      return "容积="+this.b65+"m3";
+      return "容积=" + this.b65 + "m3";
     },
     get_b_2_2() {
       return 2;
     },
     get_b_3_1() {
-      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
-      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var array1 = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
+      var array2 = [
+        "MS1A064A",
+        "MS1A064B",
+        "MS1A064C",
+        "MS1A094A",
+        "MS1A094B",
+        "MS1A094C",
+        "MS1B108A",
+        "MS1B108B",
+        "MS1B108C",
+        "MS1C138A",
+        "MS1C138B",
+        "MS1C138C",
+        "MS1C165A",
+        "MS1C165B",
+        "MS1C165C",
+        "MS1C165C",
+      ];
       var index = array1.indexOf(this.b67_4);
       return array2[index];
     },
@@ -1896,8 +2021,42 @@ export default {
       return 2;
     },
     get_b_4_1() {
-      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
-      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var array1 = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
+      var array2 = [
+        "MS1A064A",
+        "MS1A064B",
+        "MS1A064C",
+        "MS1A094A",
+        "MS1A094B",
+        "MS1A094C",
+        "MS1B108A",
+        "MS1B108B",
+        "MS1B108C",
+        "MS1C138A",
+        "MS1C138B",
+        "MS1C138C",
+        "MS1C165A",
+        "MS1C165B",
+        "MS1C165C",
+        "MS1C165C",
+      ];
       var index = array1.indexOf(this.b72_4);
       return array2[index];
     },
@@ -1905,8 +2064,42 @@ export default {
       return 2;
     },
     get_b_5_1() {
-      var array1 = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
-      var array2 = ['MS1A064A','MS1A064B','MS1A064C','MS1A094A','MS1A094B','MS1A094C','MS1B108A','MS1B108B','MS1B108C','MS1C138A','MS1C138B','MS1C138C','MS1C165A','MS1C165B','MS1C165C','MS1C165C'];
+      var array1 = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
+      var array2 = [
+        "MS1A064A",
+        "MS1A064B",
+        "MS1A064C",
+        "MS1A094A",
+        "MS1A094B",
+        "MS1A094C",
+        "MS1B108A",
+        "MS1B108B",
+        "MS1B108C",
+        "MS1C138A",
+        "MS1C138B",
+        "MS1C138C",
+        "MS1C165A",
+        "MS1C165B",
+        "MS1C165C",
+        "MS1C165C",
+      ];
       var index = array1.indexOf(this.b74_4);
       return array2[index];
     },
@@ -1926,7 +2119,7 @@ export default {
       return " ";
     },
     get_b_10_1() {
-      return "容积="+this.b69+"m3";
+      return "容积=" + this.b69 + "m3";
     },
     get_b_10_2() {
       return 2;
@@ -1944,53 +2137,97 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b16() {
-      storeValueInLocalStorage("naclo1Data", this.b8)
-      return (parseFloat(this.b8) * parseFloat(this.b6_1) / 1000).toFixed(2);
+      storeValueInLocalStorage("naclo1Data", this.b8);
+      return ((parseFloat(this.b8) * parseFloat(this.b6_1)) / 1000).toFixed(2);
     },
     b20() {
-      return (parseFloat(this.b16) * 24 / (parseFloat(this.b9)/100)).toFixed(0);
+      return (
+        (parseFloat(this.b16) * 24) /
+        (parseFloat(this.b9) / 100)
+      ).toFixed(0);
     },
     b21() {
-      return (parseFloat(this.b17) * 24 / (parseFloat(this.b9)/100)).toFixed(1);
+      return (
+        (parseFloat(this.b17) * 24) /
+        (parseFloat(this.b9) / 100)
+      ).toFixed(1);
     },
     b22() {
-      return ((parseFloat(this.b20) + parseFloat(this.b21)) / parseFloat(this.b11)).toFixed(4);
+      return (
+        (parseFloat(this.b20) + parseFloat(this.b21)) /
+        parseFloat(this.b11)
+      ).toFixed(4);
     },
     b25() {
-      return ((parseFloat(this.b22) * parseFloat(this.b23)) / parseFloat(this.b24)).toFixed(5);
+      return (
+        (parseFloat(this.b22) * parseFloat(this.b23)) /
+        parseFloat(this.b24)
+      ).toFixed(5);
     },
     b29() {
-      return (parseFloat(this.b27) * (parseFloat(this.b16) + parseFloat(this.b17))).toFixed(4);
+      return (
+        parseFloat(this.b27) *
+        (parseFloat(this.b16) + parseFloat(this.b17))
+      ).toFixed(4);
     },
     b30() {
-      return (parseFloat(this.b29) / (parseFloat(this.b12)/100)).toFixed(2);
+      return (parseFloat(this.b29) / (parseFloat(this.b12) / 100)).toFixed(2);
     },
     b33() {
-      return (parseFloat(this.b30) * 8 / parseFloat(this.b13) / parseFloat(this.b32)).toFixed(3);
+      return (
+        (parseFloat(this.b30) * 8) /
+        parseFloat(this.b13) /
+        parseFloat(this.b32)
+      ).toFixed(3);
     },
     b34() {
-      return ((parseFloat(this.b16) + parseFloat(this.b17)) * 24 / (parseFloat(this.b10)/100) / parseFloat(this.b11)).toFixed(1);
+      return (
+        ((parseFloat(this.b16) + parseFloat(this.b17)) * 24) /
+        (parseFloat(this.b10) / 100) /
+        parseFloat(this.b11)
+      ).toFixed(1);
     },
     b36() {
       return (parseFloat(this.b34) / parseFloat(this.b35)).toFixed(1);
     },
     b38() {
-      return ((parseFloat(this.b16) + parseFloat(this.b17)) * parseFloat(this.b28)).toFixed(2);
+      return (
+        (parseFloat(this.b16) + parseFloat(this.b17)) *
+        parseFloat(this.b28)
+      ).toFixed(2);
     },
     b40() {
-      return (parseFloat(this.b20) / parseFloat(this.b11) * 1000 / 24).toFixed(2);
+      return (
+        ((parseFloat(this.b20) / parseFloat(this.b11)) * 1000) /
+        24
+      ).toFixed(2);
     },
     b41() {
-      return (parseFloat(this.b21) / parseFloat(this.b11) * 1000 / 24).toFixed(2);
+      return (
+        ((parseFloat(this.b21) / parseFloat(this.b11)) * 1000) /
+        24
+      ).toFixed(2);
     },
     b42() {
-      return (parseFloat(this.b16) * 24 / (parseFloat(this.b10)/100) / parseFloat(this.b11) * 1000 / 24).toFixed(2);
+      return (
+        (((parseFloat(this.b16) * 24) /
+          (parseFloat(this.b10) / 100) /
+          parseFloat(this.b11)) *
+          1000) /
+        24
+      ).toFixed(2);
     },
     b43() {
-      return (parseFloat(this.b17) * 24 / (parseFloat(this.b10)/100) / parseFloat(this.b11) * 1000 / 24).toFixed(2);
+      return (
+        (((parseFloat(this.b17) * 24) /
+          (parseFloat(this.b10) / 100) /
+          parseFloat(this.b11)) *
+          1000) /
+        24
+      ).toFixed(2);
     },
     b44() {
-      return (parseFloat(this.b30) * 1000 / parseFloat(this.b13)).toFixed(2);
+      return ((parseFloat(this.b30) * 1000) / parseFloat(this.b13)).toFixed(2);
     },
     b50() {
       return this.b25_1;
@@ -2011,7 +2248,7 @@ export default {
       return (parseFloat(this.b56_2) + parseFloat(this.b56_3)).toFixed(0);
     },
     b59() {
-      return (parseFloat(this.b25_1) * 2 / 0.5).toFixed(2);
+      return ((parseFloat(this.b25_1) * 2) / 0.5).toFixed(2);
     },
     b62() {
       return (parseFloat(this.b34) / 24).toFixed(1);
@@ -2047,558 +2284,643 @@ export default {
       return (parseFloat(this.b74_2) + parseFloat(this.b74_3)).toFixed(0);
     },
     b53_4() {
-      var cal1 = (parseFloat(this.b53)/parseFloat(this.b53_2));
+      var cal1 = parseFloat(this.b53) / parseFloat(this.b53_2);
       var cal2 = 0;
-      if(cal1 < 5.5){
-        cal2 = cal2 +1;
+      if (cal1 < 5.5) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 8){
-        cal2 = cal2 +1;
+      if (cal1 < 8) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 11){
-        cal2 = cal2 +1;
+      if (cal1 < 11) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 20){
-        cal2 = cal2 +1;
+      if (cal1 < 20) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 26){
-        cal2 = cal2 +1;
+      if (cal1 < 26) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 40){
-        cal2 = cal2 +1;
+      if (cal1 < 40) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 60){
-        cal2 = cal2 +1;
+      if (cal1 < 60) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 80){
-        cal2 = cal2 +1;
+      if (cal1 < 80) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 120){
-        cal2 = cal2 +1;
+      if (cal1 < 120) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 155){
-        cal2 = cal2 +1;
+      if (cal1 < 155) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 550){
-        cal2 = cal2 +1;
+      if (cal1 < 550) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 310){
-        cal2 = cal2 +1;
+      if (cal1 < 310) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 230){
-        cal2 = cal2 +1;
+      if (cal1 < 230) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 330){
-        cal2 = cal2 +1;
+      if (cal1 < 330) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 460){
-        cal2 = cal2 +1;
+      if (cal1 < 460) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 530){
-        cal2 = cal2 +1;
+      if (cal1 < 530) {
+        cal2 = cal2 + 1;
       }
-      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
       return this.findKthLargest(array, cal2);
     },
     b56_4() {
-      var cal1 = (parseFloat(this.b56)/parseFloat(this.b56_2));
+      var cal1 = parseFloat(this.b56) / parseFloat(this.b56_2);
       var cal2 = 0;
-      if(cal1 < 5.5){
-        cal2 = cal2 +1;
+      if (cal1 < 5.5) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 8){
-        cal2 = cal2 +1;
+      if (cal1 < 8) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 11){
-        cal2 = cal2 +1;
+      if (cal1 < 11) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 20){
-        cal2 = cal2 +1;
+      if (cal1 < 20) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 26){
-        cal2 = cal2 +1;
+      if (cal1 < 26) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 40){
-        cal2 = cal2 +1;
+      if (cal1 < 40) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 60){
-        cal2 = cal2 +1;
+      if (cal1 < 60) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 80){
-        cal2 = cal2 +1;
+      if (cal1 < 80) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 120){
-        cal2 = cal2 +1;
+      if (cal1 < 120) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 155){
-        cal2 = cal2 +1;
+      if (cal1 < 155) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 550){
-        cal2 = cal2 +1;
+      if (cal1 < 550) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 310){
-        cal2 = cal2 +1;
+      if (cal1 < 310) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 230){
-        cal2 = cal2 +1;
+      if (cal1 < 230) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 330){
-        cal2 = cal2 +1;
+      if (cal1 < 330) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 460){
-        cal2 = cal2 +1;
+      if (cal1 < 460) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 530){
-        cal2 = cal2 +1;
+      if (cal1 < 530) {
+        cal2 = cal2 + 1;
       }
-      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
       return this.findKthLargest(array, cal2);
     },
     b67_4() {
-      var cal1 = (parseFloat(this.b67)/parseFloat(this.b67_2));
+      var cal1 = parseFloat(this.b67) / parseFloat(this.b67_2);
       var cal2 = 0;
-      if(cal1 < 5.5){
-        cal2 = cal2 +1;
+      if (cal1 < 5.5) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 8){
-        cal2 = cal2 +1;
+      if (cal1 < 8) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 11){
-        cal2 = cal2 +1;
+      if (cal1 < 11) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 20){
-        cal2 = cal2 +1;
+      if (cal1 < 20) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 26){
-        cal2 = cal2 +1;
+      if (cal1 < 26) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 40){
-        cal2 = cal2 +1;
+      if (cal1 < 40) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 60){
-        cal2 = cal2 +1;
+      if (cal1 < 60) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 80){
-        cal2 = cal2 +1;
+      if (cal1 < 80) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 120){
-        cal2 = cal2 +1;
+      if (cal1 < 120) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 155){
-        cal2 = cal2 +1;
+      if (cal1 < 155) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 550){
-        cal2 = cal2 +1;
+      if (cal1 < 550) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 310){
-        cal2 = cal2 +1;
+      if (cal1 < 310) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 230){
-        cal2 = cal2 +1;
+      if (cal1 < 230) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 330){
-        cal2 = cal2 +1;
+      if (cal1 < 330) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 460){
-        cal2 = cal2 +1;
+      if (cal1 < 460) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 530){
-        cal2 = cal2 +1;
+      if (cal1 < 530) {
+        cal2 = cal2 + 1;
       }
-      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
       return this.findKthLargest(array, cal2);
     },
     b72_4() {
-      var cal1 = (parseFloat(this.b72)/parseFloat(this.b72_2));
+      var cal1 = parseFloat(this.b72) / parseFloat(this.b72_2);
       var cal2 = 0;
-      if(cal1 < 5.5){
-        cal2 = cal2 +1;
+      if (cal1 < 5.5) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 8){
-        cal2 = cal2 +1;
+      if (cal1 < 8) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 11){
-        cal2 = cal2 +1;
+      if (cal1 < 11) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 20){
-        cal2 = cal2 +1;
+      if (cal1 < 20) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 26){
-        cal2 = cal2 +1;
+      if (cal1 < 26) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 40){
-        cal2 = cal2 +1;
+      if (cal1 < 40) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 60){
-        cal2 = cal2 +1;
+      if (cal1 < 60) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 80){
-        cal2 = cal2 +1;
+      if (cal1 < 80) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 120){
-        cal2 = cal2 +1;
+      if (cal1 < 120) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 155){
-        cal2 = cal2 +1;
+      if (cal1 < 155) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 550){
-        cal2 = cal2 +1;
+      if (cal1 < 550) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 310){
-        cal2 = cal2 +1;
+      if (cal1 < 310) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 230){
-        cal2 = cal2 +1;
+      if (cal1 < 230) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 330){
-        cal2 = cal2 +1;
+      if (cal1 < 330) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 460){
-        cal2 = cal2 +1;
+      if (cal1 < 460) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 530){
-        cal2 = cal2 +1;
+      if (cal1 < 530) {
+        cal2 = cal2 + 1;
       }
-      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
       return this.findKthLargest(array, cal2);
     },
     b74_4() {
-      var cal1 = (parseFloat(this.b53)/parseFloat(this.b53_2));
+      var cal1 = parseFloat(this.b53) / parseFloat(this.b53_2);
       var cal2 = 0;
-      if(cal1 < 5.5){
-        cal2 = cal2 +1;
+      if (cal1 < 5.5) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 8){
-        cal2 = cal2 +1;
+      if (cal1 < 8) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 11){
-        cal2 = cal2 +1;
+      if (cal1 < 11) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 20){
-        cal2 = cal2 +1;
+      if (cal1 < 20) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 26){
-        cal2 = cal2 +1;
+      if (cal1 < 26) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 40){
-        cal2 = cal2 +1;
+      if (cal1 < 40) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 60){
-        cal2 = cal2 +1;
+      if (cal1 < 60) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 80){
-        cal2 = cal2 +1;
+      if (cal1 < 80) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 120){
-        cal2 = cal2 +1;
+      if (cal1 < 120) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 155){
-        cal2 = cal2 +1;
+      if (cal1 < 155) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 550){
-        cal2 = cal2 +1;
+      if (cal1 < 550) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 310){
-        cal2 = cal2 +1;
+      if (cal1 < 310) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 230){
-        cal2 = cal2 +1;
+      if (cal1 < 230) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 330){
-        cal2 = cal2 +1;
+      if (cal1 < 330) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 460){
-        cal2 = cal2 +1;
+      if (cal1 < 460) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 530){
-        cal2 = cal2 +1;
+      if (cal1 < 530) {
+        cal2 = cal2 + 1;
       }
-      var array = [5.5,8,11,20,26,40,60,80,120,155,550,310,230,330,460,530];
+      var array = [
+        5.5,
+        8,
+        11,
+        20,
+        26,
+        40,
+        60,
+        80,
+        120,
+        155,
+        550,
+        310,
+        230,
+        330,
+        460,
+        530,
+      ];
       return this.findKthLargest(array, cal2);
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "次氯酸钠储罐",
-        设备类型: "",
-        规格及型号: this.get_a_1_1(),
-        单位: "个",
-        数量: this.get_a_1_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        设备位号: "",
-        设备工艺名称: "计量泵-消毒",
-        设备类型: "机械隔膜计量泵",
-        规格及型号: this.get_a_2_1(),
-        单位: "台",
-        数量: this.get_a_2_2(),
-        运行时间: "",
-        主要材质: "PC泵头",
-        备注: "一用一备",
-      },
-      {
-        序号: "3",
-        设备位号: "",
-        设备工艺名称: "计量泵-预处理",
-        设备类型: "机械隔膜计量泵",
-        规格及型号: this.get_a_3_1(),
-        单位: "台",
-        数量: this.get_a_3_2(),
-        运行时间: "",
-        主要材质: "PC泵头",
-        备注: "一用一备",
-      },
-      {
-        序号: "4",
-        设备位号: "",
-        设备工艺名称: "液压阀",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_a_4_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "5",
-        设备位号: "",
-        设备工艺名称: "背压阀",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_a_5_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "6",
-        设备位号: "",
-        设备工艺名称: "脉冲阻尼器",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_a_6_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "7",
-        设备位号: "",
-        设备工艺名称: "Y型过滤器",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_a_7_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "8",
-        设备位号: "",
-        设备工艺名称: "卸液泵",
-        设备类型: "",
-        规格及型号: this.get_a_8_1(),
-        单位: "台",
-        数量: this.get_a_8_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "9",
-        设备位号: "",
-        设备工艺名称: "次氯酸钠储罐（PE储罐）",
-        设备类型: "",
-        规格及型号: this.get_a_9_1(),
-        单位: "个",
-        数量: this.get_a_9_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "次氯酸钠发生器",
-        设备类型: "",
-        规格及型号: this.get_b_1_1(),
-        单位: "台",
-        数量: this.get_b_1_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        设备位号: "",
-        设备工艺名称: "溶盐箱",
-        设备类型: "",
-        规格及型号: this.get_b_2_1(),
-        单位: "个",
-        数量: this.get_b_2_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "3",
-        设备位号: "",
-        设备工艺名称: "食盐水计量泵",
-        设备类型: "机械隔膜计量泵",
-        规格及型号: this.get_b_3_1(),
-        单位: "台",
-        数量: this.get_b_3_2(),
-        运行时间: "",
-        主要材质: "PC泵头",
-        备注: "一用一备",
-      },
-      {
-        序号: "4",
-        设备位号: "",
-        设备工艺名称: "计量泵-消毒",
-        设备类型: "机械隔膜计量泵",
-        规格及型号: this.get_b_4_1(),
-        单位: "台",
-        数量: this.get_b_4_2(),
-        运行时间: "",
-        主要材质: "PC泵头",
-        备注: "一用一备",
-      },
-      {
-        序号: "5",
-        设备位号: "",
-        设备工艺名称: "次氯酸钠储罐",
-        设备类型: "机械隔膜计量泵",
-        规格及型号: this.get_b_5_1(),
-        单位: "台",
-        数量: this.get_b_5_2(),
-        运行时间: "",
-        主要材质: "PC泵头",
-        备注: "一用一备",
-      },
-      {
-        序号: "6",
-        设备位号: "",
-        设备工艺名称: "液压阀",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_b_6_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "7",
-        设备位号: "",
-        设备工艺名称: "背压阀",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_b_7_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "8",
-        设备位号: "",
-        设备工艺名称: "脉冲阻尼器",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_b_8_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "9",
-        设备位号: "",
-        设备工艺名称: "Y型过滤器",
-        设备类型: "",
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_b_9_1(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "10",
-        设备位号: "",
-        设备工艺名称: "次氯酸钠储罐（PE储罐）",
-        设备类型: "",
-        规格及型号: this.get_b_10_1(),
-        单位: "个",
-        数量: this.get_b_10_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "次氯酸钠储罐",
+          设备类型: "",
+          规格及型号: this.get_a_1_1(),
+          单位: "个",
+          数量: this.get_a_1_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "计量泵-消毒",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_a_2_1(),
+          单位: "台",
+          数量: this.get_a_2_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "一用一备",
+        },
+        {
+          序号: "3",
+          设备位号: "",
+          设备工艺名称: "计量泵-预处理",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_a_3_1(),
+          单位: "台",
+          数量: this.get_a_3_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "一用一备",
+        },
+        {
+          序号: "4",
+          设备位号: "",
+          设备工艺名称: "液压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_a_4_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "5",
+          设备位号: "",
+          设备工艺名称: "背压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_a_5_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "6",
+          设备位号: "",
+          设备工艺名称: "脉冲阻尼器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_a_6_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "7",
+          设备位号: "",
+          设备工艺名称: "Y型过滤器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_a_7_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "8",
+          设备位号: "",
+          设备工艺名称: "卸液泵",
+          设备类型: "",
+          规格及型号: this.get_a_8_1(),
+          单位: "台",
+          数量: this.get_a_8_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "9",
+          设备位号: "",
+          设备工艺名称: "次氯酸钠储罐（PE储罐）",
+          设备类型: "",
+          规格及型号: this.get_a_9_1(),
+          单位: "个",
+          数量: this.get_a_9_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "次氯酸钠发生器",
+          设备类型: "",
+          规格及型号: this.get_b_1_1(),
+          单位: "台",
+          数量: this.get_b_1_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "溶盐箱",
+          设备类型: "",
+          规格及型号: this.get_b_2_1(),
+          单位: "个",
+          数量: this.get_b_2_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "3",
+          设备位号: "",
+          设备工艺名称: "食盐水计量泵",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_b_3_1(),
+          单位: "台",
+          数量: this.get_b_3_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "一用一备",
+        },
+        {
+          序号: "4",
+          设备位号: "",
+          设备工艺名称: "计量泵-消毒",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_b_4_1(),
+          单位: "台",
+          数量: this.get_b_4_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "一用一备",
+        },
+        {
+          序号: "5",
+          设备位号: "",
+          设备工艺名称: "次氯酸钠储罐",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_b_5_1(),
+          单位: "台",
+          数量: this.get_b_5_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "一用一备",
+        },
+        {
+          序号: "6",
+          设备位号: "",
+          设备工艺名称: "液压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_b_6_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "7",
+          设备位号: "",
+          设备工艺名称: "背压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_b_7_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "8",
+          设备位号: "",
+          设备工艺名称: "脉冲阻尼器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_b_8_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "9",
+          设备位号: "",
+          设备工艺名称: "Y型过滤器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_b_9_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "10",
+          设备位号: "",
+          设备工艺名称: "次氯酸钠储罐（PE储罐）",
+          设备类型: "",
+          规格及型号: this.get_b_10_1(),
+          单位: "个",
+          数量: this.get_b_10_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "1",
-        仪表位号: "",
-        仪表名称: "压力表",
-        安装位置: "",
-        规格及型号: "",
-        单位: "个",
-        数量: "4",
-        a: "",
-        b: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        仪表位号: "",
-        仪表名称: "流量计",
-        安装位置: "",
-        规格及型号: "",
-        单位: "个",
-        数量: "4",
-        a: "",
-        b: "",
-        备注: "",
-      },
-      {
-        序号: "1",
-        仪表位号: "",
-        仪表名称: "压力表",
-        安装位置: "",
-        规格及型号: "",
-        单位: "个",
-        数量: "6",
-        a: "",
-        b: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        仪表位号: "",
-        仪表名称: "流量计",
-        安装位置: "",
-        规格及型号: "",
-        单位: "个",
-        数量: "6",
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
+        {
+          序号: "1",
+          仪表位号: "",
+          仪表名称: "压力表",
+          安装位置: "",
+          规格及型号: "",
+          单位: "个",
+          数量: "4",
+          a: "",
+          b: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          仪表位号: "",
+          仪表名称: "流量计",
+          安装位置: "",
+          规格及型号: "",
+          单位: "个",
+          数量: "4",
+          a: "",
+          b: "",
+          备注: "",
+        },
+        {
+          序号: "1",
+          仪表位号: "",
+          仪表名称: "压力表",
+          安装位置: "",
+          规格及型号: "",
+          单位: "个",
+          数量: "6",
+          a: "",
+          b: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          仪表位号: "",
+          仪表名称: "流量计",
+          安装位置: "",
+          规格及型号: "",
+          单位: "个",
+          数量: "6",
+          a: "",
+          b: "",
+          备注: "",
+        },
+      ];
     },
   },
   watch() {

@@ -16,9 +16,14 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -82,27 +87,6 @@
               </a-form-item>
             </a-form>
           </div>
-          <a-card
-            :title="$t('referenceInformation')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-          >
-            <div>
-              <p>接触消毒池</p>
-              <p>
-                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-              </p>
-            </div>
-            <div class="baseQueryParam">
-              <a-form>
-                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img
-                    width="400px"
-                    src="@/assets/img/2000/Disinfection_01.png"
-                  />
-                </a-form-item>
-              </a-form>
-            </div>
-          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -345,9 +329,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns"
@@ -416,21 +404,28 @@
       </p>
       <br />
     </div>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns"
-              :data-source="data"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns"
+            :data-source="data"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -442,7 +437,7 @@ import {
   exportExcel,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -547,10 +542,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -609,9 +604,7 @@ export default {
           ...this.data.map((item) => Object.values(item)),
         ];
 
-        const data = [
-          ...allData1,
-        ];
+        const data = [...allData1];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -717,19 +710,19 @@ export default {
     },
     data() {
       return [
-      {
-        序号: "1",
-        单体位号: "",
-        名称: "接触消毒池",
-        Dimensions: this.getDimensions(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: this.getDisinfectiontank(),
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "接触消毒池",
+          Dimensions: this.getDimensions(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: this.getDisinfectiontank(),
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
   },
   watch() {

@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -68,7 +73,12 @@
                   :wrapperCol="{ span: 14 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b4" rows="12" :placeholder="$t('b4')" @change="refreshInitData()" />
+                    <a-input
+                      v-model="b4"
+                      rows="12"
+                      :placeholder="$t('b4')"
+                      @change="refreshInitData()"
+                    />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -175,15 +185,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/3000/3005.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -1290,9 +1299,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1355,35 +1368,42 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -1395,7 +1415,7 @@ import {
   exportExcel2,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1601,10 +1621,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -1649,12 +1669,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel2(
-          allData1,
-          allData3,
-          "水力循环澄清池工程量",
-          this
-        );
+        exportExcel2(allData1, allData3, "水力循环澄清池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1724,12 +1739,7 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-        const data = [
-          ...allData1,
-          null,
-          null,
-          ...allData3,
-        ];
+        const data = [...allData1, null, null, ...allData3];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -1751,10 +1761,10 @@ export default {
       return Math.round(number * multiplier) / multiplier;
     },
     get_a_1() {
-      return "Ø"+this.b39_1+"×"+this.b41+"m";
+      return "Ø" + this.b39_1 + "×" + this.b41 + "m";
     },
     get_b_1() {
-      return "0~"+this.b41+"m，4~20mA信号输出，就地显示";
+      return "0~" + this.b41 + "m，4~20mA信号输出，就地显示";
     },
   },
   computed: {
@@ -2006,35 +2016,35 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "1",
-        名称: "机械搅拌澄清池",
-        尺寸: this.get_a_1(),
-        标高: "",
-        单位: "座",
-        数量: "1",
-        结构形式: "钢砼",
-        备注: "半地下式",
-        暖通要求: "无",
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "1",
+          名称: "机械搅拌澄清池",
+          尺寸: this.get_a_1(),
+          标高: "",
+          单位: "座",
+          数量: "1",
+          结构形式: "钢砼",
+          备注: "半地下式",
+          暖通要求: "无",
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "1",
-        仪表位号: "1",
-        安装位置: "污泥斗",
-        仪表名称: "超声波泥位计",
-        规格及型号: this.get_b_1(),
-        单位: "台",
-        数量: "1",
-        备注: "",
-        生产厂家: "",
-        a: "",
-      },
-    ];
+        {
+          序号: "1",
+          仪表位号: "1",
+          安装位置: "污泥斗",
+          仪表名称: "超声波泥位计",
+          规格及型号: this.get_b_1(),
+          单位: "台",
+          数量: "1",
+          备注: "",
+          生产厂家: "",
+          a: "",
+        },
+      ];
     },
   },
   watch() {

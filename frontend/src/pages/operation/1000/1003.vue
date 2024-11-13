@@ -227,6 +227,18 @@
               </a-form>
             </a-card>
           </a-card>
+          <a-card
+            :title="$t('referenceInformation')"
+            :headStyle="{ 'font-weight': 'bolder' }"
+          >
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1003.jpg" />
+                </a-form-item>
+              </a-form>
+            </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -744,7 +756,7 @@ export default {
         key1: this.b4,
         key2: this.b8,
       };
-      exportWord("次氯酸钠计算书", "1003.docx", data, this);
+      exportWord("加药系统次氯酸钠计算书", "1003.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -752,7 +764,7 @@ export default {
         key2: this.b8,
       };
       initWordStorage("1003.docx", data);
-      this.handleExcelCache("1003.xlsx", "次氯酸钠工程量");
+      this.handleExcelCache("1003.xlsx", "加药系统次氯酸钠工程量");
     },
     handleExcelCache(path, name) {
       try {

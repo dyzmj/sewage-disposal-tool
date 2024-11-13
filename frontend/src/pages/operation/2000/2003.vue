@@ -189,6 +189,18 @@
               </a-form>
             </div>
           </a-card>
+          <a-card :title="$t('referenceInformation')">
+                <div class="baseQueryParam">
+                  <a-form>
+                    <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                      <img
+                        style="max-width: 360px; height: auto;"
+                        src="@/assets/img/2000/2003.jpg"
+                      />
+                    </a-form-item>
+                  </a-form>
+                </div>
+          </a-card>
         </a-card>
       </a-col>
       <a-col

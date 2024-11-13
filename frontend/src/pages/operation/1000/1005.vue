@@ -96,16 +96,10 @@
             :title="$t('referenceImage')"
             :headStyle="{ 'font-weight': 'bolder' }"
           >
-            <div>
-              <p>高锰酸钾</p>
-              <p>
-                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-              </p>
-            </div>
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/1000/1002.png" />
+                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1005.jpg" />
                 </a-form-item>
               </a-form>
             </div>
@@ -1087,7 +1081,7 @@ export default {
         key2: this.b10,
         key3: this.b11,
       };
-      exportWord("高锰酸钾计算书", "1005.docx", data, this);
+      exportWord("加药系统高锰酸钾计算书", "1005.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -1096,7 +1090,7 @@ export default {
         key3: this.b10,
       };
       initWordStorage("1005.docx", data);
-      this.handleExcelCache("1005.xlsx", "高锰酸钾工程量");
+      this.handleExcelCache("1005.xlsx", "加药系统高锰酸钾工程量");
     },
     handleExcelCache(path, name) {
       try {

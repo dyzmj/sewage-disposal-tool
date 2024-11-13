@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -271,7 +276,12 @@
                         :suffix="$t('b6_2_u')"
                         style="width: 50%;"
                       />
-                      <a-input v-model="b6_3" :disabled="true" rows="12" style="width: 10 0%;" />
+                      <a-input
+                        v-model="b6_3"
+                        :disabled="true"
+                        rows="12"
+                        style="width: 10 0%;"
+                      />
                     </a-input-group>
                   </a-form-item>
                 </a-form-item>
@@ -322,21 +332,21 @@
                   :labelCol="{ span: 6 }"
                   :wrapperCol="{ span: 18 }"
                 >
-                <a-form-item
-                  :label="b9_1_u"
-                  style="margin-top: 10px"
-                  :labelCol="{ span: 8 }"
-                  :wrapperCol="{ span: 16 }"
-                >
-                  <a-input-group compact>
-                    <a-input
-                      v-model="b9_1"
-                      :disabled="true"
-                      rows="12"
-                      :suffix="$t('b9_1_u')"
-                    />
-                  </a-input-group>
-                </a-form-item>
+                  <a-form-item
+                    :label="b9_1_u"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 8 }"
+                    :wrapperCol="{ span: 16 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b9_1"
+                        :disabled="true"
+                        rows="12"
+                        :suffix="$t('b9_1_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
                 </a-form-item>
 
                 <a-form-item
@@ -356,19 +366,18 @@
                 </a-form-item>
               </a-form>
             </div>
-            <a-card
-              :title="$t('referenceImage')"
-              :headStyle="{ 'font-weight': 'bolder' }"
-              size="small"
-            >
-              <div class="baseQueryParam">
-                <a-form>
-                  <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                    <img width="400px" src="@/assets/img/5000/5001_1.png" />
-                  </a-form-item>
-                </a-form>
-              </div>
-            </a-card>
+          </a-card>
+          <a-card :title="$t('referenceInformation')">
+            <div class="baseQueryParam">
+              <a-form>
+                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/9000/9001.jpg"
+                  />
+                </a-form-item>
+              </a-form>
+            </div>
           </a-card>
         </a-card>
       </a-col>
@@ -1695,9 +1704,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1775,49 +1788,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -2131,10 +2151,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -2310,89 +2330,110 @@ export default {
       var multiplier = Math.pow(10, num_digits);
       return Math.round(number * multiplier) / multiplier;
     },
-    get_a_1_1(){
-      return this.b12+"m×"+this.b13+"m×"+(parseFloat(this.b11) + parseFloat(this.b11_1))+"m"
+    get_a_1_1() {
+      return (
+        this.b12 +
+        "m×" +
+        this.b13 +
+        "m×" +
+        (parseFloat(this.b11) + parseFloat(this.b11_1)) +
+        "m"
+      );
     },
-    get_a_2_1(){
-      return this.b20+"m×"+this.b21+"m×"+(parseFloat(this.b19) + parseFloat(this.b19_1))+"m"
+    get_a_2_1() {
+      return (
+        this.b20 +
+        "m×" +
+        this.b21 +
+        "m×" +
+        (parseFloat(this.b19) + parseFloat(this.b19_1)) +
+        "m"
+      );
     },
-    get_a_3_1(){
-      return "φ"+this.b31+"m×"+this.b34+"m";
+    get_a_3_1() {
+      return "φ" + this.b31 + "m×" + this.b34 + "m";
     },
-    get_a_3_2(){
+    get_a_3_2() {
       return this.b32;
     },
-    get_a_4_1(){
-      return this.b49+"m×"+this.b50+"m×"+(parseFloat(this.b48) + parseFloat(this.b48_1))+"m"
+    get_a_4_1() {
+      return (
+        this.b49 +
+        "m×" +
+        this.b50 +
+        "m×" +
+        (parseFloat(this.b48) + parseFloat(this.b48_1)) +
+        "m"
+      );
     },
-    get_b_1_1(){
-      return "P="+this.b14+"kW";
+    get_b_1_1() {
+      return "P=" + this.b14 + "kW";
     },
-    get_b_2_1(){
-      return "流量Q="+this.b17+"m3/h，扬程H="+this.b17_1+"m";
+    get_b_2_1() {
+      return "流量Q=" + this.b17 + "m3/h，扬程H=" + this.b17_1 + "m";
     },
-    get_b_2_2(){
-      return (parseFloat(this.b15) + parseFloat(this.b16));
+    get_b_2_2() {
+      return parseFloat(this.b15) + parseFloat(this.b16);
     },
-    get_b_2_3(){
-      return this.b15+"用"+this.b16+"备";
+    get_b_2_3() {
+      return this.b15 + "用" + this.b16 + "备";
     },
-    get_b_3_1(){
-      return "P="+this.b22+"kW";
+    get_b_3_1() {
+      return "P=" + this.b22 + "kW";
     },
-    get_b_4_1(){
-      return "流量Q="+this.b25+"m3/h，扬程H="+this.b25_1+"m";
+    get_b_4_1() {
+      return "流量Q=" + this.b25 + "m3/h，扬程H=" + this.b25_1 + "m";
     },
-    get_b_4_2(){
-      return (parseFloat(this.b23) + parseFloat(this.b24));
+    get_b_4_2() {
+      return parseFloat(this.b23) + parseFloat(this.b24);
     },
-    get_b_4_3(){
-      return this.b23+"用"+this.b24+"备";
+    get_b_4_3() {
+      return this.b23 + "用" + this.b24 + "备";
     },
-    get_b_5_1(){
-      return "φ="+this.b31+"m";
+    get_b_5_1() {
+      return "φ=" + this.b31 + "m";
     },
-    get_b_5_2(){
+    get_b_5_2() {
       return this.b32;
     },
-    get_b_6_1(){
-      return "P="+this.b51+"kW";
+    get_b_6_1() {
+      return "P=" + this.b51 + "kW";
     },
-    get_b_7_1(){
-      return "流量Q="+this.b66+"m3/h，扬程H="+this.b66_1+"m";
+    get_b_7_1() {
+      return "流量Q=" + this.b66 + "m3/h，扬程H=" + this.b66_1 + "m";
     },
-    get_b_7_2(){
-      return (parseFloat(this.b64) + parseFloat(this.b65));
+    get_b_7_2() {
+      return parseFloat(this.b64) + parseFloat(this.b65);
     },
-    get_b_7_3(){
-      return this.b64+"用"+this.b65+"备";
+    get_b_7_3() {
+      return this.b64 + "用" + this.b65 + "备";
     },
-    get_b_8_1(){
-      return "生产能力>"+this.b63_1+"m3/h";
+    get_b_8_1() {
+      return "生产能力>" + this.b63_1 + "m3/h";
     },
-    get_b_8_2(){
-      return (parseFloat(this.b61) + parseFloat(this.b62));
+    get_b_8_2() {
+      return parseFloat(this.b61) + parseFloat(this.b62);
     },
-    get_b_8_3(){
-      return this.b61+"用"+this.b62+"备";
+    get_b_8_3() {
+      return this.b61 + "用" + this.b62 + "备";
     },
-    get_b_9_1(){
-      return "流量Q="+this.b78+"m3/h，扬程H="+this.b78_1+"m";
+    get_b_9_1() {
+      return "流量Q=" + this.b78 + "m3/h，扬程H=" + this.b78_1 + "m";
     },
-    get_b_9_2(){
-      return (parseFloat(this.b76) + parseFloat(this.b77));
+    get_b_9_2() {
+      return parseFloat(this.b76) + parseFloat(this.b77);
     },
-    get_b_9_3(){
-      return this.b76+"用"+this.b77+"备";
+    get_b_9_3() {
+      return this.b76 + "用" + this.b77 + "备";
     },
-    get_b_10_1(){
-      return "过滤面积>"+this.b75+"m2，过滤压力="+this.b69+"MPa";
+    get_b_10_1() {
+      return "过滤面积>" + this.b75 + "m2，过滤压力=" + this.b69 + "MPa";
     },
-    get_b_10_2(){
-      return (parseFloat(this.b70) + parseFloat(this.b71));
+    get_b_10_2() {
+      return parseFloat(this.b70) + parseFloat(this.b71);
     },
-    get_b_10_3(){
-      return this.b70+"用"+this.b71+"备";
+    get_b_10_3() {
+      return this.b70 + "用" + this.b71 + "备";
     },
   },
   computed: {
@@ -2457,359 +2498,429 @@ export default {
     b9_1_u() {
       if (parseFloat(this.b6_3) === parseFloat(this.b6_2)) {
         return "以浊度计算";
-      }else {
+      } else {
         return "以SS计算";
       }
     },
     b13() {
-      return this.ROUND(parseFloat(this.b10)/parseFloat(this.b11)/parseFloat(this.b12),2)
+      return this.ROUND(
+        parseFloat(this.b10) / parseFloat(this.b11) / parseFloat(this.b12),
+        2
+      );
     },
     b14() {
-      return (parseFloat(this.b10)*parseFloat(this.b14_1)/1000).toFixed(2);
+      return ((parseFloat(this.b10) * parseFloat(this.b14_1)) / 1000).toFixed(
+        2
+      );
     },
     b15() {
       return this.b23;
     },
     b16() {
-      if(this.ROUND(parseFloat(this.b15)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b15) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b15)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b15) / 3, 0);
       }
     },
     b17() {
-      return this.ROUND(parseFloat(this.b10)/parseFloat(this.b15)/24, 2);
+      return this.ROUND(parseFloat(this.b10) / parseFloat(this.b15) / 24, 2);
     },
     b17_1() {
-      return this.ROUND((
-        parseFloat(this.b11_1) + parseFloat(this.b11_2) + parseFloat(this.b11) + 2
-      ),0);
+      return this.ROUND(
+        parseFloat(this.b11_1) +
+          parseFloat(this.b11_2) +
+          parseFloat(this.b11) +
+          2,
+        0
+      );
     },
     b21() {
-      return this.ROUND((
-        parseFloat(this.b18)/parseFloat(this.b19)/parseFloat(this.b20)
-      ),2);
+      return this.ROUND(
+        parseFloat(this.b18) / parseFloat(this.b19) / parseFloat(this.b20),
+        2
+      );
     },
     b22() {
-      return (parseFloat(this.b18)*parseFloat(this.b22_1)/1000).toFixed(2);
+      return ((parseFloat(this.b18) * parseFloat(this.b22_1)) / 1000).toFixed(
+        2
+      );
     },
     b23() {
       return this.b32;
     },
     b24() {
-      if(this.ROUND(parseFloat(this.b23)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b23) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b23)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b23) / 3, 0);
       }
     },
     b25() {
-      return this.ROUND((
-        parseFloat(this.b18)/parseFloat(this.b23)/24
-      ),2);
+      return this.ROUND(parseFloat(this.b18) / parseFloat(this.b23) / 24, 2);
     },
     b25_1() {
-      return this.ROUND((
-        parseFloat(this.b34) + parseFloat(this.b19_1) + parseFloat(this.b19) + 2
-      ),0);
+      return this.ROUND(
+        parseFloat(this.b34) +
+          parseFloat(this.b19_1) +
+          parseFloat(this.b19) +
+          2,
+        0
+      );
     },
     b26() {
       return this.b9_2;
     },
     b28() {
-      return (
-        (1 - parseFloat(this.b9_2) / 100) *
-        1000
-      ).toFixed(2);
+      return ((1 - parseFloat(this.b9_2) / 100) * 1000).toFixed(2);
     },
     b30() {
-      return (parseFloat(this.b9_1)*parseFloat(this.b28)/parseFloat(this.b29)).toFixed(2);
+      return (
+        (parseFloat(this.b9_1) * parseFloat(this.b28)) /
+        parseFloat(this.b29)
+      ).toFixed(2);
     },
     b31() {
-      return Math.ceil((
-        Math.pow((4*parseFloat(this.b33)/3.14),0.5)
-      ),1);
+      return Math.ceil(Math.pow((4 * parseFloat(this.b33)) / 3.14, 0.5), 1);
     },
     b33() {
-      return this.ROUND(parseFloat(this.b30)/parseFloat(this.b32), 0);
+      return this.ROUND(parseFloat(this.b30) / parseFloat(this.b32), 0);
     },
     b34() {
-      return this.ROUND(parseFloat(this.b35) + parseFloat(this.b36)+parseFloat(this.b38)+parseFloat(this.b42)+parseFloat(this.b43),2);
+      return this.ROUND(
+        parseFloat(this.b35) +
+          parseFloat(this.b36) +
+          parseFloat(this.b38) +
+          parseFloat(this.b42) +
+          parseFloat(this.b43),
+        2
+      );
     },
     b36() {
-      return (parseFloat(this.b9_1) * parseFloat(this.b37)/24/parseFloat(this.b30)).toFixed(2);
+      return (
+        (parseFloat(this.b9_1) * parseFloat(this.b37)) /
+        24 /
+        parseFloat(this.b30)
+      ).toFixed(2);
     },
     b42() {
-      return (parseFloat(this.b39) * (parseFloat(this.b31)-parseFloat(this.b41))/2).toFixed(2);
+      return (
+        (parseFloat(this.b39) * (parseFloat(this.b31) - parseFloat(this.b41))) /
+        2
+      ).toFixed(2);
     },
     b43() {
       return (
-        Math.tan(
-          parseFloat(this.b44)*(Math.PI/180)
-        ) * (parseFloat(this.b41) - parseFloat(this.b40)) / 2
+        (Math.tan(parseFloat(this.b44) * (Math.PI / 180)) *
+          (parseFloat(this.b41) - parseFloat(this.b40))) /
+        2
       ).toFixed(2);
     },
     b45() {
       return (
-        parseFloat(this.b9_1) * (1 - (parseFloat(this.b9_2)/100)) / (1 - parseFloat(this.b27)/100)
+        (parseFloat(this.b9_1) * (1 - parseFloat(this.b9_2) / 100)) /
+        (1 - parseFloat(this.b27) / 100)
       ).toFixed(2);
     },
     b50() {
-      return (parseFloat(this.b47)/parseFloat(this.b48)/parseFloat(this.b49)).toFixed(2);
+      return (
+        parseFloat(this.b47) /
+        parseFloat(this.b48) /
+        parseFloat(this.b49)
+      ).toFixed(2);
     },
     b51() {
-      return (parseFloat(this.b47) * parseFloat(this.b51_1)/1000).toFixed(2);
+      return ((parseFloat(this.b47) * parseFloat(this.b51_1)) / 1000).toFixed(
+        2
+      );
     },
     b53() {
       return (
-        parseFloat(this.b9_1) * 1000 * (1 - (parseFloat(this.b9_2)/100))
+        parseFloat(this.b9_1) *
+        1000 *
+        (1 - parseFloat(this.b9_2) / 100)
       ).toFixed(2);
     },
     b54() {
       return this.b27;
     },
     b55() {
-      return (parseFloat(this.b53)/(1-parseFloat(this.b54)/100) / 1000).toFixed(3);
+      return (
+        parseFloat(this.b53) /
+        (1 - parseFloat(this.b54) / 100) /
+        1000
+      ).toFixed(3);
     },
     b57() {
-      return (parseFloat(this.b53)/(1-parseFloat(this.b56)/100) / 1000).toFixed(2);
+      return (
+        parseFloat(this.b53) /
+        (1 - parseFloat(this.b56) / 100) /
+        1000
+      ).toFixed(2);
     },
     b60() {
-      return (parseFloat(this.b57)/parseFloat(this.b59)).toFixed(2);
+      return (parseFloat(this.b57) / parseFloat(this.b59)).toFixed(2);
     },
     b62() {
-      if(this.ROUND(parseFloat(this.b61)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b61) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b61)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b61) / 3, 0);
       }
     },
     b63() {
-      return (parseFloat(this.b60)/parseFloat(this.b61)).toFixed(2);
+      return (parseFloat(this.b60) / parseFloat(this.b61)).toFixed(2);
     },
     b64() {
       return this.b61;
     },
     b65() {
-      if(this.ROUND(parseFloat(this.b64)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b64) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b64)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b64) / 3, 0);
       }
     },
     b66() {
-      return (parseFloat(this.b47)/parseFloat(this.b61)/parseFloat(this.b59)).toFixed(2);
+      return (
+        parseFloat(this.b47) /
+        parseFloat(this.b61) /
+        parseFloat(this.b59)
+      ).toFixed(2);
     },
     b66_1() {
-      return this.ROUND((
-        parseFloat(this.b58) * 100 + parseFloat(this.b48_1) + parseFloat(this.b48) + 2
-      ), 0);
+      return this.ROUND(
+        parseFloat(this.b58) * 100 +
+          parseFloat(this.b48_1) +
+          parseFloat(this.b48) +
+          2,
+        0
+      );
     },
     b68() {
-      return (parseFloat(this.b53)/(1-parseFloat(this.b67)/100) / 1000).toFixed(2);
+      return (
+        parseFloat(this.b53) /
+        (1 - parseFloat(this.b67) / 100) /
+        1000
+      ).toFixed(2);
     },
     b71() {
-      if(this.ROUND(parseFloat(this.b70)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b70) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b70)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b70) / 3, 0);
       }
     },
     b75() {
-      return this.ROUND((
-        parseFloat(this.b68) / parseFloat(this.b70) / parseFloat(this.b72) / parseFloat(this.b73) * 1000 * parseFloat(this.b74) * 2
-      ), 0);
+      return this.ROUND(
+        (parseFloat(this.b68) /
+          parseFloat(this.b70) /
+          parseFloat(this.b72) /
+          parseFloat(this.b73)) *
+          1000 *
+          parseFloat(this.b74) *
+          2,
+        0
+      );
     },
     b77() {
-      if(this.ROUND(parseFloat(this.b76)/3,0) == 0){
+      if (this.ROUND(parseFloat(this.b76) / 3, 0) == 0) {
         return 1;
-      }else{
-        return this.ROUND(parseFloat(this.b76)/3, 0);
+      } else {
+        return this.ROUND(parseFloat(this.b76) / 3, 0);
       }
     },
     b78() {
-      return (parseFloat(this.b47)/parseFloat(this.b76)/parseFloat(this.b72_1)).toFixed(2);
+      return (
+        parseFloat(this.b47) /
+        parseFloat(this.b76) /
+        parseFloat(this.b72_1)
+      ).toFixed(2);
     },
     b78_1() {
-      return this.ROUND((
-        parseFloat(this.b69) * 100 + parseFloat(this.b48_1) + parseFloat(this.b48) + 2
-      ),0);
+      return this.ROUND(
+        parseFloat(this.b69) * 100 +
+          parseFloat(this.b48_1) +
+          parseFloat(this.b48) +
+          2,
+        0
+      );
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "",
-        名称: "排泥池",
-        尺寸: this.get_a_1_1(),
-        标高: "",
-        单位: "座",
-        数量: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-      {
-        序号: "2",
-        单体位号: "",
-        名称: "排泥池",
-        尺寸: this.get_a_2_1(),
-        标高: "",
-        单位: "座",
-        数量: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-      {
-        序号: "3",
-        单体位号: "",
-        名称: "污泥浓缩池",
-        尺寸: this.get_a_3_1(),
-        标高: "",
-        单位: "座",
-        数量: this.get_a_3_2(),
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-      {
-        序号: "4",
-        单体位号: "",
-        名称: "污泥平衡池",
-        尺寸: this.get_a_4_1(),
-        标高: "",
-        单位: "座",
-        数量: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "排泥池",
+          尺寸: this.get_a_1_1(),
+          标高: "",
+          单位: "座",
+          数量: "1",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+        {
+          序号: "2",
+          单体位号: "",
+          名称: "排泥池",
+          尺寸: this.get_a_2_1(),
+          标高: "",
+          单位: "座",
+          数量: "1",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+        {
+          序号: "3",
+          单体位号: "",
+          名称: "污泥浓缩池",
+          尺寸: this.get_a_3_1(),
+          标高: "",
+          单位: "座",
+          数量: this.get_a_3_2(),
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+        {
+          序号: "4",
+          单体位号: "",
+          名称: "污泥平衡池",
+          尺寸: this.get_a_4_1(),
+          标高: "",
+          单位: "座",
+          数量: "1",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "排水池搅拌机",
-        设备类型: this.get_b_1_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: "1",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        设备位号: "",
-        设备工艺名称: "排水池提升泵",
-        设备类型: this.get_b_2_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_2_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_2_3(),
-      },
-      {
-        序号: "3",
-        设备位号: "",
-        设备工艺名称: "排泥池搅拌机",
-        设备类型: this.get_b_3_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: "1",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "4",
-        设备位号: "",
-        设备工艺名称: "排泥池提升泵",
-        设备类型: this.get_b_4_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_4_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_4_3(),
-      },
-      {
-        序号: "5",
-        设备位号: "",
-        设备工艺名称: "污泥浓缩机",
-        设备类型: this.get_b_5_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_5_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "6",
-        设备位号: "",
-        设备工艺名称: "污泥平衡池搅拌机",
-        设备类型: this.get_b_6_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: "1",
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "7",
-        设备位号: "",
-        设备工艺名称: "离心脱水机进泥泵",
-        设备类型: this.get_b_7_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_7_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_7_3(),
-      },
-      {
-        序号: "8",
-        设备位号: "",
-        设备工艺名称: "离心脱水机",
-        设备类型: this.get_b_8_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_8_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_8_3(),
-      },
-      {
-        序号: "9",
-        设备位号: "",
-        设备工艺名称: "板框进泥泵",
-        设备类型: this.get_b_9_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_9_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_9_3(),
-      },
-      {
-        序号: "10",
-        设备位号: "",
-        设备工艺名称: "板框脱水机",
-        设备类型: this.get_b_10_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_b_10_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_10_3(),
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "排水池搅拌机",
+          设备类型: this.get_b_1_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: "1",
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "排水池提升泵",
+          设备类型: this.get_b_2_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_2_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_2_3(),
+        },
+        {
+          序号: "3",
+          设备位号: "",
+          设备工艺名称: "排泥池搅拌机",
+          设备类型: this.get_b_3_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: "1",
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "4",
+          设备位号: "",
+          设备工艺名称: "排泥池提升泵",
+          设备类型: this.get_b_4_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_4_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_4_3(),
+        },
+        {
+          序号: "5",
+          设备位号: "",
+          设备工艺名称: "污泥浓缩机",
+          设备类型: this.get_b_5_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_5_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "6",
+          设备位号: "",
+          设备工艺名称: "污泥平衡池搅拌机",
+          设备类型: this.get_b_6_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: "1",
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "7",
+          设备位号: "",
+          设备工艺名称: "离心脱水机进泥泵",
+          设备类型: this.get_b_7_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_7_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_7_3(),
+        },
+        {
+          序号: "8",
+          设备位号: "",
+          设备工艺名称: "离心脱水机",
+          设备类型: this.get_b_8_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_8_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_8_3(),
+        },
+        {
+          序号: "9",
+          设备位号: "",
+          设备工艺名称: "板框进泥泵",
+          设备类型: this.get_b_9_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_9_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_9_3(),
+        },
+        {
+          序号: "10",
+          设备位号: "",
+          设备工艺名称: "板框脱水机",
+          设备类型: this.get_b_10_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_b_10_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_10_3(),
+        },
+      ];
     },
   },
   watch() {

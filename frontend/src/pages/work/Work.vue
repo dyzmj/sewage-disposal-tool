@@ -701,10 +701,12 @@ export default {
           values.param7 === "3"
         ) {
           // 高锰酸钾、ClO2、NaClO、O3
-          this.processUnit[0].children[2].color = "#2DB7F5";
-          this.processUnit[0].children[3].color = "#2DB7F5";
-          this.processUnit[0].children[4].color = "#2DB7F5";
-          this.processUnit[0].children[5].color = "#2DB7F5";
+          this.processUnit[0].children[2].color = "#f45b21";
+          this.processUnit[0].children[3].color = "#f45b21";
+          this.processUnit[0].children[4].color = "#f45b21";
+          this.processUnit[0].children[5].color = "#f45b21";
+          this.processUnit[5].children[2].color = "#f45b21";
+          this.processUnit[5].children[3].color = "#f45b21";
           storeValueInLocalStorage("fc1003", "1");
           storeValueInLocalStorage("fc1004", "1");
           storeValueInLocalStorage("fc1005", "1");
@@ -715,27 +717,32 @@ export default {
           this.processUnit[0].children[3].checked = false;
           this.processUnit[0].children[4].checked = false;
           this.processUnit[0].children[5].checked = false;
+          this.processUnit[5].children[2].checked = false;
+          this.processUnit[5].children[3].checked = false;
 
           this.processUnit[0].children[2].color = "#6C767D";
           this.processUnit[0].children[3].color = "#6C767D";
           this.processUnit[0].children[4].color = "#6C767D";
           this.processUnit[0].children[5].color = "#6C767D";
+          this.processUnit[5].children[2].color = "#6C767D";
+          this.processUnit[5].children[3].color = "#6C767D";
           storeValueInLocalStorage("fc1003", "0");
           storeValueInLocalStorage("fc1004", "0");
           storeValueInLocalStorage("fc1005", "0");
           storeValueInLocalStorage("fc1006", "0");
         }
 
-        // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3 || 0.5 < 氨氮 <=1
+        // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3 || 0.5 < 氨氮 <=1 || 藻类 == 1
         if (
           values.param4 > 15 ||
           values.param5 === "1" ||
+          values.param6 === "1" ||
           values.param7 === "3" ||
           (values.param9 > 0.5 && values.param9 <= 1)
         ) {
-          // 活性炭粉末
-          // this.processUnit[0].children[6].checked = true;
-          this.processUnit[0].children[6].color = "#2DB7F5";
+          // 活性炭粉末 命中时直接勾选
+          this.processUnit[0].children[6].checked = true;
+          this.processUnit[0].children[6].color = "#00be7f";
           storeValueInLocalStorage("fc1007", "1");
         } else {
           this.processUnit[0].children[6].checked = false;
@@ -745,9 +752,9 @@ export default {
 
         // 高锰酸盐指数 == 1 || 氨氮 > 1
         if (values.param7 === "1" || values.param9 > 1) {
-          // 生物接触氧化
-          // this.processUnit[0].children[0].checked = true;
-          this.processUnit[0].children[0].color = "#2DB7F5";
+          // 生物接触氧化 命中时直接勾选
+          this.processUnit[0].children[0].checked = true;
+          this.processUnit[0].children[0].color = "#00be7f";
           storeValueInLocalStorage("fc1001", "1");
         } else {
           this.processUnit[0].children[0].checked = false;
@@ -757,9 +764,9 @@ export default {
 
         // 高锰酸盐指数 == 2
         if (values.param7 === "2") {
-          // 臭氧活性炭
-          // this.processUnit[4].children[0].checked = true;
-          this.processUnit[4].children[0].color = "#2DB7F5";
+          // 臭氧活性炭 命中时直接勾选
+          this.processUnit[4].children[0].checked = true;
+          this.processUnit[4].children[0].color = "#00be7f";
           storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[4].children[0].checked = false;
@@ -779,21 +786,21 @@ export default {
           });
           this.$message.error(this.$t("不得选用臭氧"));
           storeValueInLocalStorage("fc1006", "0");
-        } else {
+        } else if (values.param8 === "0") {
           this.processUnit[0].children[5].disabled = false;
           this.processUnit[0].children[5].color = "#6C767D";
           storeValueInLocalStorage("fc1006", "0");
         }
 
-        // 氨氮 <= 0.5
+        // 0.5 < 氨氮 < 1
         if (values.param9 > 0.5 && values.param9 <= 1) {
-          // 折点加氯
-          // this.processUnit[5].children[3].checked = true;
-          this.processUnit[5].children[3].color = "#2DB7F5";
+          // 折点加氯 命中时直接勾选
+          this.processUnit[5].children[1].checked = true;
+          this.processUnit[5].children[1].color = "#00be7f";
           storeValueInLocalStorage("fc6004", "1");
         } else {
-          this.processUnit[5].children[3].checked = false;
-          this.processUnit[5].children[3].color = "#6C767D";
+          this.processUnit[5].children[1].checked = false;
+          this.processUnit[5].children[1].color = "#6C767D";
           storeValueInLocalStorage("fc6004", "0");
         }
 
@@ -874,9 +881,9 @@ export default {
 
         // 出水浊度 < 0.5
         if (values.param12 < 0.5) {
-          // 超滤
-          // this.processUnit[4].children[1].checked = true;
-          this.processUnit[4].children[1].color = "#2DB7F5";
+          // 超滤 命中时直接勾选
+          this.processUnit[4].children[1].checked = true;
+          this.processUnit[4].children[1].color = "#00be7f";
           storeValueInLocalStorage("fc5002", "1");
         } else {
           this.processUnit[4].children[1].checked = false;
@@ -905,25 +912,30 @@ export default {
         this.processUnit[1].children[0].color = "#2DB7F5";
         this.processUnit[1].children[1].color = "#2DB7F5";
         this.processUnit[1].children[2].color = "#2DB7F5";
-        this.processUnit[1].children[3].color = "#2DB7F5";
-        this.processUnit[1].children[4].color = "#2DB7F5";
+        
+        // PAC、PAM 默认勾选
+        this.processUnit[1].children[3].checked = true;
+        this.processUnit[1].children[3].color = "#00be7f";
+        this.processUnit[1].children[4].checked = true;
+        this.processUnit[1].children[4].color = "#00be7f";
+        
         this.processUnit[3].children[0].color = "#2DB7F5";
         this.processUnit[3].children[1].color = "#2DB7F5";
         this.processUnit[6].children[0].color = "#2DB7F5";
+        // 清水池默认勾选
         this.processUnit[6].children[1].checked = true;
         this.processUnit[6].children[1].color = "#00be7f";
+        
         this.processUnit[7].children[0].color = "#2DB7F5";
-        this.processUnit[7].children[1].color = "#2DB7F5";
-        // storeValueInLocalStorage("fc5001", "1");
-        // storeValueInLocalStorage("fc5002", "1");
-        // storeValueInLocalStorage("fc5003", "1");
-        // storeValueInLocalStorage("fc5004", "1");
-        // storeValueInLocalStorage("fc5005", "1");
+        this.processUnit[7].children[1].color = "#f45b21";
+
+        storeValueInLocalStorage("fc2004", "1");
+        storeValueInLocalStorage("fc2005", "1");
         storeValueInLocalStorage("fc8002", "1");
 
         if (
-          this.processUnit[0].children[2].checked ||
-          this.processUnit[5].children[3].checked
+          this.processUnit[0].children[3].checked ||
+          this.processUnit[5].children[2].checked
         ) {
           // NaClO开启时，活性炭粉末也开启
           this.processUnit[0].children[6].checked = true;
@@ -1757,10 +1769,10 @@ export default {
     exportAllQuantities() {
       this.call1001("1001.xlsx", "生物接触氧化池工程量");
       this.call1002("1002.xlsx", "预沉池工程量");
-      this.call1003("1003.xlsx", "次氯酸钠工程量");
-      this.call1004("1004.xlsx", "二氧化氯工程量");
-      this.call1005("1005.xlsx", "高锰酸钾工程量");
-      this.call1006("1006.xlsx", "臭氧工程量");
+      this.call1003("1003.xlsx", "加药系统次氯酸钠工程量");
+      this.call1004("1004.xlsx", "加药系统二氧化氯工程量");
+      this.call1005("1005.xlsx", "加药系统高锰酸钾工程量");
+      this.call1006("1006.xlsx", "加药系统臭氧工程量");
       this.call1007("1007.xlsx", "活性炭粉末工程量");
       this.call2001("2001.xlsx", "机械絮凝池工程量");
       this.call2002("2002.xlsx", "网格絮凝池工程量");
@@ -1781,8 +1793,8 @@ export default {
       this.call6002("6002.xlsx", "沉浸式紫外线消毒工程量");
       this.call6003("6003.xlsx", "臭氧消毒工程量");
       this.call6004("6004.xlsx", "折点加氯工程量");
-      this.call6005("6005.xlsx", "加药系统次氯酸钠工程量");
-      this.call6006("6006.xlsx", "加药系统二氧化氯工程量");
+      this.call6005("6005.xlsx", "次氯酸钠工程量");
+      this.call6006("6006.xlsx", "二氧化氯工程量");
       this.call8001("8001.xlsx", "提升泵房工程量");
       this.call8002("8002.xlsx", "清水池工程量");
       this.call9001("9001.xlsx", "浓缩池工程量");

@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -177,7 +182,12 @@
                   :wrapperCol="{ span: 14 }"
                 >
                   <a-input-group compact>
-                    <a-input v-model="b10" rows="12" :placeholder="$t('b10')" @change="refreshInitData()" />
+                    <a-input
+                      v-model="b10"
+                      rows="12"
+                      :placeholder="$t('b10')"
+                      @change="refreshInitData()"
+                    />
                   </a-input-group>
                 </a-form-item>
                 <a-form-item
@@ -230,15 +240,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/4000/4001.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -1910,9 +1919,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1989,49 +2002,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -2043,7 +2063,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -2359,10 +2379,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -2533,19 +2553,25 @@ export default {
       return Math.round(number * multiplier) / multiplier;
     },
     get_a_1_1() {
-      return this.b111_1+"m×"+this.b111_2+"m×"+this.b111_3+"m"
+      return this.b111_1 + "m×" + this.b111_2 + "m×" + this.b111_3 + "m";
     },
     get_b_1_1() {
-      return "Q="+(parseFloat(this.b76_1) / parseFloat(this.b77_1))+"m3/h，H="+this.b80+"m";
+      return (
+        "Q=" +
+        parseFloat(this.b76_1) / parseFloat(this.b77_1) +
+        "m3/h，H=" +
+        this.b80 +
+        "m"
+      );
     },
     get_b_1_2() {
-      return (parseFloat(this.b77_1) + parseFloat(this.b78_1));
+      return parseFloat(this.b77_1) + parseFloat(this.b78_1);
     },
     get_b_1_3() {
-      return this.b77_1+"用"+this.b78_1+"备";
+      return this.b77_1 + "用" + this.b78_1 + "备";
     },
     get_c_1_1() {
-      return (parseFloat(this.b21) * 4);
+      return parseFloat(this.b21) * 4;
     },
   },
   computed: {
@@ -2856,51 +2882,51 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "",
-        名称: "普通快滤池",
-        尺寸: this.get_a_1_1(),
-        标高: "",
-        单位: "座",
-        数量: "1",
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "普通快滤池",
+          尺寸: this.get_a_1_1(),
+          标高: "",
+          单位: "座",
+          数量: "1",
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "反冲洗泵",
-        设备类型: "",
-        规格及型号: this.get_b_1_1(),
-        单位: "台",
-        数量: this.get_b_1_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: this.get_b_1_3(),
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "反冲洗泵",
+          设备类型: "",
+          规格及型号: this.get_b_1_1(),
+          单位: "台",
+          数量: this.get_b_1_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_b_1_3(),
+        },
+      ];
     },
     data3() {
       return [
-      {
-        序号: "1",
-        仪表位号: "",
-        仪表名称: "电动阀",
-        安装位置: "",
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_c_1_1(),
-        a: "",
-        b: "",
-        备注: "",
-      },
-    ];
+        {
+          序号: "1",
+          仪表位号: "",
+          仪表名称: "电动阀",
+          安装位置: "",
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_c_1_1(),
+          a: "",
+          b: "",
+          备注: "",
+        },
+      ];
     },
   },
   watch() {

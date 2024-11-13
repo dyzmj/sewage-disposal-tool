@@ -98,16 +98,10 @@
             :title="$t('referenceImage')"
             :headStyle="{ 'font-weight': 'bolder' }"
           >
-            <div>
-              <p>ClO2</p>
-              <p>
-                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-              </p>
-            </div>
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1004.jpg" />
                 </a-form-item>
               </a-form>
             </div>
@@ -565,7 +559,7 @@ export default {
         key3: this.b5_1,
         key4: this.b9,
       };
-      exportWord("二氧化氯计算书", "1004.docx", data, this);
+      exportWord("加药系统二氧化氯计算书", "1004.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -575,7 +569,7 @@ export default {
         key4: this.b9,
       };
       initWordStorage("1004.docx", data);
-      this.handleExcelCache("1004.xlsx", "二氧化氯工程量");
+      this.handleExcelCache("1004.xlsx", "加药系统二氧化氯工程量");
     },
     handleExcelCache(path, name) {
       try {

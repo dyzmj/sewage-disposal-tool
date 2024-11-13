@@ -79,7 +79,7 @@ const options = {
                   component: () => import('@/pages/operation/1000/1002')
                 },
                 {
-                  name: '臭氧',
+                  name: '加药系统-臭氧',
                   path: '/sub/1006',
                   meta: {
                     keepAlive: true,

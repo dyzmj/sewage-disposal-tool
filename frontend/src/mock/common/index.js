@@ -37,7 +37,7 @@ const processUnit = [
         detail: '预沉池',
       },
       {
-        title: '臭氧',
+        title: '加药系统-臭氧',
         key: '1006',
         checked: false,
         disabled: false,
@@ -297,22 +297,22 @@ const processUnit = [
         detail: '折点加氯',
       },
       {
-        title: '加药系统-NaClO',
+        title: 'NaClO',
         key: '6005',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
-        detail: '加药系统-NaClO',
+        detail: 'NaClO',
       },
       {
-        title: '加药系统-ClO2',
+        title: 'ClO2',
         key: '6006',
         checked: false,
         disabled: false,
         state: '1',
         color: '#6C767D',
-        detail: '加药系统-ClO2',
+        detail: 'ClO2',
       }
     ]
   },

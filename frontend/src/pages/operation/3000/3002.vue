@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -198,11 +203,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card :title="$t('referenceImage')">
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/3000/3002.png"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -547,10 +555,7 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b41"
-                      :disabled="true"
-                    />
+                    <a-input v-model="b41" :disabled="true" />
                   </a-form-item>
                 </a-form>
               </a-card>
@@ -728,10 +733,7 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b56"
-                      :disabled="false"
-                    />
+                    <a-input v-model="b56" :disabled="false" />
                   </a-form-item>
                   <a-form-item
                     :label="$t('b57')"
@@ -739,10 +741,7 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b57"
-                      :disabled="false"
-                    />
+                    <a-input v-model="b57" :disabled="false" />
                   </a-form-item>
                   <a-form-item
                     :label="$t('b58')"
@@ -891,10 +890,7 @@
                     :labelCol="{ span: 8 }"
                     :wrapperCol="{ span: 16 }"
                   >
-                    <a-input
-                      v-model="b69"
-                      :disabled="false"
-                    />
+                    <a-input v-model="b69" :disabled="false" />
                   </a-form-item>
                   <a-form-item
                     :label="$t('b70')"
@@ -1048,9 +1044,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1113,35 +1113,42 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -1153,7 +1160,7 @@ import {
   exportExcel2,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1358,10 +1365,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -1469,12 +1476,7 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-        const data = [
-          ...allData1,
-          null,
-          null,
-          ...allData2,
-        ];
+        const data = [...allData1, null, null, ...allData2];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -1496,19 +1498,27 @@ export default {
       return Math.round(number * multiplier) / multiplier;
     },
     getkey1() {
-      return this.b21 + "×"+this.b21_1+"×"+this.b35+"m";
+      return this.b21 + "×" + this.b21_1 + "×" + this.b35 + "m";
     },
     getkey2() {
       return this.b15;
     },
     getkey3() {
-      return "池深m，N=2*0.55kW，池宽2*"+this.b21_1+"m，轨距"+(2*parseFloat(this.b21_1)+0.3)+"m";
+      return (
+        "池深m，N=2*0.55kW，池宽2*" +
+        this.b21_1 +
+        "m，轨距" +
+        (2 * parseFloat(this.b21_1) + 0.3) +
+        "m"
+      );
     },
     getkey4() {
-      return "L×B×H="+this.b21+"×"+this.b59_1+"×"+this.b65+"m，δ=3mm";
+      return (
+        "L×B×H=" + this.b21 + "×" + this.b59_1 + "×" + this.b65 + "m，δ=3mm"
+      );
     },
     getkey5() {
-      return (parseFloat(this.b56) * parseFloat(this.b15));
+      return parseFloat(this.b56) * parseFloat(this.b15);
     },
   },
   computed: {
@@ -1523,41 +1533,64 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b12() {
-      return (parseFloat(this.b11) * 3.14159265354 / 180).toFixed(9);
+      return ((parseFloat(this.b11) * 3.14159265354) / 180).toFixed(9);
     },
     b14() {
       return (parseFloat(this.b13) / 3.6).toFixed(1);
     },
     b18() {
-      return (parseFloat(this.b6) / 24 / 3600 * 1000 / (parseFloat(this.b13) / 3.6)).toFixed(2);
+      return (
+        ((parseFloat(this.b6) / 24 / 3600) * 1000) /
+        (parseFloat(this.b13) / 3.6)
+      ).toFixed(2);
     },
     b20() {
       return (parseFloat(this.b18) / parseFloat(this.b19)).toFixed(2);
     },
     b21_1() {
-      return this.ROUND(parseFloat(this.b20)/2/parseFloat(this.b21), 1);
+      return this.ROUND(parseFloat(this.b20) / 2 / parseFloat(this.b21), 1);
     },
     b22() {
-      return (parseFloat(this.b6_1) / parseFloat(this.b21) / parseFloat(this.b21_1) / parseFloat(this.b15)).toFixed(2);
+      return (
+        parseFloat(this.b6_1) /
+        parseFloat(this.b21) /
+        parseFloat(this.b21_1) /
+        parseFloat(this.b15)
+      ).toFixed(2);
     },
     b24() {
-      return ((parseFloat(this.b13) / 3.6) / Math.sin(parseFloat(this.b12))).toFixed(2);
+      return (
+        parseFloat(this.b13) /
+        3.6 /
+        Math.sin(parseFloat(this.b12))
+      ).toFixed(2);
     },
     b25() {
-      return ((
-        1.33 * parseFloat(this.b24) - parseFloat(this.b8)* Math.sin(parseFloat(this.b12))
-      ) * parseFloat(this.b10) / (
-        parseFloat(this.b8) * Math.cos(parseFloat(this.b12))
-      )).toFixed(2);
+      return (
+        ((1.33 * parseFloat(this.b24) -
+          parseFloat(this.b8) * Math.sin(parseFloat(this.b12))) *
+          parseFloat(this.b10)) /
+        (parseFloat(this.b8) * Math.cos(parseFloat(this.b12)))
+      ).toFixed(2);
     },
     b27() {
       return (parseFloat(this.b25) + parseFloat(this.b26)).toFixed(2);
     },
     b32() {
-      return (parseFloat(this.b28) * Math.sin(parseFloat(this.b12)) / 1000).toFixed(2);
+      return (
+        (parseFloat(this.b28) * Math.sin(parseFloat(this.b12))) /
+        1000
+      ).toFixed(2);
     },
     b35() {
-      return this.ROUND((parseFloat(this.b30)+parseFloat(this.b31)+parseFloat(this.b32)+parseFloat(this.b33)+parseFloat(this.b34)), 2)
+      return this.ROUND(
+        parseFloat(this.b30) +
+          parseFloat(this.b31) +
+          parseFloat(this.b32) +
+          parseFloat(this.b33) +
+          parseFloat(this.b34),
+        2
+      );
     },
     b36() {
       return (parseFloat(this.b10) / 4 / 10).toFixed(2);
@@ -1566,31 +1599,46 @@ export default {
       return (parseFloat(this.b24) / 10).toFixed(2);
     },
     b41() {
-      return (parseFloat(this.b38) * parseFloat(this.b39) / parseFloat(this.b40)).toFixed(2);
+      return (
+        (parseFloat(this.b38) * parseFloat(this.b39)) /
+        parseFloat(this.b40)
+      ).toFixed(2);
     },
     b43() {
       return (parseFloat(this.b28) / parseFloat(this.b24) / 60).toFixed(2);
     },
     b46() {
-      return ((parseFloat(this.b6) / 24 / 3600) / parseFloat(this.b45)).toFixed(2);
+      return (parseFloat(this.b6) / 24 / 3600 / parseFloat(this.b45)).toFixed(
+        2
+      );
     },
     b48() {
-      return (3.1415926 * (Math.pow(parseFloat(this.b47), 2)) / 4).toFixed(3);
+      return ((3.1415926 * Math.pow(parseFloat(this.b47), 2)) / 4).toFixed(3);
     },
     b49() {
-      return this.ROUND((parseFloat(this.b46) / parseFloat(this.b48) / parseFloat(this.b15)), 0);
+      return this.ROUND(
+        parseFloat(this.b46) / parseFloat(this.b48) / parseFloat(this.b15),
+        0
+      );
     },
     b51() {
       return (parseFloat(this.b49) / parseFloat(this.b50)).toFixed(0);
     },
     b52() {
-      return this.ROUND((parseFloat(this.b21)/(parseFloat(this.b51)+1)), 2);
+      return this.ROUND(parseFloat(this.b21) / (parseFloat(this.b51) + 1), 2);
     },
     b53() {
-      return ((parseFloat(this.b21)-(parseFloat(this.b51)-1)*parseFloat(this.b52))/2).toFixed(3);
+      return (
+        (parseFloat(this.b21) -
+          (parseFloat(this.b51) - 1) * parseFloat(this.b52)) /
+        2
+      ).toFixed(3);
     },
     b58() {
-      return ((parseFloat(this.b6_2) / parseFloat(this.b15) / parseFloat(this.b56)) * parseFloat(this.b57)).toFixed(3);
+      return (
+        (parseFloat(this.b6_2) / parseFloat(this.b15) / parseFloat(this.b56)) *
+        parseFloat(this.b57)
+      ).toFixed(3);
     },
     b59() {
       return 0.181;
@@ -1602,13 +1650,23 @@ export default {
       return (1.25 * parseFloat(this.b59)).toFixed(2);
     },
     b65() {
-      return this.ROUND((parseFloat(this.b61) + parseFloat(this.b62) + parseFloat(this.b63) + parseFloat(this.b64)),2)
+      return this.ROUND(
+        parseFloat(this.b61) +
+          parseFloat(this.b62) +
+          parseFloat(this.b63) +
+          parseFloat(this.b64),
+        2
+      );
     },
     b67() {
-      return (3.1415926 * Math.pow(parseFloat(this.b66),2) / 4).toFixed(9);
+      return ((3.1415926 * Math.pow(parseFloat(this.b66), 2)) / 4).toFixed(9);
     },
     b68() {
-      return (parseFloat(this.b69) * parseFloat(this.b67) * Math.sqrt(2*parseFloat(this.b70)*parseFloat(this.b62))).toFixed(9);
+      return (
+        parseFloat(this.b69) *
+        parseFloat(this.b67) *
+        Math.sqrt(2 * parseFloat(this.b70) * parseFloat(this.b62))
+      ).toFixed(9);
     },
     b71() {
       return (parseFloat(this.b58) / parseFloat(this.b68)).toFixed(2);
@@ -1617,62 +1675,76 @@ export default {
       return (parseFloat(this.b71_1) / 2).toFixed(0);
     },
     b73() {
-      return this.ROUND((parseFloat(this.b21)-0.6)/(parseFloat(this.b72)+1), 2);
+      return this.ROUND(
+        (parseFloat(this.b21) - 0.6) / (parseFloat(this.b72) + 1),
+        2
+      );
     },
     b75() {
       return (parseFloat(this.b6_2) * parseFloat(this.b57)).toFixed(2);
     },
     b77() {
-      return (1.73 * Math.pow((
-        parseFloat(this.b75) / parseFloat(this.b70) / (Math.pow(parseFloat(this.b76),2))
-      ),(1/3))).toFixed(2);
+      return (
+        1.73 *
+        Math.pow(
+          parseFloat(this.b75) /
+            parseFloat(this.b70) /
+            Math.pow(parseFloat(this.b76), 2),
+          1 / 3
+        )
+      ).toFixed(2);
     },
     b79() {
-      return (parseFloat(this.b65) + parseFloat(this.b77) + parseFloat(this.b78)).toFixed(2);
+      return (
+        parseFloat(this.b65) +
+        parseFloat(this.b77) +
+        parseFloat(this.b78)
+      ).toFixed(2);
     },
     data1() {
       return [
-      {
-        序号: "",
-        单体位号: "",
-        名称: "斜管沉淀池",
-        Dimensions: this.getkey1(),
-        标高: "",
-        单位: "座",
-        disinfectiontank: this.getkey2(),
-        结构形式: "钢砼",
-        备注: "半地下式",
-        暖通要求: "无",
-      },
-    ];
+        {
+          序号: "",
+          单体位号: "",
+          名称: "斜管沉淀池",
+          Dimensions: this.getkey1(),
+          标高: "",
+          单位: "座",
+          disinfectiontank: this.getkey2(),
+          结构形式: "钢砼",
+          备注: "半地下式",
+          暖通要求: "无",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "桁车式吸泥机",
-        设备类型: "吸泥机",
-        规格及型号: this.getkey3(),
-        单位: "台",
-        数量: "1",
-        运行时间: "4h",
-        主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
-      },
-      {
-        序号: "",
-        设备位号: "",
-        设备工艺名称: "集水槽",
-        设备类型: "集水槽",
-        规格及型号: this.getkey4(),
-        单位: "套",
-        数量: this.getkey5(),
-        运行时间: "",
-        主要材质: "SS304",
-        备注: "",
-      },
-    ];
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "桁车式吸泥机",
+          设备类型: "吸泥机",
+          规格及型号: this.getkey3(),
+          单位: "台",
+          数量: "1",
+          运行时间: "4h",
+          主要材质: "水上部分碳钢防腐，水下部分SS304",
+          备注:
+            "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+        },
+        {
+          序号: "",
+          设备位号: "",
+          设备工艺名称: "集水槽",
+          设备类型: "集水槽",
+          规格及型号: this.getkey4(),
+          单位: "套",
+          数量: this.getkey5(),
+          运行时间: "",
+          主要材质: "SS304",
+          备注: "",
+        },
+      ];
     },
   },
   watch() {
@@ -1711,7 +1783,8 @@ export default {
         数量: "1",
         运行时间: "4h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
-        备注: "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
+        备注:
+          "本机含主梁、轨道、驱动装置、机架、吸砂系统、吸砂泵/虹吸管、撇渣装置，配套控制箱（池体有斜板）",
       },
       {
         序号: "",

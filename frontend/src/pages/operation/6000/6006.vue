@@ -16,9 +16,14 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -94,21 +99,14 @@
               </a-input-group>
             </a-form-item>
           </a-form>
-
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-          >
-            <div>
-              <p>ClO2</p>
-              <p>
-                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-              </p>
-            </div>
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/6000/6006.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -321,9 +319,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -400,49 +402,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -454,7 +463,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -715,10 +724,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -774,13 +783,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(
-          allData1,
-          allData2,
-          allData3,
-          "加药系统ClO2工程量",
-          this
-        );
+        exportExcel3(allData1, allData2, allData3, "加药系统ClO2工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -811,7 +814,7 @@ export default {
         key3: this.b5_1,
         key4: this.b9,
       };
-      exportWord("加药系统二氧化氯计算书", "6006.docx", data, this);
+      exportWord("二氧化氯计算书", "6006.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -821,7 +824,7 @@ export default {
         key4: this.b9,
       };
       initWordStorage("6006.docx", data);
-      this.handleExcelCache("6006.xlsx", "加药系统二氧化氯工程量");
+      this.handleExcelCache("6006.xlsx", "二氧化氯工程量");
     },
     handleExcelCache(path, name) {
       try {
@@ -879,44 +882,55 @@ export default {
       return "to do";
     },
     quickSort(arr, left, right) {
-  let index
-  index = this.partition(arr, left, right)
-  if(left < index-1) {
-    this.quickSort(arr, left, index-1)
-  }
-  if(index < right) {
-    this.quickSort(arr, index, right)
-  }
-  return arr
+      let index;
+      index = this.partition(arr, left, right);
+      if (left < index - 1) {
+        this.quickSort(arr, left, index - 1);
+      }
+      if (index < right) {
+        this.quickSort(arr, index, right);
+      }
+      return arr;
     },
     partition(arr, left, right) {
-  let point = arr[Math.floor((left + right) / 2)]
-  let i = left, j = right
-  while(i <= j) {
-    while(arr[i] > point) {
-      i++
-    }
-    while(arr[j] < point) {
-      j--
-    }
-    if(i <= j) {
-      let temp = arr[i]
-      arr[i] = arr[j]
-      arr[j] = temp
-      i++
-      j--
-    }
-  }
-  return i
+      let point = arr[Math.floor((left + right) / 2)];
+      let i = left,
+        j = right;
+      while (i <= j) {
+        while (arr[i] > point) {
+          i++;
+        }
+        while (arr[j] < point) {
+          j--;
+        }
+        if (i <= j) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+          i++;
+          j--;
+        }
+      }
+      return i;
     },
     findKthLargest(nums, k) {
-      nums = this.quickSort(nums, 0, nums.length-1);
-      console.log(nums[k-1]);
-      return nums[k-1];
+      nums = this.quickSort(nums, 0, nums.length - 1);
+      console.log(nums[k - 1]);
+      return nums[k - 1];
     },
     get_a_1() {
-      var array1 = [50,100,200,300,500,1000,2000,3000,5000];
-      var array2 = ['WTL（Z）-50','WTL（Z）-100','WTL（Z）-200','WTL（Z）-300','WTL（Z）-500','WTL（Z）-1000','WTL（Z）-2000','WTL（Z）-3000','WTL（Z）-5000'];
+      var array1 = [50, 100, 200, 300, 500, 1000, 2000, 3000, 5000];
+      var array2 = [
+        "WTL（Z）-50",
+        "WTL（Z）-100",
+        "WTL（Z）-200",
+        "WTL（Z）-300",
+        "WTL（Z）-500",
+        "WTL（Z）-1000",
+        "WTL（Z）-2000",
+        "WTL（Z）-3000",
+        "WTL（Z）-5000",
+      ];
       var index = array1.indexOf(this.b10_2);
       return array2[index];
     },
@@ -925,76 +939,82 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 *
-        parseFloat(this.b4) / parseFloat(this.b4_1)
+        ((parseFloat(this.b3) / 24) * parseFloat(this.b4)) /
+        parseFloat(this.b4_1)
       ).toFixed(2);
     },
     b5_1() {
       return (parseFloat(this.b5) / 3600).toFixed(2);
     },
     b15() {
-      return (parseFloat(this.b13)/parseFloat(this.b14)).toFixed(2);
+      return (parseFloat(this.b13) / parseFloat(this.b14)).toFixed(2);
     },
     b10() {
-      return (parseFloat(this.b5)*parseFloat(this.b9)/1000).toFixed(2);
+      return ((parseFloat(this.b5) * parseFloat(this.b9)) / 1000).toFixed(2);
     },
     b10_1() {
-      return (parseFloat(this.b5)*parseFloat(this.b9)).toFixed(2);
+      return (parseFloat(this.b5) * parseFloat(this.b9)).toFixed(2);
     },
     b13() {
-      return (parseFloat(this.b11)*parseFloat(this.b10)/parseFloat(this.b12)).toFixed(2);
+      return (
+        (parseFloat(this.b11) * parseFloat(this.b10)) /
+        parseFloat(this.b12)
+      ).toFixed(2);
     },
     b18() {
-      return (parseFloat(this.b16)*parseFloat(this.b10/parseFloat(this.b17)/0.31)).toFixed(2);
+      return (
+        parseFloat(this.b16) *
+        parseFloat(this.b10 / parseFloat(this.b17) / 0.31)
+      ).toFixed(2);
     },
     b10_2() {
-      var cal1 = (parseFloat(this.b10_1));
+      var cal1 = parseFloat(this.b10_1);
       var cal2 = 0;
-      if(cal1 < 50){
-        cal2 = cal2 +1;
+      if (cal1 < 50) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 100){
-        cal2 = cal2 +1;
+      if (cal1 < 100) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 200){
-        cal2 = cal2 +1;
+      if (cal1 < 200) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 300){
-        cal2 = cal2 +1;
+      if (cal1 < 300) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 500){
-        cal2 = cal2 +1;
+      if (cal1 < 500) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 1000){
-        cal2 = cal2 +1;
+      if (cal1 < 1000) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 2000){
-        cal2 = cal2 +1;
+      if (cal1 < 2000) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 3000){
-        cal2 = cal2 +1;
+      if (cal1 < 3000) {
+        cal2 = cal2 + 1;
       }
-      if(cal1 < 5000){
-        cal2 = cal2 +1;
+      if (cal1 < 5000) {
+        cal2 = cal2 + 1;
       }
-      var array = [50,100,200,300,500,1000,2000,3000,5000];
+      var array = [50, 100, 200, 300, 500, 1000, 2000, 3000, 5000];
       return this.findKthLargest(array, cal2);
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "二氧化氯发生器",
-        设备类型: "",
-        规格及型号: this.get_a_1(),
-        单位: "台",
-        数量: "2",
-        运行时间: "24h",
-        主要材质: "",
-        备注: "一用一备",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "二氧化氯发生器",
+          设备类型: "",
+          规格及型号: this.get_a_1(),
+          单位: "台",
+          数量: "2",
+          运行时间: "24h",
+          主要材质: "",
+          备注: "一用一备",
+        },
+      ];
     },
   },
   watch() {

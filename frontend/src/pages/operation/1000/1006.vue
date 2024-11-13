@@ -116,16 +116,10 @@
             :title="$t('referenceImage')"
             :headStyle="{ 'font-weight': 'bolder' }"
           >
-            <div>
-              <p>臭氧</p>
-              <p>
-                《室外给水设计标准》9.9.9：水与氯、氨应充分混合，氯消毒有效接触时间不应小于30min，氯胺消毒有效接触时间不应小于120min
-              </p>
-            </div>
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/1000/1002.png" />
+                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1006.jpg" />
                 </a-form-item>
               </a-form>
             </div>
@@ -638,7 +632,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "臭氧工程量", this);
+        exportExcel3(allData1, allData2, allData3, "加药系统-臭氧工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -668,7 +662,7 @@ export default {
         key2: (parseFloat(this.b11) * 1000),
         key3: this.b11,
       };
-      exportWord("臭氧计算书", "1006.docx", data, this);
+      exportWord("加药系统臭氧计算书", "1006.docx", data, this);
     },
     refreshInitData() {
       const data = {
@@ -677,7 +671,7 @@ export default {
         key3: this.b11,
       };
       initWordStorage("1006.docx", data);
-      this.handleExcelCache("1006.xlsx", "臭氧工程量");
+      this.handleExcelCache("1006.xlsx", "加药系统臭氧工程量");
     },
     handleExcelCache(path, name) {
       try {

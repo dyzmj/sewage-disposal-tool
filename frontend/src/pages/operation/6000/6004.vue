@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -944,18 +949,18 @@
             size="small"
           >
             <div class="baseQueryParam">
-            <a-table
-              :columns="columns4"
-              :data-source="data4"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+              <a-table
+                :columns="columns4"
+                :data-source="data4"
+                bordered
+                size="small"
+                :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+                :pagination="false"
+                :row-style="{ paddin: 16 }"
+              >
+                <a slot="序号" slot-scope="text">{{ text }}</a>
+              </a-table>
+            </div>
           </a-card>
           <a-card
             :title="$t('b102')"
@@ -965,148 +970,147 @@
             :headStyle="{ 'font-weight': 'bolder' }"
             size="small"
           >
-          <a-card
-            :title="$t('b103')"
-            style="margin-bottom: 24px"
-            :bordered="false"
-            :body-style="{ padding: 2 }"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
-          <a-card
-            :title="$t('b104')"
-            style="margin-bottom: 24px"
-            :bordered="false"
-            :body-style="{ padding: 2 }"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
-          <a-form>
-            <a-form-item
-                      :label="$t('b105')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b105"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b105_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b106')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b106"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b106_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b107')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b107"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b107_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b108')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b108"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b108_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b109')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b109"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b109_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b110')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b110"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b110_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b111')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b111"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b111_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-            <a-form-item
-                      :label="$t('b112')"
-                      style="margin-top: 10px"
-                      :labelCol="{ span: 14 }"
-                      :wrapperCol="{ span: 10 }"
-                    >
-                      <a-input-group compact>
-                        <a-input
-                          v-model="b112"
-                          style="width: 100%"
-                          :disabled="true"
-                          :suffix="$t('b112_u')"
-                        />
-                      </a-input-group>
-            </a-form-item>
-          </a-form>
+            <a-card
+              :title="$t('b103')"
+              style="margin-bottom: 24px"
+              :bordered="false"
+              :body-style="{ padding: 2 }"
+              :headStyle="{ 'font-weight': 'bolder' }"
+              size="small"
+            >
+              <a-card
+                :title="$t('b104')"
+                style="margin-bottom: 24px"
+                :bordered="false"
+                :body-style="{ padding: 2 }"
+                :headStyle="{ 'font-weight': 'bolder' }"
+                size="small"
+              >
+                <a-form>
+                  <a-form-item
+                    :label="$t('b105')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b105"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b105_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b106')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b106"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b106_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b107')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b107"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b107_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b108')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b108"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b108_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b109')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b109"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b109_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b110')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b110"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b110_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b111')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b111"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b111_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                  <a-form-item
+                    :label="$t('b112')"
+                    style="margin-top: 10px"
+                    :labelCol="{ span: 14 }"
+                    :wrapperCol="{ span: 10 }"
+                  >
+                    <a-input-group compact>
+                      <a-input
+                        v-model="b112"
+                        style="width: 100%"
+                        :disabled="true"
+                        :suffix="$t('b112_u')"
+                      />
+                    </a-input-group>
+                  </a-form-item>
+                </a-form>
+              </a-card>
+            </a-card>
           </a-card>
-        </a-card>
-        
-        </a-card>
         </a-card>
       </a-col>
       <a-col
@@ -1124,9 +1128,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -1204,49 +1212,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -1258,7 +1273,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1579,7 +1594,7 @@ export default {
               key: "8",
               width: "80px",
               align: "center",
-            }
+            },
           ],
         },
       ],
@@ -1591,15 +1606,15 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
-        this.b8 = 130.00;
+        this.b8 = 130.0;
       } else {
         this.b8 = (parseFloat(waterData) / 24).toFixed(2);
       }
@@ -1650,13 +1665,7 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(
-          allData1,
-          allData2,
-          allData3,
-          "折点加氯工程量",
-          this
-        );
+        exportExcel3(allData1, allData2, allData3, "折点加氯工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -1765,13 +1774,13 @@ export default {
       return "to do";
     },
     get_a_1() {
-      return "液氯投加能力Q＝"+this.b65+"kg/h";
+      return "液氯投加能力Q＝" + this.b65 + "kg/h";
     },
     get_a_2() {
-      return "碱投加能力Q＝"+this.b74+"L/h";
+      return "碱投加能力Q＝" + this.b74 + "L/h";
     },
     get_b_1() {
-      return this.b111+"×"+this.b112+"×" +this.b109;
+      return this.b111 + "×" + this.b112 + "×" + this.b109;
     },
     get_b_2() {
       return this.b106;
@@ -1923,52 +1932,58 @@ export default {
       return (parseFloat(this.b107) + parseFloat(this.b108)).toFixed(1);
     },
     b110() {
-      return (parseFloat(this.b105)/parseFloat(this.b106)/parseFloat(this.b107)).toFixed(1);
+      return (
+        parseFloat(this.b105) /
+        parseFloat(this.b106) /
+        parseFloat(this.b107)
+      ).toFixed(1);
     },
     b112() {
-      return (parseFloat(this.b110)/parseFloat(this.b111)).toFixed(1);
+      return (parseFloat(this.b110) / parseFloat(this.b111)).toFixed(1);
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "",
-        名称: "反应池",
-        尺寸: this.get_b_1(),
-        标高: "池顶标高+3.0m,池底标高-1.5m。",
-        单位: "座",
-        数量: this.get_b_2(),
-        结构形式: "钢砼",
-        备注: "",
-        暖通要求: "",
-        与基础设计不同处: "",
-        土建说明: ""
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "反应池",
+          尺寸: this.get_b_1(),
+          标高: "池顶标高+3.0m,池底标高-1.5m。",
+          单位: "座",
+          数量: this.get_b_2(),
+          结构形式: "钢砼",
+          备注: "",
+          暖通要求: "",
+          与基础设计不同处: "",
+          土建说明: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "加氯成套装置",
-        设备类型: "加氯成套装置",
-        规格及型号: this.get_a_1(),
-        单位: "台",
-        数量: "1",
-        备注: "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
-      },
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "加碱成套装置",
-        设备类型: "加碱成套装置",
-        规格及型号: this.get_a_2(),
-        单位: "台",
-        数量: "1",
-        备注: "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "加氯成套装置",
+          设备类型: "加氯成套装置",
+          规格及型号: this.get_a_1(),
+          单位: "台",
+          数量: "1",
+          备注:
+            "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
+        },
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "加碱成套装置",
+          设备类型: "加碱成套装置",
+          规格及型号: this.get_a_2(),
+          单位: "台",
+          数量: "1",
+          备注:
+            "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
+        },
+      ];
     },
   },
   watch() {
@@ -1995,7 +2010,7 @@ export default {
         备注: "",
         暖通要求: "",
         与基础设计不同处: "",
-        土建说明: ""
+        土建说明: "",
       },
     ];
     this.data2 = [
@@ -2007,7 +2022,8 @@ export default {
         规格及型号: this.get_a_1(),
         单位: "台",
         数量: "1",
-        备注: "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
+        备注:
+          "成套装置，含就地控制箱，氨瓶，加压泵，水射器，管道加热器，液氯膨胀室，液氯蒸发器，氯气过滤器，真空调节器，加氯机，漏氯报警仪，漏氯吸收装置，配套阀门管道等。",
       },
       {
         序号: "1",
@@ -2017,10 +2033,11 @@ export default {
         规格及型号: this.get_a_2(),
         单位: "台",
         数量: "1",
-        备注: "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
+        备注:
+          "成套装置，含就地控制箱（1个）、安装机架（1个）、碱加药泵（2台）、Y型过滤器（2个）、脉冲缓冲器（1个）、安全阀（2个）、背压阀（1个），磁翻板液位计（1个），配套阀门管道等。",
       },
     ];
-    this.data3 = []
+    this.data3 = [];
     this.data4 = [
       {
         序号: "1",

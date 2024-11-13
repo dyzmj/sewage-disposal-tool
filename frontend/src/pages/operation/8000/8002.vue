@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -55,15 +60,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/8000/8002.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -880,9 +884,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -960,49 +968,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -1014,7 +1029,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1285,10 +1300,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -1456,34 +1471,50 @@ export default {
   computed: {
     ...mapState("setting", ["lang"]),
     b9() {
-      return (parseFloat(this.b3) * parseFloat(this.b8)/100).toFixed(0);
+      return ((parseFloat(this.b3) * parseFloat(this.b8)) / 100).toFixed(0);
     },
     b12() {
-      return (parseFloat(this.b3) * parseFloat(this.b11)/100).toFixed(0);
+      return ((parseFloat(this.b3) * parseFloat(this.b11)) / 100).toFixed(0);
     },
     b13() {
-      return (60*36.6*(3*4+5*5)/1000).toFixed(2);
+      return ((60 * 36.6 * (3 * 4 + 5 * 5)) / 1000).toFixed(2);
     },
     b14() {
       return (parseFloat(this.b12) + parseFloat(this.b13)).toFixed(2);
     },
     b17() {
-      return (parseFloat(this.b3) * parseFloat(this.b16)/24).toFixed(2);
+      return ((parseFloat(this.b3) * parseFloat(this.b16)) / 24).toFixed(2);
     },
     b19() {
-      return ((1+(parseFloat(this.b18)/100))*parseFloat(this.b3)/24).toFixed(0);
+      return (
+        ((1 + parseFloat(this.b18) / 100) * parseFloat(this.b3)) /
+        24
+      ).toFixed(0);
     },
     b23() {
-      return (3.6 * parseFloat(this.b20) * parseFloat(this.b22) * parseFloat(this.b21)).toFixed(0);
+      return (
+        3.6 *
+        parseFloat(this.b20) *
+        parseFloat(this.b22) *
+        parseFloat(this.b21)
+      ).toFixed(0);
     },
     b27() {
-      return ((parseFloat(this.b9)+parseFloat(this.b14)+parseFloat(this.b23))/(parseFloat(this.b25)-parseFloat(this.b26))).toFixed(2);
+      return (
+        (parseFloat(this.b9) + parseFloat(this.b14) + parseFloat(this.b23)) /
+        (parseFloat(this.b25) - parseFloat(this.b26))
+      ).toFixed(2);
     },
     b28() {
       return (parseFloat(this.b26) * parseFloat(this.b27)).toFixed(2);
     },
     b29() {
-      return (parseFloat(this.b9) + parseFloat(this.b14) + parseFloat(this.b23) +parseFloat(this.b28)).toFixed(2);
+      return (
+        parseFloat(this.b9) +
+        parseFloat(this.b14) +
+        parseFloat(this.b23) +
+        parseFloat(this.b28)
+      ).toFixed(2);
     },
     b32() {
       return (parseFloat(this.b29) / parseFloat(this.b31)).toFixed(2);
@@ -1495,7 +1526,7 @@ export default {
       return (parseFloat(this.b14) / 2 / parseFloat(this.b33)).toFixed(2);
     },
     b35() {
-      return this.ROUND((parseFloat(this.b33)/ parseFloat(this.b34)),1);
+      return this.ROUND(parseFloat(this.b33) / parseFloat(this.b34), 1);
     },
     b36() {
       return (parseFloat(this.b25) + 0.5).toFixed(1);
@@ -1511,21 +1542,26 @@ export default {
     },
     b47() {
       return (
-        parseFloat(this.b43) / (
-          Math.pow((
-            parseFloat(this.b46)*2*9.8*(Math.pow(parseFloat(this.b45),3))
-          ), 0.5)
+        parseFloat(this.b43) /
+        Math.pow(
+          parseFloat(this.b46) * 2 * 9.8 * Math.pow(parseFloat(this.b45), 3),
+          0.5
         )
       ).toFixed(2);
     },
     b53() {
-      return (2 * parseFloat(this.b34) * 18.75 * parseFloat(this.b38)).toFixed(2);
+      return (2 * parseFloat(this.b34) * 18.75 * parseFloat(this.b38)).toFixed(
+        2
+      );
     },
     b54() {
-      return (24 * parseFloat(this.b53) / parseFloat(this.b3)).toFixed(2);
+      return ((24 * parseFloat(this.b53)) / parseFloat(this.b3)).toFixed(2);
     },
     b55() {
-      return (0.185 * Math.log(18.75*10/parseFloat(this.b37)) - 0.044).toFixed(2);
+      return (
+        0.185 * Math.log((18.75 * 10) / parseFloat(this.b37)) -
+        0.044
+      ).toFixed(2);
     },
     b56() {
       return (parseFloat(this.b55) * parseFloat(this.b54)).toFixed(2);

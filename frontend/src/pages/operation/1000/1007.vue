@@ -107,19 +107,6 @@
               </a-form-item>
             </a-form>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
-            <div class="baseQueryParam">
-              <a-form>
-                <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/5000/5001_1.png" />
-                </a-form-item>
-              </a-form>
-            </div>
-          </a-card>
         </a-card>
       </a-col>
       <a-col

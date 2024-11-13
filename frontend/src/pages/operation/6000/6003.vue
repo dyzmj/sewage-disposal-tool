@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -161,18 +166,14 @@
               </a-form>
             </div>
           </a-card>
-          <a-card
-            :title="$t('referenceImage')"
-            style="margin-bottom: 24px"
-            :bordered="false"
-            :body-style="{ padding: 4 }"
-            :headStyle="{ 'font-weight': 'bolder' }"
-            size="small"
-          >
+          <a-card :title="$t('referenceInformation')">
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img width="400px" src="@/assets/img/2000/Ozone_01.png" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/6000/6003.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -716,9 +717,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -796,49 +801,56 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns3"
-              :data-source="data3"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns3"
+            :data-source="data3"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -850,7 +862,7 @@ import {
   exportExcel3,
   exportWord,
   getValueFromLocalStorage,
-    initWordStorage,
+  initWordStorage,
   initExcelStorage,
 } from "@/utils/exportUtil";
 
@@ -1125,10 +1137,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -1293,22 +1305,29 @@ export default {
       return "to do";
     },
     get_a_1() {
-      return this.b21+"m×"+this.b22_1+"m×"+(parseFloat(this.b18)+parseFloat(this.b19))+"m";
+      return (
+        this.b21 +
+        "m×" +
+        this.b22_1 +
+        "m×" +
+        (parseFloat(this.b18) + parseFloat(this.b19)) +
+        "m"
+      );
     },
     get_a_2() {
       return 1;
     },
     get_b_1() {
-      return "鼓气量>"+this.b41+"m3/h";
+      return "鼓气量>" + this.b41 + "m3/h";
     },
     get_b_2() {
       return this.b40;
     },
     get_c_1() {
-      return "臭氧产气量"+this.b10_1+"kg/h，工作压力>"+this.b49+"m";
+      return "臭氧产气量" + this.b10_1 + "kg/h，工作压力>" + this.b49 + "m";
     },
     get_c_2() {
-      return (parseFloat(this.b9) + parseFloat(this.b9_1))
+      return parseFloat(this.b9) + parseFloat(this.b9_1);
     },
   },
   computed: {
@@ -1400,47 +1419,47 @@ export default {
     },
     data1() {
       return [
-      {
-        序号: "1",
-        单体位号: "",
-        名称: "臭氧接触池",
-        尺寸: this.get_a_1(),
-        标高: "",
-        单位: "座",
-        数量: this.get_a_2(),
-        结构形式: "",
-        备注: "",
-        暖通要求: "",
-      },
-    ];
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "臭氧接触池",
+          尺寸: this.get_a_1(),
+          标高: "",
+          单位: "座",
+          数量: this.get_a_2(),
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "",
-        设备工艺名称: "微孔扩散板",
-        设备类型: this.get_b_1(),
-        规格及型号: "",
-        单位: "个",
-        数量: this.get_b_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "",
-      },
-      {
-        序号: "2",
-        设备位号: "",
-        设备工艺名称: "臭氧发生器",
-        设备类型: this.get_c_1(),
-        规格及型号: "",
-        单位: "台",
-        数量: this.get_c_2(),
-        运行时间: "",
-        主要材质: "",
-        备注: "一用一备，配套尾气破坏器",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "微孔扩散板",
+          设备类型: this.get_b_1(),
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_b_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "臭氧发生器",
+          设备类型: this.get_c_1(),
+          规格及型号: "",
+          单位: "台",
+          数量: this.get_c_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "一用一备，配套尾气破坏器",
+        },
+      ];
     },
   },
   watch() {
