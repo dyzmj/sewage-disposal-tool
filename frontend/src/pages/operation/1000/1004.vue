@@ -16,9 +16,14 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
           :headStyle="{ 'font-weight': 'bolder' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -101,7 +106,10 @@
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1004.jpg" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/1000/1004.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -311,9 +319,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns2"
@@ -324,7 +336,76 @@
               :pagination="false"
               :row-style="{ paddin: 16 }"
             >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
+              <div slot="序号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.序号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备位号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备位号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备工艺名称" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备工艺名称"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="Dimensions" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.Dimensions"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="规格及型号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.规格及型号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单位" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单位"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="disinfectiontank" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.disinfectiontank"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="运行时间" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.运行时间"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="主要材质" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.主要材质"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="备注" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.备注"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
             </a-table>
           </div>
           <a-card
@@ -361,7 +442,14 @@
           </a-card>
         </a-card>
       </a-col>
-      <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+      <a-modal
+        :visible="modelVisible"
+        title="工程量计算"
+        :footer="null"
+        width="1200"
+        @ok="handleOk"
+        @cancel="handleOk"
+      >
         <div>
           <div class="baseQueryParam">
             <a-table
@@ -373,7 +461,76 @@
               :pagination="false"
               :row-style="{ paddin: 16 }"
             >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
+              <div slot="序号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.序号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备位号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备位号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备工艺名称" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备工艺名称"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="Dimensions" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.Dimensions"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="规格及型号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.规格及型号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单位" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单位"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="disinfectiontank" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.disinfectiontank"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="运行时间" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.运行时间"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="主要材质" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.主要材质"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="备注" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.备注"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
             </a-table>
           </div>
         </div>
@@ -418,6 +575,7 @@ export default {
               key: "1",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "序号" },
             },
             {
               title: "设备位号",
@@ -425,6 +583,7 @@ export default {
               key: "2",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "设备位号" },
             },
             {
               title: "设备工艺名称",
@@ -432,6 +591,7 @@ export default {
               key: "3",
               width: "100px",
               align: "center",
+              scopedSlots: { customRender: "设备工艺名称" },
             },
             {
               title: "设备类型",
@@ -439,6 +599,7 @@ export default {
               key: "4",
               width: "150px",
               align: "center",
+              scopedSlots: { customRender: "Dimensions" },
             },
             {
               title: "规格及型号",
@@ -446,6 +607,7 @@ export default {
               key: "5",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "规格及型号" },
             },
             {
               title: "单位",
@@ -453,6 +615,7 @@ export default {
               key: "6",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "单位" },
             },
             {
               title: "数量",
@@ -460,6 +623,7 @@ export default {
               key: "7",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "disinfectiontank" },
             },
             {
               title: "运行时间",
@@ -467,6 +631,7 @@ export default {
               key: "8",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "运行时间" },
             },
             {
               title: "主要材质",
@@ -474,6 +639,7 @@ export default {
               key: "9",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "主要材质" },
             },
             {
               title: "备注",
@@ -481,6 +647,7 @@ export default {
               key: "10",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "备注" },
             },
           ],
         },
@@ -488,14 +655,17 @@ export default {
     };
   },
   methods: {
+    handleTableChange() {
+      this.refreshInitData();
+    },
     backHome() {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -573,7 +743,6 @@ export default {
     },
     handleExcelCache(path, name) {
       try {
-
         // 处理表头信息
         const headerData2 = [
           this.flattenFirstRowColumns(this.columns2),
@@ -585,9 +754,7 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        const data = [
-          ...allData2,
-        ];
+        const data = [...allData2];
         initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -605,19 +772,19 @@ export default {
         return "WTL（Z）-50";
       } else if (parseFloat(this.b10_2) == 100) {
         return "WTL（Z）-100";
-      }else if (parseFloat(this.b10_2) == 200) {
+      } else if (parseFloat(this.b10_2) == 200) {
         return "WTL（Z）-200";
-      }else if (parseFloat(this.b10_2) == 300) {
+      } else if (parseFloat(this.b10_2) == 300) {
         return "WTL（Z）-300";
-      }else if (parseFloat(this.b10_2) == 500) {
+      } else if (parseFloat(this.b10_2) == 500) {
         return "WTL（Z）-500";
-      }else if (parseFloat(this.b10_2) == 1000) {
+      } else if (parseFloat(this.b10_2) == 1000) {
         return "WTL（Z）-1000";
-      }else if (parseFloat(this.b10_2) == 2000) {
+      } else if (parseFloat(this.b10_2) == 2000) {
         return "WTL（Z）-2000";
-      }else if (parseFloat(this.b10_2) == 3000) {
+      } else if (parseFloat(this.b10_2) == 3000) {
         return "WTL（Z）-3000";
-      }else {
+      } else {
         return "WTL（Z）-5000";
       }
     },
@@ -626,8 +793,8 @@ export default {
     ...mapState("setting", ["lang"]),
     b5() {
       return (
-        parseFloat(this.b3) / 24 *
-        parseFloat(this.b4) / parseFloat(this.b4_1)
+        ((parseFloat(this.b3) / 24) * parseFloat(this.b4)) /
+        parseFloat(this.b4_1)
       ).toFixed(2);
     },
     b5_1() {
@@ -642,21 +809,21 @@ export default {
     b10_2() {
       if (parseFloat(this.b10_1) <= 50) {
         return 50;
-      }else if (parseFloat(this.b10_1) <= 100) {
+      } else if (parseFloat(this.b10_1) <= 100) {
         return 100;
-      }else if (parseFloat(this.b10_1) <= 200) {
+      } else if (parseFloat(this.b10_1) <= 200) {
         return 200;
-      }else if (parseFloat(this.b10_1) <= 300) {
+      } else if (parseFloat(this.b10_1) <= 300) {
         return 300;
-      }else if (parseFloat(this.b10_1) <= 500) {
+      } else if (parseFloat(this.b10_1) <= 500) {
         return 500;
-      }else if (parseFloat(this.b10_1) <= 1000) {
+      } else if (parseFloat(this.b10_1) <= 1000) {
         return 1000;
-      }else if (parseFloat(this.b10_1) <= 2000) {
+      } else if (parseFloat(this.b10_1) <= 2000) {
         return 2000;
-      }else if (parseFloat(this.b10_1) <= 3000) {
+      } else if (parseFloat(this.b10_1) <= 3000) {
         return 3000;
-      }else {
+      } else {
         return 5000;
       }
     },
@@ -682,18 +849,18 @@ export default {
     },
     data2() {
       return [
-      {
-        序号: "1",
-        设备位号: "1",
-        设备工艺名称: "二氧化氯发生器",
-        规格及型号: this.getkey1(),
-        单位: "台",
-        数量: "2",
-        运行时间: "24h",
-        主要材质: "",
-        备注: "一用一备",
-      },
-    ];
+        {
+          序号: "1",
+          设备位号: "1",
+          设备工艺名称: "二氧化氯发生器",
+          规格及型号: this.getkey1(),
+          单位: "台",
+          数量: "2",
+          运行时间: "24h",
+          主要材质: "",
+          备注: "一用一备",
+        },
+      ];
     },
   },
   watch() {
