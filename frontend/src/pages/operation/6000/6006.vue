@@ -336,7 +336,76 @@
               :pagination="false"
               :row-style="{ paddin: 16 }"
             >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
+              <div slot="序号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.序号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单体位号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单体位号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="名称" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.名称"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="Dimensions" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.Dimensions"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="标高" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.标高"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单位" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单位"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="disinfectiontank" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.disinfectiontank"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="结构形式" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.结构形式"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="备注" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.备注"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="暖通要求" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.暖通要求"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
             </a-table>
           </div>
           <a-divider :dashed="true" />
@@ -350,7 +419,76 @@
               :pagination="false"
               :row-style="{ paddin: 16 }"
             >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
+              <div slot="序号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.序号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备位号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备位号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备工艺名称" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备工艺名称"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="设备类型" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.设备类型"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="规格及型号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.规格及型号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单位" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单位"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="数量" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.数量"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="运行时间" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.运行时间"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="主要材质" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.主要材质"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="备注" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.备注"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
             </a-table>
           </div>
           <a-divider :dashed="true" />
@@ -364,7 +502,62 @@
               :pagination="false"
               :row-style="{ paddin: 16 }"
             >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
+              <div slot="序号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.序号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="仪表位号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.仪表位号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="安装位置" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.安装位置"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="仪表名称" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.仪表名称"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="规格及型号" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.规格及型号"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="单位" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.单位"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="数量" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.数量"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
+              <div slot="备注" slot-scope="text, record">
+                <a-input
+                  style="border: none;"
+                  v-model="record.备注"
+                  @blur="handleTableChange()"
+                ></a-input>
+              </div>
             </a-table>
           </div>
           <a-card
@@ -421,7 +614,76 @@
             :pagination="false"
             :row-style="{ paddin: 16 }"
           >
-            <a slot="序号" slot-scope="text">{{ text }}</a>
+            <div slot="序号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.序号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单体位号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单体位号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="名称" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.名称"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="Dimensions" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.Dimensions"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="标高" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.标高"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单位" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单位"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="disinfectiontank" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.disinfectiontank"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="结构形式" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.结构形式"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="备注" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.备注"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="暖通要求" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.暖通要求"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
           </a-table>
         </div>
         <a-divider :dashed="true" />
@@ -435,7 +697,76 @@
             :pagination="false"
             :row-style="{ paddin: 16 }"
           >
-            <a slot="序号" slot-scope="text">{{ text }}</a>
+            <div slot="序号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.序号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备位号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备位号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备工艺名称" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备工艺名称"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备类型" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备类型"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="规格及型号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.规格及型号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单位" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单位"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="数量" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.数量"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="运行时间" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.运行时间"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="主要材质" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.主要材质"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="备注" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.备注"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
           </a-table>
         </div>
         <a-divider :dashed="true" />
@@ -449,7 +780,62 @@
             :pagination="false"
             :row-style="{ paddin: 16 }"
           >
-            <a slot="序号" slot-scope="text">{{ text }}</a>
+            <div slot="序号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.序号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="仪表位号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.仪表位号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="安装位置" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.安装位置"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="仪表名称" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.仪表名称"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="规格及型号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.规格及型号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单位" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单位"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="数量" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.数量"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="备注" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.备注"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
           </a-table>
         </div>
       </div>
@@ -493,6 +879,7 @@ export default {
               key: "1",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "序号" },
             },
             {
               title: "单体位号",
@@ -500,6 +887,7 @@ export default {
               key: "2",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "单体位号" },
             },
             {
               title: "名称",
@@ -507,6 +895,7 @@ export default {
               key: "3",
               width: "100px",
               align: "center",
+              scopedSlots: { customRender: "名称" },
             },
             {
               title: "尺寸(m)",
@@ -514,13 +903,15 @@ export default {
               key: "4",
               width: "150px",
               align: "center",
+              scopedSlots: { customRender: "Dimensions" },
             },
             {
               title: "标高(m)",
-              dataIndex: "标高(m)",
+              dataIndex: "标高",
               key: "5",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "标高" },
             },
             {
               title: "单位",
@@ -528,6 +919,7 @@ export default {
               key: "6",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "单位" },
             },
             {
               title: "数量",
@@ -535,6 +927,7 @@ export default {
               key: "7",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "disinfectiontank" },
             },
             {
               title: "结构形式",
@@ -542,6 +935,7 @@ export default {
               key: "8",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "结构形式" },
             },
             {
               title: "备注",
@@ -549,6 +943,7 @@ export default {
               key: "9",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "备注" },
             },
             {
               title: "暖通要求",
@@ -556,6 +951,7 @@ export default {
               key: "10",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "暖通要求" },
             },
           ],
         },
@@ -571,6 +967,7 @@ export default {
               key: "1",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "序号" },
             },
             {
               title: "设备位号",
@@ -578,6 +975,7 @@ export default {
               key: "2",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "设备位号" },
             },
             {
               title: "设备工艺名称",
@@ -585,6 +983,7 @@ export default {
               key: "3",
               width: "100px",
               align: "center",
+              scopedSlots: { customRender: "设备工艺名称" },
             },
             {
               title: "设备类型",
@@ -592,6 +991,7 @@ export default {
               key: "4",
               width: "150px",
               align: "center",
+              scopedSlots: { customRender: "设备类型" },
             },
             {
               title: "规格及型号",
@@ -599,6 +999,7 @@ export default {
               key: "5",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "规格及型号" },
             },
             {
               title: "单位",
@@ -606,6 +1007,7 @@ export default {
               key: "6",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "单位" },
             },
             {
               title: "数量",
@@ -613,6 +1015,7 @@ export default {
               key: "7",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "数量" },
             },
             {
               title: "运行时间",
@@ -620,6 +1023,7 @@ export default {
               key: "8",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "运行时间" },
             },
             {
               title: "主要材质",
@@ -627,6 +1031,7 @@ export default {
               key: "9",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "主要材质" },
             },
             {
               title: "备注",
@@ -634,6 +1039,7 @@ export default {
               key: "10",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "备注" },
             },
           ],
         },
@@ -649,6 +1055,7 @@ export default {
               key: "1",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "序号" },
             },
             {
               title: "仪表位号",
@@ -656,6 +1063,7 @@ export default {
               key: "2",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "仪表位号" },
             },
             {
               title: "仪表名称",
@@ -663,6 +1071,7 @@ export default {
               key: "3",
               width: "100px",
               align: "center",
+              scopedSlots: { customRender: "仪表名称" },
             },
             {
               title: "安装位置",
@@ -670,6 +1079,7 @@ export default {
               key: "4",
               width: "150px",
               align: "center",
+              scopedSlots: { customRender: "Dimensions" },
             },
             {
               title: "规格及型号",
@@ -677,6 +1087,7 @@ export default {
               key: "5",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "规格及型号" },
             },
             {
               title: "单位",
@@ -684,6 +1095,7 @@ export default {
               key: "6",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "单位" },
             },
             {
               title: "数量",
@@ -691,6 +1103,7 @@ export default {
               key: "7",
               width: "50px",
               align: "center",
+              scopedSlots: { customRender: "disinfectiontank" },
             },
             {
               title: "-",
@@ -712,6 +1125,7 @@ export default {
               key: "10",
               width: "80px",
               align: "center",
+              scopedSlots: { customRender: "备注" },
             },
           ],
         },
@@ -720,6 +1134,9 @@ export default {
     };
   },
   methods: {
+    handleTableChange() {
+      this.refreshInitData();
+    },
     backHome() {
       this.$router.push("/works");
     },
