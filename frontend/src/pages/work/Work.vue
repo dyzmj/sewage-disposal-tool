@@ -991,7 +991,8 @@ export default {
       storeValueInLocalStorage("sludgeData", "");
     },
     handleChangeMassage(key, checked) {
-      if (key === "1003" || key === "6004") {
+      // 勾选NaClO开启时，活性炭粉末也开启
+      if (key === "1003" || key === "6005") {
         if (checked) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
