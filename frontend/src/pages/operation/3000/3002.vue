@@ -1657,6 +1657,9 @@ export default {
     };
   },
   methods: {
+    handleTableChange() {
+      this.refreshInitData();
+    },
     backHome() {
       this.$router.push("/works");
     },
