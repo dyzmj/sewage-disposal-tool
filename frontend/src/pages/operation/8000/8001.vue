@@ -71,6 +71,26 @@
                 </a-form-item>
               </a-form>
             </div>
+            <div>
+              <a-tooltip class="header-item" title="水泵选型">
+                <a
+                  href="https://pms.kaiquan.com.cn/web/#/CN/Index"
+                  target="_blank"
+                >
+                  <a-row>
+                    <a-col :span="12">
+                      <img
+                        style="max-width: 150px; height: auto;"
+                        src="@/assets/img/8000/8001_1.png"
+                      />
+                    </a-col>
+                    <a-col :span="12">
+                      <p style="padding-top: 70px; padding-left: 30px;font-size: 20px;">水泵选型</p>
+                    </a-col>
+                  </a-row>
+                </a>
+              </a-tooltip>
+            </div>
           </a-card>
         </a-card>
       </a-col>
