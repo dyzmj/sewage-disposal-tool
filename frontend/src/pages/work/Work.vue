@@ -677,6 +677,7 @@ export default {
       return trigger.parentElement;
     },
     handleSearch(e) {
+      this.form.resetFields();
       // 先清空数据
       this.handleClear()
       // 再计算数据进行匹配
