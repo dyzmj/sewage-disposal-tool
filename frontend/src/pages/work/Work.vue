@@ -677,6 +677,9 @@ export default {
       return trigger.parentElement;
     },
     handleSearch(e) {
+      // 先清空数据
+      this.handleClear()
+      // 再计算数据进行匹配
       e.preventDefault();
       this.form.validateFields((error, values) => {
         // 1、含砂量 2、铁 3、锰 4、色度 5、嗅味 6、藻类 7、高锰酸盐指数 8、溴化物 9、氨氮  11、浊度 12、出水浊度  13、消毒
@@ -684,11 +687,9 @@ export default {
         if (values.param1 >= 80) {
           // 沉淀池
           this.processUnit[0].children[1].color = "#2DB7F5";
-          storeValueInLocalStorage("fc1002", "1");
         } else {
           this.processUnit[0].children[1].checked = false;
           this.processUnit[0].children[1].color = "#6C767D";
-          storeValueInLocalStorage("fc1002", "0");
         }
 
         // 铁 > 0.3 || 锰 > 0.1 || 色度 > 15 || 嗅味 == 1 || 藻类 == 1 || 高锰酸盐指数 == 3
@@ -707,11 +708,6 @@ export default {
           this.processUnit[0].children[5].color = "#f45b21";
           this.processUnit[5].children[2].color = "#f45b21";
           this.processUnit[5].children[3].color = "#f45b21";
-          storeValueInLocalStorage("fc1003", "1");
-          storeValueInLocalStorage("fc1004", "1");
-          storeValueInLocalStorage("fc1005", "1");
-          storeValueInLocalStorage("fc1006", "1");
-          //   this.processUnit[0].children[5].color = '#00be7f'
         } else {
           this.processUnit[0].children[2].checked = false;
           this.processUnit[0].children[3].checked = false;
@@ -726,10 +722,6 @@ export default {
           this.processUnit[0].children[5].color = "#6C767D";
           this.processUnit[5].children[2].color = "#6C767D";
           this.processUnit[5].children[3].color = "#6C767D";
-          storeValueInLocalStorage("fc1003", "0");
-          storeValueInLocalStorage("fc1004", "0");
-          storeValueInLocalStorage("fc1005", "0");
-          storeValueInLocalStorage("fc1006", "0");
         }
 
         // 色度 > 15 || 嗅味 == 1 || 高锰酸盐指数 == 3 || 0.5 < 氨氮 <=1 || 藻类 == 1
@@ -747,7 +739,6 @@ export default {
         } else {
           this.processUnit[0].children[6].checked = false;
           this.processUnit[0].children[6].color = "#6C767D";
-          storeValueInLocalStorage("fc1007", "0");
         }
 
         // 高锰酸盐指数 == 1 || 氨氮 > 1
@@ -759,7 +750,6 @@ export default {
         } else {
           this.processUnit[0].children[0].checked = false;
           this.processUnit[0].children[0].color = "#6C767D";
-          storeValueInLocalStorage("fc1001", "0");
         }
 
         // 高锰酸盐指数 == 2
@@ -771,15 +761,14 @@ export default {
         } else {
           this.processUnit[4].children[0].checked = false;
           this.processUnit[4].children[0].color = "#6C767D";
-          storeValueInLocalStorage("fc5001", "0");
         }
 
         // 溴化物 == 1
         if (values.param8 === "1") {
           // 不得选用臭氧
-          this.processUnit[0].children[5].checked = false;
-          this.processUnit[0].children[5].color = "#6C767D";
-          this.processUnit[0].children[5].disabled = true;
+          this.processUnit[0].children[2].checked = false;
+          this.processUnit[0].children[2].color = "#6C767D";
+          this.processUnit[0].children[2].disabled = true;
           this.tipMessage.push({
             message: "不得选用臭氧",
             color: "#ee5531",
@@ -789,7 +778,6 @@ export default {
         } else if (values.param8 === "0") {
           this.processUnit[0].children[5].disabled = false;
           this.processUnit[0].children[5].color = "#6C767D";
-          storeValueInLocalStorage("fc1006", "0");
         }
 
         // 0.5 < 氨氮 < 1
@@ -801,7 +789,6 @@ export default {
         } else {
           this.processUnit[5].children[1].checked = false;
           this.processUnit[5].children[1].color = "#6C767D";
-          storeValueInLocalStorage("fc6004", "0");
         }
 
         // 浊度 < 50
@@ -814,9 +801,7 @@ export default {
         // 浊度 < 100
         if (values.param11 < 100) {
           // 气浮池
-          // this.processUnit[2].children[5].checked = true;
           this.processUnit[2].children[5].color = "#2DB7F5";
-          storeValueInLocalStorage("fc3006", "1");
         } else {
           this.processUnit[2].children[5].checked = false;
           this.processUnit[2].children[5].color = "#6C767D";
@@ -826,9 +811,7 @@ export default {
         // 浊度 < 500
         if (values.param11 < 500) {
           // 水力循环澄清池
-          // this.processUnit[2].children[4].checked = true;
           this.processUnit[2].children[4].color = "#2DB7F5";
-          storeValueInLocalStorage("fc3005", "1");
         } else {
           this.processUnit[2].children[4].checked = false;
           this.processUnit[2].children[4].color = "#6C767D";
@@ -838,9 +821,7 @@ export default {
         // 浊度 < 3000
         if (values.param11 < 3000) {
           // 机械搅拌澄清池
-          // this.processUnit[2].children[3].checked = true;
           this.processUnit[2].children[3].color = "#2DB7F5";
-          storeValueInLocalStorage("fc3004", "1");
         } else {
           this.processUnit[2].children[3].checked = false;
           this.processUnit[2].children[3].color = "#6C767D";
@@ -850,33 +831,24 @@ export default {
         // 浊度 < 5000
         if (values.param11 < 5000) {
           // 平流沉淀池
-          // this.processUnit[2].children[0].checked = true;
           this.processUnit[2].children[0].color = "#2DB7F5";
-          storeValueInLocalStorage("fc3001", "1");
         } else {
           this.processUnit[2].children[0].checked = false;
           this.processUnit[2].children[0].color = "#6C767D";
-          storeValueInLocalStorage("fc3001", "0");
         }
 
         // 浊度 < 10000
         if (values.param11 < 10000) {
           // 斜管沉淀池
-          // this.processUnit[2].children[1].checked = true;
           this.processUnit[2].children[1].color = "#2DB7F5";
           // 高密度沉淀池
-          // this.processUnit[2].children[2].checked = true;
           this.processUnit[2].children[2].color = "#2DB7F5";
-          storeValueInLocalStorage("fc3002", "1");
-          storeValueInLocalStorage("fc3003", "1");
         } else {
           this.processUnit[2].children[1].checked = false;
           this.processUnit[2].children[2].checked = false;
 
           this.processUnit[2].children[1].color = "#6C767D";
           this.processUnit[2].children[2].color = "#6C767D";
-          storeValueInLocalStorage("fc3002", "0");
-          storeValueInLocalStorage("fc3003", "0");
         }
 
         // 出水浊度 < 0.5
@@ -888,27 +860,18 @@ export default {
         } else {
           this.processUnit[4].children[1].checked = false;
           this.processUnit[4].children[1].color = "#6C767D";
-          storeValueInLocalStorage("fc5002", "0");
         }
 
         // 13、消毒 == 1
         if (values.param13 === "1") {
           // 接触消毒
-          // this.processUnit[5].children[0].checked = true;
           this.processUnit[5].children[0].color = "#2DB7F5";
-          storeValueInLocalStorage("fc5001", "1");
         } else {
           this.processUnit[5].children[0].checked = false;
           this.processUnit[5].children[0].color = "#6C767D";
-          storeValueInLocalStorage("fc5001", "0");
         }
 
         // 初始化时常选中：混凝工艺全部、PAC、PAM
-        // this.processUnit[1].children[0].checked = true;
-        // this.processUnit[1].children[1].checked = true;
-        // this.processUnit[1].children[2].checked = true;
-        // this.processUnit[1].children[3].checked = true;
-        // this.processUnit[1].children[4].checked = true;
         this.processUnit[1].children[0].color = "#2DB7F5";
         this.processUnit[1].children[1].color = "#2DB7F5";
         this.processUnit[1].children[2].color = "#2DB7F5";
@@ -966,8 +929,6 @@ export default {
       });
 
       this.$message.success(this.$t("initSucc"));
-      // console.log('Received values of form: ', this.form);
-
       // 初始化计算书缓存数据
       this.exportAllComputeBook();
     },
@@ -981,6 +942,56 @@ export default {
       this.handleInitChangeCache();
       this.$message.success(this.$t("resetSucc"));
       this.tipMessage = [];
+      storeValueInLocalStorage("pacData", "");
+      storeValueInLocalStorage("pamData", "");
+      storeValueInLocalStorage("dehydrationPamData", "");
+      storeValueInLocalStorage("naclo1Data", "");
+      storeValueInLocalStorage("naclo2Data", "");
+      storeValueInLocalStorage("carbonData", "");
+      storeValueInLocalStorage("KMnO4Data", "");
+      storeValueInLocalStorage("sludgeData", "");
+      storeValueInLocalStorage("fc1001", "0");
+      storeValueInLocalStorage("fc1002", "0");
+      storeValueInLocalStorage("fc1003", "0");
+      storeValueInLocalStorage("fc1004", "0");
+      storeValueInLocalStorage("fc1005", "0");
+      storeValueInLocalStorage("fc1006", "0");
+      storeValueInLocalStorage("fc1007", "0");
+      storeValueInLocalStorage("fc2001", "0");
+      storeValueInLocalStorage("fc2002", "0");
+      storeValueInLocalStorage("fc2003", "0");
+      storeValueInLocalStorage("fc2004", "0");
+      storeValueInLocalStorage("fc2005", "0");
+      storeValueInLocalStorage("fc3001", "0");
+      storeValueInLocalStorage("fc3002", "0");
+      storeValueInLocalStorage("fc3003", "0");
+      storeValueInLocalStorage("fc3004", "0");
+      storeValueInLocalStorage("fc3005", "0");
+      storeValueInLocalStorage("fc3006", "0");
+      storeValueInLocalStorage("fc4001", "0");
+      storeValueInLocalStorage("fc4002", "0");
+      storeValueInLocalStorage("fc5001", "0");
+      storeValueInLocalStorage("fc5002", "0");
+      storeValueInLocalStorage("fc6001", "0");
+      storeValueInLocalStorage("fc6002", "0");
+      storeValueInLocalStorage("fc6003", "0");
+      storeValueInLocalStorage("fc6004", "0");
+      storeValueInLocalStorage("fc6005", "0");
+      storeValueInLocalStorage("fc6006", "0");
+      storeValueInLocalStorage("fc8001", "0");
+      storeValueInLocalStorage("fc8002", "0");
+      storeValueInLocalStorage("fc9001", "0");
+      storeValueInLocalStorage("fc9002", "0");
+    },
+    handleClear() {
+      // 重置时将设计水量和含砂量缓存也清空
+      storeValueInLocalStorage("waterData", "");
+      storeValueInLocalStorage("sandData", "");
+      // 清空单元选择缓存
+      this.handleInitChangeCache();
+      // 请求提示信息
+      this.tipMessage = [];
+      // 清空工作台传递参数
       storeValueInLocalStorage("pacData", "");
       storeValueInLocalStorage("pamData", "");
       storeValueInLocalStorage("dehydrationPamData", "");

@@ -326,7 +326,7 @@ const options = {
                   component: () => import('@/pages/operation/6000/6004')
                 },
                 {
-                  name: '加药系统-NaClO',
+                  name: 'NaClO',
                   path: '/sub/6005',
                   meta: {
                     keepAlive: true,
@@ -334,7 +334,7 @@ const options = {
                   component: () => import('@/pages/operation/6000/6005')
                 },
                 {
-                  name: '加药系统-ClO2',
+                  name: 'ClO2',
                   path: '/sub/6006',
                   meta: {
                     keepAlive: true,
