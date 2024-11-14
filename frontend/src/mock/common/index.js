@@ -304,6 +304,7 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: 'NaClO',
+        message: '厂区消毒剂为NaClO优选选用，后端为生物处理慎用'
       },
       {
         title: 'ClO2',
@@ -313,6 +314,7 @@ const processUnit = [
         state: '1',
         color: '#6C767D',
         detail: 'ClO2',
+        message: '厂区消毒剂为ClO2优选选用，后端为生物处理慎用'
       }
     ]
   },
