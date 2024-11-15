@@ -1095,7 +1095,6 @@ export default {
             // && (this.processUnit[0].children[3].checked == false) 
             // && (this.processUnit[5].children[1].checked == false)
             // && (this.processUnit[5].children[2].checked == false)
-            // debugger;
             console.info("勾选情况");
             console.info(values);
             console.info(!(values.param4 > 15));
@@ -1643,7 +1642,11 @@ export default {
               console.log(`正在获取 ${child.key}`);
               const buffer = getBufferFromLocalStorage(child.key + ".docx");
               if (buffer instanceof Buffer) {
-                buffers.push(buffer);
+                if(child.key === "6004"){
+                  buffers.unshift(buffer);
+                }else {
+                  buffers.push(buffer);
+                }
               } else {
                 console.error(
                   `从 localStorage 获取的 ${child.key} 不是 Buffer 类型`
