@@ -1693,6 +1693,7 @@ export default {
       };
       const data1003 = {
         key1: this.waterData,
+        key2: "1.0",
       };
       const data1004 = {
         key1: this.waterData,
@@ -1881,6 +1882,7 @@ export default {
       };
       const data6005 = {
         key1: this.waterData,
+        key2: "2.0",
       };
       const data6006 = {
         key1: this.waterData,
