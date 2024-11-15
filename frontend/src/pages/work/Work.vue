@@ -768,10 +768,16 @@ export default {
           // 臭氧活性炭 命中时直接勾选
           this.processUnit[4].children[0].checked = true;
           this.processUnit[4].children[0].color = "#00be7f";
+          // 臭氧活性炭勾选时，改变臭氧消毒为橙色预选
+          this.processUnit[5].children[0].color = "#f45b21";
+          
           storeValueInLocalStorage("fc5001", "1");
+          
         } else {
           this.processUnit[4].children[0].checked = false;
           this.processUnit[4].children[0].color = "#6C767D";
+          this.processUnit[5].children[0].checked = false;
+          this.processUnit[5].children[0].color = "#6C767D";
         }
 
         // 溴化物 == 1
@@ -876,14 +882,14 @@ export default {
           this.processUnit[4].children[1].color = "#6C767D";
         }
 
-        // 13、消毒 == 1
-        if (values.param13 === "1") {
-          // 接触消毒
-          this.processUnit[5].children[0].color = "#2DB7F5";
-        } else {
-          this.processUnit[5].children[0].checked = false;
-          this.processUnit[5].children[0].color = "#6C767D";
-        }
+        // // 13、消毒 == 1
+        // if (values.param13 === "1") {
+        //   // 接触消毒
+        //   this.processUnit[5].children[0].color = "#2DB7F5";
+        // } else {
+        //   this.processUnit[5].children[0].checked = false;
+        //   this.processUnit[5].children[0].color = "#6C767D";
+        // }
 
         // 初始化时常选中：混凝工艺全部、PAC、PAM
         this.processUnit[1].children[0].color = "#2DB7F5";
@@ -1077,18 +1083,57 @@ export default {
       storeValueInLocalStorage("sludgeData", "");
     },
     handleChangeMassage(key, checked) {
-      // 勾选NaClO开启时，活性炭粉末也开启
-      if (key === "1003" || key === "6005") {
+      // 勾选NaClO || 折点加氯开启时，活性炭粉末也开启
+      if (key === "1003" || key === "6005" || key === "6004") {
         if (checked) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
           this.processUnit[0].children[6].color = "#00be7f";
         } else {
-          // 活性炭粉末
-          this.processUnit[0].children[6].checked = false;
-          this.processUnit[0].children[6].color = "#6C767D";
+          this.form.validateFields((error, values) => {
+            // 色度 <= 15 && 嗅味 != 1 && 高锰酸盐指数 != 3 && 0.5 >= 氨氮 > 1 && 藻类 != 1
+            // && (this.processUnit[0].children[3].checked == false) 
+            // && (this.processUnit[5].children[1].checked == false)
+            // && (this.processUnit[5].children[2].checked == false)
+            // debugger;
+            console.info("勾选情况");
+            console.info(values);
+            console.info(!(values.param4 > 15));
+            console.info(values.param5 != "1");
+            console.info(values.param6 != "1");
+            console.info(values.param7 != "3");
+            console.info(!(values.param9 > 0.5 && values.param9 <= 1));
+            console.info(this.processUnit[0].children[3].checked);
+            console.info(this.processUnit[5].children[2].checked);
+            console.info(this.processUnit[5].children[2].checked);
+            if (
+              (!(values.param4 > 15)) &&
+              values.param5 != "1" &&
+              values.param6 != "1" &&
+              values.param7 != "3" &&
+              (!(values.param9 > 0.5 && values.param9 <= 1))
+              && (this.processUnit[0].children[3].checked == false) 
+              && (this.processUnit[5].children[1].checked == false)
+              && (this.processUnit[5].children[2].checked == false)
+            ){
+              // 活性炭粉末
+              this.processUnit[0].children[6].checked = false;
+              this.processUnit[0].children[6].color = "#6C767D";
+            }
+          });
         }
       }
+      if (key === "5001") {
+        // 勾选臭氧活性炭时，橙色预选臭氧消毒
+        if (checked) {
+          // 臭氧消毒
+          this.processUnit[5].children[0].color = "#f45b21";
+        }else {
+          this.processUnit[5].children[0].checked = false;
+          this.processUnit[5].children[0].color = "#6C767D";
+        }
+      }
+
       if (key === "1006") {
         // O3
         this.$message.success(
