@@ -43,8 +43,8 @@
   "devDependencies": {
     "@electron/rebuild": "^3.2.13",
     "debug": "^4.3.3",
+    "electron": "^35.0.3",
     "ee-bin": "^4.1.1",
-    "electron": "^34.0.2",
     "electron-builder": "^25.1.8",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint": "^9.19.0",
