@@ -137,7 +137,10 @@ async function loadTemplateContent(templatePath) {
 
 async function renderAndSaveDocument(path, content, data, templatePath) {
   const zip = new pizzip(content);
-  const doc = new Docxtemplater(zip);
+  const doc = new Docxtemplater(zip, {
+    linebreaks: true,
+    paragraphLoop: true,
+  });
 
   doc.setData(data);
   doc.render();
