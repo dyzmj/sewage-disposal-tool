@@ -324,7 +324,7 @@
                           :disabled="true"
                         />
                       </a-form-item>
-                      <a-form-item
+                      <!-- <a-form-item
                         :label="$t('b23')"
                         style="margin-top: 10px"
                         :labelCol="{ span: 10 }"
@@ -338,7 +338,7 @@
                             :disabled="false"
                           />
                         </a-input-group>
-                      </a-form-item>
+                      </a-form-item> -->
                       <a-form-item
                         :label="$t('b24')"
                         style="margin-top: 10px"
@@ -654,10 +654,6 @@
                         </a-input-group>
                       </a-form-item>
                     </a-form>
-                    <br />
-                    <p style="font-weight: bolder; color: red">
-                      {{ $t("b44_1") }}
-                    </p>
                   </div>
                 </a-card>
                 <a-card
@@ -669,6 +665,10 @@
                   size="small"
                   :body-style="{ padding: 4 }"
                 >
+                  <br />
+                    <p style="font-weight: bolder; color: red">
+                      {{ $t("b44_1") }}
+                    </p>
                   <div class="baseQueryParam">
                     <a-form>
                       <a-form-item
@@ -869,13 +869,13 @@
                             v-model="b56_1"
                             style="width: 33%"
                             :placeholder="$t('b56')"
-                            :disabled="true"
+                            :disabled="false"
                           />
                           <a-input
                             v-model="b56_2"
                             style="width: 33%"
                             :placeholder="$t('b56')"
-                            :disabled="true"
+                            :disabled="false"
                           />
                         </a-input-group>
                       </a-form-item>
@@ -1674,7 +1674,7 @@
                         <a-input
                           v-model="c37"
                           :suffix="$t('c37_u')"
-                          :disabled="true"
+                          :disabled="false"
                         />
                       </a-form-item>
                       <a-form-item
@@ -1722,7 +1722,7 @@
                         <a-input
                           v-model="c41"
                           :suffix="$t('c41_u')"
-                          :disabled="true"
+                          :disabled="false"
                         />
                       </a-form-item>
                       <a-form-item
@@ -1734,7 +1734,7 @@
                         <a-input
                           v-model="c42"
                           :suffix="$t('c42_u')"
-                          :disabled="true"
+                          :disabled="false"
                         />
                       </a-form-item>
                       <a-form-item
@@ -1746,7 +1746,7 @@
                         <a-input
                           v-model="c43"
                           :suffix="$t('c43_u')"
-                          :disabled="true"
+                          :disabled="false"
                         />
                       </a-form-item>
                       <a-form-item
@@ -1758,7 +1758,7 @@
                         <a-input
                           v-model="c44"
                           :suffix="$t('c44_u')"
-                          :disabled="true"
+                          :disabled="false"
                         />
                       </a-form-item>
                       <a-form-item
@@ -2184,12 +2184,12 @@
                       <a-input
                         v-model="c64"
                         style="width: 33%"
-                        :disabled="true"
+                        :disabled="false"
                       />
                       <a-input
                         v-model="c64_1"
                         style="width: 33%"
-                        :disabled="true"
+                        :disabled="false"
                       />
                     </a-form-item>
                   </a-form>
@@ -3054,8 +3054,61 @@ export default {
       const data = {
         key1: this.b3_1,
         key2: this.b3_2,
-        key3: this.b8,
+        key3: this.b3_3,
         key4: this.b7,
+        key5: this.b8,
+        key6: this.b9,
+        key7: this.b10,
+        key8: this.b11,
+        key9: this.b12,
+        key10: this.b13,
+        key11: this.b16,
+        key12: this.b17,
+        key13: this.b17_1,
+        key14: this.b18,
+        key15: this.b18_1,
+        key16: this.b22,
+        key17: this.b26,
+        key18: this.b27,
+        key19: this.b25,
+        key20: this.b24,
+        key21: this.b28,
+        key22: this.b29,
+        key23: this.b32,
+        key24: this.b33,
+        key25: this.b34,
+        key26: this.b35,
+        key27: this.b36,
+        key28: this.b39_1,
+        key29: this.b39_2,
+        key30: this.b39_3,
+        key31: this.b40_1,
+        key32: this.b40_2,
+        key33: this.b40_3,
+        key34: this.b41_1,
+        key35: this.b41_2,
+        key36: this.b41_3,
+        key37: this.b42_1,
+        key38: this.b42_2,
+        key39: this.b42_3,
+        key40: this.b45,
+        key41: this.b46,
+        key42: this.b47,
+        key43: this.b48,
+        key44: this.b52_1,
+        key45: this.b52_2,
+        key46: this.b52_3,
+        key47: this.b54_1,
+        key48: this.b54_2,
+        key49: this.b55_1,
+        key50: this.b55_2,
+        key51: this.b56_1,
+        key52: this.b56_2,
+        key53: this.b60_1,
+        key54: this.b60_2,
+        key55: this.b60_3,
+        key56: this.b61,
+        key57: this.b62,
       };
       exportWord("机械絮凝池计算书", "2001.docx", data, this);
     },
@@ -3063,17 +3116,137 @@ export default {
       const data = {
         key1: this.c3_1,
         key2: this.c3_2,
-        key3: this.c8,
+        key3: this.c3_3,
         key4: this.c7,
+        key5: this.c8,
+        key6: this.c10,
+        key7: this.c10_1,
+        key8: this.c10_2,
+        key9: this.c14,
+        key10: this.c15,
+        key11: this.c16,
+        key12: this.c17,
+        key13: this.c18,
+        key14: this.c19,
+        key15: this.c20,
+        key16: this.c25,
+        key17: this.c26,
+        key18: this.c27,
+        key19: this.c28,
+        key20: this.c29,
+        key21: this.c30,
+        key22: this.c31,
+        key23: this.c32,
+        key24: this.c33,
+        key25: this.c34,
+        key26: this.c37,
+        key27: this.c38,
+        key28: this.c39,
+        key29: this.c40,
+        key30: this.c41,
+        key31: this.c42,
+        key32: this.c43,
+        key33: this.c44,
+        key34: this.c46,
+        key35: this.c46_1,
+        key36: this.c46_2,
+        key37: this.c47,
+        key38: this.c47_1,
+        key39: this.c47_2,
+        key40: this.c48,
+        key41: this.c48_1,
+        key42: this.c48_2,
+        key43: this.c49,
+        key44: this.c49_1,
+        key45: this.c49_2,
+        key46: this.c50,
+        key47: this.c50_1,
+        key48: this.c50_2,
+        key49: this.c51,
+        key50: this.c51_1,
+        key51: this.c51_2,
+        key52: this.c52,
+        key53: this.c55,
+        key54: this.c56,
+        key55: this.c57,
+        key56: this.c57_1,
+        key57: this.c57_2,
+        key58: this.c60,
+        key59: this.c60_1,
+        key60: this.c60_2,
+        key61: this.c62,
+        key62: this.c62_1,
+        key63: this.c63,
+        key64: this.c63_1,
+        key65: this.c64,
+        key66: this.c64_1,
+        key67: this.c68,
+        key68: this.c68_1,
+        key69: this.c68_2,
+        key70: this.c69,
+        key71: this.c70,
       };
-      exportWord("机械絮凝池计算书", "2001.docx", data, this);
+      exportWord("机械絮凝池计算书", "2001_1.docx", data, this);
     },
     refreshInitData() {
       const data = {
         key1: this.b3_1,
         key2: this.b3_2,
-        key3: this.b8,
+        key3: this.b3_3,
         key4: this.b7,
+        key5: this.b8,
+        key6: this.b9,
+        key7: this.b10,
+        key8: this.b11,
+        key9: this.b12,
+        key10: this.b13,
+        key11: this.b16,
+        key12: this.b17,
+        key13: this.b17_1,
+        key14: this.b18,
+        key15: this.b18_1,
+        key16: this.b22,
+        key17: this.b26,
+        key18: this.b27,
+        key19: this.b25,
+        key20: this.b24,
+        key21: this.b28,
+        key22: this.b29,
+        key23: this.b32,
+        key24: this.b33,
+        key25: this.b34,
+        key26: this.b35,
+        key27: this.b36,
+        key28: this.b39_1,
+        key29: this.b39_2,
+        key30: this.b39_3,
+        key31: this.b40_1,
+        key32: this.b40_2,
+        key33: this.b40_3,
+        key34: this.b41_1,
+        key35: this.b41_2,
+        key36: this.b41_3,
+        key37: this.b42_1,
+        key38: this.b42_2,
+        key39: this.b42_3,
+        key40: this.b45,
+        key41: this.b46,
+        key42: this.b47,
+        key43: this.b48,
+        key44: this.b52_1,
+        key45: this.b52_2,
+        key46: this.b52_3,
+        key47: this.b54_1,
+        key48: this.b54_2,
+        key49: this.b55_1,
+        key50: this.b55_2,
+        key51: this.b56_1,
+        key52: this.b56_2,
+        key53: this.b60_1,
+        key54: this.b60_2,
+        key55: this.b60_3,
+        key56: this.b61,
+        key57: this.b62,
       };
       initWordStorage("2001.docx", data);
       this.handleExcelCache("2001.xlsx", "机械絮凝池工程量");
