@@ -725,18 +725,44 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b3,
-        key2: this.b5,
-        key3: this.b5_1,
-        key4: this.b9,
+        key2: this.b4,
+        key3: this.b4_1,
+        key4: this.b5,
+        key5: this.b5_1,
+        key6: this.b9,
+        key7: this.b10,
+        key8: this.b10_1,
+        key9: this.b10_2,
+        key10: this.b11,
+        key11: this.b12,
+        key12: this.b13,
+        key13: this.b14,
+        key14: this.b15,
+        key15: this.b16,
+        key16: this.b17,
+        key17: this.b18,
       };
       exportWord("加药系统二氧化氯计算书", "1004.docx", data, this);
     },
     refreshInitData() {
       const data = {
         key1: this.b3,
-        key2: this.b5,
-        key3: this.b5_1,
-        key4: this.b9,
+        key2: this.b4,
+        key3: this.b4_1,
+        key4: this.b5,
+        key5: this.b5_1,
+        key6: this.b9,
+        key7: this.b10,
+        key8: this.b10_1,
+        key9: this.b10_2,
+        key10: this.b11,
+        key11: this.b12,
+        key12: this.b13,
+        key13: this.b14,
+        key14: this.b15,
+        key15: this.b16,
+        key16: this.b17,
+        key17: this.b18,
       };
       initWordStorage("1004.docx", data);
       this.handleExcelCache("1004.xlsx", "加药系统二氧化氯工程量");
