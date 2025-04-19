@@ -754,14 +754,28 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b4,
-        key2: this.b8,
+        key2: this.b5,
+        key3: this.b8,
+        key4: this.b9,
+        key5: this.b10,
+        key6: this.b11,
+        key7: this.b12,
+        key8: this.b13,
+        key9: this.b16,
       };
       exportWord("加药系统次氯酸钠计算书", "1003.docx", data, this);
     },
     refreshInitData() {
       const data = {
         key1: this.b4,
-        key2: this.b8,
+        key2: this.b5,
+        key3: this.b8,
+        key4: this.b9,
+        key5: this.b10,
+        key6: this.b11,
+        key7: this.b12,
+        key8: this.b13,
+        key9: this.b16,
       };
       initWordStorage("1003.docx", data);
       this.handleExcelCache("1003.xlsx", "加药系统次氯酸钠工程量");
