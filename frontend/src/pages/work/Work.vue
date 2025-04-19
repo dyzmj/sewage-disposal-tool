@@ -394,6 +394,13 @@
         </a-card>
       </a-col>
     </a-row>
+    <A1001 v-show="false" ref="A1001"/>
+    <A1002 v-show="false" ref="A1002"/>
+    <A1003 v-show="false" ref="A1003"/>
+    <A1004 v-show="false" ref="A1004"/>
+    <A1005 v-show="false" ref="A1005"/>
+    <A1006 v-show="false" ref="A1006"/>
+    <A1007 v-show="false" ref="A1007"/>
   </div>
 </template>
 
@@ -411,9 +418,17 @@ import {
   initExcelStorage,
 } from "@/utils/exportUtil";
 
+import A1001 from "@/pages/operation/1000/1001.vue";
+import A1002 from "@/pages/operation/1000/1002.vue";
+import A1003 from "@/pages/operation/1000/1003.vue";
+import A1004 from "@/pages/operation/1000/1004.vue";
+import A1005 from "@/pages/operation/1000/1005.vue";
+import A1006 from "@/pages/operation/1000/1006.vue";
+import A1007 from "@/pages/operation/1000/1007.vue";
+
 export default {
   name: "WorkPlace",
-  components: {},
+  components: { A1001, A1002, A1003, A1004, A1005, A1006, A1007 },
   i18n: require("./i18n"),
   data() {
     return {
@@ -950,7 +965,25 @@ export default {
 
       this.$message.success(this.$t("initSucc"));
       // 初始化计算书缓存数据
-      this.exportAllComputeBook();
+      // this.exportAllComputeBook();
+      this.reComputeBook();
+    },
+    reComputeBook() {
+      const a1001 = this.$refs.A1001;
+      console.log("重新初始化1001计算书数据");
+      a1001.refreshInitData();
+      const a1002 = this.$refs.A1002;
+      a1002.refreshInitData();
+      const a1003 = this.$refs.A1003;
+      a1003.refreshInitData();
+      const a1004 = this.$refs.A1004;
+      a1004.refreshInitData();
+      const a1005 = this.$refs.A1005;
+      a1005.refreshInitData();
+      const a1006 = this.$refs.A1006;
+      a1006.refreshInitData();
+      const a1007 = this.$refs.A1007;
+      a1007.refreshInitData();
     },
     handleReset() {
       this.form.resetFields();
@@ -1676,15 +1709,15 @@ export default {
     },
     // 初始化总计算书
     exportAllComputeBook() {
-      const data1001 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: "5",
-        key4: "72",
-        key5: "6",
-        key6: "14",
-        key7: "1.05",
-      };
+      // const data1001 = {
+      //   key1: this.waterData,
+      //   key2: (parseFloat(this.waterData) / 24).toFixed(2),
+      //   key3: "5",
+      //   key4: "72",
+      //   key5: "6",
+      //   key6: "14",
+      //   key7: "1.05",
+      // };
       const data1002 = {
         key1: this.waterData,
         key2: (parseFloat(this.waterData) / 24).toFixed(2),
@@ -1936,7 +1969,7 @@ export default {
         key6: "0.1",
       };
 
-      initWordStorage("1001.docx", data1001);
+      // initWordStorage("1001.docx", data1001);
       initWordStorage("1002.docx", data1002);
       initWordStorage("1003.docx", data1003);
       initWordStorage("1004.docx", data1004);
@@ -6083,7 +6116,7 @@ export default {
       this.loading = false;
     });
     // 初始化计算书缓存数据
-    this.exportAllComputeBook();
+    // this.exportAllComputeBook();
     this.exportAllQuantities();
     // 清空单元选择缓存
     this.handleInitChangeCache();

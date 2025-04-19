@@ -1555,6 +1555,7 @@ export default {
       exportWord("加药系统高锰酸钾计算书", "1005.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -1924,6 +1925,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1005-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

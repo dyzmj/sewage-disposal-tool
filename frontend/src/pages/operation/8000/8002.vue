@@ -1430,6 +1430,7 @@ export default {
       exportWord("清水池计算书", "8002.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b8,
@@ -1651,6 +1652,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("8002-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

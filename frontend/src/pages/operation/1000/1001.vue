@@ -2639,6 +2639,7 @@ export default {
       this.modelVisible = false;
     },
     initWaterData() {
+      console.log("1001初始化水量数据方法被调用");
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
         this.b3_1 = 120000;
@@ -2755,7 +2756,8 @@ export default {
       exportWord("生物接触氧化池计算书", "1001.docx", data, this);
     },
     refreshInitData() {
-      console.log("刷新方法被调用");
+      console.log("1001刷新方法被调用");
+      this.initWaterData();
       // this.$message.info(this.$t("refreshSucc"));
       const data = {
         key103: this.b3_1,
@@ -3391,12 +3393,15 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();
   },
   created() {
     this.initWaterData();
+    this.refreshInitData();
     this.data1 = [
       {
         序号: "",

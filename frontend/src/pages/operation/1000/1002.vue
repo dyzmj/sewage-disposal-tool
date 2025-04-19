@@ -1175,6 +1175,7 @@ export default {
       exportWord("预沉池计算书", "1002.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b4,
         key2: this.b4_1,
@@ -1355,6 +1356,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1002-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

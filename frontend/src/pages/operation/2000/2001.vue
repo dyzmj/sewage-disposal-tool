@@ -3189,6 +3189,7 @@ export default {
       exportWord("机械絮凝池计算书", "2001_1.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3_1,
         key2: this.b3_2,
@@ -3901,6 +3902,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("2001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

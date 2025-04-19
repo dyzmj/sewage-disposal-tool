@@ -3330,6 +3330,7 @@ export default {
       exportWord("机械搅拌澄清池计算书", "3004.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b3_1,
@@ -3990,6 +3991,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("3004-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

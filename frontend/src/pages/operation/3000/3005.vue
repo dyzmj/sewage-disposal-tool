@@ -2064,6 +2064,7 @@ export default {
       exportWord("水力循环澄清池计算书", "3005.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b3_1,
@@ -2486,6 +2487,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("3005-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

@@ -766,6 +766,7 @@ export default {
       exportWord("加药系统次氯酸钠计算书", "1003.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b4,
         key2: this.b5,
@@ -846,6 +847,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1003-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

@@ -658,6 +658,7 @@ export default {
       exportWord("活性炭粉末计算书", "1007.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -766,6 +767,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1007-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

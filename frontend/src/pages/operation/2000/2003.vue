@@ -1987,6 +1987,7 @@ export default {
       exportWord("折板絮凝池计算书", "2003.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b5,
         key2: this.b6,
@@ -2696,6 +2697,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("2003-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

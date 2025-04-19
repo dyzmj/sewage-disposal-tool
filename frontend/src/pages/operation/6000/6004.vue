@@ -2203,6 +2203,7 @@ export default {
       exportWord("折点加氯计算书", "6004.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b8,
         key2: this.b11,
@@ -2537,6 +2538,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("6004-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

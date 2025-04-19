@@ -3000,6 +3000,7 @@ export default {
       exportWord("普通快滤池计算书", "4001.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b3_1,
@@ -3565,6 +3566,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("4001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

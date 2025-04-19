@@ -16078,6 +16078,7 @@ export default {
       exportWord("高密度沉淀池计算书", "3003.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b9,
         key2: this.b11,
@@ -19108,6 +19109,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("3003-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

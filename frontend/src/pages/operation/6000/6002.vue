@@ -760,6 +760,7 @@ export default {
       exportWord("沉浸式紫外线消毒计算书", "6002.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.averageFlow,
         key2: this.maxFlow,
@@ -856,6 +857,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("6002-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

@@ -1504,6 +1504,7 @@ export default {
       exportWord("提升泵房计算书", "8001.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b7,
@@ -1755,6 +1756,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("8001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

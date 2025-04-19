@@ -1657,6 +1657,7 @@ export default {
       exportWord("PAC计算书", "2004.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -2065,6 +2066,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("2004-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

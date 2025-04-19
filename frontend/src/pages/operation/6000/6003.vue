@@ -1683,6 +1683,7 @@ export default {
       exportWord("臭氧消毒计算书", "6003.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b3_1,
@@ -1955,6 +1956,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("6003-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

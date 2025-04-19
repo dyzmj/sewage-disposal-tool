@@ -2195,6 +2195,7 @@ export default {
       exportWord("次氯酸钠计算书", "6005.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b4,
         key2: this.b5,
@@ -3401,6 +3402,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("6005-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

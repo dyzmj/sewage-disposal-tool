@@ -580,6 +580,7 @@ export default {
       exportWord("接触消毒池计算书", "6001.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.designScale,
         unit1: this.$t("designScaleUnit"),
@@ -730,6 +731,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("6001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

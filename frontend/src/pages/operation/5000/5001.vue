@@ -1944,6 +1944,7 @@ export default {
       exportWord("臭氧活性炭计算书", "5001.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b3_1,
@@ -2248,6 +2249,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("5001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

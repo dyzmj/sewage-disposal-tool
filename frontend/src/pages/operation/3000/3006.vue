@@ -1839,6 +1839,7 @@ export default {
       exportWord("平流式气浮池计算书", "3006.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -2277,6 +2278,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("3006-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

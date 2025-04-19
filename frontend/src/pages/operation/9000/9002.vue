@@ -2161,6 +2161,11 @@ export default {
       ];
     },
   },
+  activated() {
+    this.initWaterData();
+    console.log("9002-activated被调用了");
+    this.refreshInitData();
+  },
   created() {
     this.data1 = [];
     this.data2 = [];

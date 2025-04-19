@@ -2757,6 +2757,7 @@ export default {
       exportWord("浓缩池计算书", "9001.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b1,
         key2: this.b2,
@@ -3524,6 +3525,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("9001-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

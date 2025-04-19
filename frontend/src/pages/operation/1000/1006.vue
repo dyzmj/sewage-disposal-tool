@@ -665,6 +665,7 @@ export default {
       exportWord("加药系统臭氧计算书", "1006.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: (parseFloat(this.b11) * 1000),
@@ -756,6 +757,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("1006-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

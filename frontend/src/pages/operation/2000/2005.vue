@@ -1579,6 +1579,7 @@ export default {
       exportWord("PAM计算书", "2005.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -1968,6 +1969,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("2005-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();

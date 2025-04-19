@@ -4603,6 +4603,7 @@ export default {
       exportWord("V型滤池计算书", "4002.docx", data, this);
     },
     refreshInitData() {
+      this.initWaterData();
       const data = {
         key1: this.b3,
         key2: this.b4,
@@ -6171,6 +6172,8 @@ export default {
   },
   activated() {
     this.initWaterData();
+    console.log("4002-activated被调用了");
+    this.refreshInitData();
   },
   mounted() {
     this.initWaterData();
