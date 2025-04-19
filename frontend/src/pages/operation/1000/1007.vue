@@ -644,18 +644,32 @@ export default {
     exportComputeBook() {
       const data = {
         key1: this.b3,
-        key2: this.b7,
-        key3: this.b10,
-        key4: this.b11,
+        key2: this.b4,
+        key3: this.b4_1,
+        key4: this.b5,
+        key5: this.b5_1,
+        key6: this.b7,
+        key7: this.b8,
+        key8: this.b9,
+        key9: this.b10,
+        key10: this.b11,
+        key11: this.b11_1,
       };
       exportWord("活性炭粉末计算书", "1007.docx", data, this);
     },
     refreshInitData() {
       const data = {
         key1: this.b3,
-        key2: this.b7,
-        key3: this.b10,
-        key4: this.b11,
+        key2: this.b4,
+        key3: this.b4_1,
+        key4: this.b5,
+        key5: this.b5_1,
+        key6: this.b7,
+        key7: this.b8,
+        key8: this.b9,
+        key9: this.b10,
+        key10: this.b11,
+        key11: this.b11_1,
       };
       initWordStorage("1007.docx", data);
       this.handleExcelCache("1007.xlsx", "活性炭粉末工程量");
