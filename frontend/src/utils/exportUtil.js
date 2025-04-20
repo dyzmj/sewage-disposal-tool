@@ -12,6 +12,7 @@ const fs = window.require("fs");
  * @param { self对象 } self
  */
 export function exportExcel(data, name, self) {
+  data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
@@ -41,6 +42,7 @@ export function exportExcel(data, name, self) {
  */
 export function exportExcel2(data1, data2, name, self) {
   var data = [...data1, null, null, ...data2];
+  data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
@@ -69,6 +71,7 @@ export function exportExcel2(data1, data2, name, self) {
  */
 export function exportExcel3(data1, data2, data3, name, self) {
   var data = [...data1, null, null, ...data2, null, null, ...data3];
+  data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
@@ -97,21 +100,50 @@ export function exportExcel3(data1, data2, data3, name, self) {
  * @param { self对象 } self
  */
 export function exportExcelAll(name, datas, names, self) {
+  // ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+  //   const wb = XLSX.utils.book_new();
+  //   for (let index = 0; index < datas.length; index++) {
+  //     const item = datas[index];
+  //     const sheet = names[index];
+  //     const ws = XLSX.utils.aoa_to_sheet(item);
+  //     XLSX.utils.book_append_sheet(wb, ws, sheet);
+  //   }
+
+  //   const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+  //   var path =
+  //     r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+  //   fs.writeFile(path, buffer, (err) => {
+  //     if (err) {
+  //       // throw err;
+  //       self.$message.warn("保存文件失败！");
+  //     } else {
+  //       self.$message.info(self.$t("exportSucc"));
+  //       console.log("The file has been saved!");
+  //       return 1;
+  //     }
+  //   });
+  // });
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    // 合并所有 sheet 的数据，并在每个 sheet 数据前面添加 sheet 名称
+    let combinedData = [];
+    datas.forEach((data, index) => {
+      if (index > 0) {
+        combinedData.push([]); // 添加空行分隔不同的 sheet 数据
+      }
+      // 添加 sheet 名称作为标题行
+      combinedData.push([names[index]]);
+      combinedData = combinedData.concat(data);
+    });
+
+    const ws = XLSX.utils.aoa_to_sheet(combinedData);
     const wb = XLSX.utils.book_new();
-    for (let index = 0; index < datas.length; index++) {
-      const item = datas[index];
-      const sheet = names[index];
-      const ws = XLSX.utils.aoa_to_sheet(item);
-      XLSX.utils.book_append_sheet(wb, ws, sheet);
-    }
+    XLSX.utils.book_append_sheet(wb, ws, name);
 
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
       r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
     fs.writeFile(path, buffer, (err) => {
       if (err) {
-        // throw err;
         self.$message.warn("保存文件失败！");
       } else {
         self.$message.info(self.$t("exportSucc"));
@@ -120,6 +152,7 @@ export function exportExcelAll(name, datas, names, self) {
       }
     });
   });
+
 }
 
 async function selectFolder() {

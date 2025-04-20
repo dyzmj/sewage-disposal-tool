@@ -394,36 +394,36 @@
         </a-card>
       </a-col>
     </a-row>
-    <A1001 v-show="false" ref="A1001"/>
-    <A1002 v-show="false" ref="A1002"/>
-    <A1003 v-show="false" ref="A1003"/>
-    <A1004 v-show="false" ref="A1004"/>
-    <A1005 v-show="false" ref="A1005"/>
-    <A1006 v-show="false" ref="A1006"/>
-    <A1007 v-show="false" ref="A1007"/>
-    <A2001 v-show="false" ref="A2001"/>
-    <A2002 v-show="false" ref="A2002"/>
-    <A2003 v-show="false" ref="A2003"/>
-    <A2004 v-show="false" ref="A2004"/>
-    <A2005 v-show="false" ref="A2005"/>
-    <A3001 v-show="false" ref="A3001"/>
-    <A3002 v-show="false" ref="A3002"/>
-    <A3003 v-show="false" ref="A3003"/>
-    <A3004 v-show="false" ref="A3004"/>
-    <A3005 v-show="false" ref="A3005"/>
-    <A3006 v-show="false" ref="A3006"/>
-    <A4001 v-show="false" ref="A4001"/>
-    <A4002 v-show="false" ref="A4002"/>
-    <A5001 v-show="false" ref="A5001"/>
-    <A5002 v-show="false" ref="A5002"/>
-    <A6003 v-show="false" ref="A6003"/>
-    <A6004 v-show="false" ref="A6004"/>
-    <A6005 v-show="false" ref="A6005"/>
-    <A6006 v-show="false" ref="A6006"/>
-    <A8001 v-show="false" ref="A8001"/>
-    <A8002 v-show="false" ref="A8002"/>
-    <A9001 v-show="false" ref="A9001"/>
-    <A9002 v-show="false" ref="A9002"/>
+    <A1001 v-show="false" ref="A1001" />
+    <A1002 v-show="false" ref="A1002" />
+    <A1003 v-show="false" ref="A1003" />
+    <A1004 v-show="false" ref="A1004" />
+    <A1005 v-show="false" ref="A1005" />
+    <A1006 v-show="false" ref="A1006" />
+    <A1007 v-show="false" ref="A1007" />
+    <A2001 v-show="false" ref="A2001" />
+    <A2002 v-show="false" ref="A2002" />
+    <A2003 v-show="false" ref="A2003" />
+    <A2004 v-show="false" ref="A2004" />
+    <A2005 v-show="false" ref="A2005" />
+    <A3001 v-show="false" ref="A3001" />
+    <A3002 v-show="false" ref="A3002" />
+    <A3003 v-show="false" ref="A3003" />
+    <A3004 v-show="false" ref="A3004" />
+    <A3005 v-show="false" ref="A3005" />
+    <A3006 v-show="false" ref="A3006" />
+    <A4001 v-show="false" ref="A4001" />
+    <A4002 v-show="false" ref="A4002" />
+    <A5001 v-show="false" ref="A5001" />
+    <A5002 v-show="false" ref="A5002" />
+    <A6003 v-show="false" ref="A6003" />
+    <A6004 v-show="false" ref="A6004" />
+    <A6005 v-show="false" ref="A6005" />
+    <A6006 v-show="false" ref="A6006" />
+    <A8001 v-show="false" ref="A8001" />
+    <A8002 v-show="false" ref="A8002" />
+    <A9001 v-show="false" ref="A9001" />
+    <A9002 v-show="false" ref="A9002" />
   </div>
 </template>
 
@@ -474,15 +474,37 @@ import A9002 from "@/pages/operation/9000/9002.vue";
 
 export default {
   name: "WorkPlace",
-  components: { 
-    A1001, A1002, A1003, A1004, A1005, A1006, A1007,
-    A2001, A2002, A2003, A2004, A2005,
-    A3001, A3002, A3003, A3004, A3005, A3006,
-    A4001, A4002,
-    A5001, A5002,
-    A6003, A6004, A6005, A6006,
-    A8001, A8002,
-    A9001, A9002,
+  components: {
+    A1001,
+    A1002,
+    A1003,
+    A1004,
+    A1005,
+    A1006,
+    A1007,
+    A2001,
+    A2002,
+    A2003,
+    A2004,
+    A2005,
+    A3001,
+    A3002,
+    A3003,
+    A3004,
+    A3005,
+    A3006,
+    A4001,
+    A4002,
+    A5001,
+    A5002,
+    A6003,
+    A6004,
+    A6005,
+    A6006,
+    A8001,
+    A8002,
+    A9001,
+    A9002,
   },
   i18n: require("./i18n"),
   data() {
@@ -752,8 +774,7 @@ export default {
         (value, index, self) =>
           index ===
           self.findIndex(
-            (t) =>
-              JSON.stringify(t) === JSON.stringify(value) // 使用 JSON.stringify 来比较对象内容
+            (t) => JSON.stringify(t) === JSON.stringify(value) // 使用 JSON.stringify 来比较对象内容
           )
       );
     },
@@ -840,9 +861,8 @@ export default {
           this.processUnit[4].children[0].color = "#00be7f";
           // 臭氧活性炭勾选时，改变臭氧消毒为橙色预选
           this.processUnit[5].children[0].color = "#f45b21";
-          
+
           storeValueInLocalStorage("fc5001", "1");
-          
         } else {
           this.processUnit[4].children[0].checked = false;
           this.processUnit[4].children[0].color = "#6C767D";
@@ -1197,7 +1217,7 @@ export default {
       this.processUnit[6].children[1].color = "#6C767D";
       this.processUnit[7].children[0].color = "#6C767D";
       this.processUnit[7].children[1].color = "#6C767D";
-      
+
       // 重置时将设计水量和含砂量缓存也清空
       storeValueInLocalStorage("waterData", "");
       storeValueInLocalStorage("sandData", "");
@@ -1225,7 +1245,7 @@ export default {
         } else {
           this.form.validateFields((error, values) => {
             // 色度 <= 15 && 嗅味 != 1 && 高锰酸盐指数 != 3 && 0.5 >= 氨氮 > 1 && 藻类 != 1
-            // && (this.processUnit[0].children[3].checked == false) 
+            // && (this.processUnit[0].children[3].checked == false)
             // && (this.processUnit[5].children[1].checked == false)
             // && (this.processUnit[5].children[2].checked == false)
             console.info("勾选情况");
@@ -1239,15 +1259,15 @@ export default {
             console.info(this.processUnit[5].children[2].checked);
             console.info(this.processUnit[5].children[2].checked);
             if (
-              (!(values.param4 > 15)) &&
+              !(values.param4 > 15) &&
               values.param5 != "1" &&
               values.param6 != "1" &&
               values.param7 != "3" &&
-              (!(values.param9 > 0.5 && values.param9 <= 1))
-              && (this.processUnit[0].children[3].checked == false) 
-              && (this.processUnit[5].children[1].checked == false)
-              && (this.processUnit[5].children[2].checked == false)
-            ){
+              !(values.param9 > 0.5 && values.param9 <= 1) &&
+              this.processUnit[0].children[3].checked == false &&
+              this.processUnit[5].children[1].checked == false &&
+              this.processUnit[5].children[2].checked == false
+            ) {
               // 活性炭粉末
               this.processUnit[0].children[6].checked = false;
               this.processUnit[0].children[6].color = "#6C767D";
@@ -1260,7 +1280,7 @@ export default {
         if (checked) {
           // 臭氧消毒
           this.processUnit[5].children[0].color = "#f45b21";
-        }else {
+        } else {
           this.processUnit[5].children[0].checked = false;
           this.processUnit[5].children[0].color = "#6C767D";
         }
@@ -1775,9 +1795,9 @@ export default {
               console.log(`正在获取 ${child.key}`);
               const buffer = getBufferFromLocalStorage(child.key + ".docx");
               if (buffer instanceof Buffer) {
-                if(child.key === "6004"){
+                if (child.key === "6004") {
                   buffers.unshift(buffer);
-                }else {
+                } else {
                   buffers.push(buffer);
                 }
               } else {
