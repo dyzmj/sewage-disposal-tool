@@ -401,6 +401,29 @@
     <A1005 v-show="false" ref="A1005"/>
     <A1006 v-show="false" ref="A1006"/>
     <A1007 v-show="false" ref="A1007"/>
+    <A2001 v-show="false" ref="A2001"/>
+    <A2002 v-show="false" ref="A2002"/>
+    <A2003 v-show="false" ref="A2003"/>
+    <A2004 v-show="false" ref="A2004"/>
+    <A2005 v-show="false" ref="A2005"/>
+    <A3001 v-show="false" ref="A3001"/>
+    <A3002 v-show="false" ref="A3002"/>
+    <A3003 v-show="false" ref="A3003"/>
+    <A3004 v-show="false" ref="A3004"/>
+    <A3005 v-show="false" ref="A3005"/>
+    <A3006 v-show="false" ref="A3006"/>
+    <A4001 v-show="false" ref="A4001"/>
+    <A4002 v-show="false" ref="A4002"/>
+    <A5001 v-show="false" ref="A5001"/>
+    <A5002 v-show="false" ref="A5002"/>
+    <A6003 v-show="false" ref="A6003"/>
+    <A6004 v-show="false" ref="A6004"/>
+    <A6005 v-show="false" ref="A6005"/>
+    <A6006 v-show="false" ref="A6006"/>
+    <A8001 v-show="false" ref="A8001"/>
+    <A8002 v-show="false" ref="A8002"/>
+    <A9001 v-show="false" ref="A9001"/>
+    <A9002 v-show="false" ref="A9002"/>
   </div>
 </template>
 
@@ -425,10 +448,42 @@ import A1004 from "@/pages/operation/1000/1004.vue";
 import A1005 from "@/pages/operation/1000/1005.vue";
 import A1006 from "@/pages/operation/1000/1006.vue";
 import A1007 from "@/pages/operation/1000/1007.vue";
+import A2001 from "@/pages/operation/2000/2001.vue";
+import A2002 from "@/pages/operation/2000/2002.vue";
+import A2003 from "@/pages/operation/2000/2003.vue";
+import A2004 from "@/pages/operation/2000/2004.vue";
+import A2005 from "@/pages/operation/2000/2005.vue";
+import A3001 from "@/pages/operation/3000/3001.vue";
+import A3002 from "@/pages/operation/3000/3002.vue";
+import A3003 from "@/pages/operation/3000/3003.vue";
+import A3004 from "@/pages/operation/3000/3004.vue";
+import A3005 from "@/pages/operation/3000/3005.vue";
+import A3006 from "@/pages/operation/3000/3006.vue";
+import A4001 from "@/pages/operation/4000/4001.vue";
+import A4002 from "@/pages/operation/4000/4002.vue";
+import A5001 from "@/pages/operation/5000/5001.vue";
+import A5002 from "@/pages/operation/5000/5002.vue";
+import A6003 from "@/pages/operation/6000/6003.vue";
+import A6004 from "@/pages/operation/6000/6004.vue";
+import A6005 from "@/pages/operation/6000/6005.vue";
+import A6006 from "@/pages/operation/6000/6006.vue";
+import A8001 from "@/pages/operation/8000/8001.vue";
+import A8002 from "@/pages/operation/8000/8002.vue";
+import A9001 from "@/pages/operation/9000/9001.vue";
+import A9002 from "@/pages/operation/9000/9002.vue";
 
 export default {
   name: "WorkPlace",
-  components: { A1001, A1002, A1003, A1004, A1005, A1006, A1007 },
+  components: { 
+    A1001, A1002, A1003, A1004, A1005, A1006, A1007,
+    A2001, A2002, A2003, A2004, A2005,
+    A3001, A3002, A3003, A3004, A3005, A3006,
+    A4001, A4002,
+    A5001, A5002,
+    A6003, A6004, A6005, A6006,
+    A8001, A8002,
+    A9001, A9002,
+  },
   i18n: require("./i18n"),
   data() {
     return {
@@ -969,6 +1024,7 @@ export default {
       this.reComputeBook();
     },
     reComputeBook() {
+      // 重新初始化计算书数据
       const a1001 = this.$refs.A1001;
       console.log("重新初始化1001计算书数据");
       a1001.refreshInitData();
@@ -984,6 +1040,50 @@ export default {
       a1006.refreshInitData();
       const a1007 = this.$refs.A1007;
       a1007.refreshInitData();
+      const a2001 = this.$refs.A2001;
+      a2001.refreshInitData();
+      const a2002 = this.$refs.A2002;
+      a2002.refreshInitData();
+      const a2003 = this.$refs.A2003;
+      a2003.refreshInitData();
+      const a2004 = this.$refs.A2004;
+      a2004.refreshInitData();
+      const a2005 = this.$refs.A2005;
+      a2005.refreshInitData();
+      const a3001 = this.$refs.A3001;
+      a3001.refreshInitData();
+      const a3002 = this.$refs.A3002;
+      a3002.refreshInitData();
+      const a3003 = this.$refs.A3003;
+      a3003.refreshInitData();
+      const a3004 = this.$refs.A3004;
+      a3004.refreshInitData();
+      const a3005 = this.$refs.A3005;
+      a3005.refreshInitData();
+      const a3006 = this.$refs.A3006;
+      a3006.refreshInitData();
+      const a4001 = this.$refs.A4001;
+      a4001.refreshInitData();
+      const a4002 = this.$refs.A4002;
+      a4002.refreshInitData();
+      const a5001 = this.$refs.A5001;
+      a5001.refreshInitData();
+      const a5002 = this.$refs.A5002;
+      a5002.refreshInitData();
+      const a6003 = this.$refs.A6003;
+      a6003.refreshInitData();
+      const a6004 = this.$refs.A6004;
+      a6004.refreshInitData();
+      const a6005 = this.$refs.A6005;
+      a6005.refreshInitData();
+      const a6006 = this.$refs.A6006;
+      a6006.refreshInitData();
+      const a8001 = this.$refs.A8001;
+      a8001.refreshInitData();
+      const a8002 = this.$refs.A8002;
+      a8002.refreshInitData();
+      const a9001 = this.$refs.A9001;
+      a9001.refreshInitData();
     },
     handleReset() {
       this.form.resetFields();

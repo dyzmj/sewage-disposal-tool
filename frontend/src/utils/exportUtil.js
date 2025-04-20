@@ -318,7 +318,7 @@ function base64ToBuffer(base64) {
 export function storeBufferInLocalStorage(buffer, key) {
   const base64String = bufferToBase64(buffer);
   localStorage.setItem(key, base64String);
-  console.log("Buffer stored successfully in localStorage");
+  // console.log("Buffer stored successfully in localStorage");
 }
 
 // 从 localStorage 中读取 Buffer 数据
@@ -352,7 +352,7 @@ export function getKeyNameFromLocalStorage(key) {
 
 export function storeValueInLocalStorage(key, value) {
   localStorage.setItem(key, value);
-  console.log("value successfully in localStorage");
+  // console.log("value successfully in localStorage");
 }
 
 export function getValueFromLocalStorage(key) {
