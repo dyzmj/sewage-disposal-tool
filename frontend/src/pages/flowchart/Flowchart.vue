@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     initProcessUnitData() {
+      console.log("初始化流程图数据----->>>");
       // 初始化
       this.fc1001();
       this.fc1002();

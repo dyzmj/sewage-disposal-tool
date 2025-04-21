@@ -1002,9 +1002,30 @@ export default {
         this.processUnit[7].children[0].color = "#2DB7F5";
         this.processUnit[7].children[1].color = "#f45b21";
 
+        // 沉淀工艺默认选中
+        this.processUnit[2].children[0].checked = true;
+        this.processUnit[2].children[0].color = "#00be7f";
+        this.processUnit[2].children[1].checked = true;
+        this.processUnit[2].children[1].color = "#00be7f";
+        this.processUnit[2].children[2].checked = true;
+        this.processUnit[2].children[2].color = "#00be7f";
+        this.processUnit[2].children[3].checked = true;
+        this.processUnit[2].children[3].color = "#00be7f";
+        this.processUnit[2].children[4].checked = true;
+        this.processUnit[2].children[4].color = "#00be7f";
+        this.processUnit[2].children[5].checked = true;
+        this.processUnit[2].children[5].color = "#00be7f";
+
         storeValueInLocalStorage("fc2004", "1");
         storeValueInLocalStorage("fc2005", "1");
         storeValueInLocalStorage("fc8002", "1");
+        storeValueInLocalStorage("fc3001", "1");
+        storeValueInLocalStorage("fc3002", "1");
+        storeValueInLocalStorage("fc3003", "1");
+        storeValueInLocalStorage("fc3004", "1");
+        storeValueInLocalStorage("fc3005", "1");
+        storeValueInLocalStorage("fc3006", "1");
+
 
         if (
           this.processUnit[0].children[3].checked ||
