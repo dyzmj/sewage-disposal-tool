@@ -13,9 +13,10 @@ const Services = require('ee-core/services');
 const Addon = require('ee-core/addon');
 const winreg = require('winreg');
 
-const getMac = require("getmac");
+// const getMac = require("getmac");
 const os = require('os');
-const CryptoJS = require('crypto-js')
+const CryptoJS = require('crypto-js');
+const { exec: childProcessExec } = require('child_process');
 
 /**
  * 操作系统 - 功能demo
@@ -339,6 +340,25 @@ class OsController extends Controller {
     return theme;
   }
 
+  getUUID() {
+    return new Promise((resolve, reject) => {
+      childProcessExec('wmic csproduct get UUID', (error, stdout, stderr) => {
+        if (error) {
+          console.error(`执行出错: ${error.message}`);
+          return reject(error);
+        }
+        if (stderr) {
+          console.error(`错误输出: ${stderr}`);
+          return reject(new Error(stderr));
+        }
+
+        // 处理输出结果，去除多余的空格和换行符
+        const uuid = stdout.trim().split('\n')[1].trim();
+        resolve(uuid);
+      });
+    });
+  }
+
   /**
    * 设置系统主题
    */
@@ -364,11 +384,13 @@ class OsController extends Controller {
   }
 
   async getMachineCode() {
-    let message = "Address >>"+(os.hostname() + os.hostname() + getMac.default()).toUpperCase();
+    // let message = "Address >>"+(os.hostname() + os.hostname() + getMac.default()).toUpperCase();
+    let uuid = await this.getUUID();
+    let message = "Address >>"+(os.hostname() + uuid).toUpperCase();
+    // console.log('message: ', message);
     let msg = CryptoJS.MD5(message).toString(CryptoJS.enc.Hex).toUpperCase();
     return this.insertDashes(msg);
   }
-
   // 获取注册表项
   async getRegistration() {
     const path = '\\AuthTool\\SDT';

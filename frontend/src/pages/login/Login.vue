@@ -157,7 +157,7 @@ export default {
         console.info("机器码加密：" + cryptCertificate);
 
         if (certificate !== cryptCertificate) {
-          // throw "证书与机器码不匹配，请重新认证！";
+          throw "证书与机器码不匹配，请重新认证！";
         }
       } catch (error) {
           console.error("Error process:", error);
