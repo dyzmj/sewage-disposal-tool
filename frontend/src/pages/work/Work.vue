@@ -441,36 +441,36 @@ import {
   initExcelStorage,
 } from "@/utils/exportUtil";
 
-import A1001 from "@/pages/operation/1000/1001.vue";
-import A1002 from "@/pages/operation/1000/1002.vue";
-import A1003 from "@/pages/operation/1000/1003.vue";
-import A1004 from "@/pages/operation/1000/1004.vue";
-import A1005 from "@/pages/operation/1000/1005.vue";
-import A1006 from "@/pages/operation/1000/1006.vue";
-import A1007 from "@/pages/operation/1000/1007.vue";
-import A2001 from "@/pages/operation/2000/2001.vue";
-import A2002 from "@/pages/operation/2000/2002.vue";
-import A2003 from "@/pages/operation/2000/2003.vue";
-import A2004 from "@/pages/operation/2000/2004.vue";
-import A2005 from "@/pages/operation/2000/2005.vue";
-import A3001 from "@/pages/operation/3000/3001.vue";
-import A3002 from "@/pages/operation/3000/3002.vue";
-import A3003 from "@/pages/operation/3000/3003.vue";
-import A3004 from "@/pages/operation/3000/3004.vue";
-import A3005 from "@/pages/operation/3000/3005.vue";
-import A3006 from "@/pages/operation/3000/3006.vue";
-import A4001 from "@/pages/operation/4000/4001.vue";
-import A4002 from "@/pages/operation/4000/4002.vue";
-import A5001 from "@/pages/operation/5000/5001.vue";
-import A5002 from "@/pages/operation/5000/5002.vue";
-import A6003 from "@/pages/operation/6000/6003.vue";
-import A6004 from "@/pages/operation/6000/6004.vue";
-import A6005 from "@/pages/operation/6000/6005.vue";
-import A6006 from "@/pages/operation/6000/6006.vue";
-import A8001 from "@/pages/operation/8000/8001.vue";
-import A8002 from "@/pages/operation/8000/8002.vue";
-import A9001 from "@/pages/operation/9000/9001.vue";
-import A9002 from "@/pages/operation/9000/9002.vue";
+import A1001 from "@/pages/operation_data/1000/1001.vue";
+import A1002 from "@/pages/operation_data/1000/1002.vue";
+import A1003 from "@/pages/operation_data/1000/1003.vue";
+import A1004 from "@/pages/operation_data/1000/1004.vue";
+import A1005 from "@/pages/operation_data/1000/1005.vue";
+import A1006 from "@/pages/operation_data/1000/1006.vue";
+import A1007 from "@/pages/operation_data/1000/1007.vue";
+import A2001 from "@/pages/operation_data/2000/2001.vue";
+import A2002 from "@/pages/operation_data/2000/2002.vue";
+import A2003 from "@/pages/operation_data/2000/2003.vue";
+import A2004 from "@/pages/operation_data/2000/2004.vue";
+import A2005 from "@/pages/operation_data/2000/2005.vue";
+import A3001 from "@/pages/operation_data/3000/3001.vue";
+import A3002 from "@/pages/operation_data/3000/3002.vue";
+import A3003 from "@/pages/operation_data/3000/3003.vue";
+import A3004 from "@/pages/operation_data/3000/3004.vue";
+import A3005 from "@/pages/operation_data/3000/3005.vue";
+import A3006 from "@/pages/operation_data/3000/3006.vue";
+import A4001 from "@/pages/operation_data/4000/4001.vue";
+import A4002 from "@/pages/operation_data/4000/4002.vue";
+import A5001 from "@/pages/operation_data/5000/5001.vue";
+import A5002 from "@/pages/operation_data/5000/5002.vue";
+import A6003 from "@/pages/operation_data/6000/6003.vue";
+import A6004 from "@/pages/operation_data/6000/6004.vue";
+import A6005 from "@/pages/operation_data/6000/6005.vue";
+import A6006 from "@/pages/operation_data/6000/6006.vue";
+import A8001 from "@/pages/operation_data/8000/8001.vue";
+import A8002 from "@/pages/operation_data/8000/8002.vue";
+import A9001 from "@/pages/operation_data/9000/9001.vue";
+import A9002 from "@/pages/operation_data/9000/9002.vue";
 
 export default {
   name: "WorkPlace",
