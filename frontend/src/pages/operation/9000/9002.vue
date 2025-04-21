@@ -794,26 +794,10 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b38_1"
-                        style="width: 33%;"
+                        style="width: 100%;"
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b38_1_u')"
-                        @change="refreshInitData()"
-                      />
-                      <a-input
-                        v-model="b38_2"
-                        style="width: 33%;"
-                        :disabled="false"
-                        rows="12"
-                        :suffix="$t('b38_2_u')"
-                        @change="refreshInitData()"
-                      />
-                      <a-input
-                        v-model="b38_3"
-                        style="width: 33%;"
-                        :disabled="false"
-                        rows="12"
-                        :suffix="$t('b38_3_u')"
                         @change="refreshInitData()"
                       />
                     </a-input-group>
@@ -920,26 +904,10 @@
                     <a-input-group compact>
                       <a-input
                         v-model="b43_1"
-                        style="width: 33%;"
+                        style="width: 100%;"
                         :disabled="false"
                         rows="12"
                         :suffix="$t('b43_1_u')"
-                        @change="refreshInitData()"
-                      />
-                      <a-input
-                        v-model="b43_2"
-                        style="width: 33%;"
-                        :disabled="true"
-                        rows="12"
-                        :suffix="$t('b43_2_u')"
-                        @change="refreshInitData()"
-                      />
-                      <a-input
-                        v-model="b43_3"
-                        style="width: 34%;"
-                        :disabled="true"
-                        rows="12"
-                        :suffix="$t('b43_3_u')"
                         @change="refreshInitData()"
                       />
                     </a-input-group>
@@ -1890,10 +1858,78 @@ export default {
       const data = {
         key1: this.b1,
         key2: this.b2,
-        key3: this.b6_1,
-        key4: this.b8,
-        key5: this.b38_1,
-        key6: this.b43_1,
+        key3: this.b3,
+        key4: this.b6_1,
+        key5: this.b7,
+        key6: this.b8,
+        key7: this.b9,
+        key8: this.b10,
+        key9: this.b11,
+        key10: this.b11_1,
+        key11: this.b12,
+        key12: this.b12_1,
+        key13: this.b12_2,
+        key14: this.b13_1,
+        key15: this.b14_1,
+        key16: this.b14_2,
+        key17: this.b15_1,
+        key18: this.b16,
+        key19: this.b17,
+        key20: this.b18,
+        key21: this.b19,
+        key22: this.b20,
+        key23: this.b21,
+        key24: this.b22,
+        key25: this.b23,
+        key26: this.b24,
+        key27: this.b25,
+        key28: this.b26,
+        key29: this.b30,
+        key30: this.b31,
+        key31: this.b31_1,
+        key32: this.b32,
+        key33: this.b33,
+        key34: this.b34,
+        key35: this.b34_1,
+        key36: this.b35,
+        key37: this.b36,
+        key38: this.b36_1,
+        key39: this.b37,
+        key40: this.b38_1,
+        key41: this.b39,
+        key42: this.b40,
+        key43: this.b41,
+        key44: this.b42,
+        key45: this.b42_1,
+        key46: this.b43_1,
+        key47: this.b44,
+        key48: this.b45,
+        key49: this.b46,
+        key50: this.b47,
+        key51: this.b47_1,
+        key52: this.b48,
+        key53: this.b48_1,
+        key54: this.b48_2,
+        key55: this.b49_1,
+        key56: this.b50_1,
+        key57: this.b50_2,
+        key58: this.b51_1,
+        key59: this.b52,
+        key60: this.b53,
+        key61: this.b54,
+        key62: this.b55,
+        key63: this.b56,
+        key64: this.b57,
+        key65: this.b58,
+        key66: this.b59,
+        key67: this.b60,
+        key68: this.b61,
+        key69: this.b62,
+        key70: this.b65,
+        key71: this.b66,
+        key72: this.b67,
+        key73: this.b67_1,
+        key74: this.b68,
       };
       exportWord("脱水加药计算书", "9002.docx", data, this);
     },
@@ -1901,10 +1937,78 @@ export default {
       const data = {
         key1: this.b1,
         key2: this.b2,
-        key3: this.b6_1,
-        key4: this.b8,
-        key5: this.b38_1,
-        key6: this.b43_1,
+        key3: this.b3,
+        key4: this.b6_1,
+        key5: this.b7,
+        key6: this.b8,
+        key7: this.b9,
+        key8: this.b10,
+        key9: this.b11,
+        key10: this.b11_1,
+        key11: this.b12,
+        key12: this.b12_1,
+        key13: this.b12_2,
+        key14: this.b13_1,
+        key15: this.b14_1,
+        key16: this.b14_2,
+        key17: this.b15_1,
+        key18: this.b16,
+        key19: this.b17,
+        key20: this.b18,
+        key21: this.b19,
+        key22: this.b20,
+        key23: this.b21,
+        key24: this.b22,
+        key25: this.b23,
+        key26: this.b24,
+        key27: this.b25,
+        key28: this.b26,
+        key29: this.b30,
+        key30: this.b31,
+        key31: this.b31_1,
+        key32: this.b32,
+        key33: this.b33,
+        key34: this.b34,
+        key35: this.b34_1,
+        key36: this.b35,
+        key37: this.b36,
+        key38: this.b36_1,
+        key39: this.b37,
+        key40: this.b38_1,
+        key41: this.b39,
+        key42: this.b40,
+        key43: this.b41,
+        key44: this.b42,
+        key45: this.b42_1,
+        key46: this.b43_1,
+        key47: this.b44,
+        key48: this.b45,
+        key49: this.b46,
+        key50: this.b47,
+        key51: this.b47_1,
+        key52: this.b48,
+        key53: this.b48_1,
+        key54: this.b48_2,
+        key55: this.b49_1,
+        key56: this.b50_1,
+        key57: this.b50_2,
+        key58: this.b51_1,
+        key59: this.b52,
+        key60: this.b53,
+        key61: this.b54,
+        key62: this.b55,
+        key63: this.b56,
+        key64: this.b57,
+        key65: this.b58,
+        key66: this.b59,
+        key67: this.b60,
+        key68: this.b61,
+        key69: this.b62,
+        key70: this.b65,
+        key71: this.b66,
+        key72: this.b67,
+        key73: this.b67_1,
+        key74: this.b68,
       };
       initWordStorage("9002.docx", data);
       this.handleExcelCache("9002.xlsx", "脱水加药工程量");
@@ -2038,7 +2142,7 @@ export default {
       return (parseFloat(this.b34) * parseFloat(this.b34_1)).toFixed(2);
     },
     b37() {
-      return (
+      return (1000000 * 
         (parseFloat(this.b3) * parseFloat(this.b7)) /
         (parseFloat(this.b8) / 100) /
         1000 /
