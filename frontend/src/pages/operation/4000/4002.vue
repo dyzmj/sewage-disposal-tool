@@ -954,7 +954,7 @@
                         rows="12"
                         :suffix="$t('b59_u')"
                       />
-                      <a-input
+                      <!-- <a-input
                         v-model="b59_1"
                         style="width: 100%"
                         :disabled="false"
@@ -967,7 +967,7 @@
                         :disabled="false"
                         rows="12"
                         :addon-before="$t('b60_1')"
-                      />
+                      /> -->
                     </a-input-group>
                   </a-form-item>
                 </a-form>
