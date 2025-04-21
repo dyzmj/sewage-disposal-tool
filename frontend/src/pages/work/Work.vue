@@ -1237,7 +1237,7 @@ export default {
     },
     handleChangeMassage(key, checked) {
       // 勾选NaClO || 折点加氯开启时，活性炭粉末也开启
-      if (key === "1003" || key === "6005" || key === "6004") {
+      if (key === "1003" || key === "6004") {
         if (checked) {
           // 活性炭粉末
           this.processUnit[0].children[6].checked = true;
@@ -1441,40 +1441,40 @@ export default {
           );
         }
       }
-      if (key === "6006") {
-        // ClO2
-        this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
-        if (checked) {
-          this.tipMessage.push({
-            id: "6006",
-            message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
-            color: "#be8a2f",
-            tip: "ClO2",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "6006"
-          );
-        }
-      }
-      if (key === "6005") {
-        // NaClO
-        this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
-        if (checked) {
-          this.tipMessage.push({
-            id: "6005",
-            message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
-            color: "#cb5c83",
-            tip: "NaClO",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "6005"
-          );
-        }
-      }
+      // if (key === "6006") {
+      //   // ClO2
+      //   this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
+      //   if (checked) {
+      //     this.tipMessage.push({
+      //       id: "6006",
+      //       message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
+      //       color: "#be8a2f",
+      //       tip: "ClO2",
+      //     });
+      //     this.tipMessage = this.arrayDistinct(this.tipMessage);
+      //   } else {
+      //     this.tipMessage = this.tipMessage.filter(
+      //       (item) => item.id !== "6006"
+      //     );
+      //   }
+      // }
+      // if (key === "6005") {
+      //   // NaClO
+      //   this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
+      //   if (checked) {
+      //     this.tipMessage.push({
+      //       id: "6005",
+      //       message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
+      //       color: "#cb5c83",
+      //       tip: "NaClO",
+      //     });
+      //     this.tipMessage = this.arrayDistinct(this.tipMessage);
+      //   } else {
+      //     this.tipMessage = this.tipMessage.filter(
+      //       (item) => item.id !== "6005"
+      //     );
+      //   }
+      // }
     },
     handleChangeCache(key, checked) {
       if (key === "1001") {
