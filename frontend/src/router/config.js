@@ -418,15 +418,15 @@ const options = {
           },
           component: () => import('@/pages/costs')
         },
-        // {
-        //   path: 'auth',
-        //   name: '授权',
-        //   meta: {
-        //     icon: 'safety',
-        //     keepAlive: true,
-        //   },
-        //   component: () => import('@/pages/auth')
-        // },
+        {
+          path: 'auth',
+          name: '授权',
+          meta: {
+            icon: 'safety',
+            keepAlive: true,
+          },
+          component: () => import('@/pages/auth')
+        },
         {
           path: 'about',
           name: '关于',

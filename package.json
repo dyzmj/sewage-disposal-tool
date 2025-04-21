@@ -1,6 +1,6 @@
 {
   "name": "sdt",
-  "version": "1.0.1",
+  "version": "3.8.7",
   "description": "Water Purification Intelligent Interactive Software",
   "main": "main.js",
   "scripts": {
