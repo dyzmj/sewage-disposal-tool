@@ -887,7 +887,7 @@ export default {
           storeValueInLocalStorage("fc1006", "0");
         } else if (values.param8 === "0") {
           this.processUnit[0].children[2].disabled = false;
-          this.processUnit[0].children[5].color = "#6C767D";
+          this.processUnit[0].children[2].color = "#6C767D";
         }
 
         // 0.5 < 氨氮 < 1
