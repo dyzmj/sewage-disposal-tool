@@ -292,12 +292,29 @@ export async function exportWord2(name, data, self) {
 
     // 提取 word 对应 XML(word/document.xml)中 ["w:document"]["w:body"] 的计算书内容信息
     const doc = [];
+    const mediaFiles = {};
+    const relFiles = {};
     for (const item of data) {
       const zip = new pizzip(item);
       const documentXml = zip.file("word/document.xml").asText();
       const docxXml = await parseDocumentXml(documentXml);
       const contentXml = docxXml["w:document"]["w:body"];
       doc.push(contentXml);
+
+      // 提取媒体资源
+      for (const filename in zip.files) {
+        if (filename.startsWith("word/media/")) {
+          mediaFiles[filename] = zip.files[filename].asArrayBuffer();
+          console.log(`Extracted media file: ${filename}`);
+          // 此文档中包含图片文件可以提取rels 文件
+          for(const relname in zip.files){
+            if (relname.startsWith("word/_rels/")) {
+              relFiles[relname] = zip.files[relname].asText();
+              console.log(`Extracted rels file: ${relname}`);
+            }
+          }
+        }
+      }
     }
 
     // 移除数组中的第一条数据（为后续去重）
@@ -314,6 +331,18 @@ export async function exportWord2(name, data, self) {
     const documentXmlStr = await convertToXml(docx1);
     // 将计算书内容部分添加至基础模版中
     zip1.file("word/document.xml", documentXmlStr);
+
+    // 复制媒体资源到新文档
+    for (const filename in mediaFiles) {
+      zip1.file(filename, mediaFiles[filename]);
+      console.log(`Copied media file: ${filename}`);
+    }
+    // 复制媒体资源到新文档
+    for (const relname in relFiles) {
+      zip1.file(relname, relFiles[relname]);
+      console.log(`Copied rel file: ${relname}`);
+    }
+
     // 将基础模版转为 buffer 对象
     const outputBuffer = zip1.generate({ type: "nodebuffer" });
     // 将 buffer 对象导出为 docx 文档

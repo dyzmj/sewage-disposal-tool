@@ -1813,11 +1813,12 @@ export default {
               console.log(`正在获取 ${child.key}`);
               const buffer = getBufferFromLocalStorage(child.key + ".docx");
               if (buffer instanceof Buffer) {
-                if (child.key === "6004") {
-                  buffers.unshift(buffer);
-                } else {
-                  buffers.push(buffer);
-                }
+                // if (child.key === "6004") {
+                //   buffers.unshift(buffer);
+                // } else {
+                //   buffers.push(buffer);
+                // }
+                buffers.push(buffer);
               } else {
                 console.error(
                   `从 localStorage 获取的 ${child.key} 不是 Buffer 类型`
