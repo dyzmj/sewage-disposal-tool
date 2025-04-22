@@ -70,6 +70,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show2004"
                     >
                       <a-input-group compact>
                         <a-input
@@ -94,6 +95,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show2005"
                     >
                       <a-input-group compact>
                         <a-input
@@ -118,6 +120,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show9002"
                     >
                       <a-input-group compact>
                         <a-input
@@ -142,6 +145,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show6005"
                     >
                       <a-input-group compact>
                         <a-input
@@ -172,6 +176,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show1003"
                     >
                       <a-input-group compact>
                         <a-input
@@ -202,6 +207,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show1007"
                     >
                       <a-input-group compact>
                         <a-input
@@ -278,6 +284,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show1005"
                     >
                       <a-input-group compact>
                         <a-input
@@ -320,6 +327,7 @@
                       :colon="false"
                       :span="8"
                       style="margin-top: 5px"
+                      v-show="show9001"
                     >
                       <a-input-group compact>
                         <a-input
@@ -415,49 +423,49 @@
                 <tr>
                   <td rowspan="9">2</td>
                   <td rowspan="9">药剂费</td>
-                  <td>PAC</td>
-                  <td><a-input v-model="e20" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g20" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i20" /></td>
-                  <td><a-input v-model="j20" /></td>
+                  <td v-show="show2004">PAC</td>
+                  <td v-show="show2004"><a-input v-model="e20" /></td>
+                  <td v-show="show2004">t</td>
+                  <td v-show="show2004"><a-input v-model="g20" /></td>
+                  <td v-show="show2004">元/t</td>
+                  <td v-show="show2004"><a-input v-model="i20" /></td>
+                  <td v-show="show2004"><a-input v-model="j20" /></td>
                 </tr>
                 <tr>
-                  <td>PAM</td>
-                  <td><a-input v-model="e21" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g21" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i21" /></td>
-                  <td><a-input v-model="j21" /></td>
+                  <td v-show="show2005">PAM</td>
+                  <td v-show="show2005"><a-input v-model="e21" /></td>
+                  <td v-show="show2005">t</td>
+                  <td v-show="show2005"><a-input v-model="g21" /></td>
+                  <td v-show="show2005">元/t</td>
+                  <td v-show="show2005"><a-input v-model="i21" /></td>
+                  <td v-show="show2005"><a-input v-model="j21" /></td>
                 </tr>
                 <tr>
-                  <td>脱水PAM</td>
-                  <td><a-input v-model="e22" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g22" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i22" /></td>
-                  <td><a-input v-model="j22" /></td>
+                  <td v-show="show9002">脱水PAM</td>
+                  <td v-show="show9002"><a-input v-model="e22" /></td>
+                  <td v-show="show9002">t</td>
+                  <td v-show="show9002"><a-input v-model="g22" /></td>
+                  <td v-show="show9002">元/t</td>
+                  <td v-show="show9002"><a-input v-model="i22" /></td>
+                  <td v-show="show9002"><a-input v-model="j22" /></td>
                 </tr>
                 <tr>
-                  <td>次氯酸钠</td>
-                  <td><a-input v-model="e23" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g23" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i23" /></td>
-                  <td><a-input v-model="j23" /></td>
+                  <td v-show="show1003 || show6005">次氯酸钠</td>
+                  <td v-show="show1003 || show6005"><a-input v-model="e23" /></td>
+                  <td v-show="show1003 || show6005">t</td>
+                  <td v-show="show1003 || show6005"><a-input v-model="g23" /></td>
+                  <td v-show="show1003 || show6005">元/t</td>
+                  <td v-show="show1003 || show6005"><a-input v-model="i23" /></td>
+                  <td v-show="show1003 || show6005"><a-input v-model="j23" /></td>
                 </tr>
                 <tr>
-                  <td>粉末活性炭</td>
-                  <td><a-input v-model="e24" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g24" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i24" /></td>
-                  <td><a-input v-model="j24" /></td>
+                  <td v-show="show1007">粉末活性炭</td>
+                  <td v-show="show1007"><a-input v-model="e24" /></td>
+                  <td v-show="show1007">t</td>
+                  <td v-show="show1007"><a-input v-model="g24" /></td>
+                  <td v-show="show1007">元/t</td>
+                  <td v-show="show1007"><a-input v-model="i24" /></td>
+                  <td v-show="show1007"><a-input v-model="j24" /></td>
                 </tr>
                 <tr>
                   <td>HCl</td>
@@ -478,13 +486,13 @@
                   <td><a-input v-model="j26" /></td>
                 </tr>
                 <tr>
-                  <td>高锰酸钾</td>
-                  <td><a-input v-model="e27" /></td>
-                  <td>t</td>
-                  <td><a-input v-model="g27" /></td>
-                  <td>元/t</td>
-                  <td><a-input v-model="i27" /></td>
-                  <td><a-input v-model="j27" /></td>
+                  <td v-show="show1005">高锰酸钾</td>
+                  <td v-show="show1005"><a-input v-model="e27" /></td>
+                  <td v-show="show1005">t</td>
+                  <td v-show="show1005"><a-input v-model="g27" /></td>
+                  <td v-show="show1005">元/t</td>
+                  <td v-show="show1005"><a-input v-model="i27" /></td>
+                  <td v-show="show1005"><a-input v-model="j27" /></td>
                 </tr>
                 <tr>
                   <td>小计</td>
@@ -585,6 +593,14 @@ export default {
     return {
       formLayout: "horizontal",
       form: this.$form.createForm(this, { name: "coordinated" }),
+      show1003: false,
+      show1005: false,
+      show1007: false,
+      show2004: false,
+      show2005: false,
+      show6005: false,
+      show9001: false,
+      show9002: false,
       certificate: "",
       code: "",
       b2: "20000",
@@ -700,6 +716,130 @@ export default {
       this.form.resetFields();
       this.certificate = "";
       this.code = "";
+    },
+    initProcessUnitData() {
+      console.log("初始化运行成本数据----->>>");
+      // 初始化
+      // this.fc1001();
+      // this.fc1002();
+      this.fc1003();
+      // this.fc1004();
+      this.fc1005();
+      // this.fc1006();
+      this.fc1007();
+      // this.fc2001();
+      // this.fc2002();
+      // this.fc2003();
+      this.fc2004();
+      this.fc2005();
+      // this.fc3001();
+      // this.fc3002();
+      // this.fc3003();
+      // this.fc3004();
+      // this.fc3005();
+      // this.fc3006();
+      // this.fc4001();
+      // this.fc4002();
+      // this.fc5001();
+      // this.fc5002();
+      // this.fc6001();
+      // this.fc6002();
+      // this.fc6003();
+      // this.fc6004();
+      this.fc6005();
+      // this.fc6006();
+      // this.fc8001();
+      // this.fc8002();
+      this.fc9001();
+      this.fc9002();
+    },
+    fc1003() {
+      // 预加氯次氯酸钠投加量
+      const fc1003 = getValueFromLocalStorage("fc1003");
+      // ;
+      if (fc1003 === '1'){
+        this.show1003 = true;
+      }else {
+        this.show1003 = false;
+        this.b7 = 0;
+      }
+    },
+    fc1005() {
+      // 高锰酸钾投加量
+      const fc1005 = getValueFromLocalStorage("fc1005");
+      // ;
+      if (fc1005 === '1'){
+        this.show1005 = true;
+      }else {
+        this.show1005 = false;
+        this.b11 = 0;
+      }
+    },
+    fc1007() {
+      // 粉末活性炭投加量
+      const fc1007 = getValueFromLocalStorage("fc1007");
+      // ;
+      if (fc1007 === '1'){
+        this.show1007 = true;
+      }else {
+        this.show1007 = false;
+        this.b8 = 0;
+      }
+    },
+    fc2004() {
+      // PAC
+      const fc2004 = getValueFromLocalStorage("fc2004");
+      // ;
+      if (fc2004 === '1'){
+        this.show2004 = true;
+      }else {
+        this.show2004 = false;
+        this.b3 = 0;
+      }
+    },
+    fc2005() {
+      // PAM
+      const fc2005 = getValueFromLocalStorage("fc2005");
+      // ;
+      if (fc2005 === '1'){
+        this.show2005 = true;
+      }else {
+        this.show2005 = false;
+        this.b4 = 0;
+      }
+    },
+    fc6005() {
+      // 消毒次氯酸钠投加量
+      const fc6005 = getValueFromLocalStorage("fc6005");
+      // ;
+      if (fc6005 === '1'){
+        this.show6005 = true;
+      }else {
+        this.show6005 = false;
+        this.b6 = 0;
+      }
+    },
+    fc9001() {
+      // 干污泥量
+      const fc9001 = getValueFromLocalStorage("fc9001");
+      // ;
+      if (fc9001 === '1'){
+        this.show9001 = true;
+      }else {
+        this.show9001 = false;
+        this.b13 = 0;
+      }
+    },
+    fc9002() {
+      // 脱水PAM投加量
+      const fc9002 = getValueFromLocalStorage("fc9002");
+      // ;
+      if (fc9002 === '1'){
+        this.show9002 = true;
+      }else {
+        this.show9002 = false;
+        this.b5 = 0;
+      }
     },
   },
   computed: {
@@ -992,15 +1132,19 @@ export default {
   },
   watch() {
     this.initWaterData();
+    this.initProcessUnitData();
   },
   activated() {
     this.initWaterData();
+    this.initProcessUnitData();
   },
   mounted() {
     this.initWaterData();
+    this.initProcessUnitData();
   },
   created() {
     this.initWaterData();
+    this.initProcessUnitData();
   },
 };
 </script>
