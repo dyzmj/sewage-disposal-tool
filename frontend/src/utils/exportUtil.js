@@ -63,6 +63,32 @@ export function exportExcel2(data1, data2, name, self) {
   });
 }
 
+export function exportExcel4(data1, data2, name1, data3, data4, name2, name, self) {
+  var d1 = [...data1, null, null, ...data2];
+  d1.unshift([name1]);
+  var d2 = [...data3, null, null, ...data4];
+  d2.unshift([name2]);
+  d1.push(null, null, ...d2);
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    const ws = XLSX.utils.aoa_to_sheet(d1);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, name);
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+}
+
 /**
  * 导出 3 个 sheet的 Excel文件
  * @param { Excel数据 } data

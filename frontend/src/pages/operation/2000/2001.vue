@@ -2486,13 +2486,13 @@
                       <a-button
                         style="margin-left: 30px"
                         type="primary"
-                        @click="exportComputeBook1()"
+                        @click="exportComputeBook()"
                         >{{ $t("exportComputeBook") }}</a-button
                       >
                       <a-button
                         style="margin-left: 10px"
                         type="danger"
-                        @click="exportQuantities2()"
+                        @click="exportQuantities()"
                         >{{ $t("exportQuantities") }}</a-button
                       >
                       <a-button
@@ -2692,7 +2692,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel2,
+  exportExcel4,
   exportWord,
   getValueFromLocalStorage,
   initWordStorage,
@@ -2985,48 +2985,30 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-        // 导出 Excel
-        exportExcel2(allData1, allData2, "机械絮凝池_水平轴式工程量", this);
-      } catch (error) {
-        console.error("Error exporting Excel:", error);
-        // 可以在这里添加更多的错误处理逻辑
-      }
-    },
-    exportQuantities2() {
-      try {
-        this.exportExcel2();
-      } catch (error) {
-        console.error("Error exporting Excel:", error);
-        // 可以在这里添加更多的错误处理逻辑
-        this.$message.warn(this.$t("exportExcelError"));
-        return;
-      }
-    },
-    exportExcel2() {
-      try {
         // 处理表头信息
-        const headerData1 = [
+        const headerData3 = [
           this.flattenFirstRowColumns(this.columns1),
           this.flattenSecondRowColumns(this.columns1),
         ];
         // 初始化 allData
-        const allData1 = [
-          ...headerData1,
+        const allData3 = [
+          ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
 
         // 处理表头信息
-        const headerData2 = [
+        const headerData4 = [
           this.flattenFirstRowColumns(this.columns2),
           this.flattenSecondRowColumns(this.columns2),
         ];
         // 初始化 allData
-        const allData2 = [
-          ...headerData2,
+        const allData4 = [
+          ...headerData4,
           ...this.data4.map((item) => Object.values(item)),
         ];
+
         // 导出 Excel
-        exportExcel2(allData1, allData2, "机械絮凝池_垂直轴式工程量", this);
+        exportExcel4(allData1, allData2, "机械絮凝池_水平轴式工程量", allData3, allData4, "机械絮凝池_垂直轴式工程量", "机械絮凝池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -3109,82 +3091,153 @@ export default {
         key55: this.b60_3,
         key56: this.b61,
         key57: this.b62,
+        akey1: this.c3_1,
+        akey2: this.c3_2,
+        akey3: this.c3_3,
+        akey4: this.c7,
+        akey5: this.c8,
+        akey6: this.c10,
+        akey7: this.c10_1,
+        akey8: this.c10_2,
+        akey9: this.c14,
+        akey10: this.c15,
+        akey11: this.c16,
+        akey12: this.c17,
+        akey13: this.c18,
+        akey14: this.c19,
+        akey15: this.c20,
+        akey16: this.c25,
+        akey17: this.c26,
+        akey18: this.c27,
+        akey19: this.c28,
+        akey20: this.c29,
+        akey21: this.c30,
+        akey22: this.c31,
+        akey23: this.c32,
+        akey24: this.c33,
+        akey25: this.c34,
+        akey26: this.c37,
+        akey27: this.c38,
+        akey28: this.c39,
+        akey29: this.c40,
+        akey30: this.c41,
+        akey31: this.c42,
+        akey32: this.c43,
+        akey33: this.c44,
+        akey34: this.c46,
+        akey35: this.c46_1,
+        akey36: this.c46_2,
+        akey37: this.c47,
+        akey38: this.c47_1,
+        akey39: this.c47_2,
+        akey40: this.c48,
+        akey41: this.c48_1,
+        akey42: this.c48_2,
+        akey43: this.c49,
+        akey44: this.c49_1,
+        akey45: this.c49_2,
+        akey46: this.c50,
+        akey47: this.c50_1,
+        akey48: this.c50_2,
+        akey49: this.c51,
+        akey50: this.c51_1,
+        akey51: this.c51_2,
+        akey52: this.c52,
+        akey53: this.c55,
+        akey54: this.c56,
+        akey55: this.c57,
+        akey56: this.c57_1,
+        akey57: this.c57_2,
+        akey58: this.c60,
+        akey59: this.c60_1,
+        akey60: this.c60_2,
+        akey61: this.c62,
+        akey62: this.c62_1,
+        akey63: this.c63,
+        akey64: this.c63_1,
+        akey65: this.c64,
+        akey66: this.c64_1,
+        akey67: this.c68,
+        akey68: this.c68_1,
+        akey69: this.c68_2,
+        akey70: this.c69,
+        akey71: this.c70,
       };
       exportWord("机械絮凝池计算书", "2001.docx", data, this);
     },
     exportComputeBook1() {
       const data = {
-        key1: this.c3_1,
-        key2: this.c3_2,
-        key3: this.c3_3,
-        key4: this.c7,
-        key5: this.c8,
-        key6: this.c10,
-        key7: this.c10_1,
-        key8: this.c10_2,
-        key9: this.c14,
-        key10: this.c15,
-        key11: this.c16,
-        key12: this.c17,
-        key13: this.c18,
-        key14: this.c19,
-        key15: this.c20,
-        key16: this.c25,
-        key17: this.c26,
-        key18: this.c27,
-        key19: this.c28,
-        key20: this.c29,
-        key21: this.c30,
-        key22: this.c31,
-        key23: this.c32,
-        key24: this.c33,
-        key25: this.c34,
-        key26: this.c37,
-        key27: this.c38,
-        key28: this.c39,
-        key29: this.c40,
-        key30: this.c41,
-        key31: this.c42,
-        key32: this.c43,
-        key33: this.c44,
-        key34: this.c46,
-        key35: this.c46_1,
-        key36: this.c46_2,
-        key37: this.c47,
-        key38: this.c47_1,
-        key39: this.c47_2,
-        key40: this.c48,
-        key41: this.c48_1,
-        key42: this.c48_2,
-        key43: this.c49,
-        key44: this.c49_1,
-        key45: this.c49_2,
-        key46: this.c50,
-        key47: this.c50_1,
-        key48: this.c50_2,
-        key49: this.c51,
-        key50: this.c51_1,
-        key51: this.c51_2,
-        key52: this.c52,
-        key53: this.c55,
-        key54: this.c56,
-        key55: this.c57,
-        key56: this.c57_1,
-        key57: this.c57_2,
-        key58: this.c60,
-        key59: this.c60_1,
-        key60: this.c60_2,
-        key61: this.c62,
-        key62: this.c62_1,
-        key63: this.c63,
-        key64: this.c63_1,
-        key65: this.c64,
-        key66: this.c64_1,
-        key67: this.c68,
-        key68: this.c68_1,
-        key69: this.c68_2,
-        key70: this.c69,
-        key71: this.c70,
+        akey1: this.c3_1,
+        akey2: this.c3_2,
+        akey3: this.c3_3,
+        akey4: this.c7,
+        akey5: this.c8,
+        akey6: this.c10,
+        akey7: this.c10_1,
+        akey8: this.c10_2,
+        akey9: this.c14,
+        akey10: this.c15,
+        akey11: this.c16,
+        akey12: this.c17,
+        akey13: this.c18,
+        akey14: this.c19,
+        akey15: this.c20,
+        akey16: this.c25,
+        akey17: this.c26,
+        akey18: this.c27,
+        akey19: this.c28,
+        akey20: this.c29,
+        akey21: this.c30,
+        akey22: this.c31,
+        akey23: this.c32,
+        akey24: this.c33,
+        akey25: this.c34,
+        akey26: this.c37,
+        akey27: this.c38,
+        akey28: this.c39,
+        akey29: this.c40,
+        akey30: this.c41,
+        akey31: this.c42,
+        akey32: this.c43,
+        akey33: this.c44,
+        akey34: this.c46,
+        akey35: this.c46_1,
+        akey36: this.c46_2,
+        akey37: this.c47,
+        akey38: this.c47_1,
+        akey39: this.c47_2,
+        akey40: this.c48,
+        akey41: this.c48_1,
+        akey42: this.c48_2,
+        akey43: this.c49,
+        akey44: this.c49_1,
+        akey45: this.c49_2,
+        akey46: this.c50,
+        akey47: this.c50_1,
+        akey48: this.c50_2,
+        akey49: this.c51,
+        akey50: this.c51_1,
+        akey51: this.c51_2,
+        akey52: this.c52,
+        akey53: this.c55,
+        akey54: this.c56,
+        akey55: this.c57,
+        akey56: this.c57_1,
+        akey57: this.c57_2,
+        akey58: this.c60,
+        akey59: this.c60_1,
+        akey60: this.c60_2,
+        akey61: this.c62,
+        akey62: this.c62_1,
+        akey63: this.c63,
+        akey64: this.c63_1,
+        akey65: this.c64,
+        akey66: this.c64_1,
+        akey67: this.c68,
+        akey68: this.c68_1,
+        akey69: this.c68_2,
+        akey70: this.c69,
+        akey71: this.c70,
       };
       exportWord("机械絮凝池计算书", "2001_1.docx", data, this);
     },
@@ -3248,9 +3301,80 @@ export default {
         key55: this.b60_3,
         key56: this.b61,
         key57: this.b62,
+        akey1: this.c3_1,
+        akey2: this.c3_2,
+        akey3: this.c3_3,
+        akey4: this.c7,
+        akey5: this.c8,
+        akey6: this.c10,
+        akey7: this.c10_1,
+        akey8: this.c10_2,
+        akey9: this.c14,
+        akey10: this.c15,
+        akey11: this.c16,
+        akey12: this.c17,
+        akey13: this.c18,
+        akey14: this.c19,
+        akey15: this.c20,
+        akey16: this.c25,
+        akey17: this.c26,
+        akey18: this.c27,
+        akey19: this.c28,
+        akey20: this.c29,
+        akey21: this.c30,
+        akey22: this.c31,
+        akey23: this.c32,
+        akey24: this.c33,
+        akey25: this.c34,
+        akey26: this.c37,
+        akey27: this.c38,
+        akey28: this.c39,
+        akey29: this.c40,
+        akey30: this.c41,
+        akey31: this.c42,
+        akey32: this.c43,
+        akey33: this.c44,
+        akey34: this.c46,
+        akey35: this.c46_1,
+        akey36: this.c46_2,
+        akey37: this.c47,
+        akey38: this.c47_1,
+        akey39: this.c47_2,
+        akey40: this.c48,
+        akey41: this.c48_1,
+        akey42: this.c48_2,
+        akey43: this.c49,
+        akey44: this.c49_1,
+        akey45: this.c49_2,
+        akey46: this.c50,
+        akey47: this.c50_1,
+        akey48: this.c50_2,
+        akey49: this.c51,
+        akey50: this.c51_1,
+        akey51: this.c51_2,
+        akey52: this.c52,
+        akey53: this.c55,
+        akey54: this.c56,
+        akey55: this.c57,
+        akey56: this.c57_1,
+        akey57: this.c57_2,
+        akey58: this.c60,
+        akey59: this.c60_1,
+        akey60: this.c60_2,
+        akey61: this.c62,
+        akey62: this.c62_1,
+        akey63: this.c63,
+        akey64: this.c63_1,
+        akey65: this.c64,
+        akey66: this.c64_1,
+        akey67: this.c68,
+        akey68: this.c68_1,
+        akey69: this.c68_2,
+        akey70: this.c69,
+        akey71: this.c70,
       };
       initWordStorage("2001.docx", data);
-      this.handleExcelCache("2001.xlsx", "机械絮凝池工程量");
+      this.handleExcelCache("2001.xlsx", "机械搅拌絮凝池工程量");
     },
     handleExcelCache(path, name) {
       try {
@@ -3275,8 +3399,33 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-        const data = [...allData1, null, null, ...allData2];
-        initExcelStorage(path, data, name);
+        // 处理表头信息
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData3 = [
+          ...headerData3,
+          ...this.data3.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
+        const headerData4 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData4 = [
+          ...headerData4,
+          ...this.data4.map((item) => Object.values(item)),
+        ];
+        var d1 = [...allData1, null, null, ...allData2];
+        d1.unshift(['机械絮凝池_水平轴式工程量']);
+        var d2 = [...allData3, null, null, ...allData4];
+        d2.unshift(['机械絮凝池_垂直轴式工程量']);
+        d1.push(null, null, ...d2);
+        initExcelStorage(path, d1, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑

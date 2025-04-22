@@ -434,7 +434,6 @@ import {
   getBufferFromLocalStorage,
   exportWord2,
   storeValueInLocalStorage,
-  initWordStorage,
   getArrayFromLocalStorage,
   getKeyNameFromLocalStorage,
   exportExcelAll,
@@ -1026,7 +1025,6 @@ export default {
         storeValueInLocalStorage("fc3005", "1");
         storeValueInLocalStorage("fc3006", "1");
 
-
         if (
           this.processUnit[0].children[3].checked ||
           this.processUnit[5].children[2].checked
@@ -1060,12 +1058,11 @@ export default {
       });
 
       this.$message.success(this.$t("initSucc"));
-      // 初始化计算书缓存数据
-      // this.exportAllComputeBook();
+      // 初始化计算书和工程量缓存数据
       this.reComputeBook();
     },
     reComputeBook() {
-      // 重新初始化计算书数据
+      // 重新初始化计算书和工程量数据
       const a1001 = this.$refs.A1001;
       console.log("重新初始化1001计算书数据");
       a1001.refreshInitData();
@@ -1848,336 +1845,6 @@ export default {
         this.$message.warn(this.$t("pleaseSelectProcessUnit"));
       }
     },
-    // 初始化总计算书
-    exportAllComputeBook() {
-      // const data1001 = {
-      //   key1: this.waterData,
-      //   key2: (parseFloat(this.waterData) / 24).toFixed(2),
-      //   key3: "5",
-      //   key4: "72",
-      //   key5: "6",
-      //   key6: "14",
-      //   key7: "1.05",
-      // };
-      const data1002 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        key4: "0.2",
-        key5: "30",
-        key6: "2",
-        key7: "2",
-      };
-      const data1003 = {
-        key1: this.waterData,
-        key2: "1.0",
-      };
-      const data1004 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-      };
-      const data1005 = {
-        key1: this.waterData,
-        key2: "1",
-        key3: "4",
-      };
-      const data1006 = {
-        key1: this.waterData,
-        key2: "5",
-        key3: "0.005",
-      };
-      const data1007 = {
-        key1: this.waterData,
-        key2: "35",
-        key3: ((35 * parseFloat(this.waterData)) / 1000 / 24).toFixed(3),
-        key4: "3",
-      };
-      const data2001 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: "4",
-        key4: "20",
-      };
-      const data2002 = {
-        key1: this.waterData,
-        key2: "2",
-        key3: "15",
-      };
-      const data2003 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) * 1.05).toFixed(0),
-        key3: ((parseFloat(this.waterData) * 1.05) / (24 * 60 * 60)).toFixed(2),
-        key4: "20",
-        key5: "10",
-        key6: "4.5",
-        key7: "2",
-        key8: (
-          (parseFloat(this.waterData) * 1.05) /
-          (24 * 60 * 60) /
-          2
-        ).toFixed(4),
-        key9: "500",
-      };
-      const data2004 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        key4: "20",
-        key5: "15",
-      };
-      const data2005 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        key4: "0.1",
-        key5: "0.5",
-      };
-      const data3001 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: "2",
-        key4: "1",
-        key5: "10",
-      };
-      const data3002 = {
-        key1: this.waterData,
-        key2: "9.0",
-        key3: "2",
-      };
-      const data3003 = {
-        key1: this.waterData,
-        key2: "1",
-        key3: "16",
-        key4: "10",
-      };
-      const data3004 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: "1.2",
-        key4: "4",
-        key5: "100",
-        key6: "5",
-      };
-      const data3005 = {
-        key1: (parseFloat(this.waterData) / 24).toFixed(2),
-        key2: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        key3: "1",
-        key4: "4",
-        key5: "1.2",
-        key6: "15",
-      };
-      const data3006 = {
-        key1: this.waterData,
-        key2: "15",
-        key3: "1.5",
-        key4: "10",
-      };
-      const data4001 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        key4: "6",
-        key5: "24",
-        key6: "30",
-        key7: "6",
-        key8: "0.5",
-      };
-      const data4002 = {
-        key1: this.waterData,
-        key2: "10",
-        key3: "15",
-        key4: "3",
-        key5: "15",
-        key6: "4",
-        key7: "4",
-        key8: "5",
-        key9: "5",
-        key10: "12",
-        key11: "48",
-        key12: "1.8",
-      };
-      const data5001 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: "0.005",
-        key4: "1.06",
-        key5: "70",
-        key6: "10",
-        key7: "20",
-      };
-      const data5002 = {
-        key1: "10",
-        key2: "2660",
-        key3: "53",
-        key4: "7.4",
-        key5: "20",
-        key6: "888.9",
-        key7: "200",
-        key8: "4",
-        key9: "50",
-        key10: "90",
-        key11: "51.1",
-        key12: "1.0",
-        key13: "0.2",
-        key14: "3",
-      };
-      const data6001 = {
-        key1: this.waterData,
-        unit1: "m3/d",
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        unit2: "m3/h",
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-        unit3: "m3/s",
-      };
-      const data6002 = {
-        key1: "50000",
-        key2: "60000",
-        key3: "90",
-        key4: "1",
-        key5: "40",
-        key6: "0.5",
-        key7: "0.8",
-      };
-      const data6003 = {
-        key1: this.waterData,
-        key2: "5",
-        key3: "0.005",
-        key4: "20",
-        key5: "10",
-      };
-      const data6004 = {
-        key1: (parseFloat(this.waterData) / 24).toFixed(2),
-        key2: "34",
-        key3: "20",
-        key4: "0.5",
-        key5: "2",
-        key6: "0.5",
-        key7: "0.5",
-        key8: "3.5",
-        key9: "2",
-      };
-      const data6005 = {
-        key1: this.waterData,
-        key2: "2.0",
-      };
-      const data6006 = {
-        key1: this.waterData,
-        key2: (parseFloat(this.waterData) / 24).toFixed(2),
-        key3: (parseFloat(this.waterData) / (24 * 60 * 60)).toFixed(2),
-      };
-      const data8001 = {
-        key1: this.waterData,
-        key2: "50",
-        key3: "10",
-        key4: "5",
-        key5: "1.6",
-      };
-      const data8002 = {
-        key1: this.waterData,
-        key2: "2",
-        key3: (
-          (parseFloat(this.waterData) * 0.15 +
-            (parseFloat(this.waterData) * 0.02 + 81.25) +
-            144 +
-            ((parseFloat(this.waterData) * 0.15 +
-              (parseFloat(this.waterData) * 0.02 + 81.25) +
-              144) /
-              3.8) *
-              0.2) /
-          2
-        ).toFixed(2),
-      };
-      const data9001 = {
-        key1: this.waterData,
-        key2: "20",
-        key3: "20",
-        key4: "0",
-        key5: "2",
-        key6: "0",
-        key7: "1.5",
-        key8: "99.2",
-        key9: "97",
-        key10: "2",
-        key11: "24",
-      };
-      const data9002 = {
-        key1: "347.13",
-        key2: "97",
-        key3: "1",
-        key4: "0.5",
-        key5: "0.1",
-        key6: "0.1",
-      };
-
-      // initWordStorage("1001.docx", data1001);
-      initWordStorage("1002.docx", data1002);
-      initWordStorage("1003.docx", data1003);
-      initWordStorage("1004.docx", data1004);
-      initWordStorage("1005.docx", data1005);
-      initWordStorage("1006.docx", data1006);
-      initWordStorage("1007.docx", data1007);
-      initWordStorage("2001.docx", data2001);
-      initWordStorage("2002.docx", data2002);
-      initWordStorage("2003.docx", data2003);
-      initWordStorage("2004.docx", data2004);
-      initWordStorage("2005.docx", data2005);
-      initWordStorage("3001.docx", data3001);
-      initWordStorage("3002.docx", data3002);
-      initWordStorage("3003.docx", data3003);
-      initWordStorage("3004.docx", data3004);
-      initWordStorage("3005.docx", data3005);
-      initWordStorage("3006.docx", data3006);
-      initWordStorage("4001.docx", data4001);
-      initWordStorage("4002.docx", data4002);
-      initWordStorage("5001.docx", data5001);
-      initWordStorage("5002.docx", data5002);
-      initWordStorage("6001.docx", data6001);
-      initWordStorage("6002.docx", data6002);
-      initWordStorage("6003.docx", data6003);
-      initWordStorage("6004.docx", data6004);
-      initWordStorage("6005.docx", data6005);
-      initWordStorage("6006.docx", data6006);
-      initWordStorage("8001.docx", data8001);
-      initWordStorage("8002.docx", data8002);
-      initWordStorage("9001.docx", data9001);
-      initWordStorage("9002.docx", data9002);
-    },
-    // 初始化总工程量
-    exportAllQuantities() {
-      this.call1001("1001.xlsx", "生物接触氧化池工程量");
-      this.call1002("1002.xlsx", "预沉池工程量");
-      this.call1003("1003.xlsx", "加药系统次氯酸钠工程量");
-      this.call1004("1004.xlsx", "加药系统二氧化氯工程量");
-      this.call1005("1005.xlsx", "加药系统高锰酸钾工程量");
-      this.call1006("1006.xlsx", "加药系统臭氧工程量");
-      this.call1007("1007.xlsx", "活性炭粉末工程量");
-      this.call2001("2001.xlsx", "机械絮凝池工程量");
-      this.call2002("2002.xlsx", "网格絮凝池工程量");
-      this.call2003("2003.xlsx", "折板絮凝池工程量");
-      this.call2004("2004.xlsx", "PAC工程量");
-      this.call2005("2005.xlsx", "PAM工程量");
-      this.call3001("3001.xlsx", "平流沉淀池工程量");
-      this.call3002("3002.xlsx", "斜管沉淀池工程量");
-      this.call3003("3003.xlsx", "高密度沉淀池工程量");
-      this.call3004("3004.xlsx", "机械搅拌澄清池工程量");
-      this.call3005("3005.xlsx", "水力循环澄清池工程量");
-      this.call3006("3006.xlsx", "平流式气浮池工程量");
-      this.call4001("4001.xlsx", "普通快滤池工程量");
-      this.call4002("4002.xlsx", "V型滤池工程量");
-      this.call5001("5001.xlsx", "臭氧活性炭工程量");
-      this.call5002("5002.xlsx", "UF-GE工程量");
-      this.call6001("6001.xlsx", "接触消毒池工程量");
-      this.call6002("6002.xlsx", "沉浸式紫外线消毒工程量");
-      this.call6003("6003.xlsx", "臭氧消毒工程量");
-      this.call6004("6004.xlsx", "折点加氯工程量");
-      this.call6005("6005.xlsx", "次氯酸钠工程量");
-      this.call6006("6006.xlsx", "二氧化氯工程量");
-      this.call8001("8001.xlsx", "提升泵房工程量");
-      this.call8002("8002.xlsx", "清水池工程量");
-      this.call9001("9001.xlsx", "浓缩池工程量");
-      this.call9002("9002.xlsx", "脱水加药工程量");
-    },
     calc(calcUnit) {
       const path = "/sub/" + calcUnit;
       this.$router.push(path);
@@ -2722,6 +2389,35 @@ export default {
             备注: "",
           },
         ];
+        const data3 = [
+          {
+            序号: "",
+            单体位号: "",
+            名称: "机械搅拌絮凝池",
+            尺寸: "14×9.5×3m",
+            标高: "",
+            单位: "座",
+            数量: "4",
+            结构形式: "钢砼",
+            备注: "半地下式",
+            暖通要求: "无",
+          },
+        ];
+        const data4 = [
+          {
+            序号: "",
+            设备位号: "",
+            设备工艺名称: "机械搅拌絮凝池搅拌机",
+            设备类型: "水平轴搅拌器",
+            规格及型号:
+              "池深3m，N=1.29kW，R1=3.83rpm，R2=2.68rpm，R3=1.53rpm，叶轮直径2700mm",
+            单位: "台",
+            数量: "4",
+            运行时间: "24h",
+            主要材质: "水上部分碳钢防腐，水下部分SS304",
+            备注: "",
+          },
+        ];
         // 处理表头信息1
         const headerData1 = [
           this.flattenFirstRowColumns(this.columns1),
@@ -2743,9 +2439,33 @@ export default {
           ...headerData2,
           ...data2.map((item) => Object.values(item)),
         ];
+        // 处理表头信息
+        const headerData3 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData3 = [
+          ...headerData3,
+          ...data3.map((item) => Object.values(item)),
+        ];
 
-        const data = [...allData1, null, null, ...allData2];
-        initExcelStorage(path, data, name);
+        // 处理表头信息
+        const headerData4 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData4 = [
+          ...headerData4,
+          ...data4.map((item) => Object.values(item)),
+        ];
+        var d1 = [...allData1, null, null, ...allData2];
+        d1.unshift(["机械絮凝池_水平轴式工程量"]);
+        var d2 = [...allData3, null, null, ...allData4];
+        d2.unshift(["机械絮凝池_垂直轴式工程量"]);
+        d1.push(null, null, ...d2);
+        initExcelStorage(path, d1, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -6256,9 +5976,6 @@ export default {
       this.processUnit = res.data;
       this.loading = false;
     });
-    // 初始化计算书缓存数据
-    // this.exportAllComputeBook();
-    this.exportAllQuantities();
     // 清空单元选择缓存
     this.handleInitChangeCache();
 
