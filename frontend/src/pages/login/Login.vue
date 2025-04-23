@@ -92,7 +92,7 @@ export default {
 
       // 校验证书
       try {
-        await this.processCert();
+        // await this.processCert();
       } catch (error) {
         console.log(error)
         this.$message.error(error)

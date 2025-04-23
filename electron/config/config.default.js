@@ -44,7 +44,7 @@ module.exports = (appInfo) => {
    * 主窗口
    */
   config.windowsOption = {
-    title: 'Sewage Disposal Tool',
+    title: '净水处理智慧交互设计软件',
     width: 1800,
     height: 980,
     // minWidth: 1400,
@@ -166,7 +166,7 @@ module.exports = (appInfo) => {
     },
     tray: {
       enable: true,
-      title: 'Sewage Disposal Tool',
+      title: '净水处理智慧交互设计软件',
       icon: '/public/images/tray.png'
     },
     security: {
