@@ -26,6 +26,7 @@
     "dagre-d3": "^0.6.4",
     "date-fns": "^2.14.0",
     "docx": "^8.5.0",
+    "docx-merger": "^1.2.2",
     "docxtemplater": "^3.50.0",
     "enquire.js": "^2.1.6",
     "file-saver": "^2.0.5",

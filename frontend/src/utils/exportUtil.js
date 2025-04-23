@@ -4,6 +4,7 @@ import * as XLSX from "xlsx";
 import Docxtemplater from "docxtemplater";
 import pizzip from "pizzip";
 const fs = window.require("fs");
+const DocxMerger = require("docx-merger");
 
 /**
  * 导出 1 个 sheet的 Excel文件
@@ -282,7 +283,7 @@ async function convertToXml(xmlString) {
   }
 }
 
-export async function exportWord2(name, data, self) {
+export async function exportWord3(name, data, self) {
   try {
     const selectedFolder = await selectFolder();
     const path = `${selectedFolder}/${name}${formatter(
@@ -353,6 +354,35 @@ export async function exportWord2(name, data, self) {
         } else {
           resolve();
         }
+      });
+    });
+    self.$message.info(self.$t("exportSucc"));
+    console.log("Word文档已成功导出");
+    return true;
+  } catch (error) {
+    console.error("生成Word文档时发生错误:", error);
+    self.$message.warn("保存文件失败！");
+  }
+}
+
+export async function exportWord2(name, data, self) {
+  try {
+    const selectedFolder = await selectFolder();
+    const path = `${selectedFolder}/${name}${formatter(
+      new Date(),
+      " yyyy_MM_dd_hh_mm_ss"
+    )}.docx`;
+    var docx = new DocxMerger({}, data);
+    // 将 buffer 对象导出为 docx 文档
+    await new Promise((resolve, reject) => {
+      docx.save('nodebuffer', function (data) {
+        fs.writeFile(path, data, (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
       });
     });
     self.$message.info(self.$t("exportSucc"));
