@@ -670,3 +670,14 @@ export async function initExcelStorage(data1, data2, data3, templatePath, name) 
     console.error("生成Excel数据时发生错误:", error);
   }
 }
+
+export async function initPowerStorage(data2, templatePath) {
+  try {
+    console.log("initPowerStorage======>", data2);
+    const jsonString2 = JSON.stringify(data2);
+    const buffer2 = Buffer.from(jsonString2, 'utf-8');
+    storeBufferInLocalStorage(buffer2, "power."+templatePath+".2");
+  } catch (error) {
+    console.error("生成Excel数据时发生错误:", error);
+  }
+}

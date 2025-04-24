@@ -11,20 +11,24 @@ import {
   getValueFromLocalStorage,
   initWordStorage,
   initExcelStorage,
-  initPowerStorage,
 } from "@/utils/exportUtil";
 
 export default {
   components: {},
-  i18n: require("./i18n_1006"),
+  i18n: require("./i18n_6002"),
   data() {
     return {
       modelVisible: false,
-      b3: "20000",
-      b4: "1",
-      b4_1: "1",
-      b11: "0.005",
-      b12: "1.06",
+      averageFlow: "50000",
+      maxFlow: "60000",
+      uvt: "90",
+      waterTurbidity: "1",
+      targetMeasurement: "40",
+      agingCoefficient: "0.5",
+      scalingCoefficient: "0.6",
+      singleUvtWaterQuantity: "1250",
+      uvtDeviceReserveNumber: "1",
+      waterHeadLoss: "0.5",
       columns1: [
         {
           title: "建构筑物尺寸(结果输出)",
@@ -267,17 +271,24 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
-        this.b3 = 20000;
+        this.averageFlow = 50000;
       } else {
-        this.b3 = waterData;
+        this.averageFlow = waterData;
+      }
+
+      const outTurbidityData = getValueFromLocalStorage("outTurbidityData");
+      if (outTurbidityData == null || outTurbidityData == "") {
+        this.waterTurbidity = 1;
+      } else {
+        this.waterTurbidity = outTurbidityData;
       }
     },
     exportQuantities() {
@@ -326,7 +337,13 @@ export default {
         ];
 
         // 导出 Excel
-        exportExcel3(allData1, allData2, allData3, "加药系统-臭氧工程量", this);
+        exportExcel3(
+          allData1,
+          allData2,
+          allData3,
+          "沉浸式紫外线消毒工程量",
+          this
+        );
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -352,21 +369,29 @@ export default {
     },
     exportComputeBook() {
       const data = {
-        key1: this.b3,
-        key2: (parseFloat(this.b11) * 1000),
-        key3: this.b11,
+        key1: this.averageFlow,
+        key2: this.maxFlow,
+        key3: this.uvt,
+        key4: this.waterTurbidity,
+        key5: this.targetMeasurement,
+        key6: this.agingCoefficient,
+        key7: this.scalingCoefficient,
       };
-      exportWord("加药系统臭氧计算书", "1006.docx", data, this);
+      exportWord("沉浸式紫外线消毒计算书", "6002.docx", data, this);
     },
     refreshInitData() {
       this.initWaterData();
       const data = {
-        key1: this.b3,
-        key2: (parseFloat(this.b11) * 1000),
-        key3: this.b11,
+        key1: this.averageFlow,
+        key2: this.maxFlow,
+        key3: this.uvt,
+        key4: this.waterTurbidity,
+        key5: this.targetMeasurement,
+        key6: this.agingCoefficient,
+        key7: this.scalingCoefficient,
       };
-      initWordStorage("1006.docx", data);
-      this.handleExcelCache("1006.xlsx", "加药系统臭氧工程量");
+      initWordStorage("6002.docx", data);
+      this.handleExcelCache("6002.xlsx", "沉浸式紫外线消毒工程量");
     },
     handleExcelCache(path, name) {
       try {
@@ -402,8 +427,16 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-        initPowerStorage(this.data2, path);
-        initExcelStorage(allData1, allData2, allData3, path, name);
+        const data = [
+          ...allData1,
+          null,
+          null,
+          ...allData2,
+          null,
+          null,
+          ...allData3,
+        ];
+        initExcelStorage(path, data, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -418,24 +451,25 @@ export default {
   },
   computed: {
     ...mapState("setting", ["lang"]),
-    b5() {
+    actualNeedMeasurement() {
       return (
-        (parseFloat(this.b3) / 24) *
-        parseFloat(this.b4) *
-        parseFloat(this.b4_1)
-      ).toFixed(2);
+        parseFloat(this.targetMeasurement) /
+        parseFloat(this.agingCoefficient) /
+        parseFloat(this.scalingCoefficient)
+      ).toFixed(0);
     },
-    b5_1() {
-      return (parseFloat(this.b5) / 3600).toFixed(2);
+    uvtDeviceNumber() {
+      return (
+        parseFloat(this.maxFlow) /
+        24 /
+        parseFloat(this.singleUvtWaterQuantity)
+      ).toFixed(0);
     },
-    b10() {
-      return this.b3;
-    },
-    b10_1() {
-      return (parseFloat(this.b10) / 24).toFixed(2);
-    },
-    b13() {
-      return (parseFloat(this.b12) * parseFloat(this.b11) * parseFloat(this.b10_1)).toFixed(2);
+    uvtDeviceTotalNumber() {
+      return (
+        parseFloat(this.uvtDeviceNumber) +
+        parseFloat(this.uvtDeviceReserveNumber)
+      );
     },
   },
   watch() {
@@ -443,7 +477,7 @@ export default {
   },
   activated() {
     this.initWaterData();
-    console.log("1006-activated被调用了");
+    console.log("6002-activated被调用了");
     this.refreshInitData();
   },
   mounted() {
@@ -451,7 +485,7 @@ export default {
   },
   created() {
     this.initWaterData();
-    this.data1 = [],
+    this.data1 = [];
     this.data2 = [];
     this.data3 = [];
   },
@@ -462,7 +496,6 @@ export default {
 .calc {
   margin-bottom: 15px;
 }
-
 .ant-input-suffix {
   z-index: auto !important;
 }

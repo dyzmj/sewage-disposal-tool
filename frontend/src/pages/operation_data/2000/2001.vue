@@ -11,6 +11,7 @@ import {
   getValueFromLocalStorage,
   initWordStorage,
   initExcelStorage,
+  initPowerStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -323,6 +324,7 @@ export default {
 
         var d1 = [...allData1, null, null, ['垂直轴式工程量'], ...allData3];
         d1.unshift(['水平轴式工程量']);
+
         var d2 = [...allData2, null, null, ['垂直轴式工程量'], ...allData4];
         d2.unshift(['水平轴式工程量']);
 
@@ -741,10 +743,9 @@ export default {
         ];
         var d1 = [...allData1, null, null, ['垂直轴式工程量'], ...allData3];
         d1.unshift(['水平轴式工程量']);
-
         var d2 = [...allData2, null, null, ['垂直轴式工程量'], ...allData4];
         d2.unshift(['水平轴式工程量']);
-
+        initPowerStorage(this.d2, path);
         initExcelStorage(d1, d2, null, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);

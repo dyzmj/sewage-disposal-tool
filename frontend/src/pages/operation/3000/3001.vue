@@ -1720,6 +1720,7 @@ import {
   getValueFromLocalStorage,
   initWordStorage,
   initExcelStorage,
+  initPowerStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -2205,7 +2206,7 @@ export default {
           ...headerData2,
           ...this.data2.map((item) => Object.values(item)),
         ];
-
+        initPowerStorage(this.data2, path);
         initExcelStorage(allData1, allData2, null, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);

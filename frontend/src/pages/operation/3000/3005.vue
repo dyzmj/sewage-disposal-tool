@@ -2174,6 +2174,7 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
+        // initPowerStorage(this.data2, path);
         initExcelStorage(allData1, null, allData3, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);

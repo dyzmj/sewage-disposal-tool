@@ -10,7 +10,6 @@
         :xs="24"
       >
         <a-card
-          :loading="loading"
           :title="$t('operatingCosts')"
           :headStyle="{ 'font-weight': 'bolder' }"
           style="margin-bottom: 24px"
@@ -18,7 +17,6 @@
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
           <a-card
-            :loading="loading"
             :title="$t('baseQueryParam')"
             :headStyle="{ 'font-weight': 'bolder' }"
             style="margin-bottom: 24px"
@@ -358,9 +356,17 @@
                         <a-input
                           v-model="b14"
                           style="width: 34%"
-                          :addon-before="$t('b14')"
                           :suffix="$t('b14_u')"
-                        />
+                        >
+                          <a-button
+                            icon="edit"
+                            type="info"
+                            style="border: 0;"
+                            slot="addonBefore"
+                            @click="showModal"
+                            >耗电量</a-button
+                          >>
+                        </a-input>
                       </a-input-group>
                     </a-form-item>
                   </a-col>
@@ -393,7 +399,6 @@
             </div>
           </a-card>
           <a-card
-            :loading="loading"
             title="污水厂经营成本"
             :headStyle="{ 'font-weight': 'bolder' }"
             style="margin-bottom: 24px"
@@ -451,12 +456,20 @@
                 </tr>
                 <tr>
                   <td v-show="show1003 || show6005">次氯酸钠</td>
-                  <td v-show="show1003 || show6005"><a-input v-model="e23" /></td>
+                  <td v-show="show1003 || show6005">
+                    <a-input v-model="e23" />
+                  </td>
                   <td v-show="show1003 || show6005">t</td>
-                  <td v-show="show1003 || show6005"><a-input v-model="g23" /></td>
+                  <td v-show="show1003 || show6005">
+                    <a-input v-model="g23" />
+                  </td>
                   <td v-show="show1003 || show6005">元/t</td>
-                  <td v-show="show1003 || show6005"><a-input v-model="i23" /></td>
-                  <td v-show="show1003 || show6005"><a-input v-model="j23" /></td>
+                  <td v-show="show1003 || show6005">
+                    <a-input v-model="i23" />
+                  </td>
+                  <td v-show="show1003 || show6005">
+                    <a-input v-model="j23" />
+                  </td>
                 </tr>
                 <tr>
                   <td v-show="show1007">粉末活性炭</td>
@@ -579,26 +592,146 @@
         </a-card>
       </a-col>
     </a-row>
+    <a-modal
+      :visible="modelVisible"
+      title="耗电量计算"
+      width="95%"
+      :mask="true"
+      :maskClosable="false"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
+      <div>
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ y: 400 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <div slot="序号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.序号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备位号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备位号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备工艺名称" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备工艺名称"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="设备类型" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.设备类型"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="规格及型号" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.规格及型号"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单位" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单位"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="数量" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.数量"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="运行时间" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.运行时间"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="主要材质" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.主要材质"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="备注" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.备注"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+          </a-table>
+        </div>
+      </div>
+    </a-modal>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import { getValueFromLocalStorage } from "@/utils/exportUtil";
+import {
+  getValueFromLocalStorage,
+  getArrayFromLocalStorage,
+} from "@/utils/exportUtil";
 
 export default {
   name: "Demo",
   i18n: require("./i18n"),
   data() {
     return {
+      modelVisible: false,
       formLayout: "horizontal",
       form: this.$form.createForm(this, { name: "coordinated" }),
+      show1001: false,
+      show1002: false,
       show1003: false,
+      show1004: false,
       show1005: false,
+      show1006: false,
       show1007: false,
+      show2001: false,
+      show2002: false,
+      show2003: false,
       show2004: false,
       show2005: false,
+      show3001: false,
+      show3002: false,
+      show3003: false,
+      show3004: false,
+      show3005: false,
+      show3006: false,
+      show4001: false,
+      show4002: false,
+      show5001: false,
+      show5002: false,
+      show6003: false,
+      show6004: false,
       show6005: false,
+      show6006: false,
+      show8001: false,
+      show8002: false,
       show9001: false,
       show9002: false,
       certificate: "",
@@ -647,9 +780,317 @@ export default {
       g32: "100",
       g33: "100000",
       e33: "20",
+      data2: [],
+      columns2: [
+        {
+          title: "设备选型",
+          align: "left",
+          children: [
+            {
+              title: "序号",
+              dataIndex: "序号",
+              key: "1",
+              width: "30px",
+              align: "center",
+              scopedSlots: { customRender: "序号" },
+            },
+            {
+              title: "设备位号",
+              dataIndex: "设备位号",
+              key: "2",
+              width: "35px",
+              align: "center",
+              scopedSlots: { customRender: "设备位号" },
+            },
+            {
+              title: "设备工艺名称",
+              dataIndex: "设备工艺名称",
+              key: "3",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "设备工艺名称" },
+            },
+            {
+              title: "设备类型",
+              dataIndex: "设备类型",
+              key: "4",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "设备类型" },
+            },
+            {
+              title: "规格及型号",
+              dataIndex: "规格及型号",
+              key: "5",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "规格及型号" },
+            },
+            {
+              title: "单位",
+              dataIndex: "单位",
+              key: "6",
+              width: "30px",
+              align: "center",
+              scopedSlots: { customRender: "单位" },
+            },
+            {
+              title: "数量",
+              dataIndex: "数量",
+              key: "7",
+              width: "30px",
+              align: "center",
+              scopedSlots: { customRender: "数量" },
+            },
+            {
+              title: "运行时间",
+              dataIndex: "运行时间",
+              key: "8",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "运行时间" },
+            },
+            {
+              title: "主要材质",
+              dataIndex: "主要材质",
+              key: "9",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "主要材质" },
+            },
+            {
+              title: "备注",
+              dataIndex: "备注",
+              key: "10",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "备注" },
+            },
+            {
+              title: "运行数量",
+              dataIndex: "运行数量",
+              key: "11",
+              width: "40px",
+              align: "center",
+              scopedSlots: { customRender: "运行数量" },
+            },
+            {
+              title: "单台功率",
+              dataIndex: "单台功率",
+              key: "12",
+              width: "40px",
+              align: "center",
+              scopedSlots: { customRender: "单台功率" },
+            },
+            {
+              title: "用电量",
+              dataIndex: "用电量",
+              key: "13",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "用电量" },
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {
+    showModal() {
+      this.initPowerData();
+      this.modelVisible = true;
+    },
+    handleOk() {
+      this.modelVisible = false;
+    },
+    handleTableChange() {
+      console.log("handleTableChange----->>>");
+    },
+    initPowerData() {
+      this.data2 = [];
+      console.log("初始化耗电量数据----->>>");
+      if (this.show1001) {
+        const array = getArrayFromLocalStorage("power.1001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1002) {
+        const array = getArrayFromLocalStorage("power.1002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1003) {
+        const array = getArrayFromLocalStorage("power.1003.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1004) {
+        const array = getArrayFromLocalStorage("power.1004.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1005) {
+        const array = getArrayFromLocalStorage("power.1005.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1006) {
+        const array = getArrayFromLocalStorage("power.1006.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show1007) {
+        const array = getArrayFromLocalStorage("power.1007.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show2001) {
+        const array = getArrayFromLocalStorage("power.2001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show2002) {
+        const array = getArrayFromLocalStorage("power.2002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show2003) {
+        const array = getArrayFromLocalStorage("power.2003.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show2004) {
+        const array = getArrayFromLocalStorage("power.2004.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show2005) {
+        const array = getArrayFromLocalStorage("power.2005.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3001) {
+        const array = getArrayFromLocalStorage("power.3001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3002) {
+        const array = getArrayFromLocalStorage("power.3002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3003) {
+        const array = getArrayFromLocalStorage("power.3003.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3004) {
+        const array = getArrayFromLocalStorage("power.3004.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3005) {
+        const array = getArrayFromLocalStorage("power.3005.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show3006) {
+        const array = getArrayFromLocalStorage("power.3006.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show4001) {
+        const array = getArrayFromLocalStorage("power.4001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show4002) {
+        const array = getArrayFromLocalStorage("power.4002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show5001) {
+        const array = getArrayFromLocalStorage("power.5001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show5002) {
+        const array = getArrayFromLocalStorage("power.5002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show6003) {
+        const array = getArrayFromLocalStorage("power.6003.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show6004) {
+        const array = getArrayFromLocalStorage("power.6004.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show6005) {
+        const array = getArrayFromLocalStorage("power.6005.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show6006) {
+        const array = getArrayFromLocalStorage("power.6006.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show8001) {
+        const array = getArrayFromLocalStorage("power.8001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show8002) {
+        const array = getArrayFromLocalStorage("power.8002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show9001) {
+        const array = getArrayFromLocalStorage("power.9001.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      if (this.show9002) {
+        const array = getArrayFromLocalStorage("power.9002.xlsx.2");
+        if (Array.isArray(array)) {
+          this.data2 = this.data2.concat(array);
+        }
+      }
+      console.log("data2 数据===>", this.data2);
+    },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
       if (waterData == null || waterData == "") {
@@ -757,9 +1198,9 @@ export default {
       // 预加氯次氯酸钠投加量
       const fc1003 = getValueFromLocalStorage("fc1003");
       // ;
-      if (fc1003 === '1'){
+      if (fc1003 === "1") {
         this.show1003 = true;
-      }else {
+      } else {
         this.show1003 = false;
         this.b7 = 0;
       }
@@ -768,9 +1209,9 @@ export default {
       // 高锰酸钾投加量
       const fc1005 = getValueFromLocalStorage("fc1005");
       // ;
-      if (fc1005 === '1'){
+      if (fc1005 === "1") {
         this.show1005 = true;
-      }else {
+      } else {
         this.show1005 = false;
         this.b11 = 0;
       }
@@ -779,9 +1220,9 @@ export default {
       // 粉末活性炭投加量
       const fc1007 = getValueFromLocalStorage("fc1007");
       // ;
-      if (fc1007 === '1'){
+      if (fc1007 === "1") {
         this.show1007 = true;
-      }else {
+      } else {
         this.show1007 = false;
         this.b8 = 0;
       }
@@ -790,9 +1231,9 @@ export default {
       // PAC
       const fc2004 = getValueFromLocalStorage("fc2004");
       // ;
-      if (fc2004 === '1'){
+      if (fc2004 === "1") {
         this.show2004 = true;
-      }else {
+      } else {
         this.show2004 = false;
         this.b3 = 0;
       }
@@ -801,9 +1242,9 @@ export default {
       // PAM
       const fc2005 = getValueFromLocalStorage("fc2005");
       // ;
-      if (fc2005 === '1'){
+      if (fc2005 === "1") {
         this.show2005 = true;
-      }else {
+      } else {
         this.show2005 = false;
         this.b4 = 0;
       }
@@ -812,9 +1253,9 @@ export default {
       // 消毒次氯酸钠投加量
       const fc6005 = getValueFromLocalStorage("fc6005");
       // ;
-      if (fc6005 === '1'){
+      if (fc6005 === "1") {
         this.show6005 = true;
-      }else {
+      } else {
         this.show6005 = false;
         this.b6 = 0;
       }
@@ -823,9 +1264,9 @@ export default {
       // 干污泥量
       const fc9001 = getValueFromLocalStorage("fc9001");
       // ;
-      if (fc9001 === '1'){
+      if (fc9001 === "1") {
         this.show9001 = true;
-      }else {
+      } else {
         this.show9001 = false;
         this.b13 = 0;
       }
@@ -834,9 +1275,9 @@ export default {
       // 脱水PAM投加量
       const fc9002 = getValueFromLocalStorage("fc9002");
       // ;
-      if (fc9002 === '1'){
+      if (fc9002 === "1") {
         this.show9002 = true;
-      }else {
+      } else {
         this.show9002 = false;
         this.b5 = 0;
       }
@@ -1145,6 +1586,187 @@ export default {
   created() {
     this.initWaterData();
     this.initProcessUnitData();
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    //   {
+    //     序号: "1",
+    //     设备位号: "",
+    //     设备工艺名称: "排水池搅拌机",
+    //     设备类型: "2134",
+    //     规格及型号: "",
+    //     单位: "台",
+    //     数量: "1",
+    //     运行时间: "",
+    //     主要材质: "",
+    //     备注: "",
+    //   },
+    // ];
   },
 };
 </script>

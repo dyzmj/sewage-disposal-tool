@@ -3,7 +3,6 @@
   </div>
 </template>
 
-
 <script>
 import { mapState } from "vuex";
 import {
@@ -12,6 +11,7 @@ import {
   storeValueInLocalStorage,
   initWordStorage,
   initExcelStorage,
+  initPowerStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -586,7 +586,7 @@ export default {
       this.handleExcelCache("9002.xlsx", "脱水加药工程量");
     },
     handleExcelCache(path, name) {
-      console.info("开始触发9002 工程量缓存刷新-1")
+      console.info("开始触发9002 工程量缓存刷新")
       try {
         // 处理表头信息
         const headerData1 = [
@@ -620,6 +620,7 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
+        initPowerStorage(this.data2, path);
         initExcelStorage(allData1, allData2, allData3, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -1507,4 +1508,3 @@ export default {
   z-index: auto !important;
 }
 </style>
-

@@ -2305,6 +2305,7 @@ import {
   getValueFromLocalStorage,
   initWordStorage,
   initExcelStorage,
+  initPowerStorage,
 } from "@/utils/exportUtil";
 
 export default {
@@ -2902,10 +2903,10 @@ export default {
           ...this.data3.map((item) => Object.values(item)),
         ];
         console.log("开始缓存1001工程量数据");
+        initPowerStorage(this.data2, path);
         initExcelStorage(allData1, allData2, allData3, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
-        // 可以在这里添加更多的错误处理逻辑
       }
     },
     ROUNDUP(number, num_digits) {
@@ -2954,7 +2955,6 @@ export default {
         this.exportExcel();
       } catch (error) {
         console.error("Error exporting Excel:", error);
-        // 可以在这里添加更多的错误处理逻辑
         this.$message.warn(this.$t("exportExcelError"));
         return;
       }
@@ -3004,7 +3004,6 @@ export default {
         );
       } catch (error) {
         console.error("Error exporting Excel:", error);
-        // 可以在这里添加更多的错误处理逻辑
       }
     },
     flattenFirstRowColumns(columns) {
