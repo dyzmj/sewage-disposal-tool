@@ -464,16 +464,7 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-        const data = [
-          ...allData1,
-          null,
-          null,
-          ...allData2,
-          null,
-          null,
-          ...allData3,
-        ];
-        initExcelStorage(path, data, name);
+        initExcelStorage(allData1, allData2, allData3, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑

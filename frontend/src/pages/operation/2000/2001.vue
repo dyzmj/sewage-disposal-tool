@@ -2692,7 +2692,7 @@
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel4,
+  exportExcel2,
   exportWord,
   getValueFromLocalStorage,
   initWordStorage,
@@ -3007,8 +3007,14 @@ export default {
           ...this.data4.map((item) => Object.values(item)),
         ];
 
+        var d1 = [...allData1, null, null, ['垂直轴式工程量'], ...allData3];
+        d1.unshift(['水平轴式工程量']);
+
+        var d2 = [...allData2, null, null, ['垂直轴式工程量'], ...allData4];
+        d2.unshift(['水平轴式工程量']);
+
         // 导出 Excel
-        exportExcel4(allData1, allData2, "机械絮凝池_水平轴式工程量", allData3, allData4, "机械絮凝池_垂直轴式工程量", "机械絮凝池工程量", this);
+        exportExcel2(d1, d2, "机械搅拌絮凝池工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -3420,12 +3426,12 @@ export default {
           ...headerData4,
           ...this.data4.map((item) => Object.values(item)),
         ];
-        var d1 = [...allData1, null, null, ...allData2];
-        d1.unshift(['机械絮凝池_水平轴式工程量']);
-        var d2 = [...allData3, null, null, ...allData4];
-        d2.unshift(['机械絮凝池_垂直轴式工程量']);
-        d1.push(null, null, ...d2);
-        initExcelStorage(path, d1, name);
+        var d1 = [...allData1, null, null, ['垂直轴式工程量'], ...allData3];
+        d1.unshift(['水平轴式工程量']);
+        var d2 = [...allData2, null, null, ['垂直轴式工程量'], ...allData4];
+        d2.unshift(['水平轴式工程量']);
+
+        initExcelStorage(d1, d2, null, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑

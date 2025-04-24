@@ -3,10 +3,11 @@
   </div>
 </template>
 
+
 <script>
 import { mapState } from "vuex";
 import {
-  exportExcel,
+  exportExcel3,
   exportWord,
   storeValueInLocalStorage,
   initWordStorage,
@@ -78,6 +79,182 @@ export default {
       b64: "0.55",
       b67: "2",
       b67_1: "1",
+      columns1: [
+        {
+          title: "建构筑物尺寸(结果输出)",
+          align: "left",
+          children: [
+            {
+              title: "序号",
+              dataIndex: "序号",
+              key: "1",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "序号" },
+            },
+            {
+              title: "单体位号",
+              dataIndex: "单体位号",
+              key: "2",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "单体位号" },
+            },
+            {
+              title: "名称",
+              dataIndex: "名称",
+              key: "3",
+              width: "100px",
+              align: "center",
+              scopedSlots: { customRender: "名称" },
+            },
+            {
+              title: "尺寸(m)",
+              dataIndex: "尺寸",
+              key: "4",
+              width: "150px",
+              align: "center",
+              scopedSlots: { customRender: "尺寸" },
+            },
+            {
+              title: "标高(m)",
+              dataIndex: "标高",
+              key: "5",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "标高" },
+            },
+            {
+              title: "单位",
+              dataIndex: "单位",
+              key: "6",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "单位" },
+            },
+            {
+              title: "数量",
+              dataIndex: "数量",
+              key: "7",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "数量" },
+            },
+            {
+              title: "结构形式",
+              dataIndex: "结构形式",
+              key: "8",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "结构形式" },
+            },
+            {
+              title: "备注",
+              dataIndex: "备注",
+              key: "9",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "备注" },
+            },
+            {
+              title: "暖通要求",
+              dataIndex: "暖通要求",
+              key: "10",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "暖通要求" },
+            },
+          ],
+        },
+      ],
+      columns2: [
+        {
+          title: "设备选型(结果输出)",
+          align: "left",
+          children: [
+            {
+              title: "序号",
+              dataIndex: "序号",
+              key: "1",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "序号" },
+            },
+            {
+              title: "设备位号",
+              dataIndex: "设备位号",
+              key: "2",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "设备位号" },
+            },
+            {
+              title: "设备工艺名称",
+              dataIndex: "设备工艺名称",
+              key: "3",
+              width: "100px",
+              align: "center",
+              scopedSlots: { customRender: "设备工艺名称" },
+            },
+            {
+              title: "设备类型",
+              dataIndex: "设备类型",
+              key: "4",
+              width: "150px",
+              align: "center",
+              scopedSlots: { customRender: "设备类型" },
+            },
+            {
+              title: "规格及型号",
+              dataIndex: "规格及型号",
+              key: "5",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "规格及型号" },
+            },
+            {
+              title: "单位",
+              dataIndex: "单位",
+              key: "6",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "单位" },
+            },
+            {
+              title: "数量",
+              dataIndex: "数量",
+              key: "7",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "数量" },
+            },
+            {
+              title: "运行时间",
+              dataIndex: "运行时间",
+              key: "8",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "运行时间" },
+            },
+            {
+              title: "主要材质",
+              dataIndex: "主要材质",
+              key: "9",
+              width: "50px",
+              align: "center",
+              scopedSlots: { customRender: "主要材质" },
+            },
+            {
+              title: "备注",
+              dataIndex: "备注",
+              key: "10",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "备注" },
+            },
+          ],
+        },
+      ],
       columns3: [
         {
           title: "仪表选型(结果输出)",
@@ -193,6 +370,28 @@ export default {
     exportExcel() {
       try {
         // 处理表头信息
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
         const headerData3 = [
           this.flattenFirstRowColumns(this.columns3),
           this.flattenSecondRowColumns(this.columns3),
@@ -202,9 +401,8 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-
         // 导出 Excel
-        exportExcel(allData3, "脱水加药工程量", this);
+        exportExcel3(allData1, allData2, allData3, "脱水加药工程量", this);
       } catch (error) {
         console.error("Error exporting Excel:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -388,7 +586,30 @@ export default {
       this.handleExcelCache("9002.xlsx", "脱水加药工程量");
     },
     handleExcelCache(path, name) {
+      console.info("开始触发9002 工程量缓存刷新-1")
       try {
+        // 处理表头信息
+        const headerData1 = [
+          this.flattenFirstRowColumns(this.columns1),
+          this.flattenSecondRowColumns(this.columns1),
+        ];
+        // 初始化 allData
+        const allData1 = [
+          ...headerData1,
+          ...this.data1.map((item) => Object.values(item)),
+        ];
+
+        // 处理表头信息
+        const headerData2 = [
+          this.flattenFirstRowColumns(this.columns2),
+          this.flattenSecondRowColumns(this.columns2),
+        ];
+        // 初始化 allData
+        const allData2 = [
+          ...headerData2,
+          ...this.data2.map((item) => Object.values(item)),
+        ];
+
         // 处理表头信息
         const headerData3 = [
           this.flattenFirstRowColumns(this.columns3),
@@ -399,8 +620,7 @@ export default {
           ...headerData3,
           ...this.data3.map((item) => Object.values(item)),
         ];
-        const data = [...allData3];
-        initExcelStorage(path, data, name);
+        initExcelStorage(allData1, allData2, allData3, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑
@@ -425,6 +645,145 @@ export default {
     },
     get_a_2() {
       return parseFloat(this.b31) + parseFloat(this.b31_1);
+    },
+    get_b_1_1() {
+      return "φ" + this.b12 + "mm×" + this.b12_1 + "mm";
+    },
+    get_b_1_2() {
+      return parseFloat(this.b12_2);
+    },
+    get_b_2_1() {
+      return "φ" + this.b48 + "mm×" + this.b48_1 + "mm";
+    },
+    get_b_2_2() {
+      return parseFloat(this.b48_2);
+    },
+    get_c_1_1() {
+      return this.b27;
+    },
+    get_c_1_2() {
+      return this.get_b_2_2();
+    },
+    get_c_2_1() {
+      if (parseFloat(this.b32_1) == 5.5) {
+        return "MS1A064A";
+      } else if (parseFloat(this.b32_1) == 8) {
+        return "MS1A064B";
+      } else if (parseFloat(this.b32_1) == 11) {
+        return "MS1A064C";
+      } else if (parseFloat(this.b32_1) == 20) {
+        return "MS1A094A";
+      } else if (parseFloat(this.b32_1) == 26) {
+        return "MS1A094B";
+      } else if (parseFloat(this.b32_1) == 40) {
+        return "MS1A094C";
+      } else if (parseFloat(this.b32_1) == 60) {
+        return "MS1B108A";
+      } else if (parseFloat(this.b32_1) == 80) {
+        return "MS1B108B";
+      } else if (parseFloat(this.b32_1) == 120) {
+        return "MS1B108C";
+      } else if (parseFloat(this.b32_1) == 155) {
+        return "MS1C138A";
+      } else if (parseFloat(this.b32_1) == 230) {
+        return "MS1C165A";
+      } else if (parseFloat(this.b32_1) == 310) {
+        return "MS1C138C";
+      } else if (parseFloat(this.b32_1) == 330) {
+        return "MS1C165B";
+      } else if (parseFloat(this.b32_1) == 460) {
+        return "MS1C165C";
+      } else if (parseFloat(this.b32_1) == 530) {
+        return "MS1C165C";
+      } else {
+        return "MS1C138B";
+      }
+    },
+    get_c_2_2() {
+      return parseFloat(this.b31) + parseFloat(this.b31_1);
+    },
+    get_c_3_1() {
+      return this.get_c_2_2();
+    },
+    get_c_4_1() {
+      return this.get_c_2_2();
+    },
+    get_c_5_1() {
+      return this.get_c_2_2();
+    },
+    get_c_6_1() {
+      return this.get_c_2_2();
+    },
+    get_c_7_1() {
+      if (parseFloat(this.b37_1) == 5.5) {
+        return "MS1A064A";
+      } else if (parseFloat(this.b37_1) == 8) {
+        return "MS1A064B";
+      } else if (parseFloat(this.b37_1) == 11) {
+        return "MS1A064C";
+      } else if (parseFloat(this.b37_1) == 20) {
+        return "MS1A094A";
+      } else if (parseFloat(this.b37_1) == 26) {
+        return "MS1A094B";
+      } else if (parseFloat(this.b37_1) == 40) {
+        return "MS1A094C";
+      } else if (parseFloat(this.b37_1) == 60) {
+        return "MS1B108A";
+      } else if (parseFloat(this.b37_1) == 80) {
+        return "MS1B108B";
+      } else if (parseFloat(this.b37_1) == 120) {
+        return "MS1B108C";
+      } else if (parseFloat(this.b37_1) == 155) {
+        return "MS1C138A";
+      } else if (parseFloat(this.b37_1) == 230) {
+        return "MS1C165A";
+      } else if (parseFloat(this.b37_1) == 310) {
+        return "MS1C138C";
+      } else if (parseFloat(this.b37_1) == 330) {
+        return "MS1C165B";
+      } else if (parseFloat(this.b37_1) == 460) {
+        return "MS1C165C";
+      } else if (parseFloat(this.b37_1) == 530) {
+        return "MS1C165C";
+      } else {
+        return "MS1C138B";
+      }
+    },
+    get_c_7_2() {
+      return parseFloat(this.b36) + parseFloat(this.b36_1);
+    },
+    get_c_7_3() {
+      return this.b36 + "用" + this.b36_1 + "备";
+    },
+    get_c_8_1() {
+      return this.get_c_7_2();
+    },
+    get_c_9_1() {
+      return this.get_c_7_2();
+    },
+    get_c_10_1() {
+      return this.get_c_7_2();
+    },
+    get_c_11_1() {
+      return this.get_c_7_2();
+    },
+    get_c_12_1() {
+      return 1;
+    },
+    get_c_13_1() {
+      return this.b63;
+    },
+    get_c_13_2() {
+      return this.get_b_2_2();
+    },
+    get_c_14_1() {
+      return this.b68 + "L/h";
+    },
+    get_c_14_2() {
+      return parseFloat(this.b67) + parseFloat(this.b67_1);
+    },
+    get_c_14_3() {
+      return this.b67 + "用" + this.b67_1 + "备";
     },
   },
   computed: {
@@ -486,12 +845,12 @@ export default {
             Math.pow(parseFloat(this.b13_1) / 2 - parseFloat(this.b15_1), 4))) /
         408 /
         9.81
-      ).toFixed(2);
+      ).toFixed(3);
     },
     b26() {
       return (
         parseFloat(this.b23) /
-        parseFloat(this.b23) /
+        parseFloat(this.b24) /
         parseFloat(this.b25)
       ).toFixed(2);
     },
@@ -504,6 +863,76 @@ export default {
           10000) /
         parseFloat(this.b31)
       ).toFixed(2);
+    },
+    b32_1() {
+      if (parseFloat(this.b32) <= 5.5) {
+        return 5.5;
+      } else if (parseFloat(this.b32) <= 8) {
+        return 8;
+      } else if (parseFloat(this.b32) <= 11) {
+        return 11;
+      } else if (parseFloat(this.b32) <= 20) {
+        return 20;
+      } else if (parseFloat(this.b32) <= 26) {
+        return 26;
+      } else if (parseFloat(this.b32) / 2 <= 40) {
+        return 40;
+      } else if (parseFloat(this.b32) / 2 <= 60) {
+        return 60;
+      } else if (parseFloat(this.b32) / 2 <= 80) {
+        return 80;
+      } else if (parseFloat(this.b32) / 2 <= 120) {
+        return 120;
+      } else if (parseFloat(this.b32) / 2 <= 155) {
+        return 155;
+      } else if (parseFloat(this.b32) / 2 <= 230) {
+        return 230;
+      } else if (parseFloat(this.b32) / 2 <= 310) {
+        return 310;
+      } else if (parseFloat(this.b32) / 2 <= 330) {
+        return 330;
+      } else if (parseFloat(this.b32) / 2 <= 460) {
+        return 460;
+      } else if (parseFloat(this.b32) / 2 <= 530) {
+        return 530;
+      } else {
+        return 550;
+      }
+    },
+    b37_1() {
+      if (parseFloat(this.b37) <= 5.5) {
+        return 5.5;
+      } else if (parseFloat(this.b37) <= 8) {
+        return 8;
+      } else if (parseFloat(this.b37) <= 11) {
+        return 11;
+      } else if (parseFloat(this.b37) <= 20) {
+        return 20;
+      } else if (parseFloat(this.b37) <= 26) {
+        return 26;
+      } else if (parseFloat(this.b37) / 2 <= 40) {
+        return 40;
+      } else if (parseFloat(this.b37) / 2 <= 60) {
+        return 60;
+      } else if (parseFloat(this.b37) / 2 <= 80) {
+        return 80;
+      } else if (parseFloat(this.b37) / 2 <= 120) {
+        return 120;
+      } else if (parseFloat(this.b37) / 2 <= 155) {
+        return 155;
+      } else if (parseFloat(this.b37) / 2 <= 230) {
+        return 230;
+      } else if (parseFloat(this.b37) / 2 <= 310) {
+        return 310;
+      } else if (parseFloat(this.b37) / 2 <= 330) {
+        return 330;
+      } else if (parseFloat(this.b37) / 2 <= 460) {
+        return 460;
+      } else if (parseFloat(this.b37) / 2 <= 530) {
+        return 530;
+      } else {
+        return 550;
+      }
     },
     b33() {
       return (
@@ -610,6 +1039,206 @@ export default {
         parseFloat(this.b67)
       ).toFixed(2);
     },
+    data1() {
+      return [
+        {
+          序号: "1",
+          单体位号: "",
+          名称: "PAM溶液池",
+          尺寸: this.get_b_1_1(),
+          标高: "",
+          单位: "个",
+          数量: this.get_b_1_2(),
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+        {
+          序号: "2",
+          单体位号: "",
+          名称: "铁盐溶液池",
+          尺寸: this.get_b_2_1(),
+          标高: "",
+          单位: "个",
+          数量: this.get_b_2_2(),
+          结构形式: "",
+          备注: "",
+          暖通要求: "",
+        },
+      ];
+    },
+    data2() {
+      return [
+        {
+          序号: "1",
+          设备位号: "",
+          设备工艺名称: "PAM搅拌设备",
+          设备类型: "折浆式搅拌机",
+          规格及型号: this.get_c_1_1(),
+          单位: "台",
+          数量: this.get_c_1_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "2",
+          设备位号: "",
+          设备工艺名称: "离心脱水机计量泵",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_c_2_1(),
+          单位: "台",
+          数量: this.get_c_2_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: "1用1备",
+        },
+        {
+          序号: "3",
+          设备位号: "",
+          设备工艺名称: "液压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_3_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "4",
+          设备位号: "",
+          设备工艺名称: "背压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_4_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "5",
+          设备位号: "",
+          设备工艺名称: "脉冲阻尼器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_5_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "6",
+          设备位号: "",
+          设备工艺名称: "Y型过滤器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_6_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "7",
+          设备位号: "",
+          设备工艺名称: "板框脱水机计量泵",
+          设备类型: "机械隔膜计量泵",
+          规格及型号: this.get_c_7_1(),
+          单位: "台",
+          数量: this.get_c_7_2(),
+          运行时间: "",
+          主要材质: "PC泵头",
+          备注: this.get_c_7_3(),
+        },
+        {
+          序号: "8",
+          设备位号: "",
+          设备工艺名称: "液压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_8_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "9",
+          设备位号: "",
+          设备工艺名称: "背压阀",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_9_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "10",
+          设备位号: "",
+          设备工艺名称: "脉冲阻尼器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_10_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "11",
+          设备位号: "",
+          设备工艺名称: "Y型过滤器",
+          设备类型: "",
+          规格及型号: "",
+          单位: "个",
+          数量: this.get_c_11_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "12",
+          设备位号: "",
+          设备工艺名称: "板框脱水机石灰料仓",
+          设备类型: "石灰投加系统",
+          规格及型号: "",
+          单位: "套",
+          数量: this.get_c_12_1(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "13",
+          设备位号: "",
+          设备工艺名称: "铁盐搅拌设备",
+          设备类型: "折浆式搅拌机",
+          规格及型号: this.get_c_13_1(),
+          单位: "台",
+          数量: this.get_c_13_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: "",
+        },
+        {
+          序号: "14",
+          设备位号: "",
+          设备工艺名称: "铁盐加药泵",
+          设备类型: "离心泵",
+          规格及型号: this.get_c_14_1(),
+          单位: "台",
+          数量: this.get_c_14_2(),
+          运行时间: "",
+          主要材质: "",
+          备注: this.get_c_14_3(),
+        },
+      ];
+    },
     data3() {
       return [
         {
@@ -644,8 +1273,202 @@ export default {
     this.refreshInitData();
   },
   created() {
-    this.data1 = [];
-    this.data2 = [];
+    this.data1 = [
+      {
+        序号: "1",
+        单体位号: "",
+        名称: "PAM溶液池",
+        尺寸: this.get_b_1_1(),
+        标高: "",
+        单位: "个",
+        数量: this.get_b_1_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+      {
+        序号: "2",
+        单体位号: "",
+        名称: "铁盐溶液池",
+        尺寸: this.get_b_2_1(),
+        标高: "",
+        单位: "个",
+        数量: this.get_b_2_2(),
+        结构形式: "",
+        备注: "",
+        暖通要求: "",
+      },
+    ];
+    this.data2 = [
+      {
+        序号: "1",
+        设备位号: "",
+        设备工艺名称: "PAM搅拌设备",
+        设备类型: "折浆式搅拌机",
+        规格及型号: this.get_c_1_1(),
+        单位: "台",
+        数量: this.get_c_1_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "2",
+        设备位号: "",
+        设备工艺名称: "离心脱水机计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_c_2_1(),
+        单位: "台",
+        数量: this.get_c_2_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: "1用1备",
+      },
+      {
+        序号: "3",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_3_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "4",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_4_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "5",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_5_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "6",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_6_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "7",
+        设备位号: "",
+        设备工艺名称: "板框脱水机计量泵",
+        设备类型: "机械隔膜计量泵",
+        规格及型号: this.get_c_7_1(),
+        单位: "台",
+        数量: this.get_c_7_2(),
+        运行时间: "",
+        主要材质: "PC泵头",
+        备注: this.get_c_7_3(),
+      },
+      {
+        序号: "8",
+        设备位号: "",
+        设备工艺名称: "液压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_8_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "9",
+        设备位号: "",
+        设备工艺名称: "背压阀",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_9_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "10",
+        设备位号: "",
+        设备工艺名称: "脉冲阻尼器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_10_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "11",
+        设备位号: "",
+        设备工艺名称: "Y型过滤器",
+        设备类型: "",
+        规格及型号: "",
+        单位: "个",
+        数量: this.get_c_11_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "12",
+        设备位号: "",
+        设备工艺名称: "板框脱水机石灰料仓",
+        设备类型: "石灰投加系统",
+        规格及型号: "",
+        单位: "套",
+        数量: this.get_c_12_1(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "13",
+        设备位号: "",
+        设备工艺名称: "铁盐搅拌设备",
+        设备类型: "折浆式搅拌机",
+        规格及型号: this.get_c_13_1(),
+        单位: "台",
+        数量: this.get_c_13_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: "",
+      },
+      {
+        序号: "14",
+        设备位号: "",
+        设备工艺名称: "铁盐加药泵",
+        设备类型: "离心泵",
+        规格及型号: this.get_c_14_1(),
+        单位: "台",
+        数量: this.get_c_14_2(),
+        运行时间: "",
+        主要材质: "",
+        备注: this.get_c_14_3(),
+      },
+    ];
     this.data3 = [
       {
         序号: "1",
@@ -684,3 +1507,4 @@ export default {
   z-index: auto !important;
 }
 </style>
+

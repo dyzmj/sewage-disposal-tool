@@ -7,12 +7,13 @@ const fs = window.require("fs");
 const DocxMerger = require("docx-merger");
 
 /**
+ * @deprecated
  * 导出 1 个 sheet的 Excel文件
  * @param { Excel数据 } data
  * @param { 文件名称 } name
  * @param { self对象 } self
  */
-export function exportExcel(data, name, self) {
+export function exportExcel_deprecated(data, name, self) {
   data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
@@ -36,18 +37,78 @@ export function exportExcel(data, name, self) {
 }
 
 /**
+ * 导出 1 个 sheet的 Excel文件
+ * @param { Excel数据 } data
+ * @param { 文件名称 } name
+ * @param { self对象 } self
+ */
+export function exportExcel(data1, name, self) {
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    const ws1 = XLSX.utils.aoa_to_sheet(data1);
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws1, "建构筑物尺寸");
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    // 打开文件选择对话框
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        // throw err;
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+}
+
+/**
  * 导出 2 个 sheet的 Excel文件
  * @param { Excel数据 } data
  * @param { 文件名称 } name
  * @param { self对象 } self
  */
-export function exportExcel2(data1, data2, name, self) {
+export function exportExcel2_deprecated(data1, data2, name, self) {
   var data = [...data1, null, null, ...data2];
   data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, name);
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+}
+
+/**
+ * 导出 2 个 sheet的 Excel文件
+ * @param { Excel数据 } data
+ * @param { 文件名称 } name
+ * @param { self对象 } self
+ */
+export function exportExcel2(data1, data2, name, self) {
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    const ws1 = XLSX.utils.aoa_to_sheet(data1);
+    const ws2 = XLSX.utils.aoa_to_sheet(data2);
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws1, "建构筑物尺寸");
+    XLSX.utils.book_append_sheet(wb, ws2, "设备选型");
 
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
@@ -96,7 +157,7 @@ export function exportExcel4(data1, data2, name1, data3, data4, name2, name, sel
  * @param { 文件名称 } name
  * @param { self对象 } self
  */
-export function exportExcel3(data1, data2, data3, name, self) {
+export function exportExcel3_deprecated(data1, data2, data3, name, self) {
   var data = [...data1, null, null, ...data2, null, null, ...data3];
   data.unshift([name]);
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
@@ -121,35 +182,45 @@ export function exportExcel3(data1, data2, data3, name, self) {
 }
 
 /**
+ * 导出 3 个 sheet的 Excel文件
+ * @param { Excel数据 } data
+ * @param { 文件名称 } name
+ * @param { self对象 } self
+ */
+export function exportExcel3(data1, data2, data3, name, self) {
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    const ws1 = XLSX.utils.aoa_to_sheet(data1);
+    const ws2 = XLSX.utils.aoa_to_sheet(data2);
+    const ws3 = XLSX.utils.aoa_to_sheet(data3);
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws1, "建构筑物尺寸");
+    XLSX.utils.book_append_sheet(wb, ws2, "设备选型");
+    XLSX.utils.book_append_sheet(wb, ws3, "仪表选型");
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        // throw err;
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+}
+
+/**
  * 导出 多个 sheet的 Excel文件
  * @param { Excel数据 } data
  * @param { 文件名称 } name
  * @param { self对象 } self
  */
-export function exportExcelAll(name, datas, names, self) {
-  // ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-  //   const wb = XLSX.utils.book_new();
-  //   for (let index = 0; index < datas.length; index++) {
-  //     const item = datas[index];
-  //     const sheet = names[index];
-  //     const ws = XLSX.utils.aoa_to_sheet(item);
-  //     XLSX.utils.book_append_sheet(wb, ws, sheet);
-  //   }
-
-  //   const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-  //   var path =
-  //     r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-  //   fs.writeFile(path, buffer, (err) => {
-  //     if (err) {
-  //       // throw err;
-  //       self.$message.warn("保存文件失败！");
-  //     } else {
-  //       self.$message.info(self.$t("exportSucc"));
-  //       console.log("The file has been saved!");
-  //       return 1;
-  //     }
-  //   });
-  // });
+export function exportExcelAll_deprecated(name, datas, names, self) {
   ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
     // 合并所有 sheet 的数据，并在每个 sheet 数据前面添加 sheet 名称
     let combinedData = [];
@@ -165,6 +236,64 @@ export function exportExcelAll(name, datas, names, self) {
     const ws = XLSX.utils.aoa_to_sheet(combinedData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, name);
+
+    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+    var path =
+      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
+    fs.writeFile(path, buffer, (err) => {
+      if (err) {
+        self.$message.warn("保存文件失败！");
+      } else {
+        self.$message.info(self.$t("exportSucc"));
+        console.log("The file has been saved!");
+        return 1;
+      }
+    });
+  });
+
+}
+
+export function exportExcelAll(name, data1, data2, data3, names, self) {
+  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
+    // 合并所有 sheet 的数据，并在每个 sheet 数据前面添加 sheet 名称
+    let combinedData1 = [];
+    data1.forEach((data, index) => {
+      if (index > 0) {
+        combinedData1.push([]); // 添加空行分隔不同的 sheet 数据
+      }
+      // 添加 sheet 名称作为标题行
+      combinedData1.push([names[index]]);
+      combinedData1 = combinedData1.concat(data);
+    });
+
+    let combinedData2 = [];
+    data2.forEach((data, index) => {
+      if (index > 0) {
+        combinedData2.push([]); // 添加空行分隔不同的 sheet 数据
+      }
+      // 添加 sheet 名称作为标题行
+      combinedData2.push([names[index]]);
+      combinedData2 = combinedData2.concat(data);
+    });
+
+    let combinedData3 = [];
+    data3.forEach((data, index) => {
+      if (index > 0) {
+        combinedData3.push([]); // 添加空行分隔不同的 sheet 数据
+      }
+      // 添加 sheet 名称作为标题行
+      combinedData3.push([names[index]]);
+      combinedData3 = combinedData3.concat(data);
+    });
+
+    const ws1 = XLSX.utils.aoa_to_sheet(combinedData1);
+    const ws2 = XLSX.utils.aoa_to_sheet(combinedData2);
+    const ws3 = XLSX.utils.aoa_to_sheet(combinedData3);
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws1, "建构筑物尺寸");
+    XLSX.utils.book_append_sheet(wb, ws2, "设备选型");
+    XLSX.utils.book_append_sheet(wb, ws3, "仪表选型");
 
     const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
     var path =
@@ -501,11 +630,39 @@ export async function initWordStorage(templatePath, data) {
  * @param templatePath  模板路径
  * @param data  模版数据
  */
-export async function initExcelStorage(templatePath, data, name) {
+export async function initExcelStorage_deprecated(templatePath, data, name) {
   try {
     const jsonString = JSON.stringify(data);
     const buffer = Buffer.from(jsonString, 'utf-8');
     storeBufferInLocalStorage(buffer, templatePath);
+
+    // 缓存工程量sheet名称
+    localStorage.setItem(templatePath+".name", name);
+  } catch (error) {
+    console.error("生成Excel数据时发生错误:", error);
+  }
+}
+
+/**
+ * 初始化word模板缓存数据,按照3个sheet分开存储
+ * @param data1  模板数据1
+ * @param data2  模板数据2
+ * @param data3  模板数据3
+ * @param templatePath  模板路径
+ * @param name  模板名称
+ */
+export async function initExcelStorage(data1, data2, data3, templatePath, name) {
+  try {
+    const jsonString1 = JSON.stringify(data1);
+    const buffer1 = Buffer.from(jsonString1, 'utf-8');
+    storeBufferInLocalStorage(buffer1, templatePath+".1");
+    const jsonString2 = JSON.stringify(data2);
+    const buffer2 = Buffer.from(jsonString2, 'utf-8');
+    storeBufferInLocalStorage(buffer2, templatePath+".2");
+
+    const jsonString3 = JSON.stringify(data3);
+    const buffer3 = Buffer.from(jsonString3, 'utf-8');
+    storeBufferInLocalStorage(buffer3, templatePath+".3");
 
     // 缓存工程量sheet名称
     localStorage.setItem(templatePath+".name", name);

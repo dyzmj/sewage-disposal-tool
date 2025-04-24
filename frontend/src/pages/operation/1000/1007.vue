@@ -688,8 +688,7 @@ export default {
           ...this.data2.map((item) => Object.values(item)),
         ];
 
-        const data = [...allData2];
-        initExcelStorage(path, data, name);
+        initExcelStorage(null, allData2, null, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
         // 可以在这里添加更多的错误处理逻辑
