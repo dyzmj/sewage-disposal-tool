@@ -58,7 +58,7 @@
               <br />
               <br />
               <br />
-              <a-form-item :label="$t('certificate')">
+              <!-- <a-form-item :label="$t('certificate')">
                 <a-input v-model="code" :disabled="true">
                   <a-icon slot="prefix" type="safety-certificate" />
                 </a-input>
@@ -70,7 +70,7 @@
                 >
                   获取本地证书
                 </a-button>
-              </a-form-item>
+              </a-form-item> -->
             </a-form>
           </div>
         </a-card>
