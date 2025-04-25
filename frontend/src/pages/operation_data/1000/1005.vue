@@ -1,8 +1,7 @@
 <template>
-  <div>
-  </div>
-</template>
-
+  <div></div>
+  </template>
+  
 <script>
 import { mapState } from "vuex";
 import {
@@ -165,11 +164,11 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
-              scopedSlots: { customRender: "Dimensions" },
+              scopedSlots: { customRender: "设备类型" },
             },
             {
               title: "规格及型号",
@@ -189,11 +188,11 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
-              scopedSlots: { customRender: "disinfectiontank" },
+              scopedSlots: { customRender: "数量" },
             },
             {
               title: "运行时间",
@@ -711,6 +710,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -723,6 +725,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "2",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -735,6 +740,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "2",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -747,6 +755,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "2",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -759,6 +770,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "2",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -771,6 +785,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "2",
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -842,6 +859,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -854,6 +874,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "2",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -866,6 +889,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "2",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -878,6 +904,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "2",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -890,6 +919,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "2",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -902,6 +934,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "2",
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [

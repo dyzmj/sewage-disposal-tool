@@ -1,7 +1,6 @@
 <template>
-  <div>
-  </div>
-</template>
+  <div></div>
+  </template>
 
 <script>
 import { mapState } from "vuex";
@@ -135,7 +134,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -156,7 +155,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -271,10 +270,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -435,9 +434,12 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b16() {
-      storeValueInLocalStorage("naclo2Data", this.b8)
-      const clData = ((parseFloat(this.b8) * parseFloat(this.b6_1)) / 1000).toFixed(3);
-      storeValueInLocalStorage("clData",clData);
+      storeValueInLocalStorage("naclo2Data", this.b8);
+      const clData = (
+        (parseFloat(this.b8) * parseFloat(this.b6_1)) /
+        1000
+      ).toFixed(3);
+      storeValueInLocalStorage("clData", clData);
       return clData;
     },
   },

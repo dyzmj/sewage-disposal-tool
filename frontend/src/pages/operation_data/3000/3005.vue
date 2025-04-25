@@ -1,7 +1,7 @@
 <template>
-  <div>
-  </div>
-</template>
+  <div></div>
+  </template>
+
 <script>
 import { mapState } from "vuex";
 import {

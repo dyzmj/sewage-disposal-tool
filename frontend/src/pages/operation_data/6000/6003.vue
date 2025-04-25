@@ -1,7 +1,6 @@
 <template>
-  <div>
-  </div>
-</template>
+  <div></div>
+  </template>
 
 <script>
 import { mapState } from "vuex";
@@ -573,6 +572,9 @@ export default {
     get_c_2() {
       return parseFloat(this.b9) + parseFloat(this.b9_1);
     },
+    get_c_3() {
+      return parseFloat(this.b9);
+    },
   },
   computed: {
     ...mapState("setting", ["lang"]),
@@ -690,6 +692,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_b_2(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "2",
@@ -702,6 +707,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "一用一备，配套尾气破坏器",
+          运行数量: this.get_c_3(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -745,6 +753,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_b_2(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "2",
@@ -757,6 +768,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "一用一备，配套尾气破坏器",
+        运行数量: this.get_c_3(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [];

@@ -1,7 +1,6 @@
 <template>
-  <div>
-  </div>
-</template>
+  <div></div>
+  </template>
 
 <script>
 import { mapState } from "vuex";
@@ -623,6 +622,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_a_1_2(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "2",
@@ -635,6 +637,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_a_2_2(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -693,6 +698,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_a_1_2(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "2",
@@ -705,6 +713,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_a_2_2(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [

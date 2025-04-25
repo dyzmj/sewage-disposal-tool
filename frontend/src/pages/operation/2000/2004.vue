@@ -1645,15 +1645,15 @@ export default {
         key33: this.b26,
         key34: this.b27,
         key35: this.b28,
-        key36: this.b29, 
-        key37: this.b30, 
+        key36: this.b29,
+        key37: this.b30,
         key38: this.b31,
         key39: this.b33,
         key40: this.b33_1,
         key41: this.b34,
         key42: this.b36,
         key43: this.b37,
-        key44: this.b37_1,     
+        key44: this.b37_1,
       };
       exportWord("PAC计算书", "2004.docx", data, this);
     },
@@ -1695,15 +1695,15 @@ export default {
         key33: this.b26,
         key34: this.b27,
         key35: this.b28,
-        key36: this.b29, 
-        key37: this.b30, 
+        key36: this.b29,
+        key37: this.b30,
         key38: this.b31,
         key39: this.b33,
         key40: this.b33_1,
         key41: this.b34,
         key42: this.b36,
         key43: this.b37,
-        key44: this.b37_1,    
+        key44: this.b37_1,
       };
       initWordStorage("2004.docx", data);
       this.handleExcelCache("2004.xlsx", "PAC工程量");
@@ -1962,6 +1962,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -1974,6 +1977,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -1986,6 +1992,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -1998,6 +2007,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -2010,6 +2022,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -2022,6 +2037,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -2105,6 +2123,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -2117,6 +2138,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -2129,6 +2153,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -2141,6 +2168,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -2153,6 +2183,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -2165,6 +2198,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [

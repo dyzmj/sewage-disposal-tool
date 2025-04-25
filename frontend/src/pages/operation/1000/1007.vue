@@ -275,10 +275,10 @@
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
-              <div slot="Dimensions" slot-scope="text, record">
+              <div slot="设备类型" slot-scope="text, record">
                 <a-input
                   style="border: none;"
-                  v-model="record.Dimensions"
+                  v-model="record.设备类型"
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
@@ -296,10 +296,10 @@
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
-              <div slot="disinfectiontank" slot-scope="text, record">
+              <div slot="数量" slot-scope="text, record">
                 <a-input
                   style="border: none;"
-                  v-model="record.disinfectiontank"
+                  v-model="record.数量"
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
@@ -401,10 +401,10 @@
                 @blur="handleTableChange()"
               ></a-input>
             </div>
-            <div slot="Dimensions" slot-scope="text, record">
+            <div slot="设备类型" slot-scope="text, record">
               <a-input
                 style="border: none;"
-                v-model="record.Dimensions"
+                v-model="record.设备类型"
                 @blur="handleTableChange()"
               ></a-input>
             </div>
@@ -422,10 +422,10 @@
                 @blur="handleTableChange()"
               ></a-input>
             </div>
-            <div slot="disinfectiontank" slot-scope="text, record">
+            <div slot="数量" slot-scope="text, record">
               <a-input
                 style="border: none;"
-                v-model="record.disinfectiontank"
+                v-model="record.数量"
                 @blur="handleTableChange()"
               ></a-input>
             </div>
@@ -513,11 +513,11 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
-              scopedSlots: { customRender: "Dimensions" },
+              scopedSlots: { customRender: "设备类型" },
             },
             {
               title: "规格及型号",
@@ -537,11 +537,11 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
-              scopedSlots: { customRender: "disinfectiontank" },
+              scopedSlots: { customRender: "数量" },
             },
             {
               title: "运行时间",
@@ -737,13 +737,16 @@ export default {
           序号: "",
           设备位号: "",
           设备工艺名称: "投加系统",
-          Dimensions: "粉末活性炭干式投加系统",
+          设备类型: "粉末活性炭干式投加系统",
           规格及型号: this.getkey1(),
           单位: "套",
-          disinfectiontank: "1",
+          数量: "1",
           运行时间: "",
           主要材质: "",
           备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+          运行数量: "1",
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -755,13 +758,16 @@ export default {
         序号: "",
         设备位号: "",
         设备工艺名称: "投加系统",
-        Dimensions: "粉末活性炭干式投加系统",
+        设备类型: "粉末活性炭干式投加系统",
         规格及型号: this.getkey1(),
         单位: "套",
-        disinfectiontank: "1",
+        数量: "1",
         运行时间: "",
         主要材质: "",
         备注: "含物料储存、定量投加、射流混合及相关辅助部分",
+        运行数量: "1",
+        单台功率: "",
+        用电量: "",
       },
     ];
   },

@@ -1,7 +1,6 @@
 <template>
-  <div>
-  </div>
-</template>
+  <div></div>
+  </template>
 
 <script>
 import { mapState } from "vuex";
@@ -960,6 +959,9 @@ export default {
     get_b_1_3() {
       return this.b42_1 + "用" + this.b43_1 + "备";
     },
+    get_b_1_4() {
+      return this.b42_1;
+    },
     get_b_2_1() {
       return "Q=" + this.c9 + "m3/min，P=49kPa，N=" + this.c10 + "kW";
     },
@@ -968,6 +970,9 @@ export default {
     },
     get_b_2_3() {
       return this.c4 + "用" + this.c4_1 + "备";
+    },
+    get_b_2_4() {
+      return this.c4;
     },
     get_c_1_1() {
       return parseFloat(this.b20) * 4;
@@ -2180,6 +2185,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_1_3(),
+          运行数量: this.get_b_1_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "2",
@@ -2192,6 +2200,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_2_3(),
+          运行数量: this.get_b_2_4(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -2251,6 +2262,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_1_3(),
+        运行数量: this.get_b_1_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "2",
@@ -2263,6 +2277,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_2_3(),
+        运行数量: this.get_b_2_4(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [

@@ -17,9 +17,14 @@
           :hoverable="true"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" href="#">
+          <a slot="extra" href="#">
             <div class="" style="">
-              <a-button type="primary" @click="refreshInitData" icon="sync" size="small">
+              <a-button
+                type="primary"
+                @click="refreshInitData"
+                icon="sync"
+                size="small"
+              >
                 {{ $t("refresh") }}</a-button
               >
             </div>
@@ -234,7 +239,10 @@
             <div class="baseQueryParam">
               <a-form>
                 <a-form-item style="margin-top: 50px; margin-bottom: 60px">
-                  <img style="max-width: 360px; height: auto;" src="@/assets/img/1000/1003.jpg" />
+                  <img
+                    style="max-width: 360px; height: auto;"
+                    src="@/assets/img/1000/1003.jpg"
+                  />
                 </a-form-item>
               </a-form>
             </div>
@@ -299,9 +307,13 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '820px', overflow: 'auto' }"
         >
-        <a slot="extra" style="color: rgb(120, 120, 120); font-size: 15px;" @click="showModal">
-          <a-icon type="zoom-in" />
-        </a>
+          <a
+            slot="extra"
+            style="color: rgb(120, 120, 120); font-size: 15px;"
+            @click="showModal"
+          >
+            <a-icon type="zoom-in" />
+          </a>
           <div class="baseQueryParam">
             <a-table
               :columns="columns1"
@@ -365,35 +377,42 @@
         </a-card>
       </a-col>
     </a-row>
-    <a-modal :visible="modelVisible" title="工程量计算" :footer="null" width="1200" @ok="handleOk" @cancel="handleOk">
+    <a-modal
+      :visible="modelVisible"
+      title="工程量计算"
+      :footer="null"
+      width="1200"
+      @ok="handleOk"
+      @cancel="handleOk"
+    >
       <div>
         <div class="baseQueryParam">
-            <a-table
-              :columns="columns1"
-              :data-source="data1"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
-          <a-divider :dashed="true" />
-          <div class="baseQueryParam">
-            <a-table
-              :columns="columns2"
-              :data-source="data2"
-              bordered
-              size="small"
-              :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
-              :pagination="false"
-              :row-style="{ paddin: 16 }"
-            >
-              <a slot="序号" slot-scope="text">{{ text }}</a>
-            </a-table>
-          </div>
+          <a-table
+            :columns="columns1"
+            :data-source="data1"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
+        <a-divider :dashed="true" />
+        <div class="baseQueryParam">
+          <a-table
+            :columns="columns2"
+            :data-source="data2"
+            bordered
+            size="small"
+            :scroll="{ x: 'calc(700px + 50%)', y: 240 }"
+            :pagination="false"
+            :row-style="{ paddin: 16 }"
+          >
+            <a slot="序号" slot-scope="text">{{ text }}</a>
+          </a-table>
+        </div>
       </div>
     </a-modal>
   </div>
@@ -531,7 +550,7 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "150px",
               align: "center",
@@ -552,7 +571,7 @@ export default {
             },
             {
               title: "数量",
-              dataIndex: "disinfectiontank",
+              dataIndex: "数量",
               key: "7",
               width: "50px",
               align: "center",
@@ -667,10 +686,10 @@ export default {
       this.$router.push("/works");
     },
     showModal() {
-      this.modelVisible = true
+      this.modelVisible = true;
     },
     handleOk() {
-      this.modelVisible = false
+      this.modelVisible = false;
     },
     initWaterData() {
       const waterData = getValueFromLocalStorage("waterData");
@@ -831,9 +850,12 @@ export default {
       return (parseFloat(this.b6_1) / 3600).toFixed(2);
     },
     b16() {
-      storeValueInLocalStorage("naclo2Data", this.b8)
-      const clData = ((parseFloat(this.b8) * parseFloat(this.b6_1)) / 1000).toFixed(3);
-      storeValueInLocalStorage("clData",clData);
+      storeValueInLocalStorage("naclo2Data", this.b8);
+      const clData = (
+        (parseFloat(this.b8) * parseFloat(this.b6_1)) /
+        1000
+      ).toFixed(3);
+      storeValueInLocalStorage("clData", clData);
       return clData;
     },
   },

@@ -1,8 +1,6 @@
 <template>
-  <div>
-  </div>
-</template>
-
+  <div></div>
+  </template>
 <script>
 import { mapState } from "vuex";
 import {
@@ -1331,6 +1329,9 @@ export default {
           运行时间: "24h",
           主要材质: "水上部分碳钢防腐，水下部分SS304",
           备注: "",
+          运行数量: this.getkey4(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -1363,6 +1364,9 @@ export default {
           运行时间: "24h",
           主要材质: "水上部分碳钢防腐，水下部分SS304",
           备注: "",
+          运行数量: this.getkey4c(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -1406,6 +1410,9 @@ export default {
         运行时间: "24h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "",
+        运行数量: this.getkey4(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [
@@ -1434,6 +1441,9 @@ export default {
         运行时间: "24h",
         主要材质: "水上部分碳钢防腐，水下部分SS304",
         备注: "",
+        运行数量: this.getkey4c(),
+        单台功率: "",
+        用电量: "",
       },
     ];
   },

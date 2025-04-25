@@ -2670,9 +2670,9 @@ export default {
         key15: this.b6_2,
         key16: this.b6_3,
         key17: this.b7_1,
-        key18: this.b8_1,   
+        key18: this.b8_1,
         key19: this.b9_1,
-        key20: this.b9_2, 
+        key20: this.b9_2,
         key21: this.b10,
         key22: this.b11,
         key23: this.b11_1,
@@ -2777,9 +2777,9 @@ export default {
         key15: this.b6_2,
         key16: this.b6_3,
         key17: this.b7_1,
-        key18: this.b8_1,   
+        key18: this.b8_1,
         key19: this.b9_1,
-        key20: this.b9_2, 
+        key20: this.b9_2,
         key21: this.b10,
         key22: this.b11,
         key23: this.b11_1,
@@ -2968,6 +2968,9 @@ export default {
     get_b_2_3() {
       return this.b15 + "用" + this.b16 + "备";
     },
+    get_b_2_4() {
+      return this.b15;
+    },
     get_b_3_1() {
       return "P=" + this.b22 + "kW";
     },
@@ -2979,6 +2982,9 @@ export default {
     },
     get_b_4_3() {
       return this.b23 + "用" + this.b24 + "备";
+    },
+    get_b_4_4() {
+      return this.b23;
     },
     get_b_5_1() {
       return "φ=" + this.b31 + "m";
@@ -2998,6 +3004,9 @@ export default {
     get_b_7_3() {
       return this.b64 + "用" + this.b65 + "备";
     },
+    get_b_7_4() {
+      return this.b64;
+    },
     get_b_8_1() {
       return "生产能力>" + this.b63_1 + "m3/h";
     },
@@ -3006,6 +3015,9 @@ export default {
     },
     get_b_8_3() {
       return this.b61 + "用" + this.b62 + "备";
+    },
+    get_b_8_4() {
+      return this.b61;
     },
     get_b_9_1() {
       return "流量Q=" + this.b78 + "m3/h，扬程H=" + this.b78_1 + "m";
@@ -3016,6 +3028,9 @@ export default {
     get_b_9_3() {
       return this.b76 + "用" + this.b77 + "备";
     },
+    get_b_9_4() {
+      return this.b76;
+    },
     get_b_10_1() {
       return "过滤面积>" + this.b75 + "m2，过滤压力=" + this.b69 + "MPa";
     },
@@ -3024,6 +3039,9 @@ export default {
     },
     get_b_10_3() {
       return this.b70 + "用" + this.b71 + "备";
+    },
+    get_b_10_4() {
+      return this.b70;
     },
   },
   computed: {
@@ -3401,6 +3419,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "1",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "2",
@@ -3413,6 +3434,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_2_3(),
+          运行数量: this.get_b_2_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "3",
@@ -3425,6 +3449,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: "1",
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "4",
@@ -3437,6 +3464,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_4_3(),
+          运行数量: this.get_b_4_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "5",
@@ -3449,6 +3479,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_b_5_2(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "6",
@@ -3461,6 +3494,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_b_6_1(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "7",
@@ -3473,6 +3509,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_7_3(),
+          运行数量: this.get_b_7_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "8",
@@ -3485,6 +3524,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_8_3(),
+          运行数量: this.get_b_8_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "9",
@@ -3497,6 +3539,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_9_3(),
+          运行数量: this.get_b_9_4(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "10",
@@ -3509,6 +3554,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: this.get_b_10_3(),
+          运行数量: this.get_b_10_4(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -3588,6 +3636,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "1",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "2",
@@ -3600,6 +3651,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_2_3(),
+        运行数量: this.get_b_2_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "3",
@@ -3612,6 +3666,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: "1",
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "4",
@@ -3624,6 +3681,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_4_3(),
+        运行数量: this.get_b_4_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "5",
@@ -3636,6 +3696,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_b_5_2(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "6",
@@ -3648,6 +3711,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_b_6_1(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "7",
@@ -3660,6 +3726,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_7_3(),
+        运行数量: this.get_b_7_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "8",
@@ -3672,6 +3741,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_8_3(),
+        运行数量: this.get_b_8_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "9",
@@ -3684,6 +3756,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_9_3(),
+        运行数量: this.get_b_9_4(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "10",
@@ -3696,6 +3771,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: this.get_b_10_3(),
+        运行数量: this.get_b_10_4(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [];

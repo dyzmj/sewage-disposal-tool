@@ -85,7 +85,11 @@
                       />
                     </a-col>
                     <a-col :span="12">
-                      <p style="padding-top: 70px; padding-left: 30px;font-size: 20px;">水泵选型</p>
+                      <p
+                        style="padding-top: 70px; padding-left: 30px;font-size: 20px;"
+                      >
+                        水泵选型
+                      </p>
                     </a-col>
                   </a-row>
                 </a>
@@ -1700,6 +1704,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_a_1_2(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "2",
@@ -1712,6 +1719,9 @@ export default {
           运行时间: "",
           主要材质: "",
           备注: "",
+          运行数量: this.get_a_2_2(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -1770,6 +1780,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_a_1_2(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "2",
@@ -1782,6 +1795,9 @@ export default {
         运行时间: "",
         主要材质: "",
         备注: "",
+        运行数量: this.get_a_2_2(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [

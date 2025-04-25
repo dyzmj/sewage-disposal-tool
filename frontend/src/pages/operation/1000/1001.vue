@@ -1896,10 +1896,10 @@
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
-              <div slot="Dimensions" slot-scope="text, record">
+              <div slot="设备类型" slot-scope="text, record">
                 <a-input
                   style="border: none;"
-                  v-model="record.Dimensions"
+                  v-model="record.设备类型"
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
@@ -1917,10 +1917,10 @@
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
-              <div slot="disinfectiontank" slot-scope="text, record">
+              <div slot="数量" slot-scope="text, record">
                 <a-input
                   style="border: none;"
-                  v-model="record.disinfectiontank"
+                  v-model="record.数量"
                   @blur="handleTableChange()"
                 ></a-input>
               </div>
@@ -2173,10 +2173,10 @@
               @blur="handleTableChange()"
             ></a-input>
           </div>
-          <div slot="Dimensions" slot-scope="text, record">
+          <div slot="设备类型" slot-scope="text, record">
             <a-input
               style="border: none;"
-              v-model="record.Dimensions"
+              v-model="record.设备类型"
               @blur="handleTableChange()"
             ></a-input>
           </div>
@@ -2194,10 +2194,10 @@
               @blur="handleTableChange()"
             ></a-input>
           </div>
-          <div slot="disinfectiontank" slot-scope="text, record">
+          <div slot="数量" slot-scope="text, record">
             <a-input
               style="border: none;"
-              v-model="record.disinfectiontank"
+              v-model="record.数量"
               @blur="handleTableChange()"
             ></a-input>
           </div>
@@ -2481,11 +2481,11 @@ export default {
             },
             {
               title: "设备类型",
-              dataIndex: "Dimensions",
+              dataIndex: "设备类型",
               key: "4",
               width: "100px",
               align: "center",
-              scopedSlots: { customRender: "Dimensions" },
+              scopedSlots: { customRender: "设备类型" },
             },
             {
               title: "规格及型号",
@@ -2534,6 +2534,14 @@ export default {
               width: "80px",
               align: "center",
               scopedSlots: { customRender: "备注" },
+            },
+            {
+              title: "运行数量",
+              dataIndex: "运行数量",
+              key: "11",
+              width: "80px",
+              align: "center",
+              scopedSlots: { customRender: "运行数量" },
             },
           ],
         },
@@ -2944,8 +2952,14 @@ export default {
     getKey6() {
       return this.b70_1 + "用" + this.b71_1 + "备";
     },
+    getkey6_1() {
+      return this.b70_1
+    },
     getKey7() {
       return this.b99 + "用" + this.b99_1 + "备";
+    },
+    getKey7_1() {
+      return this.b99;
     },
     getKey8() {
       return (parseFloat(this.b15) * 5).toFixed(0);
@@ -3343,10 +3357,13 @@ export default {
           设备类型: "",
           规格及型号: this.getKey2(),
           单位: "台",
-          disinfectiontank: this.getKey3(),
+          数量: this.getKey3(),
           运行时间: "",
           主要材质: "",
           备注: this.getKey6(),
+          运行数量: this.getkey6_1(),
+          单台功率: "",
+          用电量: "",
         },
         {
           序号: "",
@@ -3355,10 +3372,13 @@ export default {
           设备类型: "",
           规格及型号: this.getKey4(),
           单位: "台",
-          disinfectiontank: this.getKey5(),
+          数量: this.getKey5(),
           运行时间: "",
           主要材质: "",
           备注: this.getKey7(),
+          运行数量: this.getKey7_1(),
+          单台功率: "",
+          用电量: "",
         },
       ];
     },
@@ -3415,10 +3435,13 @@ export default {
         设备类型: "",
         规格及型号: this.getKey2(),
         单位: "台",
-        disinfectiontank: this.getKey3(),
+        数量: this.getKey3(),
         运行时间: "",
         主要材质: "",
         备注: this.getKey6(),
+        运行数量: this.getkey6_1(),
+        单台功率: "",
+        用电量: "",
       },
       {
         序号: "",
@@ -3427,10 +3450,13 @@ export default {
         设备类型: "",
         规格及型号: this.getKey4(),
         单位: "台",
-        disinfectiontank: this.getKey5(),
+        数量: this.getKey5(),
         运行时间: "",
         主要材质: "",
         备注: this.getKey7(),
+        运行数量: this.getKey7_1(),
+        单台功率: "",
+        用电量: "",
       },
     ];
     this.data3 = [
