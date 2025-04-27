@@ -613,96 +613,85 @@
             :row-style="{ paddin: 16 }"
           >
             <div slot="序号" slot-scope="text, record">
-              <a-input
-                style="border: none;"
-                v-model="record.序号"
-                @blur="handleTableChange()"
-              ></a-input>
+              <a-input style="border: none;" v-model="record.序号"></a-input>
             </div>
             <div slot="设备位号" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.设备位号"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="设备工艺名称" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.设备工艺名称"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="设备类型" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.设备类型"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="规格及型号" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.规格及型号"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="单位" slot-scope="text, record">
-              <a-input
-                style="border: none;"
-                v-model="record.单位"
-                @blur="handleTableChange()"
-              ></a-input>
+              <a-input style="border: none;" v-model="record.单位"></a-input>
             </div>
             <div slot="数量" slot-scope="text, record">
-              <a-input
-                style="border: none;"
-                v-model="record.数量"
-                @blur="handleTableChange()"
-              ></a-input>
+              <a-input style="border: none;" v-model="record.数量"></a-input>
             </div>
             <div slot="运行时间" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.运行时间"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="主要材质" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.主要材质"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
             <div slot="备注" slot-scope="text, record">
-              <a-input
-                style="border: none;"
-                v-model="record.备注"
-                @blur="handleTableChange()"
-              ></a-input>
+              <a-input style="border: none;" v-model="record.备注"></a-input>
             </div>
             <div slot="运行数量" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.运行数量"
-                @blur="handleTableChange()"
+                @blur="handleTableChange(record, '运行数量')"
               ></a-input>
             </div>
             <div slot="单台功率" slot-scope="text, record">
               <a-input
                 style="border: none;"
                 v-model="record.单台功率"
-                @blur="handleTableChange()"
+                @blur="handleTableChange(record, '单台功率')"
               ></a-input>
             </div>
             <div slot="用电量" slot-scope="text, record">
               <a-input
                 style="border: none;"
+                disabled
                 v-model="record.用电量"
-                @blur="handleTableChange()"
               ></a-input>
             </div>
+            <template slot="footer">
+              <a-input
+                addon-before="累计用电量"
+                style="border: none;"
+                disabled
+                v-model="b14"
+              ></a-input>
+            </template>
+            <template slot="title">
+              <a-button type="primary" @click="addRow">添加</a-button>
+            </template>
           </a-table>
         </div>
       </div>
@@ -804,7 +793,6 @@ export default {
       data2: [],
       columns2: [
         {
-          title: "设备选型",
           align: "left",
           children: [
             {
@@ -924,192 +912,146 @@ export default {
     handleOk() {
       this.modelVisible = false;
     },
-    handleTableChange() {
-      console.log("handleTableChange----->>>");
+    handleTableChange(record, key) {
+      console.log("handleTableChange----->>>", record, key);
+
+      // 检查是否是“单台功率”字段发生了变化
+      if (key === "单台功率") {
+        // 重新计算“用电量”
+        record.用电量 = (
+          record.运行数量 *
+          record.单台功率 *
+          record.运行时间
+        ).toFixed(4);
+        console.log("重新计算后的用电量:", record.用电量);
+      }
+      if (key === "运行数量") {
+        // 重新计算“用电量”
+        record.用电量 = (
+          record.运行数量 *
+          record.单台功率 *
+          record.运行时间
+        ).toFixed(4);
+        console.log("重新计算后的用电量:", record.用电量);
+      }
+
+      // 重新计算所有行的“用电量”总和并赋值给 b14
+      let totalElectricityConsumption = 0;
+      this.data2.forEach((item) => {
+        totalElectricityConsumption += parseFloat(item.用电量);
+      });
+
+      this.b14 = totalElectricityConsumption.toFixed(4);
+      console.log("总用电量:", this.b14);
+    },
+    addRow() {
+      const newRow = {
+        序号: this.data2.length + 1,
+        设备位号: "",
+        设备工艺名称: "",
+        设备类型: "",
+        规格及型号: "",
+        单位: "",
+        数量: "",
+        运行时间: "24", // 默认运行时间为24小时
+        主要材质: "",
+        备注: "",
+        运行数量: "1", // 默认运行数量为1
+        单台功率: "1", // 默认单台功率为1
+        用电量: "0", // 默认用电量为0
+      };
+
+      this.data2.push(newRow);
+      this.handleTableChange(newRow, "运行数量"); // 计算新行的用电量并累加到 b14
     },
     initPowerData() {
       this.data2 = [];
       console.log("初始化耗电量数据----->>>");
-      if (this.show1001) {
-        const array = getArrayFromLocalStorage("power.1001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
+
+      // 遍历所有可能的 show 变量
+      const showKeys = [
+        "show1001",
+        "show1002",
+        "show1003",
+        "show1004",
+        "show1005",
+        "show1006",
+        "show1007",
+        "show2001",
+        "show2002",
+        "show2003",
+        "show2004",
+        "show2005",
+        "show3001",
+        "show3002",
+        "show3003",
+        "show3004",
+        "show3005",
+        "show3006",
+        "show4001",
+        "show4002",
+        "show5001",
+        "show5002",
+        "show6003",
+        "show6004",
+        "show6005",
+        "show6006",
+        "show8001",
+        "show8002",
+        "show9001",
+        "show9002",
+      ];
+
+      let totalElectricityConsumption = 0; // 用于累加“用电量”
+
+      showKeys.forEach((key) => {
+        if (this[key]) {
+          let array = getArrayFromLocalStorage(`power.${key.slice(4)}.xlsx.2`);
+
+          if (Array.isArray(array)) {
+            array.forEach((item) => {
+              // 处理“运行时间”
+              if (item.运行时间 === undefined || item.运行时间.trim() === "") {
+                item.运行时间 = 24;
+              } else {
+                item.运行时间 = parseFloat(item.运行时间.replace(/h$/, ""));
+              }
+
+              // 处理“单台功率”
+              if (item.单台功率 === undefined || item.单台功率.trim() === "") {
+                item.单台功率 = 1;
+              } else {
+                item.单台功率 = parseFloat(item.单台功率);
+              }
+
+              // 计算“用电量”
+              item.用电量 = (
+                item.运行数量 *
+                item.单台功率 *
+                item.运行时间
+              ).toFixed(4);
+
+              // 累加“用电量”
+              totalElectricityConsumption += parseFloat(item.用电量);
+            });
+
+            this.data2 = this.data2.concat(array);
+            console.log(`data2 after concat ${key}:`, this.data2);
+          } else {
+            console.error(`数据 ${key} 不是数组类型`);
+          }
         }
-      }
-      if (this.show1002) {
-        const array = getArrayFromLocalStorage("power.1002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show1003) {
-        const array = getArrayFromLocalStorage("power.1003.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show1004) {
-        const array = getArrayFromLocalStorage("power.1004.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show1005) {
-        const array = getArrayFromLocalStorage("power.1005.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show1006) {
-        const array = getArrayFromLocalStorage("power.1006.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show1007) {
-        const array = getArrayFromLocalStorage("power.1007.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show2001) {
-        const array = getArrayFromLocalStorage("power.2001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show2002) {
-        const array = getArrayFromLocalStorage("power.2002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show2003) {
-        const array = getArrayFromLocalStorage("power.2003.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show2004) {
-        const array = getArrayFromLocalStorage("power.2004.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show2005) {
-        const array = getArrayFromLocalStorage("power.2005.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3001) {
-        const array = getArrayFromLocalStorage("power.3001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3002) {
-        const array = getArrayFromLocalStorage("power.3002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3003) {
-        const array = getArrayFromLocalStorage("power.3003.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3004) {
-        const array = getArrayFromLocalStorage("power.3004.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3005) {
-        const array = getArrayFromLocalStorage("power.3005.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show3006) {
-        const array = getArrayFromLocalStorage("power.3006.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show4001) {
-        const array = getArrayFromLocalStorage("power.4001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show4002) {
-        const array = getArrayFromLocalStorage("power.4002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show5001) {
-        const array = getArrayFromLocalStorage("power.5001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show5002) {
-        const array = getArrayFromLocalStorage("power.5002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show6003) {
-        const array = getArrayFromLocalStorage("power.6003.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show6004) {
-        const array = getArrayFromLocalStorage("power.6004.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show6005) {
-        const array = getArrayFromLocalStorage("power.6005.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show6006) {
-        const array = getArrayFromLocalStorage("power.6006.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show8001) {
-        const array = getArrayFromLocalStorage("power.8001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show8002) {
-        const array = getArrayFromLocalStorage("power.8002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show9001) {
-        const array = getArrayFromLocalStorage("power.9001.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
-      if (this.show9002) {
-        const array = getArrayFromLocalStorage("power.9002.xlsx.2");
-        if (Array.isArray(array)) {
-          this.data2 = this.data2.concat(array);
-        }
-      }
+      });
+
+      // 将总“用电量”赋值给 b14
+      this.b14 = totalElectricityConsumption.toFixed(4);
+      console.log("总用电量:", this.b14);
+
+      // 重新设置 data2 中每一行的“序号”
+      this.data2.forEach((item, index) => {
+        item.序号 = index + 1;
+      });
+
       console.log("data2 数据===>", this.data2);
     },
     initWaterData() {
@@ -1439,7 +1381,7 @@ export default {
       } else {
         this.show8001 = false;
       }
-    },  
+    },
     fc8002() {
       const fc8002 = getValueFromLocalStorage("fc8002");
       if (fc8002 === "1") {
