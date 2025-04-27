@@ -2134,7 +2134,7 @@ export default {
       ).toFixed(2);
     },
     b45() {
-      return (parseFloat(this.b44) * parseFloat(this.b9)).toFixed(2);
+      return (parseFloat(this.b44) * parseFloat(this.b9)).toFixed(0);
     },
     b47() {
       return this.b37;

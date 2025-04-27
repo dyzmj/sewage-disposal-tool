@@ -2598,7 +2598,7 @@ export default {
       return 6;
     },
     get_b_9_1() {
-      return " ";
+      return 6;
     },
     get_b_10_1() {
       return "容积=" + this.b69 + "m3";

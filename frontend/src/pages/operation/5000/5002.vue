@@ -2252,7 +2252,7 @@ export default {
       return this.b71;
     },
     get_a_b_2_3() {
-      parseFloat(this.b71) - 1;
+      return parseFloat(this.b71) - 1;
     },
     get_a_b_3_1() {
       return "流量=" + this.b69 + "m3/h";

@@ -682,6 +682,27 @@
                 @blur="handleTableChange()"
               ></a-input>
             </div>
+            <div slot="运行数量" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.运行数量"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="单台功率" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.单台功率"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
+            <div slot="用电量" slot-scope="text, record">
+              <a-input
+                style="border: none;"
+                v-model="record.用电量"
+                @blur="handleTableChange()"
+              ></a-input>
+            </div>
           </a-table>
         </div>
       </div>
@@ -1161,43 +1182,56 @@ export default {
     initProcessUnitData() {
       console.log("初始化运行成本数据----->>>");
       // 初始化
-      // this.fc1001();
-      // this.fc1002();
+      this.fc1001();
+      this.fc1002();
       this.fc1003();
-      // this.fc1004();
+      this.fc1004();
       this.fc1005();
-      // this.fc1006();
+      this.fc1006();
       this.fc1007();
-      // this.fc2001();
-      // this.fc2002();
-      // this.fc2003();
+      this.fc2001();
+      this.fc2002();
+      this.fc2003();
       this.fc2004();
       this.fc2005();
-      // this.fc3001();
-      // this.fc3002();
-      // this.fc3003();
-      // this.fc3004();
-      // this.fc3005();
-      // this.fc3006();
-      // this.fc4001();
-      // this.fc4002();
-      // this.fc5001();
-      // this.fc5002();
-      // this.fc6001();
-      // this.fc6002();
-      // this.fc6003();
-      // this.fc6004();
+      this.fc3001();
+      this.fc3002();
+      this.fc3003();
+      this.fc3004();
+      this.fc3005();
+      this.fc3006();
+      this.fc4001();
+      this.fc4002();
+      this.fc5001();
+      this.fc5002();
+      this.fc6003();
+      this.fc6004();
       this.fc6005();
-      // this.fc6006();
-      // this.fc8001();
-      // this.fc8002();
+      this.fc6006();
+      this.fc8001();
+      this.fc8002();
       this.fc9001();
       this.fc9002();
+    },
+    fc1001() {
+      const fc1001 = getValueFromLocalStorage("fc1001");
+      if (fc1001 === "1") {
+        this.show1001 = true;
+      } else {
+        this.show1001 = false;
+      }
+    },
+    fc1002() {
+      const fc1002 = getValueFromLocalStorage("fc1002");
+      if (fc1002 === "1") {
+        this.show1002 = true;
+      } else {
+        this.show1002 = false;
+      }
     },
     fc1003() {
       // 预加氯次氯酸钠投加量
       const fc1003 = getValueFromLocalStorage("fc1003");
-      // ;
       if (fc1003 === "1") {
         this.show1003 = true;
       } else {
@@ -1205,10 +1239,17 @@ export default {
         this.b7 = 0;
       }
     },
+    fc1004() {
+      const fc1004 = getValueFromLocalStorage("fc1004");
+      if (fc1004 === "1") {
+        this.show1004 = true;
+      } else {
+        this.show1004 = false;
+      }
+    },
     fc1005() {
       // 高锰酸钾投加量
       const fc1005 = getValueFromLocalStorage("fc1005");
-      // ;
       if (fc1005 === "1") {
         this.show1005 = true;
       } else {
@@ -1216,10 +1257,17 @@ export default {
         this.b11 = 0;
       }
     },
+    fc1006() {
+      const fc1006 = getValueFromLocalStorage("fc1006");
+      if (fc1006 === "1") {
+        this.show1006 = true;
+      } else {
+        this.show1006 = false;
+      }
+    },
     fc1007() {
       // 粉末活性炭投加量
       const fc1007 = getValueFromLocalStorage("fc1007");
-      // ;
       if (fc1007 === "1") {
         this.show1007 = true;
       } else {
@@ -1227,10 +1275,33 @@ export default {
         this.b8 = 0;
       }
     },
+    fc2001() {
+      const fc2001 = getValueFromLocalStorage("fc2001");
+      if (fc2001 === "1") {
+        this.show2001 = true;
+      } else {
+        this.show2001 = false;
+      }
+    },
+    fc2002() {
+      const fc2002 = getValueFromLocalStorage("fc2002");
+      if (fc2002 === "1") {
+        this.show2002 = true;
+      } else {
+        this.show2002 = false;
+      }
+    },
+    fc2003() {
+      const fc2003 = getValueFromLocalStorage("fc2003");
+      if (fc2003 === "1") {
+        this.show2003 = true;
+      } else {
+        this.show2003 = false;
+      }
+    },
     fc2004() {
       // PAC
       const fc2004 = getValueFromLocalStorage("fc2004");
-      // ;
       if (fc2004 === "1") {
         this.show2004 = true;
       } else {
@@ -1241,7 +1312,6 @@ export default {
     fc2005() {
       // PAM
       const fc2005 = getValueFromLocalStorage("fc2005");
-      // ;
       if (fc2005 === "1") {
         this.show2005 = true;
       } else {
@@ -1249,10 +1319,104 @@ export default {
         this.b4 = 0;
       }
     },
+    fc3001() {
+      const fc3001 = getValueFromLocalStorage("fc3001");
+      if (fc3001 === "1") {
+        this.show3001 = true;
+      } else {
+        this.show3001 = false;
+      }
+    },
+    fc3002() {
+      const fc3002 = getValueFromLocalStorage("fc3002");
+      if (fc3002 === "1") {
+        this.show3002 = true;
+      } else {
+        this.show3002 = false;
+      }
+    },
+    fc3003() {
+      const fc3003 = getValueFromLocalStorage("fc3003");
+      if (fc3003 === "1") {
+        this.show3003 = true;
+      } else {
+        this.show3003 = false;
+      }
+    },
+    fc3004() {
+      const fc3004 = getValueFromLocalStorage("fc3004");
+      if (fc3004 === "1") {
+        this.show3004 = true;
+      } else {
+        this.show3004 = false;
+      }
+    },
+    fc3005() {
+      const fc3005 = getValueFromLocalStorage("fc3005");
+      if (fc3005 === "1") {
+        this.show3005 = true;
+      } else {
+        this.show3005 = false;
+      }
+    },
+    fc3006() {
+      const fc3006 = getValueFromLocalStorage("fc3006");
+      if (fc3006 === "1") {
+        this.show3006 = true;
+      } else {
+        this.show3006 = false;
+      }
+    },
+    fc4001() {
+      const fc4001 = getValueFromLocalStorage("fc4001");
+      if (fc4001 === "1") {
+        this.show4001 = true;
+      } else {
+        this.show4001 = false;
+      }
+    },
+    fc4002() {
+      const fc4002 = getValueFromLocalStorage("fc4002");
+      if (fc4002 === "1") {
+        this.show4002 = true;
+      } else {
+        this.show4002 = false;
+      }
+    },
+    fc5001() {
+      const fc5001 = getValueFromLocalStorage("fc5001");
+      if (fc5001 === "1") {
+        this.show5001 = true;
+      } else {
+        this.show5001 = false;
+      }
+    },
+    fc5002() {
+      const fc5002 = getValueFromLocalStorage("fc5002");
+      if (fc5002 === "1") {
+        this.show5002 = true;
+      } else {
+        this.show5002 = false;
+      }
+    },
+    fc6003() {
+      const fc6003 = getValueFromLocalStorage("fc6003");
+      if (fc6003 === "1") {
+        this.show6003 = true;
+      } else {
+        this.show6003 = false;
+      }
+    },
+    fc6004() {
+      const fc6004 = getValueFromLocalStorage("fc6004");
+      if (fc6004 === "1") {
+        this.show6004 = true;
+      } else {
+        this.show6004 = false;
+      }
+    },
     fc6005() {
-      // 消毒次氯酸钠投加量
       const fc6005 = getValueFromLocalStorage("fc6005");
-      // ;
       if (fc6005 === "1") {
         this.show6005 = true;
       } else {
@@ -1260,10 +1424,33 @@ export default {
         this.b6 = 0;
       }
     },
+    fc6006() {
+      const fc6006 = getValueFromLocalStorage("fc6006");
+      if (fc6006 === "1") {
+        this.show6006 = true;
+      } else {
+        this.show6006 = false;
+      }
+    },
+    fc8001() {
+      const fc8001 = getValueFromLocalStorage("fc8001");
+      if (fc8001 === "1") {
+        this.show8001 = true;
+      } else {
+        this.show8001 = false;
+      }
+    },  
+    fc8002() {
+      const fc8002 = getValueFromLocalStorage("fc8002");
+      if (fc8002 === "1") {
+        this.show8002 = true;
+      } else {
+        this.show8002 = false;
+      }
+    },
     fc9001() {
       // 干污泥量
       const fc9001 = getValueFromLocalStorage("fc9001");
-      // ;
       if (fc9001 === "1") {
         this.show9001 = true;
       } else {
@@ -1274,7 +1461,6 @@ export default {
     fc9002() {
       // 脱水PAM投加量
       const fc9002 = getValueFromLocalStorage("fc9002");
-      // ;
       if (fc9002 === "1") {
         this.show9002 = true;
       } else {

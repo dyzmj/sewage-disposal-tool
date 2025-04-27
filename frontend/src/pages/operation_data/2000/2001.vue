@@ -743,7 +743,12 @@ export default {
         d1.unshift(['水平轴式工程量']);
         var d2 = [...allData2, null, null, ['垂直轴式工程量'], ...allData4];
         d2.unshift(['水平轴式工程量']);
-        initPowerStorage(this.d2, path);
+        
+        var dataAll = [];
+        dataAll = dataAll.concat(this.data2);
+        dataAll = dataAll.concat(this.data4);
+        initPowerStorage(dataAll, path);
+
         initExcelStorage(d1, d2, null, path, name);
       } catch (error) {
         console.error("Error Init Excel Data:", error);
@@ -1357,7 +1362,7 @@ export default {
           序号: "",
           设备位号: "",
           设备工艺名称: "机械搅拌絮凝池搅拌机",
-          设备类型: "水平轴搅拌器",
+          设备类型: "垂直轴搅拌器",
           规格及型号: this.getkey3c(),
           单位: "台",
           数量: this.getkey4c(),
@@ -1434,7 +1439,7 @@ export default {
         序号: "",
         设备位号: "",
         设备工艺名称: "机械搅拌絮凝池搅拌机",
-        设备类型: "水平轴搅拌器",
+        设备类型: "垂直轴搅拌器",
         规格及型号: this.getkey3c(),
         单位: "台",
         数量: this.getkey4c(),
