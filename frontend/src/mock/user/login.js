@@ -14,30 +14,11 @@ Mock.mock(`${process.env.VUE_APP_API_BASE_URL}/login`, 'post', ({body}) => {
 
   let success = false
 
-  // // TODO: 校验是否进行过认证
-  // let certificate =  getRegistration();
-  // if(certificate === null || certificate === undefined || certificate === "") {
-  //   result.code = -1
-  //   result.message = '证书不存在'
-  //   return result;
-  // }
-
-  // console.info("证书：", certificate);
-
-  // // 获取本地机器码
-  // console.info("机器码：", getMachineCode());
-
-
-
-  if (name === 'admin' && password === '888888') {
+  if (name === 'bjysw' && password === 'bjysw2025') {
     success = true
     result.data.permissions = [{id: 'queryForm', operation: ['add', 'edit']}]
     result.data.roles = [{id: 'admin', operation: ['add', 'edit', 'delete']}]
-  } else if (name === 'test' || password === '888888') {
-    success = true
-    result.data.permissions = [{id: 'queryForm', operation: ['add', 'edit']}]
-    result.data.roles = [{id: 'test', operation: ['add', 'edit', 'delete']}]
-  } else {
+  }else {
     success = false
   }
 

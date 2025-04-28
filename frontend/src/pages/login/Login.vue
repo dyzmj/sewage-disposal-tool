@@ -15,40 +15,17 @@
         <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
               style="margin-bottom: 24px;" />
             <a-form-item>
-              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="演示账号:admin"
+              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="请输入账户名"
                 v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
                 <a-icon slot="prefix" type="user" />
               </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input v-model="password" size="large" placeholder="演示密码:888888" autocomplete="autocomplete" type="password"
+              <a-input v-model="password" size="large" placeholder="请输入密码" autocomplete="autocomplete" type="password"
                 v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
                 <a-icon slot="prefix" type="lock" />
               </a-input>
             </a-form-item>
-
-        <!-- <a-tabs size="large" :tabBarStyle="{ textAlign: 'center' }" style="padding: 0 2px;">
-          <a-tab-pane tab="账户密码登录" key="1">
-            <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
-              style="margin-bottom: 24px;" />
-            <a-form-item>
-              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="演示账号:admin"
-                v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
-                <a-icon slot="prefix" type="user" />
-              </a-input>
-            </a-form-item>
-            <a-form-item>
-              <a-input v-model="password" size="large" placeholder="演示密码:888888" autocomplete="autocomplete" type="password"
-                v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
-                <a-icon slot="prefix" type="lock" />
-              </a-input>
-            </a-form-item>
-          </a-tab-pane>
-        </a-tabs> -->
-        <div>
-          <!-- <a-checkbox style="float: right">记住密码</a-checkbox> -->
-          <!-- <a style="float: right">忘记密码</a> -->
-        </div>
         <a-form-item>
           <a-button :loading="logging" style="width: 100%;margin-top: 24px" size="large" htmlType="submit"
             type="primary">登录</a-button>
@@ -76,8 +53,8 @@ export default {
       logging: false,
       error: '',
       form: this.$form.createForm(this),
-      username: 'admin',
-      password: '888888',
+      username: '',
+      password: '',
     }
   },
   computed: {
