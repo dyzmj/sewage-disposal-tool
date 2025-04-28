@@ -15,13 +15,13 @@
         <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
               style="margin-bottom: 24px;" />
             <a-form-item>
-              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="演示账号:admin"
+              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="用户账号:user123"
                 v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
                 <a-icon slot="prefix" type="user" />
               </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input v-model="password" size="large" placeholder="演示密码:888888" autocomplete="autocomplete" type="password"
+              <a-input v-model="password" size="large" placeholder="用户密码:******" autocomplete="autocomplete" type="password"
                 v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
                 <a-icon slot="prefix" type="lock" />
               </a-input>
