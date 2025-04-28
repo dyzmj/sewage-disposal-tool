@@ -45,12 +45,14 @@
                           style="width: 34%"
                           :addon-before="$t('b2')"
                           :suffix="$t('b2_u')"
+                          disabled="true"
                         />
                         <a-input
                           v-model="b2_1"
                           style="width: 33%"
                           :addon-before="$t('b2_1')"
                           :suffix="$t('b2_1_u')"
+                          @blur="handleFormChange('设计规模_自用水系数')"
                         />
                         <a-input
                           v-model="b2_2"
@@ -340,6 +342,7 @@
                           style="width: 33%"
                           :addon-before="$t('b13_1')"
                           :suffix="$t('b13_1_u')"
+                          @blur="handleFormChange('干污泥量_含水率')"
                         />
                       </a-input-group>
                     </a-form-item>
@@ -418,94 +421,134 @@
                 <tr>
                   <td>1</td>
                   <td colspan="2">水资源费</td>
-                  <td><a-input v-model="e19" /></td>
+                  <td><a-input v-model="e19" disabled="true" /></td>
                   <td>t</td>
-                  <td><a-input v-model="g19" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g19" /></td>
                   <td>元/t</td>
-                  <td><a-input v-model="i19" /></td>
-                  <td><a-input v-model="j19" /></td>
+                  <td><a-input v-model="i19" disabled="true" /></td>
+                  <td><a-input v-model="j19" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td rowspan="9">2</td>
                   <td rowspan="9">药剂费</td>
                   <td v-show="show2004">PAC</td>
-                  <td v-show="show2004"><a-input v-model="e20" /></td>
+                  <td v-show="show2004">
+                    <a-input v-model="e20" disabled="true" />
+                  </td>
                   <td v-show="show2004">t</td>
-                  <td v-show="show2004"><a-input v-model="g20" /></td>
+                  <td v-show="show2004">
+                    <a-input-number style="width: 100%;" v-model="g20" />
+                  </td>
                   <td v-show="show2004">元/t</td>
-                  <td v-show="show2004"><a-input v-model="i20" /></td>
-                  <td v-show="show2004"><a-input v-model="j20" /></td>
+                  <td v-show="show2004">
+                    <a-input v-model="i20" disabled="true" />
+                  </td>
+                  <td v-show="show2004">
+                    <a-input v-model="j20" disabled="true" />
+                  </td>
                 </tr>
                 <tr>
                   <td v-show="show2005">PAM</td>
-                  <td v-show="show2005"><a-input v-model="e21" /></td>
+                  <td v-show="show2005">
+                    <a-input v-model="e21" disabled="true" />
+                  </td>
                   <td v-show="show2005">t</td>
-                  <td v-show="show2005"><a-input v-model="g21" /></td>
+                  <td v-show="show2005">
+                    <a-input-number style="width: 100%;" v-model="g21" />
+                  </td>
                   <td v-show="show2005">元/t</td>
-                  <td v-show="show2005"><a-input v-model="i21" /></td>
-                  <td v-show="show2005"><a-input v-model="j21" /></td>
+                  <td v-show="show2005">
+                    <a-input v-model="i21" disabled="true" />
+                  </td>
+                  <td v-show="show2005">
+                    <a-input v-model="j21" disabled="true" />
+                  </td>
                 </tr>
                 <tr>
                   <td v-show="show9002">脱水PAM</td>
-                  <td v-show="show9002"><a-input v-model="e22" /></td>
+                  <td v-show="show9002">
+                    <a-input v-model="e22" disabled="true" />
+                  </td>
                   <td v-show="show9002">t</td>
-                  <td v-show="show9002"><a-input v-model="g22" /></td>
+                  <td v-show="show9002">
+                    <a-input-number style="width: 100%;" v-model="g22" />
+                  </td>
                   <td v-show="show9002">元/t</td>
-                  <td v-show="show9002"><a-input v-model="i22" /></td>
-                  <td v-show="show9002"><a-input v-model="j22" /></td>
+                  <td v-show="show9002">
+                    <a-input v-model="i22" disabled="true" />
+                  </td>
+                  <td v-show="show9002">
+                    <a-input v-model="j22" disabled="true" />
+                  </td>
                 </tr>
                 <tr>
                   <td v-show="show1003 || show6005">次氯酸钠</td>
                   <td v-show="show1003 || show6005">
-                    <a-input v-model="e23" />
+                    <a-input v-model="e23" disabled="true" />
                   </td>
                   <td v-show="show1003 || show6005">t</td>
                   <td v-show="show1003 || show6005">
-                    <a-input v-model="g23" />
+                    <a-input-number style="width: 100%;" v-model="g23" />
                   </td>
                   <td v-show="show1003 || show6005">元/t</td>
                   <td v-show="show1003 || show6005">
-                    <a-input v-model="i23" />
+                    <a-input v-model="i23" disabled="true" />
                   </td>
                   <td v-show="show1003 || show6005">
-                    <a-input v-model="j23" />
+                    <a-input v-model="j23" disabled="true" />
                   </td>
                 </tr>
                 <tr>
                   <td v-show="show1007">粉末活性炭</td>
-                  <td v-show="show1007"><a-input v-model="e24" /></td>
+                  <td v-show="show1007">
+                    <a-input v-model="e24" disabled="true" />
+                  </td>
                   <td v-show="show1007">t</td>
-                  <td v-show="show1007"><a-input v-model="g24" /></td>
+                  <td v-show="show1007">
+                    <a-input-number style="width: 100%;" v-model="g24" />
+                  </td>
                   <td v-show="show1007">元/t</td>
-                  <td v-show="show1007"><a-input v-model="i24" /></td>
-                  <td v-show="show1007"><a-input v-model="j24" /></td>
+                  <td v-show="show1007">
+                    <a-input v-model="i24" disabled="true" />
+                  </td>
+                  <td v-show="show1007">
+                    <a-input v-model="j24" disabled="true" />
+                  </td>
                 </tr>
                 <tr>
                   <td>HCl</td>
-                  <td><a-input v-model="e25" /></td>
+                  <td><a-input v-model="e25" disabled="true" /></td>
                   <td>t</td>
-                  <td><a-input v-model="g25" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g25" /></td>
                   <td>元/t</td>
-                  <td><a-input v-model="i25" /></td>
-                  <td><a-input v-model="j25" /></td>
+                  <td><a-input v-model="i25" disabled="true" /></td>
+                  <td><a-input v-model="j25" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>NaOH</td>
-                  <td><a-input v-model="e26" /></td>
+                  <td><a-input v-model="e26" disabled="true" /></td>
                   <td>t</td>
-                  <td><a-input v-model="g26" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g26" /></td>
                   <td>元/t</td>
-                  <td><a-input v-model="i26" /></td>
-                  <td><a-input v-model="j26" /></td>
+                  <td><a-input v-model="i26" disabled="true" /></td>
+                  <td><a-input v-model="j26" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td v-show="show1005">高锰酸钾</td>
-                  <td v-show="show1005"><a-input v-model="e27" /></td>
+                  <td v-show="show1005">
+                    <a-input v-model="e27" disabled="true" />
+                  </td>
                   <td v-show="show1005">t</td>
-                  <td v-show="show1005"><a-input v-model="g27" /></td>
+                  <td v-show="show1005">
+                    <a-input-number style="width: 100%;" v-model="g27" />
+                  </td>
                   <td v-show="show1005">元/t</td>
-                  <td v-show="show1005"><a-input v-model="i27" /></td>
-                  <td v-show="show1005"><a-input v-model="j27" /></td>
+                  <td v-show="show1005">
+                    <a-input v-model="i27" disabled="true" />
+                  </td>
+                  <td v-show="show1005">
+                    <a-input v-model="j27" disabled="true" />
+                  </td>
                 </tr>
                 <tr>
                   <td>小计</td>
@@ -513,19 +556,19 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><a-input v-model="i28" /></td>
-                  <td><a-input v-model="j28" /></td>
+                  <td><a-input v-model="i28" disabled="true" /></td>
+                  <td><a-input v-model="j28" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td rowspan="2">3</td>
                   <td rowspan="2">动力燃料费</td>
                   <td>电度电费</td>
-                  <td><a-input v-model="e29" /></td>
+                  <td><a-input v-model="e29" disabled="true" /></td>
                   <td>kWh</td>
-                  <td><a-input v-model="g29" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g29" /></td>
                   <td>元/kWh</td>
-                  <td><a-input v-model="i29" /></td>
-                  <td><a-input v-model="j29" /></td>
+                  <td><a-input v-model="i29" disabled="true" /></td>
+                  <td><a-input v-model="j29" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>小计</td>
@@ -533,38 +576,38 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><a-input v-model="i30" /></td>
-                  <td><a-input v-model="j30" /></td>
+                  <td><a-input v-model="i30" disabled="true" /></td>
+                  <td><a-input v-model="j30" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td colspan="2">污水处理费</td>
-                  <td><a-input v-model="e31" /></td>
+                  <td><a-input v-model="e31" disabled="true" /></td>
                   <td>t</td>
-                  <td><a-input v-model="g31" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g31" /></td>
                   <td>元/t</td>
-                  <td><a-input v-model="i31" /></td>
-                  <td><a-input v-model="j31" /></td>
+                  <td><a-input v-model="i31" disabled="true" /></td>
+                  <td><a-input v-model="j31" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td colspan="2">污泥外运及处置费</td>
-                  <td><a-input v-model="e32" /></td>
+                  <td><a-input v-model="e32" disabled="true" /></td>
                   <td>t</td>
-                  <td><a-input v-model="g32" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g32" /></td>
                   <td>元/t</td>
-                  <td><a-input v-model="i32" /></td>
-                  <td><a-input v-model="j32" /></td>
+                  <td><a-input v-model="i32" disabled="true" /></td>
+                  <td><a-input v-model="j32" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td colspan="2">工资福利费</td>
-                  <td><a-input v-model="e33" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="e33" /></td>
                   <td>人</td>
-                  <td><a-input v-model="g33" /></td>
+                  <td><a-input-number style="width: 100%;" v-model="g33" /></td>
                   <td>元/人年</td>
-                  <td><a-input v-model="i33" /></td>
-                  <td><a-input v-model="j33" /></td>
+                  <td><a-input v-model="i33" disabled="true" /></td>
+                  <td><a-input v-model="j33" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -573,8 +616,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><a-input v-model="i34" /></td>
-                  <td><a-input v-model="j34" /></td>
+                  <td><a-input v-model="i34" disabled="true" /></td>
+                  <td><a-input v-model="j34" disabled="true" /></td>
                 </tr>
                 <tr>
                   <td>8</td>
@@ -584,7 +627,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><a-input v-model="j35" /></td>
+                  <td><a-input v-model="j35" disabled="true" /></td>
                 </tr>
               </table>
             </div>
@@ -912,6 +955,25 @@ export default {
     handleOk() {
       this.modelVisible = false;
     },
+    handleFormChange(key) {
+      console.log("handleFormChange----->>>", key);
+      if (key === "干污泥量_含水率") {
+        const sludgeData = getValueFromLocalStorage("sludgeData");
+        if (sludgeData == null || sludgeData == "") {
+          this.b13 = 347.13;
+        } else {
+          if (parseFloat(this.b13_1) == "100") {
+            this.b13 = 0;
+          } else {
+            this.b13 = (
+              parseFloat(sludgeData) /
+              (1 - parseFloat(this.b13_1) / 100)
+            ).toFixed(2);
+          }
+        }
+        console.log("重新计算后的 b13:", this.b13);
+      }
+    },
     handleTableChange(record, key) {
       console.log("handleTableChange----->>>", record, key);
 
@@ -1109,7 +1171,14 @@ export default {
       if (sludgeData == null || sludgeData == "") {
         this.b13 = 347.13;
       } else {
-        this.b13 = sludgeData;
+        if (parseFloat(this.b13_1) == "100") {
+          this.b13 = 0;
+        } else {
+          this.b13 = (
+            parseFloat(sludgeData) /
+            (1 - parseFloat(this.b13_1) / 100)
+          ).toFixed(2);
+        }
       }
     },
     handleSubmit(e) {
@@ -1714,187 +1783,6 @@ export default {
   created() {
     this.initWaterData();
     this.initProcessUnitData();
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    //   {
-    //     序号: "1",
-    //     设备位号: "",
-    //     设备工艺名称: "排水池搅拌机",
-    //     设备类型: "2134",
-    //     规格及型号: "",
-    //     单位: "台",
-    //     数量: "1",
-    //     运行时间: "",
-    //     主要材质: "",
-    //     备注: "",
-    //   },
-    // ];
   },
 };
 </script>
