@@ -2580,6 +2580,15 @@ export default {
       } else {
         this.b1 = waterData;
       }
+      
+      // 进水浊度
+      const inTurbidityData = getValueFromLocalStorage("inTurbidityData");
+      if (inTurbidityData == null || inTurbidityData == "") {
+        this.b5 = 20;
+      } else {
+        this.b5 = inTurbidityData;
+      }
+
     },
     exportQuantities() {
       try {
