@@ -29,7 +29,22 @@ stages:
           - name: BUILD_ARTIFACT
             path:
               - ./dist
-        notify: []
+        notify:
+          - certificate: 77fb3947-c413-49cc-b0f5-4840c0b3fc06
+            events:
+              - success
+              - fail
+              - cancel
+              - skip
+            content:
+              - repository
+              - pipeline
+              - stage
+              - task
+              - operator
+              - branch
+              - detail
+            type: weixin
         strategy: {}
       - step: publish@general_artifacts
         name: publish_general_artifacts
