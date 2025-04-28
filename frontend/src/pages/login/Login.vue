@@ -5,30 +5,73 @@
         <img alt="logo" class="logo" src="@/assets/img/logo.png" />
         <span style="color: #ffffff;" class="title">{{ systemName }}</span>
       </div>
-      <div class="desc" style="color: #ffffff;" >&nbsp;</div>
+      <div class="desc" style="color: #ffffff;">&nbsp;</div>
     </div>
     <div class="login" style="margin-right: 100px;">
       <a-form @submit="onSubmit" :form="form">
-        <a-form-item>
-          <h3 class="title" style="text-align: center; font-size: 20px; color: #ffffff;">账户密码登录</h3>
+        <a-form-item v-show="false">
+          <h3
+            class="title"
+            style="text-align: center; font-size: 20px; color: #ffffff;"
+          >
+            账户密码登录
+          </h3>
         </a-form-item>
-        <a-alert type="error" :closable="true" v-if="error" :message="error" @close='onClose' showIcon
-              style="margin-bottom: 24px;" />
-            <a-form-item>
-              <a-input v-model="username" autocomplete="autocomplete" size="large" placeholder="用户账号:user123"
-                v-decorator="['name', { rules: [{ required: true, message: '请输入账户名', whitespace: true }] }]">
-                <a-icon slot="prefix" type="user" />
-              </a-input>
-            </a-form-item>
-            <a-form-item>
-              <a-input v-model="password" size="large" placeholder="用户密码:******" autocomplete="autocomplete" type="password"
-                v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
-                <a-icon slot="prefix" type="lock" />
-              </a-input>
-            </a-form-item>
+        <a-alert
+          type="error"
+          :closable="true"
+          v-if="error"
+          :message="error"
+          @close="onClose"
+          showIcon
+          style="margin-bottom: 24px;"
+        />
+        <!-- <a-form-item v-show="false">
+          <a-input
+            v-model="username"
+            autocomplete="autocomplete"
+            size="large"
+            placeholder="用户账号:user123"
+            v-decorator="[
+              'name',
+              {
+                rules: [
+                  { required: true, message: '请输入账户名', whitespace: true },
+                ],
+              },
+            ]"
+          >
+            <a-icon slot="prefix" type="user" />
+          </a-input>
+        </a-form-item>
+        <a-form-item v-show="false">
+          <a-input
+            v-model="password"
+            size="large"
+            placeholder="用户密码:******"
+            autocomplete="autocomplete"
+            type="password"
+            v-decorator="[
+              'password',
+              {
+                rules: [
+                  { required: true, message: '请输入密码', whitespace: true },
+                ],
+              },
+            ]"
+          >
+            <a-icon slot="prefix" type="lock" />
+          </a-input>
+        </a-form-item> -->
         <a-form-item>
-          <a-button :loading="logging" style="width: 100%;margin-top: 24px" size="large" htmlType="submit"
-            type="primary">登录</a-button>
+          <a-button
+            :loading="logging"
+            style="width: 80%;margin-top: 124px"
+            size="large"
+            htmlType="submit"
+            type="primary"
+            >进入软件</a-button
+          >
         </a-form-item>
       </a-form>
     </div>
@@ -36,93 +79,101 @@
 </template>
 
 <script>
-import CommonLayout from '@/layouts/CommonLayout'
-import { login, getRoutesConfig } from '@/services/user'
-import { setAuthorization } from '@/utils/request'
-import { loadRoutes } from '@/utils/routerUtil'
-import { mapMutations } from 'vuex'
-import { ipcApiRoute } from '@/api/main';
-import { ipc } from '@/utils/ipcRenderer';
-import CryptoJS from 'crypto-js';
+import CommonLayout from "@/layouts/CommonLayout";
+import { login, getRoutesConfig } from "@/services/user";
+import { setAuthorization } from "@/utils/request";
+import { loadRoutes } from "@/utils/routerUtil";
+import { mapMutations } from "vuex";
+import { ipcApiRoute } from "@/api/main";
+import { ipc } from "@/utils/ipcRenderer";
+import CryptoJS from "crypto-js";
 
 export default {
-  name: 'Login',
+  name: "Login",
   components: { CommonLayout },
   data() {
     return {
       logging: false,
-      error: '',
+      error: "",
       form: this.$form.createForm(this),
-      username: '',
-      password: '',
-    }
+      username: "user123",
+      password: "888888",
+    };
   },
   computed: {
     systemName() {
-      return this.$store.state.setting.systemName
-    }
+      return this.$store.state.setting.systemName;
+    },
   },
   methods: {
-    ...mapMutations('account', ['setUser', 'setPermissions', 'setRoles']),
+    ...mapMutations("account", ["setUser", "setPermissions", "setRoles"]),
     async onSubmit(e) {
-      e.preventDefault()
+      e.preventDefault();
 
+      this.$message.info("正在校验证书，请稍等...");
       // 校验证书
       try {
         await this.processCert();
       } catch (error) {
-        console.log(error)
-        this.$message.error(error)
+        console.log(error);
+        this.$message.error(error);
         return;
       }
 
       this.form.validateFields((err) => {
         if (!err) {
-          this.logging = true
-          const name = this.form.getFieldValue('name')
-          const password = this.form.getFieldValue('password')
-          login(name, password).then(this.afterLogin)
+          this.logging = true;
+          const name = "user123";
+          const password = "888888";
+          login(name, password).then(this.afterLogin);
         }
-      })
+      });
     },
     afterLogin(res) {
-      this.logging = false
-      const loginRes = res.data
+      this.logging = false;
+      const loginRes = res.data;
       if (loginRes.code >= 0) {
-        const { user, permissions, roles } = loginRes.data
-        this.setUser(user)
-        this.setPermissions(permissions)
-        this.setRoles(roles)
-        setAuthorization({ token: loginRes.data.token, expireAt: new Date(loginRes.data.expireAt) })
+        const { user, permissions, roles } = loginRes.data;
+        this.setUser(user);
+        this.setPermissions(permissions);
+        this.setRoles(roles);
+        setAuthorization({
+          token: loginRes.data.token,
+          expireAt: new Date(loginRes.data.expireAt),
+        });
         // 获取路由配置
-        getRoutesConfig().then(result => {
-          const routesConfig = result.data.data
-          loadRoutes(routesConfig)
-          this.$router.push('/works')
-          this.$message.success(loginRes.message, 3)
-        })
+        getRoutesConfig().then((result) => {
+          const routesConfig = result.data.data;
+          loadRoutes(routesConfig);
+          this.$router.push("/works");
+          this.$message.success(loginRes.message, 3);
+        });
       } else {
-        this.error = loginRes.message
+        this.error = loginRes.message;
       }
     },
     onClose() {
-      this.error = false
+      this.error = false;
     },
     async processCert() {
       try {
         // TODO: 校验是否进行过认证
-        const certificate = await this.getRegistration().then(res => {
+        const certificate = await this.getRegistration().then((res) => {
           // console.log("====");
           // console.log(res);
           return res;
-        })
-        if (certificate === null || certificate === undefined || certificate === "") {
+        });
+        if (
+          certificate === null ||
+          certificate === undefined ||
+          certificate === ""
+        ) {
           throw "证书不存在，请重新认证！";
         }
         console.info("证书：" + certificate);
 
         // 获取本地机器码
-        const machineCode = await this.getMachineCode().then(res => {
+        const machineCode = await this.getMachineCode().then((res) => {
           // console.log(res);
           return res;
         });
@@ -137,8 +188,8 @@ export default {
           throw "证书与机器码不匹配，请重新认证！";
         }
       } catch (error) {
-          console.error("Error process:", error);
-          throw error;
+        console.error("Error process:", error);
+        throw error;
       }
     },
     async getRegistration() {
@@ -156,10 +207,9 @@ export default {
       } catch (error) {
         console.log("获取机器码异常：" + error);
       }
-    }
-
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -184,7 +234,8 @@ export default {
       .title {
         font-size: 33px;
         color: @title-color;
-        font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-family: "Myriad Pro", "Helvetica Neue", Arial, Helvetica,
+          sans-serif;
         font-weight: 600;
         position: relative;
         top: 2px;

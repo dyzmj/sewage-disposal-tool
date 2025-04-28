@@ -1,7 +1,7 @@
 {
   "name": "sdt",
-  "version": "1.0.2",
-  "description": "Water Purification Intelligent Interactive Software",
+  "version": "1.0.3",
+  "description": "净水处理智慧交互设计软件",
   "main": "main.js",
   "scripts": {
     "start": "electron . ",
@@ -38,7 +38,7 @@
     "electron-egg",
     "ElectronEgg"
   ],
-  "author": "dyzmj, Inc <dyzmj@qq.com>",
+  "author": "Dyzmj, Inc <dyzmj@qq.com>",
   "license": "Apache",
   "devDependencies": {
     "@electron/rebuild": "^3.2.13",
