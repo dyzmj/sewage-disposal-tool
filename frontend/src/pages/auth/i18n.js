@@ -3,6 +3,7 @@ module.exports = {
       CN: {
         authPage: '授权',
         machineCode: '机器码',
+        days: '天数',
         certificate: '证书',
         genCert: '生成证书',
         machineCodeTips: '请先输入机器码！',
@@ -11,6 +12,7 @@ module.exports = {
       HK: {
         authPage: '授权',
         machineCode: '机器码',
+        days: '天数',
         certificate: '证书',
         genCert: '生成证书',
         machineCodeTips: '请先输入机器码！',
@@ -19,6 +21,7 @@ module.exports = {
       US: {
         authPage: 'Auth',
         machineCode: 'Machine Code',
+        days: 'Days',
         certificate: 'Certificate',
         genCert: 'generate certificate',
         machineCodeTips: 'please input machine code!',

@@ -41,6 +41,9 @@
                   <a-icon slot="prefix" type="robot" />
                 </a-input>
               </a-form-item>
+              <a-form-item :label="$t('days')">
+                <a-input-number :max="9999"  :min="1" style="width: 100%;" v-model="days"/>
+              </a-form-item>
               <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
                 <a-button type="primary" html-type="submit">
                   {{ $t("genCert") }}
@@ -58,19 +61,6 @@
               <br />
               <br />
               <br />
-              <!-- <a-form-item :label="$t('certificate')">
-                <a-input v-model="code" :disabled="true">
-                  <a-icon slot="prefix" type="safety-certificate" />
-                </a-input>
-              </a-form-item>
-              <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
-                <a-button
-                  :style="{ marginLeft: '8px' }"
-                  @click="getMachineCode()"
-                >
-                  获取本地证书
-                </a-button>
-              </a-form-item> -->
             </a-form>
           </div>
         </a-card>
@@ -83,7 +73,9 @@
 import { mapState } from "vuex";
 import { ipcApiRoute } from "@/api/main";
 import { ipc } from "@/utils/ipcRenderer";
-import CryptoJS from "crypto-js";
+// import CryptoJS from "crypto-js";
+import { encrypt, decrypt } from "@/utils/aes";
+
 
 export default {
   name: "Demo",
@@ -94,6 +86,7 @@ export default {
       form: this.$form.createForm(this, { name: "coordinated" }),
       certificate: "",
       code: "",
+      days: 10,
     };
   },
   computed: {
@@ -108,14 +101,32 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log("Received values of form: ", values);
+          if(this.days == 0 || this.days == null){
+            this.$message.error("请输入天数！");
+          }
           this.$message.info("正在生成授权证书");
-          // 加密机器码
-          // let key = "dyzmj1234567890123456dyzmj";
-          let test = CryptoJS.SHA256(values.machineCode);
-          // 使用16进制的方法加密，输出字符串
-          let testStr = CryptoJS.enc.Hex.stringify(test);
+          let dateLimit = this.addDaysToDate(this.days);
+          let code = values.machineCode + "_" + dateLimit;
 
-          this.certificate = testStr;
+          this.certificate = encrypt(code);
+
+          let aa = decrypt(this.certificate);
+          console.log("解密后的数据", aa);
+
+          // const dataHex = CryptoJS.enc.Utf8.parse(code);
+          // const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
+          //     iv: SECRET_IV,
+          //     mode: CryptoJS.mode.CBC,
+          //     padding: CryptoJS.pad.Pkcs7
+          // });
+          // this.certificate = encrypted.ciphertext.toString();
+
+          // // 加密机器码
+          // let test = CryptoJS.SHA256(code);
+          // // 使用16进制的方法加密，输出字符串
+          // let testStr = CryptoJS.enc.Hex.stringify(test);
+
+          // this.certificate = testStr;
         }
       });
     },
@@ -132,6 +143,16 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    addDaysToDate( days) {
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() + days);
+      // 格式化新的日期
+      const year = currentDate.getFullYear();
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需要加1
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      // 返回格式化的日期字符串
+      return `${year}-${month}-${day}`;
     },
   },
 };
