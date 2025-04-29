@@ -26,43 +26,6 @@
           showIcon
           style="margin-bottom: 24px;"
         />
-        <!-- <a-form-item v-show="false">
-          <a-input
-            v-model="username"
-            autocomplete="autocomplete"
-            size="large"
-            placeholder="用户账号:user123"
-            v-decorator="[
-              'name',
-              {
-                rules: [
-                  { required: true, message: '请输入账户名', whitespace: true },
-                ],
-              },
-            ]"
-          >
-            <a-icon slot="prefix" type="user" />
-          </a-input>
-        </a-form-item>
-        <a-form-item v-show="false">
-          <a-input
-            v-model="password"
-            size="large"
-            placeholder="用户密码:******"
-            autocomplete="autocomplete"
-            type="password"
-            v-decorator="[
-              'password',
-              {
-                rules: [
-                  { required: true, message: '请输入密码', whitespace: true },
-                ],
-              },
-            ]"
-          >
-            <a-icon slot="prefix" type="lock" />
-          </a-input>
-        </a-form-item> -->
         <a-form-item>
           <a-button
             :loading="logging"
@@ -86,7 +49,7 @@ import { loadRoutes } from "@/utils/routerUtil";
 import { mapMutations } from "vuex";
 import { ipcApiRoute } from "@/api/main";
 import { ipc } from "@/utils/ipcRenderer";
-import CryptoJS from "crypto-js";
+import { encrypt, decrypt } from "@/utils/aes";
 
 export default {
   name: "Login",
@@ -171,26 +134,39 @@ export default {
           throw "证书不存在，请重新认证！";
         }
         console.info("证书：" + certificate);
+        // 解密本地证书
+        let decryptedStr;
+        try {
+          decryptedStr = decrypt(certificate);
+        } catch (error) {
+          throw "本地证书解析失败";
+        }
+
+        let sp = decryptedStr.split("_");
+        let dateLimit = sp[sp.length - 1];
+
+        // 校验证书是否过期
+        if (new Date() > new Date(dateLimit)) {
+          throw "证书已过期，请重新认证！";
+        }
 
         // 获取本地机器码
         const machineCode = await this.getMachineCode().then((res) => {
-          // console.log(res);
           return res;
         });
         console.info("机器码：" + machineCode);
+        let code = machineCode + "_" + dateLimit;
 
-        let crypt = CryptoJS.SHA256(machineCode);
-        let cryptCertificate = CryptoJS.enc.Hex.stringify(crypt);
-
-        console.info("机器码加密：" + cryptCertificate);
-
+        let cryptCertificate = encrypt(code)
         if (certificate !== cryptCertificate) {
           throw "证书与机器码不匹配，请重新认证！";
         }
+
       } catch (error) {
         console.error("Error process:", error);
         throw error;
       }
+
     },
     async getRegistration() {
       try {
