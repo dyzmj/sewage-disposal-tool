@@ -1055,6 +1055,15 @@ export default {
           storeValueInLocalStorage("outTurbidityData", this.outTurbidityData);
         }
       });
+      
+      // 遍历选中的工艺单元并触发 handleChangeMassage 方法
+      this.processUnit.forEach((unit) => {
+        unit.children.forEach((child) => {
+          if (child.checked) {
+            this.handleChangeMassage(child.key, child.checked);
+          }
+        });
+      });
 
       this.$message.success(this.$t("initSucc"));
       // 初始化计算书和工程量缓存数据
