@@ -439,24 +439,6 @@ export default {
         this.svgDom.style.width = "100%";
         this.svgDom.style.height = "100%";
         this.svgDom.style.border = "1px solid yellow";
-        // 为svg添加鼠标滚动缩放事件
-        // this.svgDom.setAttribute("v-on:mousewheel", "this.havcZooming($event)");
-
-        // let btm = this.svgDom.getElementById("1");
-        // // ;
-        // btm.setAttribute("v-on:click", "this.handleClick($event)");
-
-        // svg - g
-        // let adomNodeAll = this.svgDom.getElementsByTagName("g");
-
-        // //  循环修改节点样式 添加事件
-        // for(let i = 0; i < adomNodeAll.length; i++) {
-        //   // adomNodeAll[i].style.cursor = 'pointer' // 修改节点样式
-        //   // let currNodeId = adomNodeAll[i].getAttribute('id')
-        //   adomNodeAll[i].setAttribute("v-on:click", "this.handleClick($event)"); // 为每个节点绑定点击事件
-        //   // let currNode = this.svgDom.getElementById(currNodeId)
-        // }
-        //  设置 id 属性
         let gtag = this.svgDom.getElementsByTagName("g");
         gtag[0].setAttribute("id", "svgcanvas");
 
@@ -473,24 +455,18 @@ export default {
         new Profile().$mount("#svgTemplate");
 
         let svgcanvasDom = document.getElementById("svgcanvas");
-        // this.allDom = svgcanvasDom.getElementsByTagName("g");
-        // for(let i = 0; i < this.allDom.length; i++) {
-        //   let currNodeId = this.allDom[i].id
-        //   this.allDom[i].setAttribute("v-on:click", "this.handleClick()"); // 为每个节点绑定点击事件
-        //   console.log('当前g标签下的节点id----->>>', currNodeId)
-        // }
 
         this.rectDom = svgcanvasDom.getElementsByTagName("rect");
         for (let i = 0; i < this.rectDom.length; i++) {
-          // let currNodeId = this.rectDom[i].id
-          // this.rectDom[i].setAttribute("v-on:click", "this.handleClick()"); // 为每个节点绑定点击事件
-          // console.log('当前 rect 标签下的节点id----->>>', currNodeId)
 
           this.rectDom[i].addEventListener("click", function(event) {
             console.log(">>>>>>>>Rectangle clicked!", event);
             this.rectDom[i].style.fill = "green";
           });
         }
+
+        console.log("完成dom渲染==========>>>", svgcanvasDom);
+        this.initProcessUnitData();
       });
     },
   },
@@ -500,26 +476,13 @@ export default {
       return this.$t("description");
     },
   },
-  watch() {
-    this.initProcessUnitData();
-  },
   activated() {
-    // this.loadSvg();
-    this.initProcessUnitData();
-  },
-  mounted() {
-    // this.loadSvg();
-    // this.initProcessUnitData();
-    //  svg 点击事件
-    // window["handleClick"] = () => {
-    //   console.log("点击事件----->>>");
-    // };
+    console.log("Flowchart activated");
+    this.loadSvg();
+    
   },
   created() {
-    
-    this.loadSvg();
-    // setTimeout(() => { console.log('pause')}, 1000);
-    this.initProcessUnitData();
+    console.log("Flowchart created");
   }
 };
 </script>
