@@ -1055,7 +1055,7 @@ export default {
           storeValueInLocalStorage("outTurbidityData", this.outTurbidityData);
         }
       });
-      
+
       // 遍历选中的工艺单元并触发 handleChangeMassage 方法
       this.processUnit.forEach((unit) => {
         unit.children.forEach((child) => {
@@ -1520,8 +1520,10 @@ export default {
       if (key === "1003") {
         if (checked) {
           storeValueInLocalStorage("fc1003", "1");
+          storeValueInLocalStorage("fc1007", "1");
         } else {
           storeValueInLocalStorage("fc1003", "0");
+          storeValueInLocalStorage("fc1007", "0");
         }
       }
       if (key === "1004") {
@@ -1681,8 +1683,10 @@ export default {
       if (key === "6004") {
         if (checked) {
           storeValueInLocalStorage("fc6004", "1");
+          storeValueInLocalStorage("fc1007", "1");
         } else {
           storeValueInLocalStorage("fc6004", "0");
+          storeValueInLocalStorage("fc1007", "0");
         }
       }
       if (key === "6005") {
