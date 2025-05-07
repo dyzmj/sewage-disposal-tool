@@ -1,6 +1,6 @@
 {
   "name": "sdt",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "净水处理智慧交互设计软件",
   "main": "main.js",
   "scripts": {
