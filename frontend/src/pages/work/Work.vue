@@ -16,6 +16,7 @@
           :bordered="false"
           :body-style="{ padding: 2, height: '730px' }"
           :headStyle="{ 'font-weight': 'bolder' }"
+          :hoverable="true"
         >
           <div class="baseQueryParam">
             <a-form
@@ -27,6 +28,7 @@
                 :label="$t('param1')"
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -45,6 +47,7 @@
                 :label="$t('param2')"
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -63,6 +66,7 @@
                 :label="$t('param3')"
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -81,6 +85,7 @@
                 :label="$t('param4')"
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
+                style="font-weight: bold;"
               >
                 <a-input
                   :style="{ width: '100%' }"
@@ -94,6 +99,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-select
                   v-decorator="[`param5`]"
@@ -113,6 +119,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-select
                   v-decorator="[`param6`]"
@@ -132,6 +139,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -163,6 +171,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-select
                   v-decorator="[`param8`]"
@@ -182,6 +191,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -201,6 +211,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-input
                   :style="{ width: '100%' }"
@@ -215,6 +226,7 @@
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
                 :required="false"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -233,6 +245,7 @@
                 :label="$t('param14')"
                 :labelCol="{ span: 7 }"
                 :wrapperCol="{ span: 17 }"
+                style="font-weight: bold;"
               >
                 <a-input-group
                   :compact="true"
@@ -277,6 +290,7 @@
           :headStyle="{ 'font-weight': 'bolder', height: '56px' }"
           :body-style="{ padding: 2, height: '730px' }"
           :bordered="false"
+          :hoverable="true"
         >
           <a slot="extra" href="#">
             <div class="" style="">
@@ -346,7 +360,7 @@
                                 </a-checkbox>
                                 <a-tag
                                   :color="item.color"
-                                  style="font-size: 15px;margin-left: 10px;"
+                                  style="font-size: 16px;margin-left: 10px;"
                                   @click="calc(item.key)"
                                   >{{ item.title }}</a-tag
                                 >
@@ -372,19 +386,20 @@
         :xs="24"
       >
         <a-card
-          title="注意事项"
+          title="⚠️注意事项"
           size="small"
           :loading="loading"
           :bordered="false"
-          :body-style="{ padding: 2, height: '40px', overflow: 'auto' }"
-          :headStyle="{ 'font-weight': 'bolder', 'font-size': '15px' }"
+          :hoverable="true"
+          :body-style="{ padding: 2, height: '40px' }"
+          :headStyle="{ 'font-weight': 'bolder', 'font-size': '16px' }"
         >
           <div style="padding: 2">
             <a-tag
               :key="i"
               v-for="(item, i) in tipMessage"
               :color="item.color"
-              style="margin-bottom: 4px;"
+              style="margin-bottom: 4px; font-size: 15px"
             >
               <a-tooltip :title="item.tip">
                 {{ item.message }}
@@ -394,36 +409,38 @@
         </a-card>
       </a-col>
     </a-row>
-    <A1001 v-show="false" ref="A1001" />
-    <A1002 v-show="false" ref="A1002" />
-    <A1003 v-show="false" ref="A1003" />
-    <A1004 v-show="false" ref="A1004" />
-    <A1005 v-show="false" ref="A1005" />
-    <A1006 v-show="false" ref="A1006" />
-    <A1007 v-show="false" ref="A1007" />
-    <A2001 v-show="false" ref="A2001" />
-    <A2002 v-show="false" ref="A2002" />
-    <A2003 v-show="false" ref="A2003" />
-    <A2004 v-show="false" ref="A2004" />
-    <A2005 v-show="false" ref="A2005" />
-    <A3001 v-show="false" ref="A3001" />
-    <A3002 v-show="false" ref="A3002" />
-    <A3003 v-show="false" ref="A3003" />
-    <A3004 v-show="false" ref="A3004" />
-    <A3005 v-show="false" ref="A3005" />
-    <A3006 v-show="false" ref="A3006" />
-    <A4001 v-show="false" ref="A4001" />
-    <A4002 v-show="false" ref="A4002" />
-    <A5001 v-show="false" ref="A5001" />
-    <A5002 v-show="false" ref="A5002" />
-    <A6003 v-show="false" ref="A6003" />
-    <A6004 v-show="false" ref="A6004" />
-    <A6005 v-show="false" ref="A6005" />
-    <A6006 v-show="false" ref="A6006" />
-    <A8001 v-show="false" ref="A8001" />
-    <A8002 v-show="false" ref="A8002" />
-    <A9001 v-show="false" ref="A9001" />
-    <A9002 v-show="false" ref="A9002" />
+    <div>
+      <A1001 v-show="false" ref="A1001" />
+      <A1002 v-show="false" ref="A1002" />
+      <A1003 v-show="false" ref="A1003" />
+      <A1004 v-show="false" ref="A1004" />
+      <A1005 v-show="false" ref="A1005" />
+      <A1006 v-show="false" ref="A1006" />
+      <A1007 v-show="false" ref="A1007" />
+      <A2001 v-show="false" ref="A2001" />
+      <A2002 v-show="false" ref="A2002" />
+      <A2003 v-show="false" ref="A2003" />
+      <A2004 v-show="false" ref="A2004" />
+      <A2005 v-show="false" ref="A2005" />
+      <A3001 v-show="false" ref="A3001" />
+      <A3002 v-show="false" ref="A3002" />
+      <A3003 v-show="false" ref="A3003" />
+      <A3004 v-show="false" ref="A3004" />
+      <A3005 v-show="false" ref="A3005" />
+      <A3006 v-show="false" ref="A3006" />
+      <A4001 v-show="false" ref="A4001" />
+      <A4002 v-show="false" ref="A4002" />
+      <A5001 v-show="false" ref="A5001" />
+      <A5002 v-show="false" ref="A5002" />
+      <A6003 v-show="false" ref="A6003" />
+      <A6004 v-show="false" ref="A6004" />
+      <A6005 v-show="false" ref="A6005" />
+      <A6006 v-show="false" ref="A6006" />
+      <A8001 v-show="false" ref="A8001" />
+      <A8002 v-show="false" ref="A8002" />
+      <A9001 v-show="false" ref="A9001" />
+      <A9002 v-show="false" ref="A9002" />
+    </div>
   </div>
 </template>
 
@@ -786,7 +803,8 @@ export default {
         // 含砂量 >= 80
         if (values.param1 >= 80) {
           // 沉淀池
-          this.processUnit[0].children[1].color = "#2DB7F5";
+          this.processUnit[0].children[1].checked = true;
+          this.processUnit[0].children[1].color = "#00be7f";
         } else {
           this.processUnit[0].children[1].checked = false;
           this.processUnit[0].children[1].color = "#6C767D";
@@ -878,7 +896,7 @@ export default {
             id: "1006_1",
             message: "不得选用臭氧",
             color: "#c12c1f",
-            tip: "加药系统-臭氧",
+            tip: "存在溴化物",
           });
           this.tipMessage = this.arrayDistinct(this.tipMessage);
           this.$message.error(this.$t("不得选用臭氧"));
@@ -899,14 +917,22 @@ export default {
           this.processUnit[5].children[1].color = "#6C767D";
         }
 
-        // 浊度 < 50
+        // 进水浊度 < 50
         if (values.param11 < 50) {
-          this.$message.success(
+          this.tipMessage.push({
+            id: "1111",
+            message:
+              "增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸",
+            color: "#29b897",
+            tip: "进水浊度<50",
+          });
+          this.tipMessage = this.arrayDistinct(this.tipMessage);
+          this.$message.warn(
             "增设超越管，超越絮凝、沉淀(气浮)，直接进滤池，并在滤池进水口处投加助凝剂活化硅酸"
           );
         }
 
-        // 浊度 < 100
+        // 进水浊度 < 100
         if (values.param11 < 100) {
           // 气浮池
           this.processUnit[2].children[5].color = "#2DB7F5";
@@ -916,7 +942,7 @@ export default {
           storeValueInLocalStorage("fc3006", "0");
         }
 
-        // 浊度 < 500
+        // 进水浊度 < 500
         if (values.param11 < 500) {
           // 水力循环澄清池
           this.processUnit[2].children[4].color = "#2DB7F5";
@@ -926,7 +952,7 @@ export default {
           storeValueInLocalStorage("fc3005", "0");
         }
 
-        // 浊度 < 3000
+        // 进水浊度 < 3000
         if (values.param11 < 3000) {
           // 机械搅拌澄清池
           this.processUnit[2].children[3].color = "#2DB7F5";
@@ -936,7 +962,7 @@ export default {
           storeValueInLocalStorage("fc3004", "0");
         }
 
-        // 浊度 < 5000
+        // 进水浊度 < 5000
         if (values.param11 < 5000) {
           // 平流沉淀池
           this.processUnit[2].children[0].color = "#2DB7F5";
@@ -945,7 +971,7 @@ export default {
           this.processUnit[2].children[0].color = "#6C767D";
         }
 
-        // 浊度 < 10000
+        // 进水浊度 < 10000
         if (values.param11 < 10000) {
           // 斜管沉淀池
           this.processUnit[2].children[1].color = "#2DB7F5";
@@ -970,59 +996,49 @@ export default {
           this.processUnit[4].children[1].color = "#6C767D";
         }
 
-        // // 13、消毒 == 1
-        // if (values.param13 === "1") {
-        //   // 接触消毒
-        //   this.processUnit[5].children[0].color = "#2DB7F5";
-        // } else {
-        //   this.processUnit[5].children[0].checked = false;
-        //   this.processUnit[5].children[0].color = "#6C767D";
-        // }
-
-        // 初始化时常选中：混凝工艺全部、PAC、PAM
+        // 初始化时的默认情况：
+        // 混凝工艺-机械、网格、折板絮凝池默认蓝色命中
         this.processUnit[1].children[0].color = "#2DB7F5";
         this.processUnit[1].children[1].color = "#2DB7F5";
         this.processUnit[1].children[2].color = "#2DB7F5";
 
-        // PAC、PAM 默认勾选
+        // 混凝工艺-PAC、PAM 默认绿色选中
         this.processUnit[1].children[3].checked = true;
         this.processUnit[1].children[3].color = "#00be7f";
         this.processUnit[1].children[4].checked = true;
         this.processUnit[1].children[4].color = "#00be7f";
 
+        // 过滤工艺-普通快滤池、V型滤池默认蓝色命中
         this.processUnit[3].children[0].color = "#2DB7F5";
         this.processUnit[3].children[1].color = "#2DB7F5";
+
+        // 其他工艺-提升泵房默认蓝色命中
         this.processUnit[6].children[0].color = "#2DB7F5";
-        // 清水池默认勾选
+
+        // 其他工艺-清水池默认绿色选中
         this.processUnit[6].children[1].checked = true;
         this.processUnit[6].children[1].color = "#00be7f";
 
+        // 脱水工艺-浓缩池默认蓝色命中
         this.processUnit[7].children[0].color = "#2DB7F5";
+        // 脱水工艺-脱水加药默认橙色命中
         this.processUnit[7].children[1].color = "#f45b21";
 
-        // 沉淀工艺默认选中
-        this.processUnit[2].children[0].checked = true;
-        this.processUnit[2].children[0].color = "#00be7f";
-        this.processUnit[2].children[1].checked = true;
-        this.processUnit[2].children[1].color = "#00be7f";
-        this.processUnit[2].children[2].checked = true;
-        this.processUnit[2].children[2].color = "#00be7f";
-        this.processUnit[2].children[3].checked = true;
-        this.processUnit[2].children[3].color = "#00be7f";
-        this.processUnit[2].children[4].checked = true;
-        this.processUnit[2].children[4].color = "#00be7f";
-        this.processUnit[2].children[5].checked = true;
-        this.processUnit[2].children[5].color = "#00be7f";
+        // 沉淀工艺-默认蓝色命中
+        this.processUnit[2].children[0].color = "#2DB7F5";
+        this.processUnit[2].children[1].color = "#2DB7F5";
+        this.processUnit[2].children[2].color = "#2DB7F5";
+        this.processUnit[2].children[3].color = "#2DB7F5";
+        this.processUnit[2].children[4].color = "#2DB7F5";
+        this.processUnit[2].children[5].color = "#2DB7F5";
+
+        // 消毒工艺-NaClO、ClO2 默认橙色命中
+        this.processUnit[5].children[2].color = "#f45b21";
+        this.processUnit[5].children[3].color = "#f45b21";
 
         storeValueInLocalStorage("fc2004", "1");
         storeValueInLocalStorage("fc2005", "1");
         storeValueInLocalStorage("fc8002", "1");
-        storeValueInLocalStorage("fc3001", "1");
-        storeValueInLocalStorage("fc3002", "1");
-        storeValueInLocalStorage("fc3003", "1");
-        storeValueInLocalStorage("fc3004", "1");
-        storeValueInLocalStorage("fc3005", "1");
-        storeValueInLocalStorage("fc3006", "1");
 
         if (
           this.processUnit[0].children[3].checked ||
@@ -1139,7 +1155,6 @@ export default {
       storeValueInLocalStorage("sandData", "");
       // 清空单元选择缓存
       this.handleInitChangeCache();
-      this.$message.success(this.$t("resetSucc"));
       this.tipMessage = [];
       storeValueInLocalStorage("pacData", "");
       storeValueInLocalStorage("pamData", "");
@@ -1181,6 +1196,7 @@ export default {
       storeValueInLocalStorage("fc8002", "0");
       storeValueInLocalStorage("fc9001", "0");
       storeValueInLocalStorage("fc9002", "0");
+      this.$message.success(this.$t("resetSucc"));
     },
     handleClear() {
       this.processUnit[0].children[0].checked = false;
@@ -1313,194 +1329,69 @@ export default {
       }
 
       if (key === "1006") {
-        // O3
-        this.$message.success(
-          "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
-        );
+        // 臭氧
         if (checked) {
-          this.tipMessage.push({
-            id: "1006",
-            message: "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用",
-            color: "#4f6f46",
-            tip: "加药系统-活性炭粉末",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "1006"
+          this.$message.success(
+            "厂区深度处理为臭氧活性炭优先选用，进水有溴化物慎用"
           );
         }
       }
       if (key === "1005") {
         // 高锰酸钾
-        this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
         if (checked) {
-          this.tipMessage.push({
-            id: "1005",
-            message: "Fe、Mn超标尤其适用，后端为生物处理慎用",
-            color: "#2c2f3b",
-            tip: "加药系统-高锰酸钾",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "1005"
-          );
+          this.$message.success("Fe、Mn超标尤其适用，后端为生物处理慎用");
         }
       }
       if (key === "1004") {
         // ClO2
-        this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
         if (checked) {
-          this.tipMessage.push({
-            id: "1004",
-            message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
-            color: "#007175",
-            tip: "加药系统-ClO2",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "1004"
-          );
+          this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
         }
       }
       if (key === "1003") {
         // NaClO
-        this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
         if (checked) {
-          this.tipMessage.push({
-            id: "1003",
-            message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
-            color: "#2a6e3f",
-            tip: "加药系统-NaClO",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "1003"
+          this.$message.success(
+            "厂区消毒剂为NaClO优选选用，后端为生物处理慎用"
           );
         }
       }
       if (key === "2002") {
         // 网格絮凝池
-        this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
         if (checked) {
-          this.tipMessage.push({
-            id: "2002",
-            message: "单池 > 2.5万m3/d 不建议采用网格絮凝池",
-            color: "#6e9bc5",
-            tip: "网格絮凝池",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "2002"
-          );
+          this.$message.success("单池 > 2.5万m3/d 不建议采用网格絮凝池");
         }
       }
       if (key === "2003") {
         // 折板絮凝池
-        this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
         if (checked) {
-          this.tipMessage.push({
-            id: "2003",
-            message: "单池 >= 5万m3/d 不建议采用折板絮凝池",
-            color: "#b7d332",
-            tip: "折板絮凝池",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "2003"
-          );
+          this.$message.success("单池 >= 5万m3/d 不建议采用折板絮凝池");
         }
       }
       if (key === "3001") {
         // 平流沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
         if (checked) {
-          this.tipMessage.push({
-            id: "3001",
-            message: "设计规模 < 5万m3/d 不建议",
-            color: "#dd6b7b",
-            tip: "平流沉淀池",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "3001"
-          );
+          this.$message.success("设计规模 < 5万m3/d 不建议");
         }
       }
       if (key === "3003") {
         // 高密度沉淀池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
         if (checked) {
-          this.tipMessage.push({
-            id: "3003",
-            message: "设计规模 < 5万m3/d 不建议",
-            color: "#ef845d",
-            tip: "高密度沉淀池",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "3003"
-          );
+          this.$message.success("设计规模 < 5万m3/d 不建议");
         }
       }
       if (key === "3005") {
         // 水力循环澄清池
-        this.$message.success("设计规模 < 5万m3/d 不建议");
         if (checked) {
-          this.tipMessage.push({
-            id: "3005",
-            message: "设计规模 < 5万m3/d 不建议",
-            color: "#108b96",
-            tip: "水力循环澄清池",
-          });
-          this.tipMessage = this.arrayDistinct(this.tipMessage);
-        } else {
-          this.tipMessage = this.tipMessage.filter(
-            (item) => item.id !== "3005"
-          );
+          this.$message.success("设计规模 < 5万m3/d 不建议");
         }
       }
-      // if (key === "6006") {
-      //   // ClO2
-      //   this.$message.success("厂区消毒剂为ClO2优选选用，后端为生物处理慎用");
-      //   if (checked) {
-      //     this.tipMessage.push({
-      //       id: "6006",
-      //       message: "厂区消毒剂为ClO2优选选用，后端为生物处理慎用",
-      //       color: "#be8a2f",
-      //       tip: "ClO2",
-      //     });
-      //     this.tipMessage = this.arrayDistinct(this.tipMessage);
-      //   } else {
-      //     this.tipMessage = this.tipMessage.filter(
-      //       (item) => item.id !== "6006"
-      //     );
-      //   }
-      // }
-      // if (key === "6005") {
-      //   // NaClO
-      //   this.$message.success("厂区消毒剂为NaClO优选选用，后端为生物处理慎用");
-      //   if (checked) {
-      //     this.tipMessage.push({
-      //       id: "6005",
-      //       message: "厂区消毒剂为NaClO优选选用，后端为生物处理慎用",
-      //       color: "#cb5c83",
-      //       tip: "NaClO",
-      //     });
-      //     this.tipMessage = this.arrayDistinct(this.tipMessage);
-      //   } else {
-      //     this.tipMessage = this.tipMessage.filter(
-      //       (item) => item.id !== "6005"
-      //     );
-      //   }
-      // }
+      if (key === "4002") {
+        // V型滤池
+        if (checked) {
+          this.$message.success("设计规模 < 5万m3/d 不建议");
+        }
+      }
     },
     handleChangeCache(key, checked) {
       if (key === "1001") {
@@ -1897,7 +1788,7 @@ export default {
   },
   computed: {
     ...mapState("account", { currUser: "user" }),
-    ...mapState("setting", ["lang"]),
+    ...mapState("setting", ["lang"], ["pageMinHeight"]),
   },
   created() {
     request("/work/processUnit", METHOD.GET).then((res) => {

@@ -229,6 +229,8 @@ const processUnit = [
         state: '2',
         color: '#6C767D',
         detail: 'V型滤池',
+        tips: true,
+        message: '设计规模 < 5万m3/d 不建议'
       }
     ]
   },
