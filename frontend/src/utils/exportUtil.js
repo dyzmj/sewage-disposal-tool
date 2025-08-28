@@ -4,37 +4,7 @@ import * as XLSX from "xlsx";
 import Docxtemplater from "docxtemplater";
 import pizzip from "pizzip";
 const fs = window.require("fs");
-const DocxMerger = require("docx-merger");
-
-/**
- * @deprecated
- * 导出 1 个 sheet的 Excel文件
- * @param { Excel数据 } data
- * @param { 文件名称 } name
- * @param { self对象 } self
- */
-export function exportExcel_deprecated(data, name, self) {
-  data.unshift([name]);
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, name);
-    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-    // 打开文件选择对话框
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        // throw err;
-        self.$message.warn("保存文件失败！");
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
-    });
-  });
-}
+const EnhancedDocxMergerWithImages = require("./EnhancedDocxMergerWithImages");
 
 /**
  * 导出 1 个 sheet的 Excel文件
@@ -66,34 +36,6 @@ export function exportExcel(data1, name, self) {
   });
 }
 
-/**
- * 导出 2 个 sheet的 Excel文件
- * @param { Excel数据 } data
- * @param { 文件名称 } name
- * @param { self对象 } self
- */
-export function exportExcel2_deprecated(data1, data2, name, self) {
-  var data = [...data1, null, null, ...data2];
-  data.unshift([name]);
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, name);
-
-    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        self.$message.warn("保存文件失败！");
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
-    });
-  });
-}
 
 /**
  * 导出 2 个 sheet的 Excel文件
@@ -115,62 +57,6 @@ export function exportExcel2(data1, data2, name, self) {
       r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
     fs.writeFile(path, buffer, (err) => {
       if (err) {
-        self.$message.warn("保存文件失败！");
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
-    });
-  });
-}
-
-export function exportExcel4(data1, data2, name1, data3, data4, name2, name, self) {
-  var d1 = [...data1, null, null, ...data2];
-  d1.unshift([name1]);
-  var d2 = [...data3, null, null, ...data4];
-  d2.unshift([name2]);
-  d1.push(null, null, ...d2);
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws = XLSX.utils.aoa_to_sheet(d1);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, name);
-
-    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        self.$message.warn("保存文件失败！");
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
-    });
-  });
-}
-
-/**
- * 导出 3 个 sheet的 Excel文件
- * @param { Excel数据 } data
- * @param { 文件名称 } name
- * @param { self对象 } self
- */
-export function exportExcel3_deprecated(data1, data2, data3, name, self) {
-  var data = [...data1, null, null, ...data2, null, null, ...data3];
-  data.unshift([name]);
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, name);
-
-    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        // throw err;
         self.$message.warn("保存文件失败！");
       } else {
         self.$message.info(self.$t("exportSucc"));
@@ -212,45 +98,6 @@ export function exportExcel3(data1, data2, data3, name, self) {
       }
     });
   });
-}
-
-/**
- * 导出 多个 sheet的 Excel文件
- * @param { Excel数据 } data
- * @param { 文件名称 } name
- * @param { self对象 } self
- */
-export function exportExcelAll_deprecated(name, datas, names, self) {
-  ipc.invoke(ipcApiRoute.selectFolder, "").then((r) => {
-    // 合并所有 sheet 的数据，并在每个 sheet 数据前面添加 sheet 名称
-    let combinedData = [];
-    datas.forEach((data, index) => {
-      if (index > 0) {
-        combinedData.push([]); // 添加空行分隔不同的 sheet 数据
-      }
-      // 添加 sheet 名称作为标题行
-      combinedData.push([names[index]]);
-      combinedData = combinedData.concat(data);
-    });
-
-    const ws = XLSX.utils.aoa_to_sheet(combinedData);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, name);
-
-    const buffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
-    var path =
-      r + "/" + name + formatter(new Date(), " yyyy_MM_dd_hh_mm_ss") + ".xlsx";
-    fs.writeFile(path, buffer, (err) => {
-      if (err) {
-        self.$message.warn("保存文件失败！");
-      } else {
-        self.$message.info(self.$t("exportSucc"));
-        console.log("The file has been saved!");
-        return 1;
-      }
-    });
-  });
-
 }
 
 export function exportExcelAll(name, data1, data2, data3, names, self) {
@@ -379,121 +226,6 @@ export async function exportWord(name, templatePath, data, self) {
   }
 }
 
-async function parseDocumentXml(xmlString) {
-  var parseString = require("xml2js").parseString;
-  try {
-    const result = await new Promise((resolve, reject) => {
-      parseString(xmlString, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      });
-    });
-    console.info(result);
-    return result;
-  } catch (error) {
-    console.error("Error parsing XML:", error);
-    throw error;
-  }
-}
-
-async function convertToXml(xmlString) {
-  const xml2js = require("xml2js");
-  // 创建 Builder 实例
-  try {
-    const builder = new xml2js.Builder();
-    const result = builder.buildObject(xmlString);
-    return result;
-  } catch (error) {
-    console.error("Error parsing XML:", error);
-    throw error;
-  }
-}
-
-export async function exportWord3(name, data, self) {
-  try {
-    const selectedFolder = await selectFolder();
-    const path = `${selectedFolder}/${name}${formatter(
-      new Date(),
-      " yyyy_MM_dd_hh_mm_ss"
-    )}.docx`;
-
-    // 提取 word 对应 XML(word/document.xml)中 ["w:document"]["w:body"] 的计算书内容信息
-    const doc = [];
-    const mediaFiles = {};
-    const relFiles = {};
-    for (const item of data) {
-      const zip = new pizzip(item);
-      const documentXml = zip.file("word/document.xml").asText();
-      const docxXml = await parseDocumentXml(documentXml);
-      const contentXml = docxXml["w:document"]["w:body"];
-      doc.push(contentXml);
-
-      // 提取媒体资源
-      for (const filename in zip.files) {
-        if (filename.startsWith("word/media/")) {
-          mediaFiles[filename] = zip.files[filename].asArrayBuffer();
-          console.log(`Extracted media file: ${filename}`);
-          // 此文档中包含图片文件可以提取rels 文件
-          for(const relname in zip.files){
-            if (relname.startsWith("word/_rels/")) {
-              relFiles[relname] = zip.files[relname].asText();
-              console.log(`Extracted rels file: ${relname}`);
-            }
-          }
-        }
-      }
-    }
-
-    // 移除数组中的第一条数据（为后续去重）
-    doc.shift();
-    // 使用第一个工艺单元作为基础模板
-    const zip1 = new pizzip(data[0]);
-    const documentXml1 = zip1.file("word/document.xml").asText();
-    const docx1 = await parseDocumentXml(documentXml1);
-    // 将其他工艺单元的计算书内容合并到第一个工艺单元的XML对象中
-    for (const item of doc) {
-      docx1["w:document"]["w:body"].push(item[0]);
-    }
-    // 将XML对象转换为XML字符串
-    const documentXmlStr = await convertToXml(docx1);
-    // 将计算书内容部分添加至基础模版中
-    zip1.file("word/document.xml", documentXmlStr);
-
-    // 复制媒体资源到新文档
-    for (const filename in mediaFiles) {
-      zip1.file(filename, mediaFiles[filename]);
-      console.log(`Copied media file: ${filename}`);
-    }
-    // 复制媒体资源到新文档
-    for (const relname in relFiles) {
-      zip1.file(relname, relFiles[relname]);
-      console.log(`Copied rel file: ${relname}`);
-    }
-
-    // 将基础模版转为 buffer 对象
-    const outputBuffer = zip1.generate({ type: "nodebuffer" });
-    // 将 buffer 对象导出为 docx 文档
-    await new Promise((resolve, reject) => {
-      fs.writeFile(path, outputBuffer, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    });
-    self.$message.info(self.$t("exportSucc"));
-    console.log("Word文档已成功导出");
-    return true;
-  } catch (error) {
-    console.error("生成Word文档时发生错误:", error);
-    self.$message.warn("保存文件失败！");
-  }
-}
-
 export async function exportWord2(name, data, self) {
   try {
     const selectedFolder = await selectFolder();
@@ -501,25 +233,50 @@ export async function exportWord2(name, data, self) {
       new Date(),
       " yyyy_MM_dd_hh_mm_ss"
     )}.docx`;
-    var docx = new DocxMerger({}, data);
-    // 将 buffer 对象导出为 docx 文档
+    
+    console.log("使用增强版合并器处理图片显示问题...");
+    console.log("文档数量:", data.length);
+    
+    // 使用增强版合并器，正确处理所有文档中的图片
+    const docx = new EnhancedDocxMergerWithImages({
+      pageBreak: true
+    }, data);
+    
+    // 等待初始化完成
+    await docx.ensureReady();
+    console.log("增强版合并器初始化完成");
+    
+    // 生成合并后的文档
     await new Promise((resolve, reject) => {
-      docx.save('nodebuffer', function (data) {
-        fs.writeFile(path, data, (err) => {
+      docx.save('nodebuffer', function (buffer) {
+        if (!buffer) {
+          reject(new Error("生成的文档缓冲区为空"));
+          return;
+        }
+        
+        console.log("文档生成完成，缓冲区大小:", buffer.length, "字节");
+        
+        fs.writeFile(path, buffer, (err) => {
           if (err) {
+            console.error("文件写入失败:", err);
             reject(err);
           } else {
+            console.log("文件成功写入:", path);
             resolve();
           }
         });
       });
     });
+    
     self.$message.info(self.$t("exportSucc"));
-    console.log("Word文档已成功导出");
+    console.log("DOCX文档已导出（增强版，正确显示所有文档的图片）");
     return true;
+    
   } catch (error) {
-    console.error("生成Word文档时发生错误:", error);
-    self.$message.warn("保存文件失败！");
+    console.error("导出Word文档时发生错误:", error);
+    console.error("错误详情:", error.stack);
+    self.$message.warn("导出失败：" + error.message);
+    return false;
   }
 }
 
@@ -622,24 +379,6 @@ export async function initWordStorage(templatePath, data) {
     storeBufferInLocalStorage(outputBuffer, templatePath);
   } catch (error) {
     console.error("缓存Word数据时发生错误:", error);
-  }
-}
-
-/**
- * 初始化word模板缓存数据
- * @param templatePath  模板路径
- * @param data  模版数据
- */
-export async function initExcelStorage_deprecated(templatePath, data, name) {
-  try {
-    const jsonString = JSON.stringify(data);
-    const buffer = Buffer.from(jsonString, 'utf-8');
-    storeBufferInLocalStorage(buffer, templatePath);
-
-    // 缓存工程量sheet名称
-    localStorage.setItem(templatePath+".name", name);
-  } catch (error) {
-    console.error("生成Excel数据时发生错误:", error);
   }
 }
 
