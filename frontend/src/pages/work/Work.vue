@@ -10,6 +10,7 @@
         :xs="24"
       >
         <a-card
+          class="processQueryCard"
           :loading="loading"
           :title="$t('baseQueryParam')"
           style="margin-bottom: 2 4px"
@@ -284,6 +285,7 @@
         :xs="24"
       >
         <a-card
+          class="processUnitCard"
           :loading="loading"
           :title="$t('processUnit')"
           style="margin-bottom: 2 4px;"
@@ -339,32 +341,42 @@
                 >
                   <div class="content">
                     <a-list size="small">
-                      <a-list-item :key="j" v-for="(item, j) in item.children">
+                      <a-list-item :key="j" v-for="(item, j) in item.children" style="padding-top: 2px;">
                         <a-space direction="vertical" size="large">
                           <div class="list-content">
                             <div class="list-content-item">
-                              <a-tooltip
-                                placement="top"
-                                :title="item.message"
-                                :get-popup-container="getPopupContainer"
-                              >
-                                <a-checkbox
-                                  :value="item.key"
-                                  name="processUnit"
-                                  v-model="item.checked"
-                                  :disabled="item.disabled"
-                                  @change="
-                                    onChange(item, item.key, item.checked)
-                                  "
+                              <div class="checkbox-tag-container">
+                                <a-tooltip
+                                  class="tooltip_message"
+                                  placement="top"
+                                  :title="item.message"
+                                  :get-popup-container="getPopupContainer"
+                                  overlay-class-name="yellow-tooltip"
                                 >
-                                </a-checkbox>
-                                <a-tag
-                                  :color="item.color"
-                                  style="font-size: 16px;margin-left: 10px;"
-                                  @click="calc(item.key)"
-                                  >{{ item.title }}</a-tag
+                                  <a-checkbox
+                                    :value="item.key"
+                                    name="processUnit"
+                                    v-model="item.checked"
+                                    :disabled="item.disabled"
+                                    @change="
+                                      onChange(item, item.key, item.checked)
+                                    "
+                                  >
+                                  </a-checkbox>
+                                </a-tooltip>
+                                <a-tooltip
+                                  placement="top"
+                                  :title="item.title"
+                                  :get-popup-container="getPopupContainer"
                                 >
-                              </a-tooltip>
+                                  <a-tag
+                                    :color="item.color"
+                                    class="process-tag"
+                                    @click="calc(item.key)"
+                                    >{{ item.title }}</a-tag
+                                  >
+                                </a-tooltip>
+                              </div>
                             </div>
                           </div>
                         </a-space>
@@ -1814,6 +1826,7 @@ export default {
   height: 310px;
   // width: 300px;
   // flex: 0 0 auto
+  // 1
 }
 
 /* 设置 label 的字体大小 */
@@ -1823,7 +1836,229 @@ export default {
 }
 
 .ant-list-sm .ant-list-item {
-  padding-top: 6px;
-  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* 复选框和标签容器样式 */
+.checkbox-tag-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 处理单元标签样式 */
+.process-tag {
+  font-size: 14px !important;
+  line-height: 1.3;
+  padding: 3px 8px;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  word-break: break-all;
+  white-space: normal;
+  min-height: 22px;
+  display: inline-block;
+  max-width: 100%;
+  min-width: 84px; /* 确保至少显示6个字符 (14px * 6) */
+}
+
+/* 高分辨率下完整显示 */
+@media (min-width: 1367px) {
+  .process-tag {
+    font-size: 15px !important;
+    padding: 4px 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: none;
+    min-width: 90px; /* 确保至少显示6个字符 (15px * 6) */
+  }
+
+  .checkbox-tag-container {
+    align-items: flex-start;
+  }
+}
+
+/* 中等分辨率适配 */
+@media (max-width: 1366px) and (min-width: 1281px) {
+  .list-card {
+    height: 290px;
+  }
+
+  .process-tag {
+    font-size: 13px !important;
+    padding: 2px 6px;
+    max-width: calc(100% - 30px);
+    min-width: 78px; /* 确保至少显示6个字符 (13px * 6) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-list-sm .ant-list-item {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .checkbox-tag-container {
+    gap: 6px;
+  }
+}
+
+/* 低分辨率适配 */
+@media (max-width: 1280px) {
+  .list-card {
+    height: 260px;
+  }
+
+  .process-tag {
+    font-size: 11px !important;
+    padding: 1px 4px;
+    max-width: calc(100% - 25px);
+    min-width: 66px; /* 确保至少显示6个字符 (11px * 6) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-list-sm .ant-list-item {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+
+  .checkbox-tag-container {
+    gap: 4px;
+  }
+}
+
+/* processQueryCard 响应式字体样式 */
+.processQueryCard .ant-form-item-label > label {
+  font-size: 14px !important;
+  font-weight: bold;
+  transition: font-size 0.2s ease;
+}
+
+.processQueryCard .ant-input {
+  font-size: 14px !important;
+  transition: font-size 0.2s ease;
+}
+
+.processQueryCard .ant-select-selection {
+  font-size: 14px !important;
+}
+
+.processQueryCard .ant-select-selection__rendered {
+  font-size: 14px !important;
+}
+
+.processQueryCard .ant-btn {
+  font-size: 14px !important;
+  transition: font-size 0.2s ease;
+}
+
+.processQueryCard .ant-input-group-addon {
+  font-size: 14px !important;
+}
+
+/* 高分辨率下 processQueryCard 字体 */
+@media (min-width: 1367px) {
+  .processQueryCard .ant-form-item-label > label {
+    font-size: 15px !important;
+  }
+
+  .processQueryCard .ant-input {
+    font-size: 15px !important;
+  }
+
+  .processQueryCard .ant-select-selection {
+    font-size: 15px !important;
+  }
+
+  .processQueryCard .ant-select-selection__rendered {
+    font-size: 15px !important;
+  }
+
+  .processQueryCard .ant-btn {
+    font-size: 15px !important;
+  }
+
+  .processQueryCard .ant-input-group-addon {
+    font-size: 15px !important;
+  }
+}
+
+/* 中等分辨率下 processQueryCard 字体 */
+@media (max-width: 1366px) and (min-width: 1281px) {
+  .processQueryCard .ant-form-item-label > label {
+    font-size: 13px !important;
+  }
+
+  .processQueryCard .ant-input {
+    font-size: 13px !important;
+  }
+
+  .processQueryCard .ant-select-selection {
+    font-size: 13px !important;
+  }
+
+  .processQueryCard .ant-select-selection__rendered {
+    font-size: 13px !important;
+  }
+
+  .processQueryCard .ant-btn {
+    font-size: 13px !important;
+  }
+
+  .processQueryCard .ant-input-group-addon {
+    font-size: 13px !important;
+  }
+}
+
+/* 低分辨率下 processQueryCard 字体 */
+@media (max-width: 1280px) {
+  .processQueryCard .ant-form-item-label > label {
+    font-size: 11px !important;
+  }
+
+  .processQueryCard .ant-input {
+    font-size: 11px !important;
+  }
+
+  .processQueryCard .ant-select-selection {
+    font-size: 11px !important;
+  }
+
+  .processQueryCard .ant-select-selection__rendered {
+    font-size: 11px !important;
+  }
+
+  .processQueryCard .ant-btn {
+    font-size: 11px !important;
+    padding: 2px 6px;
+  }
+
+  .processQueryCard .ant-input-group-addon {
+    font-size: 11px !important;
+  }
+
+  .processQueryCard .ant-form-item {
+    margin-bottom: 4px;
+  }
+}
+</style>
+
+<style>
+/* 浅黄色tooltip样式 */
+.yellow-tooltip .ant-tooltip-inner {
+  background-color: #fffbe6 !important;
+  color: #333 !important;
+  border: 1px solid #ffe58f !important;
+}
+
+.yellow-tooltip .ant-tooltip-arrow::before {
+  background-color: #fffbe6 !important;
+  border-color: #ffe58f !important;
 }
 </style>
